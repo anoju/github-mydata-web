@@ -261,7 +261,7 @@ export default [
     pageID: 'TR01A001', type: 'pop', depth1: '즉시이체', depth2: '출금계좌선택', depth3: null, depth4: null, etc: 'TR01A002, TR01A003, TR01A004 포함', complete: '2021-03-30', change: null,
   },
   {
-    pageID: 'TR01A005', type: 'pop', depth1: '즉시이체', depth2: '출금계좌선택', depth3: '수시입출금/증권계좌 보기 팝업', depth4: null, etc: null, complete: '', change: null,
+    pageID: 'TR01A005', type: 'pop', depth1: '즉시이체', depth2: '출금계좌선택', depth3: '수시입출금/증권계좌 보기 팝업', depth4: null, etc: null, complete: '2021-03-30', change: null,
   },
   {
     pageID: 'TR02A001', type: 'pop', depth1: '즉시이체', depth2: '출금계좌선택', depth3: '비밀번호입력', depth4: null, etc: null, complete: '2020-03-30', change: null,
