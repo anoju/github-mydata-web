@@ -1,0 +1,147 @@
+<template>
+  <kb-page page-title="보험/연금납입 전월 비교">
+    <kb-page-body>
+      <div class="section">
+        <div class="inner_box month_mgt">
+          <kb-title-bar
+            h2
+            tit-tag="h1"
+            title="이번 달에<br>얼마를 납입해야 할까?"
+          />
+
+          <!-- chart -->
+          <div class="chart_area"><img src="@/assets/images/TO/02/chart_month_mgt3.png" style="width:100%;" alt="보험/연금납입 전월비교 차트 이미지"></div>
+          <!-- //chart -->
+
+          <ul class="list_tot mg_t25 mg_b25">
+            <li>
+              <div>
+                <span><i class="ico_1" aria-hidden="true"></i><b>이번달 납입완료</b></span>
+                <span>12,000,000원</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span><i class="ico_2" aria-hidden="true"></i><b>지난달 납입완료</b></span>
+                <span>300,000,000원</span>
+              </div>
+            </li>
+            <li class="btm_tot">
+              <div>
+                <span>납입예정</span>
+                <span>122,000,000원</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <hr aria-hidden="true" class="hr_line">
+        <div class="inner_section">
+          <kb-title-bar h3 title="납입금액 비교" />
+          <ul class="list_tot history">
+            <li>
+              <p class="tit">납입완료</p>
+              <div>
+                <span>2021년 1월</span>
+                <span>30,000,000,000</span>
+              </div>
+              <div>
+                <span>2020년 12월</span>
+                <span>30,000,000,000</span>
+              </div>
+            </li>
+            <li>
+              <p class="tit">납입예정</p>
+              <div>
+                <span>2021년 1월</span>
+                <span>30,000,000,000</span>
+              </div>
+              <div>
+                <span>2020년 12월</span>
+                <span>30,000,000,000</span>
+              </div>
+            </li>
+            <li>
+              <p class="tit">미납금액</p>
+              <div>
+                <span>2021년 1월</span>
+                <span>30,000,000,000</span>
+              </div>
+              <div>
+                <span>2020년 12월</span>
+                <span>30,000,000,000</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <hr aria-hidden="true" class="hr_line">
+        <div class="inner_section">
+          <kb-title-bar h3 title="이번달 납입 내역" />
+          <ul class="list_tot history">
+            <li>
+              <p class="tit">31일<span class="label_plan">납입 예정</span></p>
+              <div>
+                <span>매입</span>
+                <span>30,000,000,000</span>
+              </div>
+              <div>
+                <span>순 매입금</span>
+                <span>보험사명</span>
+              </div>
+            </li>
+            <li>
+              <p class="tit">18일<span class="label_unpaid">미납</span></p>
+              <div>
+                <span>매입</span>
+                <span>30,000,000,000</span>
+              </div>
+              <div>
+                <span>순 매입금</span>
+                <span>보험사명</span>
+              </div>
+            </li>
+            <li>
+              <p class="tit">18일<span class="label_finish">납입 완료</span></p>
+              <div>
+                <span>매입</span>
+                <span>30,000,000,000</span>
+              </div>
+              <div>
+                <span>순 매입금</span>
+                <span>보험사명</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <hr aria-hidden="true" class="hr_line">
+        <div class="inner_section">
+          <kb-title-bar h3 title="지난달 미납 내역" />
+          <ul class="list_tot history mg_b0">
+            <li>
+              <p class="tit">18일<span class="label_unpaid">미납</span></p>
+              <div>
+                <span>매입</span>
+                <span>30,000,000,000</span>
+              </div>
+              <div>
+                <span>순 매입금</span>
+                <span>보험사명</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </kb-page-body>
+  </kb-page>
+</template>
+<script>
+export default {
+  name: 'TO02C005',
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+  },
+};
+</script>

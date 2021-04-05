@@ -1,0 +1,23 @@
+// https://convertio.co/kr/otf-ttf/ :500 ttf 다시
+@font-face {
+	font-family: 'KBFGText';
+	font-style: normal;
+	font-weight: normal;
+	font-display: fallback;
+	src: url('~@/assets/font/KBFGTextL.eot'); /* IE9 Compat Modes */
+	src: local('KBFGText'), local('KBFG-text'),
+		 url('~@/assets/font/KBFGTextL.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		 url('~@/assets/font/KBFGTextL.woff') format('woff'), /* Modern Browsers */
+		 url('~@/assets/font/KBFGTextL.otf') format('otf');
+}
+@font-face {
+	font-family: 'KBFGText';
+	font-style: normal;
+	font-weight: bold;
+	font-display: fallback;
+	src: url('~@/assets/font/KBFGTextM.eot'); /* IE9 Compat Modes */
+	src: local('KBFGText'), local('KBFG-text'),
+		 url('~@/assets/font/KBFGTextM.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		 url('~@/assets/font/KBFGTextM.woff') format('woff'), /* Modern Browsers */
+		 url('~@/assets/font/KBFGTextM.otf') format('otf');
+}

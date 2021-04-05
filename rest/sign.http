@@ -1,0 +1,7 @@
+@serverHost = http://localhost:8080
+@customHeader = I'm custom header!
+
+# 로그인
+### 헤더설정하기
+GET {{serverHost}}/signIn?sid=1234
+Content-Type: text/plain

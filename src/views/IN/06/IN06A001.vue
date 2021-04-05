@@ -1,0 +1,411 @@
+<template>
+  <kb-page page-title="고수의 Pick">
+    <kb-page-body>
+      <div class="section">
+        <kb-tabs fixed>
+          <kb-tab
+            title="전체"
+            active
+          >
+            <div class="pick_top ico0">
+              <!--
+                전체 ico0
+                투자품격 ico1
+                보유멘탈 ico2
+                자본포스 ico3
+                운빨충만 ico4
+                한개가 더 있다고 함?? ico5
+              -->
+              <p class="stit">고수님 도와주세요!</p>
+              <strong>투자 고수가 선택한 Pick</strong>
+              <p class="tip_tit">#고수들은 어디에 투자하지?</p>
+              <p class="tip_tit">#선택이 필요한 순간! 살까? 말까?</p>
+              <i class="ico"></i>
+            </div>
+            <ul class="pick_list">
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>장기보유 고수가<br>1주일 동안 매수한 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                  <i class="ico_pick ico1">투자품격</i>
+                  <!--
+                    투자품격 ico1
+                    보유멘탈 ico2
+                    자본포스 ico3
+                    운빨충만 ico4
+                    한개가 더 있다고 함?? ico5
+                  -->
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드키워드키워드키워드워드키워드키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_on"></i>123
+                  </kb-button>
+                </div>
+              </li>
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>손절매 고수가<br>지금 매도하는 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                  <i class="ico_pick ico2">보유멘탈</i>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_off"></i>123
+                  </kb-button>
+                </div>
+              </li>
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>불타기 고수가<br>지금 매수한 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                  <i class="ico_pick ico3">자본포스</i>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_off"></i>123
+                  </kb-button>
+                </div>
+              </li>
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>불타기 고수가<br>지금 매수한 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                  <i class="ico_pick ico4">운빨충만</i>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_off"></i>123
+                  </kb-button>
+                </div>
+              </li>
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>불타기 고수가<br>지금 매수한 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                  <i class="ico_pick ico5">한개더</i>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_off"></i>123
+                  </kb-button>
+                </div>
+              </li>
+            </ul>
+          </kb-tab>
+          <kb-tab
+            title="투자품격"
+          >
+            <div class="pick_top ico1">
+              <!--
+                전체 ico0
+                투자품격 ico1
+                보유멘탈 ico2
+                자본포스 ico3
+                운빨충만 ico4
+                한개가 더 있다고 함?? ico5
+              -->
+              <p class="stit">왕년에? NO~ 지금도!</p>
+              <strong>진행형인 고수의 Pick</strong>
+              <p class="tip_tit">#고수들은 어디에 투자하지?</p>
+              <p class="tip_tit">#선택이 필요한 순간! 살까? 말까?</p>
+              <i class="ico"></i>
+            </div>
+            <ul class="pick_list">
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>장기보유 고수가 1주일 동안 매수한 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드키워드키워드키워드워드키워드키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_on"></i>123
+                  </kb-button>
+                </div>
+              </li>
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>손절매 고수가 지금 매도하는 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_off"></i>123
+                  </kb-button>
+                </div>
+              </li>
+            </ul>
+          </kb-tab>
+          <kb-tab
+            title="보유멘탈"
+          >
+            <div class="pick_top ico2">
+              <!--
+                전체 ico0
+                투자품격 ico1
+                보유멘탈 ico2
+                자본포스 ico3
+                운빨충만 ico4
+                한개가 더 있다고 함?? ico5
+              -->
+              <p class="stit">묻을까? 팔까?</p>
+              <strong>햄릿 고수의 Pick</strong>
+              <p class="tip_tit">#고수들은 어디에 투자하지?</p>
+              <p class="tip_tit">#선택이 필요한 순간! 살까? 말까?</p>
+              <i class="ico"></i>
+            </div>
+            <ul class="pick_list">
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>장기보유 고수가 1주일 동안 매수한 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드키워드키워드키워드워드키워드키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_on"></i>123
+                  </kb-button>
+                </div>
+              </li>
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>손절매 고수가 지금 매도하는 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_off"></i>123
+                  </kb-button>
+                </div>
+              </li>
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>불타기 고수가 지금 매수한 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_off"></i>123
+                  </kb-button>
+                </div>
+              </li>
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>장기보유 고수가 1주일 동안 매수한 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_off"></i>123
+                  </kb-button>
+                </div>
+              </li>
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>손절매 고수가 지금 매도하는 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_off"></i>123
+                  </kb-button>
+                </div>
+              </li>
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>불타기 고수가 지금 매수한 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_off"></i>123
+                  </kb-button>
+                </div>
+              </li>
+            </ul>
+          </kb-tab>
+          <kb-tab
+            title="자본포스"
+          >
+            <div class="pick_top ico3">
+              <!--
+                전체 ico0
+                투자품격 ico1
+                보유멘탈 ico2
+                자본포스 ico3
+                운빨충만 ico4
+                한개가 더 있다고 함?? ico5
+              -->
+              <p class="stit">끼리끼리 놀아요~</p>
+              <strong>동레벨 고수의 Pick</strong>
+              <p class="tip_tit">#고수들은 어디에 투자하지?</p>
+              <p class="tip_tit">#선택이 필요한 순간! 살까? 말까?</p>
+              <i class="ico"></i>
+            </div>
+            <ul class="pick_list">
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>장기보유 고수가 1주일 동안 매수한 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드키워드키워드키워드워드키워드키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_on"></i>123
+                  </kb-button>
+                </div>
+              </li>
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>손절매 고수가 지금 매도하는 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_off"></i>123
+                  </kb-button>
+                </div>
+              </li>
+            </ul>
+          </kb-tab>
+          <kb-tab
+            title="운빨충만"
+          >
+            <div class="pick_top ico4">
+              <!--
+                전체 ico0
+                투자품격 ico1
+                보유멘탈 ico2
+                자본포스 ico3
+                운빨충만 ico4
+                한개가 더 있다고 함?? ico5
+              -->
+              <p class="stit">운빨도 실력</p>
+              <strong>운빨 최고 고수의 Pick</strong>
+              <p class="tip_tit">#고수들은 어디에 투자하지?</p>
+              <p class="tip_tit">#선택이 필요한 순간! 살까? 말까?</p>
+              <i class="ico"></i>
+            </div>
+            <ul class="pick_list">
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>장기보유 고수가 1주일 동안 매수한 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드키워드키워드키워드워드키워드키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_on"></i>123
+                  </kb-button>
+                </div>
+              </li>
+              <li>
+                <kb-button not aTag class="btn_stock">
+                  <strong>손절매 고수가 지금 매도하는 종목은?</strong>
+                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                </kb-button>
+                <div class="hash_tags">
+                  <div>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                    <span>#키워드</span>
+                  </div>
+                  <kb-button not aTag class="btn_bmark">
+                    <i class="ico_off"></i>123
+                  </kb-button>
+                </div>
+              </li>
+            </ul>
+          </kb-tab>
+        </kb-tabs>
+      </div>
+    </kb-page-body>
+  </kb-page>
+</template>
+<script>
+export default {
+  name: 'IN06A001',
+  data() {
+    return {
+    };
+  },
+  methods: {
+  },
+};
+</script>

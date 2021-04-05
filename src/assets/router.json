@@ -1,0 +1,19 @@
+[
+    {
+        "name": "mypage",
+        "path": "/mypage",
+        "view": "mypage",
+        "requireAuth": true
+    },
+    {
+        "name": "login",
+        "path": "/login",
+        "view": "login/login",
+        "requireAuth": false
+    },
+    {
+        "path": "/register",
+        "view": "login/register",
+        "requireAuth": false
+    }
+]
