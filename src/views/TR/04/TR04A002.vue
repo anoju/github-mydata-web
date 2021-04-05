@@ -31,6 +31,7 @@
                 v-model="selectVal1"
                 button
                 value="1"
+                @click="popClose(true)"
               >
                 <div class="txt">
                   <span class="mg_r8">우리은행</span>
@@ -45,6 +46,7 @@
                 v-model="selectVal1"
                 button
                 value="2"
+                @click="popClose(true)"
               >
                 <div class="txt">
                   <span class="mg_r8">KB증권</span>
@@ -59,6 +61,7 @@
                 v-model="selectVal1"
                 button
                 value="3"
+                @click="popClose(true)"
               >
                 <div class="txt">
                   <span class="mg_r8">카카오뱅크</span>
@@ -107,6 +110,7 @@
                       v-model="selectVal2"
                       button
                       value="1"
+                      @click="popClose(true)"
                     >
                       <div class="txt">
                         <span class="mg_r8">우리은행</span>
@@ -121,6 +125,7 @@
                       v-model="selectVal2"
                       button
                       value="2"
+                      @click="popClose(true)"
                     >
                       <div class="txt">
                         <span class="mg_r8">기업은행</span>
@@ -173,6 +178,7 @@
                       v-model="selectVal3"
                       button
                       value="1"
+                      @click="popClose(true)"
                     >
                       <div class="txt">
                         <span class="mg_r8">종합위탁</span>
@@ -187,6 +193,7 @@
                       v-model="selectVal3"
                       button
                       value="2"
+                      @click="popClose(true)"
                     >
                       <div class="txt">
                         <span class="mg_r8">종합위탁</span>
@@ -245,9 +252,15 @@ export default {
       selectVal3: '',
     };
   },
+  props: {
+    tab: { type: [String, Number], default: '1' },
+  },
+  mounted() {
+    this.toggleVal = this.tab;
+  },
   methods: {
-    popClose() {
-      this.$emit('close');
+    popClose(val = false) {
+      this.$emit('close', { payload: val });
     },
   },
 };

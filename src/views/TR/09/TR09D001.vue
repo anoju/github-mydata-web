@@ -5,7 +5,7 @@
         <div class="util_wrap fixed_btn">
           <div class="top_box mg_t0">
             <div class="contact_choice">
-              <kb-checkbox>
+              <kb-checkbox v-model="chkVal">
                 해외출국인증 정보확인 동의
               </kb-checkbox>
             </div>
@@ -28,9 +28,10 @@
         <div class="flex">
           <kb-button
             yellow
+            :disabled="!chkVal"
             @click="showRule('views/TR/09/TR09B002',$event.target)"
           >
-            인증하기
+            다음
           </kb-button>
         </div>
       </kb-button-wrap>
@@ -42,7 +43,7 @@ export default {
   name: 'TR09D001',
   data() {
     return {
-      radioVal1: '1',
+      chkVal: false,
     };
   },
   methods: {

@@ -16,13 +16,13 @@
     <kb-pop-foot>
       <kb-button
         line
-        @click="popClose"
+        @click="popClose(false)"
       >
         아니오
       </kb-button>
       <kb-button
         yellow
-        @click="popClose"
+        @click="popClose(true)"
       >
         예
       </kb-button>
@@ -37,8 +37,8 @@ export default {
     };
   },
   methods: {
-    popClose() {
-      this.$emit('close');
+    popClose(val = false) {
+      this.$emit('close', { payload: val });
     },
   },
 };

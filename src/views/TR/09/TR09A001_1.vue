@@ -39,8 +39,9 @@
         <div class="flex">
           <kb-button
             yellow
+            :disabled="radioVal1 === ''"
           >
-            다음
+            인증하기
           </kb-button>
         </div>
       </kb-button-wrap>
@@ -52,7 +53,7 @@ export default {
   name: 'TR09A001_1',
   data() {
     return {
-      radioVal1: '1',
+      radioVal1: '',
     };
   },
   methods: {

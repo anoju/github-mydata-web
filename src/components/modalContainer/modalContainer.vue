@@ -116,7 +116,7 @@ export default {
       const focusEl = modal.returnFocus;
       setTimeout(() => {
         this.modals.splice(idx, 1);
-        if (focusEl !== undefined)focusEl.focus();
+        if (focusEl !== undefined && typeof focusEl !== 'object')focusEl.focus();
       }, 600);
     },
   },

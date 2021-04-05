@@ -117,6 +117,9 @@ export default {
     },
   },
   methods: {
+    focus() {
+      this.$refs.input.focus();
+    },
     updateValue(value) {
       this.$emit('input', value);
     },

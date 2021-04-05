@@ -255,6 +255,9 @@ export default [
     type: 'line',
   },
   {
+    pageID: 'TR03A001', type: 'sub', depth1: '즉시이체', depth2: null, depth3: null, depth4: null, etc: 'TR05A002(이체메모) 포함', complete: '2021-03-31', change: null,
+  },
+  {
     pageID: 'TR01A001', type: 'pop', depth1: '즉시이체', depth2: '출금계좌선택', depth3: null, depth4: null, etc: 'TR01A002, TR01A003, TR01A004 포함', complete: '2021-03-30', change: null,
   },
   {
@@ -262,9 +265,6 @@ export default [
   },
   {
     pageID: 'TR02A001', type: 'pop', depth1: '즉시이체', depth2: '출금계좌선택', depth3: '비밀번호입력', depth4: null, etc: null, complete: '2020-03-30', change: null,
-  },
-  {
-    pageID: 'TR03A001', type: 'sub', depth1: '즉시이체', depth2: '이체금액입력', depth3: null, depth4: null, etc: null, complete: '2021-03-31', change: null,
   },
   {
     pageID: 'TR03A002', type: 'pop', depth1: '즉시이체', depth2: '이체금액확인', depth3: null, depth4: null, etc: null, complete: '2021-03-30', change: null,
@@ -277,9 +277,6 @@ export default [
   },
   {
     pageID: 'TR05A001', type: 'pop', depth1: '즉시이체', depth2: '예금주확인', depth3: null, depth4: null, etc: null, complete: '2021-03-31', change: null,
-  },
-  {
-    pageID: 'TR05A002', type: 'sub', depth1: '즉시이체', depth2: '이체메모', depth3: null, depth4: null, etc: null, complete: '2021-03-31', change: null,
   },
   {
     pageID: 'TR05A003', type: 'sub', depth1: '즉시이체', depth2: '이체정보확인', depth3: null, depth4: null, etc: null, complete: '2020-04-01', change: null,

@@ -5,7 +5,7 @@
     title-class="flex_ty"
   >
     <template slot="title_next">
-      <kb-button link blue v-if="toggleVal === '2'">
+      <kb-button link blue v-if="toggleVal === '2'" @click="accountManagementOpen($event.target)">
         은행/증권계좌
       </kb-button>
     </template>
@@ -30,13 +30,14 @@
           </kb-btn-toggle-row>
         </kb-btn-toggle>
         <div v-if="toggleVal === '1'" class="pop_content">
-          <div class="selete_list" v-if="selectVal1 !== '2' && selectVal1 !== '3'">
+          <div class="selete_list" v-if="selectVal1 !== '3' && selectVal1 !== '4'">
             <div class="item">
               <kb-radio
                 checkbox
                 v-model="selectVal1"
                 button
                 value="1"
+                @click="popClose(true)"
               >
                 <div class="txt">
                   <span class="mg_r8">종합위탁</span>
@@ -51,11 +52,12 @@
                 v-model="selectVal1"
                 button
                 value="2"
+                @click="passwordOpen($event.target)"
               >
                 <div class="txt">
-                  <span class="mg_r8">CMA</span>
+                  <span class="mg_r8">종합위탁</span>
                   <span>김국민</span>
-                  <div class="num mg_t4">계좌없을때 케이스 확인 시 선택</div>
+                  <div class="num mg_t4">비밀번호 입력뜨는 케이스</div>
                 </div>
               </kb-radio>
             </div>
@@ -67,14 +69,28 @@
                 value="3"
               >
                 <div class="txt">
+                  <span class="mg_r8">CMA</span>
+                  <span>김국민</span>
+                  <div class="num mg_t4">계좌없을때 케이스</div>
+                </div>
+              </kb-radio>
+            </div>
+            <div class="item">
+              <kb-radio
+                checkbox
+                v-model="selectVal1"
+                button
+                value="4"
+              >
+                <div class="txt">
                   <span class="mg_r8">선물옵션</span>
                   <span>김국민</span>
-                  <div class="num mg_t4">추가등록 케이스 확인 시 선택</div>
+                  <div class="num mg_t4">추가등록 케이스</div>
                 </div>
               </kb-radio>
             </div>
           </div>
-          <div v-if="selectVal1 === '2'">
+          <div v-if="selectVal1 === '3'">
             <div class="no_list_txt">
               <strong class="tit">KB증권 계좌가 없습니다.</strong>
               <div class="txt">계좌개설 후 이체는 물론 상품가입, 매매까지 이용해 보세요.</div>
@@ -87,7 +103,7 @@
               </kb-button>
             </kb-button-wrap>
           </div>
-          <div v-if="selectVal1 === '3'">
+          <div v-if="selectVal1 === '4'">
             <div class="no_list_txt">
               <strong class="tit">KB증권 계좌를 추가등록 해주세요.</strong>
               <div class="txt">아직 KB증권 계좌를 등록하지 않으셨네요.<br>간단한 인증만으로 즉시 등록됩니다.</div>
@@ -110,6 +126,7 @@
                   v-model="selectVal2"
                   button
                   value="1"
+                  @click="popClose(true, true)"
                 >
                   <div class="txt">
                     <span class="mg_r8">우리은행</span>
@@ -192,8 +209,22 @@ export default {
     };
   },
   methods: {
-    popClose() {
-      this.$emit('close');
+    popClose(val = false, another = false) {
+      this.$emit('close', { payload: [val, another] });
+    },
+    passwordOpen(el) {
+      this.$modal({
+        component: () => import('@/views/TR/02/TR02A001.vue'),
+        returnFocus: el,
+      }).then((result) => {
+        if (result.payload) this.popClose(true);
+      });
+    },
+    accountManagementOpen(el) {
+      this.$modal({
+        component: () => import('@/views/TR/01/TR01A005.vue'),
+        returnFocus: el,
+      });
     },
   },
 };
