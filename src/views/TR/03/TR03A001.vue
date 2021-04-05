@@ -28,6 +28,7 @@
                 unit="원"
                 placeholder="이체금액 입력"
                 title="이체금액 입력"
+                :delete="inpDelete"
                 ref="inpPrice"
               />
             </kb-form-item>
@@ -156,6 +157,9 @@ export default {
       } else {
         this.step += 1;
       }
+    },
+    inpDelete() {
+      this.step = 0;
     },
     resetamountVal() { // 이체금액 초기화
       this.inpVal1 = '';
