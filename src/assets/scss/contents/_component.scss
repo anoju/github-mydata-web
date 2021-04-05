@@ -1057,6 +1057,17 @@ html:not(.mobile){
 		padding:0 20px;float:left;
 		table{table-layout:fixed;}
 	}
+
+	&.table_fixed {
+		&:before { content:''; position:absolute; left:0; top:0; bottom:0; z-index:1; width:20px; background:#fff; }
+		&:after { content:''; position:absolute; right:0; top:0; bottom:0; z-index:1; width:24px; background:url('~@/assets/images/common/ico_table_scroll_arrow.png') no-repeat center 20px / 24px,  linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 20%, rgba(255,255,255,0) 100%);}
+
+		&.last:after { display:none;}
+		
+		.fixed { position:sticky; left:20px;}
+		th.fixed { background:#f5f9fe}
+		td.fixed { background:#fff}
+	}
 }
 
 /*accordion*/

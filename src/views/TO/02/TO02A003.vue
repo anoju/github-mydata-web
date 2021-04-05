@@ -39,7 +39,7 @@
           title="월별 증감액 상세"
           class="tbl_tit mg_t30"
         />
-        <kb-table-scroll>
+        <kb-table-scroll class="table_fixed">
           <kb-table
             caption="테이블제목3"
             :col-width="['60px','130px','130px','130px']"
@@ -47,7 +47,7 @@
           >
             <thead>
               <tr>
-                <th scope="row" rowspan="2">기준<br>월</th>
+                <th scope="row" rowspan="2" class="fixed">기준<br>월</th>
                 <th scope="col">현금잔고</th>
                 <th scope="col">투자수익</th>
                 <th scope="col">기타자산</th>
@@ -58,7 +58,7 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row" rowspan="2">12월</th>
+                <th scope="row" rowspan="2" class="fixed">12월</th>
                 <td>+1,000,000,000</td>
                 <td>+1,000,000,000</td>
                 <td>+1,000,000,000</td>
@@ -67,7 +67,7 @@
                 <td colspan="3" class="total_right"><strong>+900,000,000 / 550,000,000</strong></td>
               </tr>
               <tr>
-                <th scope="row" rowspan="2">11월</th>
+                <th scope="row" rowspan="2" class="fixed">11월</th>
                 <td>+1,000,000,000</td>
                 <td>0</td>
                 <td>+1,000,000,000</td>
@@ -78,7 +78,7 @@
             </tbody>
             <tfoot>
               <tr>
-                <th scope="row" rowspan="2">기간<br>총 합계</th>
+                <th scope="row" rowspan="2" class="fixed">기간<br>총 합계</th>
                 <td>+1,000,000,000</td>
                 <td>+1,000,000,000</td>
                 <td>+1,000,000,000</td>

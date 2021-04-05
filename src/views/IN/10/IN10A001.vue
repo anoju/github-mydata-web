@@ -122,7 +122,7 @@
         <!-- //기타 -->
 
         <!-- 테이블이 있는 경우 -->
-        <kb-table-scroll class="mg_b20">
+        <kb-table-scroll class="mg_b20 table_fixed">
           <kb-table
             caption="테이블제목3"
             :col-width="['130px','130px','180px','180px','80px']"
@@ -130,7 +130,7 @@
           >
             <thead>
               <tr>
-                <th scope="col">종목명</th>
+                <th scope="col" class="fixed">종목명</th>
                 <th scope="col">상장일</th>
                 <th scope="col">공모가</th>
                 <th scope="col">전일종가</th>
@@ -139,28 +139,28 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">SK바이오팜</th>
+                <th scope="row" class="fixed">SK바이오팜</th>
                 <td>0000/00/00</td>
                 <td>1,000,000,000</td>
                 <td>1,000,000,000</td>
                 <td>200%</td>
               </tr>
               <tr>
-                <th scope="row">SK바이오팜</th>
+                <th scope="row" class="fixed">SK바이오팜</th>
                 <td>0000/00/00</td>
                 <td>1,000,000,000</td>
                 <td>1,000,000,000</td>
                 <td>200%</td>
               </tr>
               <tr>
-                <th scope="row">SK바이오팜</th>
+                <th scope="row" class="fixed">SK바이오팜</th>
                 <td>0000/00/00</td>
                 <td>1,000,000,000</td>
                 <td>1,000,000,000</td>
                 <td>200%</td>
               </tr>
               <tr>
-                <th scope="row">SK바이오팜</th>
+                <th scope="row" class="fixed">SK바이오팜</th>
                 <td>0000/00/00</td>
                 <td>1,000,000,000</td>
                 <td>1,000,000,000</td>
