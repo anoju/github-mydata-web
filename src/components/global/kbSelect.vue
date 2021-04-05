@@ -4,6 +4,7 @@
     :class="{focus: isFocus, disabled:disabled, inline:inline}"
   >
     <select
+      ref="select"
       :class="{ off: (value==='')}"
       :title="title"
       :disabled="disabled"
@@ -57,6 +58,9 @@ export default {
     this.$emit('input', this.value);
   },
   methods: {
+    focus() {
+      this.$refs.select.focus();
+    },
     // updateValue(value) {
     //   this.$emit('input', value);
     // },

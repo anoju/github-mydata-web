@@ -28,6 +28,7 @@
       contentEditable
       class="divTextarea"
       role="textarea"
+      ref="input"
       :name="name"
       :class="inputClass"
       @keydown="maxLengthCheck($event.target.innerText,$event)"
@@ -84,6 +85,9 @@ export default {
     if (txtara !== null) this.textareaHeight = this.$el.querySelector('textarea').offsetHeight;
   },
   methods: {
+    focus() {
+      this.$refs.input.focus();
+    },
     // updateValue(value) {
     //   this.$emit('input', value);
     // },
