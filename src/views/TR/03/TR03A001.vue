@@ -74,7 +74,7 @@
             <kb-form-item label="이체메모" class="tbl_type" v-if="step === 2">
               <div>
                 <label for="inpVal3">내통장 표시</label>
-                <div><kb-input input-id="inpVal3" v-model="inpVal3" placeholder="한글 7자 이내" title="내통장 표시 입력" /></div>
+                <div><kb-input input-id="inpVal3" v-model="inpVal3" placeholder="한글 7자 이내" title="내통장 표시 입력" maxlength="7" /></div>
               </div>
               <div>
                 <label for="inpVal4">받는통장 표시</label>

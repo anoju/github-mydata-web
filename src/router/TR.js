@@ -22,7 +22,6 @@ export default [
           render(c) { return c('router-view'); },
         },
         children: [
-          { path: 'TR05A002', component: () => import('@/views/TR/05/TR05A002.vue') }, // 이체메모
           { path: 'TR05A003', component: () => import('@/views/TR/05/TR05A003.vue') }, // 이체정보확인
         ],
       },

@@ -83,7 +83,7 @@
       <div class="chart_area">
         <transition name="fade">
           <div class="tooltip_layer" v-if="tooltipShow">
-            금액 말풍선을 선택하시면 해당 날짜의<br>거래변동 상세내역을 확인 할 수 있어요.
+            금액을 클릭하여 거래변동을 확인하세요
             <kb-button
               not
               class="pop_close"
