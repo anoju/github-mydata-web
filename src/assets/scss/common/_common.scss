@@ -49,13 +49,15 @@ select:disabled,
 input:disabled,
 textarea:disabled{-webkit-text-fill-color:inherit;opacity:1;}
 
-html.mobile a,
-html.mobile button,
-html.mobile select,
-html.mobile input,
-html.mobile textarea,
-html.mobile iframe,
-html.mobile [tabindex]{outline:none;}
+html.mobile{
+	a,
+	button,
+	select,
+	input,
+	textarea,
+	iframe,
+	[tabindex]{outline:none;}
+}
 
 :root {
   --swiper-theme-color: #ffdc00;

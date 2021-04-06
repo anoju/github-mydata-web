@@ -6,6 +6,12 @@
         <p class="text">출금 예정액 : 12,300,000원</p>
         <p class="text">가까운 출금예정일 : 2021/01/03</p>
 
+        <!-- 잔고가 부족한경우 -->
+        <div class="infomation_box ico2">
+          <p class="tit">1월 2일까지 추가 입금이 필요해요.</p>
+          <p class="text">1,000,000원</p>
+        </div>
+
         <!-- 여유자금이 있는 경우 (10만원 이상) -->
         <div class="infomation_box">
           <p class="tit">여유자금이 생겼어요!</p>
@@ -17,12 +23,6 @@
         <div class="infomation_box ico1">
           <p class="tit">현금계좌의 총 잔고가 여유있어요.</p>
           <p class="text">납입대상 계좌를 확인해 주세요.</p>
-        </div>
-
-        <!-- 잔고가 부족한경우 -->
-        <div class="infomation_box ico2">
-          <p class="tit">1월 2일까지 추가 입금이 필요해요.</p>
-          <p class="text">1,000,000원</p>
         </div>
       </div>
 
@@ -123,7 +123,9 @@
       </kb-button>
 
     </div>
-
+    <div class="btm_btn_util_txt">
+      오늘 정보는 마이데이터 제공 데이터를 기반으로 작성되어 실제 정보와 다를 수 있습니다.
+    </div>
     <div class="btm_btn_util">
       <kb-button aTag not class="btn_refresh">새로고침</kb-button>
       <kb-button aTag not class="btn_linkage">추가연동</kb-button>
