@@ -105,17 +105,13 @@
   }
 
   &.type2 { flex-wrap: wrap; height:auto;}
-  .text { padding:14px 20px 0; font-size:12px; color:#666;}
+  .text { padding:14px 20px 0; font-size:12px; color:#666;width:100%;}
   &.type3{
     margin:0;height:auto;border-top-width:0;background:none;
     .btn_refresh,.btn_linkage{
       line-height:77px;
     }
   }
-}
-.btm_btn_util_txt{
-  background-color:#f8f8f8;margin:0 -20px;padding:0 20px;border-top:1px solid #eee;
-  .btm_btn_util_txt+.btm_btn_util{border-top-width: solid #000;}
 }
 .chart_area{position:relative;margin:0 -20px;}
 .assets_change_info{

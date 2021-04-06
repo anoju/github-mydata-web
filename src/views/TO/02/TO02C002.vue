@@ -64,7 +64,7 @@
               <p class="text">현재잔고</p>
               <p class="date">2021/02/19</p>
             </div>
-            <kb-foldings type1 not-toggle>
+            <kb-foldings type1 not-toggle class="ty3">
               <!-- 현금 -->
               <kb-folding>
                 <template slot="title">
@@ -120,7 +120,7 @@
               <p class="text">예상지출</p>
               <p class="date">2021/02/19 ~ 2021/02/20</p>
             </div>
-            <kb-foldings type1 not-toggle>
+            <kb-foldings type1 not-toggle class="ty3">
               <!-- 보험 -->
               <kb-folding>
                 <template slot="title">
@@ -149,22 +149,14 @@
                         <p class="list_tit">KB able Plus 통장 KB able Plus 통장</p>
                         <p class="money">990,000</p>
                       </div>
-                      <!--
-                        긍정 : plus
-                        부정 : minus
-                      -->
-                      <p class="amount_money minus">2월 23일 출금미납</p>
+                      <p class="amount_money warning">2월 23일 출금미납</p>
                     </li>
                     <li>
                       <div class="info">
                         <p class="list_tit">KB able Plus 통장 KB able Plus 통장</p>
                         <p class="money">300,000,000원</p>
                       </div>
-                      <!--
-                        긍정 : plus
-                        부정 : minus
-                      -->
-                      <p class="amount_money plus">2월 23일 출금예정</p>
+                      <p class="amount_money">2월 23일 출금예정</p>
                     </li>
                   </ul>
                   <kb-button not aTag class="btn_more_list">이번달 납입 완료한 목록 보기</kb-button>
@@ -209,22 +201,14 @@
                         <p class="list_tit">KB able Plus 통장 KB able Plus 통장</p>
                         <p class="money">300,000,000원</p>
                       </div>
-                      <!--
-                        긍정 : plus
-                        부정 : minus
-                      -->
-                      <p class="amount_money plus">2월 23일 출금예정</p>
+                      <p class="amount_money">2월 23일 출금예정</p>
                     </li>
                     <li>
                       <div class="info">
                         <p class="list_tit">KB able Plus 통장 KB able Plus 통장</p>
                         <p class="money">300,000,000원</p>
                       </div>
-                      <!--
-                        긍정 : plus
-                        부정 : minus
-                      -->
-                      <p class="amount_money plus">2월 23일 출금예정</p>
+                      <p class="amount_money">2월 23일 출금예정</p>
                     </li>
                   </ul>
                   <kb-button not aTag class="btn_more_list">이번달 납입 완료한 목록 보기</kb-button>

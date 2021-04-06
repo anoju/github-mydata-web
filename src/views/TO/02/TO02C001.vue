@@ -28,7 +28,7 @@
 
       <div class="bar_graph_box">
         <h2 class="tit">지난달보다 출금이 늘었어요.</h2>
-        <p class="text">지난달 대비 현재까지 12,340,000원 늘었어요!</p>
+        <p class="text">당월(예상) - 지난달: +999,999,999원</p>
 
         <!-- 차트영역 -->
         <div class="chart">
@@ -53,7 +53,7 @@
             -->
             <i class="ico1"></i>
             <p class="text">23,432,000,000원 줄었어요</p>
-            <p class="sub_text">지난달 24일 하루 간의 비교 금액</p>
+            <p class="sub_text">(지난 달 24일 하루 간의 비교)</p>
           </div>
         </kb-button>
       </div>
@@ -72,7 +72,7 @@
             -->
             <i class="ico2"></i>
             <p class="text">23,432,000,000원 줄었어요</p>
-            <p class="sub_text">지난달 전체대비 현재까지 매입한 금액</p>
+            <p class="sub_text">(지난 달과 이번 달 투자 입출금 비교)</p>
           </div>
         </kb-button>
       </div>
@@ -91,7 +91,7 @@
             -->
             <i class="ico3"></i>
             <p class="text">지난달과 같아요</p>
-            <p class="sub_text">지난달 전체대비 이번달 납입하는 금액</p>
+            <p class="sub_text">(지난 달과 이번 달 총 청구금 비교)</p>
             <div class="worning">미납이 1건 있어요.</div>
           </div>
         </kb-button>
@@ -99,7 +99,7 @@
 
       <div class="graph_detail_List">
         <div class="top_header">
-          <h3 class="tit">부채/청구</h3>
+          <h3 class="tit">부채&amp;기타</h3>
           <p class="money">300,000,000,000원</p>
         </div>
         <kb-button not aTag>
@@ -109,9 +109,9 @@
               .ico2 : 높음
               .ico3 : 같음
             -->
-            <i class="ico3"></i>
-            <p class="text">지난달과 같아요</p>
-            <p class="sub_text">지난달 전체대비 이번달 납입하는 금액</p>
+            <i class="ico2"></i>
+            <p class="text">3,333,333,333원 늘었어요</p>
+            <p class="sub_text">(지난 달과 이번 달 총 청구금 비교)</p>
             <div class="worning">미납이 1건 있어요.</div>
           </div>
         </kb-button>
@@ -121,12 +121,9 @@
         2개월간 연속 출금된 이력이 있어요.<br />
         함께 관리하시겠어요?
       </kb-button>
-
     </div>
-    <div class="btm_btn_util_txt">
-      오늘 정보는 마이데이터 제공 데이터를 기반으로 작성되어 실제 정보와 다를 수 있습니다.
-    </div>
-    <div class="btm_btn_util">
+    <div class="btm_btn_util type2">
+      <div class="text">오늘 정보는 마이데이터 제공 데이터를 기반으로 작성되어 실제 정보와 다를 수 있습니다.</div>
       <kb-button aTag not class="btn_refresh">새로고침</kb-button>
       <kb-button aTag not class="btn_linkage">추가연동</kb-button>
     </div>

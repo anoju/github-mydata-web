@@ -1208,7 +1208,10 @@ html:not(.mobile){
 			}
 		}
 		
-		.amount_money { margin-top:4px; font-size:12px;line-height:1.33; text-align:right;}
+		.amount_money { 
+			margin-top:4px; font-size:12px;line-height:1.33; text-align:right;color:#6f7a94;
+			&.warning{font-weight:bold;color: #de092f;}
+		}
 		
 		.bank_list { padding:16px; border-top:1px solid #fff;
 			li {

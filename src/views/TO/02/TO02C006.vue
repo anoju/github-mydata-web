@@ -1,5 +1,5 @@
 <template>
-  <kb-page page-title="부채/청구납입 전월 비교">
+  <kb-page page-title="부채&기타 납입 지난달 비교">
     <kb-page-body>
       <div class="section">
         <div class="inner_box month_mgt">
@@ -80,33 +80,33 @@
             <li>
               <p class="tit">31일<span class="label_plan">납입 예정</span></p>
               <div>
-                <span>매입</span>
+                <span>납입금액</span>
                 <span>30,000,000,000</span>
               </div>
               <div>
-                <span>순 매입금</span>
+                <span>납입처</span>
                 <span>카드사명</span>
               </div>
             </li>
             <li>
               <p class="tit">18일<span class="label_unpaid">미납</span></p>
               <div>
-                <span>매입</span>
+                <span>납입금액</span>
                 <span>30,000,000,000</span>
               </div>
               <div>
-                <span>순 매입금</span>
+                <span>납입처</span>
                 <span>대출사명</span>
               </div>
             </li>
             <li>
               <p class="tit">18일<span class="label_finish">납입 완료</span></p>
               <div>
-                <span>매입</span>
+                <span>납입금액</span>
                 <span>30,000,000,000</span>
               </div>
               <div>
-                <span>순 매입금</span>
+                <span>납입처</span>
                 <span>통신사명</span>
               </div>
             </li>
@@ -115,9 +115,27 @@
         <hr aria-hidden="true" class="hr_line">
         <div class="inner_section">
           <kb-title-bar h3 title="지난달 미납 내역" />
+          <!-- <ul class="list_tot history mg_b0">
+            <li>
+              <p class="tit">18일<span class="label_unpaid">미납</span></p>
+              <div>
+                <span>납입금액</span>
+                <span>30,000,000,000</span>
+              </div>
+              <div>
+                <span>납입금액</span>
+                <span>통신사명</span>
+              </div>
+            </li>
+          </ul> -->
           <ul class="list_tot history mg_b0">
             <li class="nothing">모두 완납하셨어요.</li>
           </ul>
+          <div class="mg_t20 mg_b20">
+            <kb-button to="#" link class="blue mg_t7">
+              기타 카테고리 수정/삭제하기<i class="bt_ic_arr" aria-hidden="true" />
+            </kb-button>
+          </div>
         </div>
       </div>
     </kb-page-body>
