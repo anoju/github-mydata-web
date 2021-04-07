@@ -27,6 +27,15 @@ export default [
         ],
       },
       {
+        path: '07',
+        component: {
+          render(c) { return c('router-view'); },
+        },
+        children: [
+          { path: 'IN07A001', component: () => import('@/views/IN/07/IN07A001.vue') }, // 가상투자
+        ],
+      },
+      {
         path: '10',
         component: {
           render(c) { return c('router-view'); },
