@@ -9,7 +9,7 @@
           <h2><i class="ico_big_warning"></i>KB증권 <br />계좌 및 정보연동에 <br />실패하였습니다.</h2>
           <div class="mg_t30">
             <dl class="result_list">
-              <dt>계좌번호</dt>
+              <dt>계좌/정보</dt>
               <dd>KB증권 13923483948</dd>
               <dt>처리결과</dt>
               <dd>

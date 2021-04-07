@@ -97,7 +97,7 @@
   }
 }
 .btm_btn_util{
-  display:flex;height:80px;margin:0 -20px -60px;border-top:1px solid #eee;background-color:#f8f8f8;
+  display:flex;height:80px;margin:0 -20px -60px;border-top:1px solid #ddd;background-color:#f8f8f8;
   
   .btn_refresh,.btn_linkage{flex:1 1 auto;font-size:14px;font-weight:bold;line-height:80px;color:#5177bc;text-align:center;
     &:before{content:'';position:relative;top:6px;display:inline-block;width:24px;height:24px;margin-right:2px;background:url('~@/assets/images/common/ico_linkage.png') no-repeat;background-size:100%;}

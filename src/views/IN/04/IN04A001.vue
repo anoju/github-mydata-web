@@ -1,7 +1,7 @@
 <template>
   <kb-page page-title="주식 종목 진단">
     <kb-page-body>
-      <div class="section stock_diagnose_wrap">
+      <div class="section stock_diagnose_wrap mg_bm60">
         <div class="invest_info_box">
           <div class="top">
             <p class="kind">
@@ -220,7 +220,7 @@
               <template slot="title">
                 <div class="tbl">
                   <div class="th fw_bold">추가정보</div>
-                  <div class="td t_right fz_16 fc_666">PBR / ROE</div>
+                  <div class="td t_right fz_14 fc_666">PBR / ROE</div>
                 </div>
               </template>
               <div class="section">
@@ -349,7 +349,7 @@
               <template slot="title">
                 <div class="tbl">
                   <div class="th fw_bold">추가정보</div>
-                  <div class="td t_right fz_16 fc_666">총자산증가율/이익증가율</div>
+                  <div class="td t_right fz_14 fc_666">총자산증가율/이익증가율</div>
                 </div>
               </template>
               <div class="section">
@@ -484,7 +484,7 @@
               <template slot="title">
                 <div class="tbl">
                   <div class="th fw_bold">추가정보</div>
-                  <div class="td t_right fz_16 fc_666">순이익률/ROE</div>
+                  <div class="td t_right fz_14 fc_666">순이익률/ROE</div>
                 </div>
               </template>
               <div class="section">
@@ -612,7 +612,7 @@
               <template slot="title">
                 <div class="tbl">
                   <div class="th fw_bold">추가정보</div>
-                  <div class="td t_right fz_16 fc_666">유동비율/이자보상비율</div>
+                  <div class="td t_right fz_14 fc_666">유동비율/이자보상비율</div>
                 </div>
               </template>
               <div class="section">
@@ -738,7 +738,7 @@
               <template slot="title">
                 <div class="tbl">
                   <div class="th fw_bold">추가정보</div>
-                  <div class="td t_right fz_16 fc_666">업종별/코스피</div>
+                  <div class="td t_right fz_14 fc_666">업종별/코스피</div>
                 </div>
               </template>
               <div class="section">
@@ -880,7 +880,7 @@
               <template slot="title">
                 <div class="tbl">
                   <div class="th fw_bold">추가정보</div>
-                  <div class="td t_right fz_16 fc_666">30일동안/거래량 증가율</div>
+                  <div class="td t_right fz_14 fc_666">30일동안/거래량 증가율</div>
                 </div>
               </template>
               <div class="section">
@@ -987,12 +987,166 @@
         <!-- //한눈에 보는 업종 비교 -->
         <hr aria-hidden="true" class="hr_line">
 
+        <!-- KB리서치는 어떻게 볼까? -->
+        <div class="stock_diagnose_box">
+          <kb-title-bar h3>
+            <template slot="left">
+              <h2 class="tit">
+                KB리서치는 어떻게 볼까?
+              </h2>
+            </template>
+            <span class="fz_12 fc_666 mg_t4">20/10/19 기준</span>
+          </kb-title-bar>
+
+          <div class="status_box">
+            <p class="sub_tit">KB리서치 투자의견</p>
+            <ul class="status">
+              <!-- 활성화 : on -->
+              <li>강력매도</li>
+              <li>매도</li>
+              <li>종합</li>
+              <li class="on">매수</li>
+              <li>강력매수</li>
+            </ul>
+
+            <p class="target_price"><span>목표주가</span> 40,000원</p>
+            <kb-button link not class="button_link">
+              KB리서치에서 자세히 보기<i class="bt_ic_arr" aria-hidden="true" />
+            </kb-button>
+            <ul class="txt_list2 mg_t4">
+              <li class="dot">KB리서치에 가입해서 자세한 정보를 볼 수 있어요.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- //KB리서치는 어떻게 볼까? -->
+        <hr aria-hidden="true" class="hr_line">
+
         <!-- 고수의 매매동향 -->
+        <div class="stock_diagnose_box">
+          <kb-title-bar h3>
+            <template slot="left">
+              <h2 class="tit">
+                고수의 매매동향
+              </h2>
+            </template>
+          </kb-title-bar>
+
+          <div class="status_box">
+            <p class="sub_tit">현재 기준</p>
+            <ul class="status">
+              <!-- 활성화 : on -->
+              <li>강력매도</li>
+              <li>매도</li>
+              <li class="on">종합</li>
+              <li>매수</li>
+              <li>강력매수</li>
+            </ul>
+          </div>
+
+          <kb-foldings type1 not-toggle>
+            <kb-folding>
+              <template slot="title">
+                <div class="tbl">
+                  <div class="th fw_bold">추가정보</div>
+                  <div class="td t_right fz_14 fc_666">어제/주간/월간 기준</div>
+                </div>
+              </template>
+              <div class="section">
+                <div class="status_box mg_t242">
+                  <p class="sub_tit">어제 기준</p>
+                  <ul class="status">
+                    <!-- 활성화 : on -->
+                    <li>강력매도</li>
+                    <li>매도</li>
+                    <li>종합</li>
+                    <li>매수</li>
+                    <li class="on">강력매수</li>
+                  </ul>
+                </div>
+                <div class="status_box">
+                  <p class="sub_tit">주간(7일 누적)기준</p>
+                  <ul class="status">
+                    <!-- 활성화 : on -->
+                    <li>강력매도</li>
+                    <li class="on">매도</li>
+                    <li>종합</li>
+                    <li>매수</li>
+                    <li>강력매수</li>
+                  </ul>
+                </div>
+                <div class="status_box">
+                  <p class="sub_tit">월간(30일 누적)기준</p>
+                  <ul>
+                    <!-- 활성화 : on -->
+                    <li class="on">강력매도</li>
+                    <li>매도</li>
+                    <li>종합</li>
+                    <li>매수</li>
+                    <li>강력매수</li>
+                  </ul>
+                </div>
+              </div>
+            </kb-folding>
+          </kb-foldings>
+        </div>
         <!-- //고수의 매매동향 -->
         <hr aria-hidden="true" class="hr_line">
 
         <!-- KBlog -->
+        <div class="kblog_box">
+          <kb-title-bar h3>
+            <template slot="left">
+              <h2 class="tit">
+                KBlog
+              </h2>
+            </template>
+            <kb-button link not class="fz_12 fc_666">
+              더보기 <i class="bt_ic_arr mg_l2" aria-hidden="true" />
+            </kb-button>
+          </kb-title-bar>
+          <div class="section_scroll">
+            <kb-button not aTag class="list">
+              <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
+              <p class="date">20/11/12</p>
+              <p class="category">삼성증권관련</p>
+            </kb-button>
+            <kb-button not aTag class="list">
+              <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
+              <p class="date">20/11/12</p>
+              <p class="category">삼성증권관련</p>
+            </kb-button>
+            <kb-button not aTag class="list">
+              <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
+              <p class="date">20/11/12</p>
+              <p class="category">삼성증권관련</p>
+            </kb-button>
+            <kb-button not aTag class="list">
+              <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
+              <p class="date">20/11/12</p>
+              <p class="category">삼성증권관련</p>
+            </kb-button>
+            <kb-button not aTag class="list">
+              <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
+              <p class="date">20/11/12</p>
+              <p class="category">삼성증권관련</p>
+            </kb-button>
+            <kb-button not aTag class="list">
+              <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
+              <p class="date">20/11/12</p>
+              <p class="category">삼성증권관련</p>
+            </kb-button>
+          </div>
+        </div>
         <!-- //KBlog -->
+
+        <div class="other_info_box">
+          <h3>알려드려요</h3>
+          <ul class="txt_list">
+            <li class="dot">주식종목진단은 종목에 대한 인사이트를 발견하고 투자를 돕기 위하여 제공하는 참고자료입니다.<br />
+              투자 의견은 특정 종목을 추천하기 위한 용도가 아니며, KB증권의 공식 의견이 아닙니다.<br />
+              투자진행 시 참고해 주시기 바랍니다.</li>
+          </ul>
+        </div>
       </div>
     </kb-page-body>
   </kb-page>
