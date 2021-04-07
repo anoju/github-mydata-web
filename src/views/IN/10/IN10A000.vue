@@ -24,7 +24,7 @@
             <!-- <kb-button line blue>1000 ~ 2000%</kb-button> -->
           </div>
           <div class="mg_t30 t_center">
-            <kb-button to="#" link blue>
+            <kb-button link blue>
               상세정보 확인<i class="bt_ic_arr" aria-hidden="true" />
             </kb-button>
           </div>
@@ -36,7 +36,7 @@
           <h2 class="tit_result">오답이예요; <span>정답을 확인해볼까요?</span></h2>
           <p class="quiz">10년 전 삼성전자에 투자했다면 현재수익률은 <span class="answer">1000 ~2000%</span></p>
           <div class="mg_t90 t_center">
-            <kb-button to="#" link blue>
+            <kb-button link blue>
               상세정보 확인<i class="bt_ic_arr" aria-hidden="true" />
             </kb-button>
           </div>

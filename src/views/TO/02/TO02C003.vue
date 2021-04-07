@@ -37,7 +37,7 @@
         <hr aria-hidden="true" class="hr_line">
         <div class="inner_section">
           <kb-title-bar h3 title="일자별 잔고 히스토리" />
-          <ul class="list_tot history">
+          <ul class="list_tot history bottom_line mbg_b0">
             <li>
               <p class="tit">2일</p>
               <div>
@@ -73,7 +73,7 @@
             </li>
           </ul>
         </div>
-        <ul class="txt_list mg_t20">
+        <ul class="txt_list2 mg_t12">
           <li class="dot">잔고기준: 입출금계좌, 예적금, CMA, 페이, 외화, 직접입력한 현금의 합계입니다.</li>
         </ul>
       </div>

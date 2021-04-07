@@ -78,7 +78,7 @@
         <hr aria-hidden="true" class="hr_line">
         <div class="inner_section">
           <kb-title-bar h3 title="이번 달 입출금 히스토리 입니다." />
-          <kb-button to="#" link class="blue mg_t7">
+          <kb-button link class="blue mg_t7">
             이번달 투자 종목 확인하기<i class="bt_ic_arr" aria-hidden="true" />
           </kb-button>
           <ul class="list_tot history mg_t15 mg_b0">
