@@ -5,7 +5,7 @@
         <h2><i class="ico_check"></i>KB증권 계좌 및 <br />정보연동 결과입니다.</h2>
         <p class="sub_text">완료 3건 / 실패 1건</p>
         <dl class="result_list">
-          <dt>계좌번호</dt>
+          <dt>계좌/정보</dt>
           <dd>KB증권 13923483948</dd>
           <dt>처리결과</dt>
           <dd>
@@ -13,7 +13,7 @@
           </dd>
         </dl>
         <dl class="result_list">
-          <dt>계좌번호</dt>
+          <dt>계좌/정보</dt>
           <dd>KB증권 13923483948</dd>
           <dt>처리결과</dt>
           <dd>
@@ -22,7 +22,7 @@
           </dd>
         </dl>
         <dl class="result_list">
-          <dt>계좌번호</dt>
+          <dt>계좌/정보</dt>
           <dd>KB증권 13923483948</dd>
           <dt>처리결과</dt>
           <dd>

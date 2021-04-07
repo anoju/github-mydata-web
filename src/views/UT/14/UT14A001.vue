@@ -34,7 +34,7 @@
               이용안내
             </template>
             <ul class="txt_list">
-              <li class="dot">로그인 방법은 1개 이상 등록해야 합니다.</li>
+              <li class="dot">자산연동시 '정보전송주기'를 정기적 전송으로 요청하시면 KB증권에서 제공하는 자산관리, 포트폴리오 진단, 투자습관 진단 등의 프리미엄 서비스를 받으실 수 있습니다.</li>
             </ul>
           </kb-folding>
         </kb-foldings>
