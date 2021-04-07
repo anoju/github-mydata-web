@@ -17,6 +17,15 @@ export default [
         ],
       },
       {
+        path: '04',
+        component: {
+          render(c) { return c('router-view'); },
+        },
+        children: [
+          { path: 'IN04A001', component: () => import('@/views/IN/04/IN04A001.vue') }, // 주식종목 진단
+        ],
+      },
+      {
         path: '06',
         component: {
           render(c) { return c('router-view'); },
