@@ -165,8 +165,8 @@ export default {
       inpVal2: '',
       selectVal3: '1',
       selectOpt3: [
-        { text: '서비스 해지 후 5년', value: '1' },
-        { text: '서비스 해지 후 1년', value: '2' },
+        { text: '요청시작일부터 5년', value: '1' },
+        { text: '요청시작일부터 1년', value: '2' },
         { text: '서비스 해지 후 즉시 파기', value: '3' },
       ],
       checkVal2: ['1', '2'],

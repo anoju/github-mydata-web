@@ -71,7 +71,7 @@
                 value="5"
                 :class="{checking:selectVal5.length > 0}"
               >
-                신용정보
+                할부금융
               </kb-radio>
               <kb-radio
                 v-model="toggleVal"
@@ -79,7 +79,7 @@
                 value="6"
                 :class="{checking:selectVal6.length > 0}"
               >
-                캐피탈/여신
+                전자금융
               </kb-radio>
               <kb-radio
                 v-model="toggleVal"
@@ -87,7 +87,7 @@
                 value="7"
                 :class="{checking:selectVal7.length > 0}"
               >
-                전자금융
+                보증보험
               </kb-radio>
               <kb-radio
                 v-model="toggleVal"
@@ -371,9 +371,9 @@
             </div>
           </div>
 
-          <!-- 신용정보 -->
+          <!-- 할부금융 -->
           <div v-if="toggleVal == 5" class="company_list_wrap">
-            <div class="selete_list_box no_icon">
+            <div class="selete_list_box">
               <template
                 v-for="(item, i) of creditList"
               >
@@ -387,46 +387,24 @@
                     button
                     :value="item.code"
                   >
+                    <i :class="`ic_company_${item.code}`" aria-hidden="true"></i>
                     <span class="txt">{{item.text}}</span>
                   </kb-checkbox>
                 </div>
               </template>
             </div>
-          </div>
-
-          <!-- 캐피탈/여신 -->
-          <div v-if="toggleVal == 6" class="company_list_wrap">
-            <div class="selete_list_box no_icon">
-              <template
-                v-for="(item, i) of capitalList"
-              >
-                <div
-                  :key="i"
-                  v-if="item.icon"
-                  class="item"
-                >
-                  <kb-checkbox
-                    v-model="selectVal6"
-                    button
-                    :value="item.code"
-                  >
-                    <span class="txt">{{item.text}}</span>
-                  </kb-checkbox>
-                </div>
-              </template>
-            </div>
-            <kb-button-wrap v-if="!etcShow6" class="mg_t4">
+            <kb-button-wrap v-if="!etcShow5" class="mg_t4">
               <kb-button
                 class="more"
-                @click="etcShow6 = !etcShow6"
+                @click="etcShow5 = !etcShow5"
               >
                 더보기
               </kb-button>
             </kb-button-wrap>
-            <div v-if="etcShow6" class="mg_t28">
+            <div v-if="etcShow5" class="mg_t28">
               <div class="selete_list">
                 <template
-                  v-for="(item, i) of capitalList"
+                  v-for="(item, i) of creditList"
                 >
                   <div
                     :key="i"
@@ -434,7 +412,7 @@
                     class="item"
                   >
                     <kb-checkbox
-                      v-model="selectVal6"
+                      v-model="selectVal5"
                       button
                       :value="item.code"
                     >
@@ -447,16 +425,44 @@
           </div>
 
           <!-- 전자금융 -->
-          <div v-if="toggleVal == 7" class="company_list_wrap">
+          <div v-if="toggleVal == 6" class="company_list_wrap">
             수급필요 <br>
             수급필요 <br>
             수급필요 <br>
             수급필요 <br>
           </div>
 
+          <!-- 보증보험 -->
+          <div v-if="toggleVal == 7" class="company_list_wrap">
+            <div class="selete_list_box">
+              <template
+                v-for="(item, i) of electronicFinanceList"
+              >
+                <div
+                  :key="i"
+                  v-if="item.icon"
+                  class="item"
+                >
+                  <kb-checkbox
+                    v-model="selectVal7"
+                    button
+                    :value="item.code"
+                  >
+                    <i :class="`ic_company_${item.code}`" aria-hidden="true"></i>
+                    <span class="txt">{{item.text}}</span>
+                  </kb-checkbox>
+                </div>
+              </template>
+            </div>
+          </div>
+
           <!-- 통신/기타 -->
           <div v-if="toggleVal == 8" class="company_list_wrap">
             <div class="selete_list_tit">통신</div>
+            수급필요 <br>
+            수급필요 <br>
+            수급필요 <br>
+            수급필요 <br>
             <div class="selete_list_box">
               <template
                 v-for="(item, i) of etcList1"
@@ -1035,46 +1041,74 @@ export default {
         { icon: false, code: '0402023', text: 'KDB생명보험' },
         { icon: false, code: '0402024', text: 'IBK연금보험' },
 
-        // 신용정보
-        { icon: true, code: '0501001', text: '나이스디앤비' },
-        { icon: true, code: '0501002', text: '이크레더블' },
-        { icon: true, code: '0501003', text: '한국기업데이터' },
-        { icon: true, code: '0501004', text: 'KCB' },
-        { icon: true, code: '0501005', text: 'NICE신용평가정보' },
-        { icon: true, code: '0501006', text: 'SCI평가정보' },
+        // 할부금융
+        { icon: true, code: '0501001', text: 'KB캐피탈' },
+        { icon: true, code: '0501002', text: '도이치파이낸셜' },
+        { icon: true, code: '0501003', text: '롯데오토리스' },
+        { icon: true, code: '0501004', text: '롯데캐피탈' },
+        { icon: true, code: '0501005', text: '메르세데스벤츠 파이낸셜' },
+        { icon: true, code: '0501006', text: '미래에셋캐피탈' },
+        { icon: true, code: '0501007', text: '산은캐피탈' },
+        { icon: true, code: '0501008', text: '신한캐피탈' },
+        { icon: true, code: '0501009', text: '키움캐피탈' },
+        { icon: true, code: '0501010', text: '토요파이낸셜' },
+        { icon: true, code: '0501011', text: '폴스바겐 파이낸셜' },
+        { icon: true, code: '0501012', text: '하나캐피탈' },
+        { icon: true, code: '0501013', text: '한국투자캐피탈' },
+        { icon: true, code: '0501014', text: '현대캐피탈' },
+        { icon: true, code: '0501015', text: '효성캐피탈' },
+        { icon: false, code: '0501016', text: '나우아이비캐피탈' },
+        { icon: false, code: '0501017', text: '데라게라덴' },
+        { icon: false, code: '0501018', text: '메가인베스트먼트' },
+        { icon: false, code: '0501019', text: '메리츠캐피탈' },
+        { icon: false, code: '0501020', text: '메이슨캐피탈' },
+        { icon: false, code: '0501021', text: 'CHN리스' },
+        { icon: false, code: '0501022', text: 'DB캐피탈' },
+        { icon: false, code: '0501023', text: 'NH농협캐피탈' },
+        { icon: false, code: '0501024', text: 'IBK캐피탈' },
+        { icon: false, code: '0501025', text: 'JB우림피탈' },
 
-        // 캐피탈/여신
-        { icon: true, code: '0601001', text: 'KB캐피탈' },
-        { icon: true, code: '0601002', text: '도이치파이낸셜' },
-        { icon: true, code: '0601003', text: '롯데오토리스' },
-        { icon: true, code: '0601004', text: '롯데캐피탈' },
-        { icon: true, code: '0601005', text: '메르세데스벤츠 파이낸셜' },
-        { icon: true, code: '0601006', text: '미래에셋캐피탈' },
-        { icon: true, code: '0601007', text: '산은캐피탈' },
-        { icon: true, code: '0601008', text: '신한캐피탈' },
-        { icon: true, code: '0601009', text: '키움캐피탈' },
-        { icon: true, code: '0601010', text: '토요파이낸셜' },
-        { icon: true, code: '0601011', text: '폴스바겐 파이낸셜' },
-        { icon: true, code: '0601012', text: '하나캐피탈' },
-        { icon: true, code: '0601013', text: '한국투자캐피탈' },
-        { icon: true, code: '0601014', text: '현대캐피탈' },
-        { icon: true, code: '0601015', text: '효성캐피탈' },
-        { icon: false, code: '0601016', text: '나우아이비캐피탈' },
-        { icon: false, code: '0601017', text: '데라게라덴' },
-        { icon: false, code: '0601018', text: '메가인베스트먼트' },
-        { icon: false, code: '0601019', text: '메리츠캐피탈' },
-        { icon: false, code: '0601020', text: '메이슨캐피탈' },
-        { icon: false, code: '0601021', text: 'CHN리스' },
-        { icon: false, code: '0601022', text: 'DB캐피탈' },
-        { icon: false, code: '0601023', text: 'NH농협캐피탈' },
-        { icon: false, code: '0601024', text: 'IBK캐피탈' },
-        { icon: false, code: '0601025', text: 'JB우림피탈' },
+        // { icon: true, code: '0501001', text: '나이스디앤비' },
+        // { icon: true, code: '0501002', text: '이크레더블' },
+        // { icon: true, code: '0501003', text: '한국기업데이터' },
+        // { icon: true, code: '0501004', text: 'KCB' },
+        // { icon: true, code: '0501005', text: 'NICE신용평가정보' },
+        // { icon: true, code: '0501006', text: 'SCI평가정보' },
+
+        // 보증보험
+        { icon: true, code: '0701001', text: 'SGI서울보증' },
+        { icon: true, code: '0701002', text: '주택도시 보증공사' },
+        // { icon: true, code: '0601001', text: 'KB캐피탈' },
+        // { icon: true, code: '0601002', text: '도이치파이낸셜' },
+        // { icon: true, code: '0601003', text: '롯데오토리스' },
+        // { icon: true, code: '0601004', text: '롯데캐피탈' },
+        // { icon: true, code: '0601005', text: '메르세데스벤츠 파이낸셜' },
+        // { icon: true, code: '0601006', text: '미래에셋캐피탈' },
+        // { icon: true, code: '0601007', text: '산은캐피탈' },
+        // { icon: true, code: '0601008', text: '신한캐피탈' },
+        // { icon: true, code: '0601009', text: '키움캐피탈' },
+        // { icon: true, code: '0601010', text: '토요파이낸셜' },
+        // { icon: true, code: '0601011', text: '폴스바겐 파이낸셜' },
+        // { icon: true, code: '0601012', text: '하나캐피탈' },
+        // { icon: true, code: '0601013', text: '한국투자캐피탈' },
+        // { icon: true, code: '0601014', text: '현대캐피탈' },
+        // { icon: true, code: '0601015', text: '효성캐피탈' },
+        // { icon: false, code: '0601016', text: '나우아이비캐피탈' },
+        // { icon: false, code: '0601017', text: '데라게라덴' },
+        // { icon: false, code: '0601018', text: '메가인베스트먼트' },
+        // { icon: false, code: '0601019', text: '메리츠캐피탈' },
+        // { icon: false, code: '0601020', text: '메이슨캐피탈' },
+        // { icon: false, code: '0601021', text: 'CHN리스' },
+        // { icon: false, code: '0601022', text: 'DB캐피탈' },
+        // { icon: false, code: '0601023', text: 'NH농협캐피탈' },
+        // { icon: false, code: '0601024', text: 'IBK캐피탈' },
+        // { icon: false, code: '0601025', text: 'JB우림피탈' },
 
         // 통신/기타
-        { icon: true, code: '0801001', text: 'SKT' },
-        { icon: true, code: '0801002', text: 'KT' },
-        { icon: true, code: '0801003', text: 'LG U+' },
-        { icon: true, code: '0801004', text: '헬로 CJ' },
+        // { icon: true, code: '0801001', text: 'SKT' },
+        // { icon: true, code: '0801002', text: 'KT' },
+        // { icon: true, code: '0801003', text: 'LG U+' },
+        // { icon: true, code: '0801004', text: '헬로 CJ' },
         { icon: true, code: '0802001', text: '국민건강보험공단' },
         { icon: true, code: '0802002', text: '근로복지공단' },
         { icon: true, code: '0802003', text: '기술보증기금' },
