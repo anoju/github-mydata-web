@@ -1076,7 +1076,7 @@
                 </div>
                 <div class="status_box">
                   <p class="sub_tit">월간(30일 누적)기준</p>
-                  <ul>
+                  <ul class="status">
                     <!-- 활성화 : on -->
                     <li class="on">강력매도</li>
                     <li>매도</li>
