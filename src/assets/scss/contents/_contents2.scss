@@ -294,13 +294,19 @@
 
 /* 월관리 */
 .month_wrap {
-  .top_info_check { padding:32px 28px 16px; margin:-30px -20px 0; background:#ebf3f5 url('~@/assets/images/TO/02/bg_top_banner_month.png') no-repeat right 8px; background-size:auto 116px;
-    h2 { margin-bottom:8px; font-size:18px; font-weight:bold; line-height:1.44; color:#294e94;}
-    > .text { margin-top:4px; font-size:14px; color:#6f7a94; line-height:1.43;}
+  .top_info_check { 
+    margin:-30px -20px 0; background:#ebf3f5 url('~@/assets/images/TO/02/bg_top_banner_month.png') no-repeat right 8px; background-size:auto 116px;overflow: hidden;
+    >.button{
+      display:block;padding:32px 28px 24px;
+      > .text { margin-top:4px; font-size:14px; color:#6f7a94; line-height:1.43;}
+    }
+    h2 {
+      margin-bottom:8px; font-size:18px; font-weight:bold; line-height:1.44; color:#294e94;
+      &:after{content:'';display:inline-block;width:16px;height:16px;margin-left:4px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cpath stroke='%23888' stroke-width='1.5' d='M10.5 3L5.5 8.151 10.5 13' transform='translate(-139 -372) translate(0 335) translate(139 37) matrix(-1 0 0 1 16 0)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A") no-repeat center center;}
+    }
 
     .infomation_box { 
-      position:relative; padding:12px 16px; margin-top:24px; border-radius:6px; background:#fff;
-      +.infomation_box{margin-top:16px;}
+      position:relative; padding:12px 16px; margin: 0 28px 16px;border-radius:6px; background:#fff;
       .tit { font-size:16px; font-weight:bold; line-height:1.5; color:#222;}
       .text { font-size:14px; line-height:1.43;}
       a { position: absolute; right:16px; bottom:12px; padding-right:18px; font-size:14px; color:#5177bc; line-height:1.43;
