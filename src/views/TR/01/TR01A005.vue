@@ -1,7 +1,7 @@
 <template>
   <kb-pop
     full
-    title="은행/증권계좌"
+    title="출금계좌관리"
     class=""
   >
     <kb-pop-body>
@@ -27,8 +27,9 @@
                       <p class="acc_num">123-124234-12 02</p>
                     </div>
                     <kb-button to="#">
-                      동의하기<i class="bt_ic_arr" aria-hidden="true" />
+                      재연동<i class="bt_ic_arr" aria-hidden="true" />
                     </kb-button>
+                    <p class="error">재연동이 필요합니다.</p>
                   </li>
                   <li>
                     <div>
@@ -37,6 +38,7 @@
                       <p class="acc_num">123-124234-12 02</p>
                     </div>
                     <i class="state">출금가능</i>
+                    <p class="error">곧 연동 유효기간이 만료됩니다.</p>
                   </li>
                   <li>
                     <div>
@@ -45,9 +47,40 @@
                       <p class="acc_num">123-124234-12 02</p>
                     </div>
                     <kb-button to="#">
-                      동의하기<i class="bt_ic_arr" aria-hidden="true" />
+                      출금동의<i class="bt_ic_arr" aria-hidden="true" />
                     </kb-button>
-                    <p class="error">출금을 위한 재동의가 필요합니다</p>
+                    <p class="error">출금을 위한 재동의가 필요합니다.</p>
+                  </li>
+                  <li>
+                    <div>
+                      <span>우리은행</span>
+                      <span>우리급여 저축예금</span>
+                      <p class="acc_num">123-124234-12 02</p>
+                    </div>
+                    <kb-button to="#">
+                      연장하기<i class="bt_ic_arr" aria-hidden="true" />
+                    </kb-button>
+                    <p class="error">연동 유효기간이 만료되었습니다.</p>
+                  </li>
+                  <li>
+                    <div>
+                      <span>우리은행</span>
+                      <span>우리급여 저축예금</span>
+                      <p class="acc_num">123-124234-12 02</p>
+                    </div>
+                    <i class="state">출금가능</i>
+                    <p class="error">에러 메시지 노출(최대 2줄)<br>에러 메시지 노출</p>
+                  </li>
+                  <li>
+                    <div>
+                      <span>우리은행</span>
+                      <span>우리급여 저축예금</span>
+                      <p class="acc_num">123-124234-12 02</p>
+                    </div>
+                    <kb-button to="#">
+                      출금동의<i class="bt_ic_arr" aria-hidden="true" />
+                    </kb-button>
+                    <p class="error">KB증권 오픈뱅킹 출금동의가 필요합니다.</p>
                   </li>
                 </ul>
               </div>
