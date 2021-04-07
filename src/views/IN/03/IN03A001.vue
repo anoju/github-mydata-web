@@ -71,8 +71,11 @@
         <hr aria-hidden="true" class="hr_line">
         <!-- 포트폴리오 구성 -->
         <div class="portfolio_chart">
-          <kb-title-bar h3 title="포트폴리오 구성" />
-          <div class="fc_666 fz_12 mg_t4">{{userInvestDate}} 기준</div>
+          <kb-title-bar h3 title="포트폴리오 구성">
+            <!-- 2021-04-06 위치변경 -->
+            <div class="fc_666 fz_12 mg_t4">{{userInvestDate}} 기준</div>
+            <!-- //2021-04-06 위치변경 -->
+          </kb-title-bar>
           <!-- 데이터 있음 -->
           <div v-if="true">
             <div class="chart">
@@ -498,8 +501,10 @@
                 >팝업으로 상세내용 확인</kb-button>
               </h2>
             </template>
+            <!-- 2021-04-06 위치변경 -->
+            <p class="date mg_t4">20/10/19 기준</p>
+            <!-- //2021-04-06 위치변경 -->
           </kb-title-bar>
-          <p class="date mg_t4">20/10/19 기준</p>
 
           <ul class="prospect_list">
             <li>
@@ -694,8 +699,10 @@
                 >팝업으로 상세내용 확인</kb-button>
               </h2>
             </template>
+            <!-- 2021-04-06 위치변경 -->
+            <p class="date mg_t4">20/10/19 기준</p>
+            <!-- //2021-04-06 위치변경 -->
           </kb-title-bar>
-          <p class="date mg_t4">20/10/19 기준</p>
 
           <!-- 데이터가 있을때 -->
           <div v-if="true">
@@ -922,8 +929,10 @@
                 >팝업으로 상세내용 확인</kb-button>
               </h2>
             </template>
+            <!-- 2021-04-06 위치변경 -->
+            <span class="date mg_t4">20/10/19 기준</span>
+            <!-- //2021-04-06 위치변경 -->
           </kb-title-bar>
-          <span class="date mg_t4">20/10/19 기준</span>
 
           <!-- 데이터 있을때 -->
           <div v-if="true">

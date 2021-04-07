@@ -59,7 +59,10 @@ export default [
   },
   // 투자
   {
-    pageID: 'IN03A001', type: 'sub', depth1: '투자생활', depth2: '포트폴리오 진단', depth3: null, depth4: null, etc: '팝업 4개(자산설명, 전망, 모델포트폴리오,진단결과)', complete: '2021-03-12', change: null,
+    pageID: 'IN03A001', type: 'sub', depth1: '투자생활', depth2: '포트폴리오 진단', depth3: null, depth4: null, etc: '팝업 4개(자산설명, 전망, 모델포트폴리오,진단결과)', complete: '2021-03-12', change: '2021-04-06',
+  },
+  {
+    pageID: 'IN04A001', type: 'sub', depth1: '투자생활', depth2: '주식종목 진단', depth3: null, depth4: null, etc: '', complete: '', change: '',
   },
   {
     pageID: 'IN06A001', type: 'sub', depth1: '투자생활', depth2: '고수의 PICK', depth3: '목록', depth4: null, etc: null, complete: '2021-03-30', change: null,

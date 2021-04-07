@@ -769,3 +769,213 @@
     label span { display:inline-block; width:68px;}
   }
 }
+
+/* 주식종목 진단 */
+.stock_diagnose_wrap {
+  .invest_info_box { padding:24px 8px 0;
+    .top { display:flex; align-items: center;
+      .tit { margin-right:4px; font-size:14px; line-height:1.43; font-weight:bold;}
+      .kind { margin-right:4px; font-size:12px; line-height:1.33; font-weight:bold;
+        span { display:inline-block; color:#666;
+          & + span:before { content:''; display:inline-block; width:1px; height:12px; margin:0 8px; vertical-align: middle; background:#ddd}
+        }
+      }
+      .right_text { margin-left:auto; font-size:12px; color:#666; line-height:1.33;}
+    }
+
+    .cont { display:flex; margin-top:4px; flex-wrap: wrap;
+      .text { font-size:20px; font-weight:bold;
+        & + .text:before { content:''; display:inline-block; width:1px; height:20px; margin:0 12px; vertical-align: middle; background:#ddd;
+        }
+      }
+      &.plus .text,
+      &.plus .status { color:#2859d1}
+			&.minus .text,
+			&.minus .status { color:#de092f;}
+
+      .text_box { flex:1 0 auto; margin-top:8px; margin-right:8px;
+        .tit { font-size:20px; font-weight:bold;}
+        .number { margin-top:12px; font-size:16px; font-weight:bold;}
+        .status { margin-top:8px; font-size:14px; font-weight:bold;}
+      }
+      .chart_samll_area { flex:0 1 auto; margin:0 0 0 auto; align-self: flex-end;}
+    }
+
+    .market_price { display:flex; margin-top:20px;
+      dt { flex:0 0 auto; font-size:14px; color:#666; line-height:1.43;}
+      dd { flex:1 1 auto; font-size:14px; font-weight:bold; line-height:1.43; text-align:right;}
+    }
+
+    .market_price_bar { display:flex; flex-wrap: wrap; margin-top:24px;
+      > p { flex:1 1 auto; width:50%; font-size:16px; font-weight:bold; line-height:1.5;
+        span { display:block; font-size:12px; color:#666; line-height:1.33; font-weight:normal}
+      }
+      .min {}
+      .max { text-align:right;}
+      .bar { flex:1 1 auto; position:relative; width:100%; height:16px; margin-top:16px; border-radius:2px; background:#5b86d4;
+        span { position:absolute; bottom:0; left:0; width :24px; height:27px; font-size:0; background:url('~@/assets/images/IN/04/ico_bar_check.png') no-repeat center center / 100%; transform: translateX(-50%);}
+      }
+    }
+  }
+
+  .accordion_list_1 > .item:after { display:none;}
+  .accordion_list_1 .tit .button { padding:25px 50px 24px 20px;}
+
+  .info_view_box {
+    dl { display:flex;
+      & + dl { margin-top:12px;}
+    }
+    dt { flex: 0 0 auto; font-size:14px; line-height:1.43; color:#666;}
+    dd { flex:1 1 auto; text-align:right; font-size:14px; font-weight:bold; line-height:1.43;}
+    .tit { margin-top:32px; font-size:18px; font-weight:bold; line-height:1.44;}
+    .text { margin-top:8px; font-size:16px; color:#666; line-height:1.5;}
+
+    .product_list { margin:12px 0 32px;
+      ul { display:flex; justify-content: center;}
+      li { flex:1 1 auto; max-width:120px; height:100px; border:1px solid #f8f8f8;
+        & + li { margin-left:8px;}
+        img { height:100%;}
+      }
+    }
+  }
+
+  .company_info { padding:32px 0;
+    .company_info_list { display:flex; flex-wrap: wrap;
+      li { flex:0 1 auto; width:33.333%; margin-top:40px; text-align:center;
+        .tit { font-size:14px; color:#666; line-height:1.43; font-weight:bold;}
+        .status { display:flex; width:100px; height:100px; margin:0 auto; padding:8px 15px 0; align-items: center; justify-content: center; font-size:16px; font-weight:bold; line-height:1.5; background:url('~@/assets/images/IN/04/ico_company_type5.png') no-repeat center center / 100%;
+          &.none { background:none;}
+          &.type1 { background-image:url('~@/assets/images/IN/04/ico_company_type1.png');}
+          &.type2 { background-image:url('~@/assets/images/IN/04/ico_company_type2.png');}
+          &.type3 { background-image:url('~@/assets/images/IN/04/ico_company_type3.png');}
+          &.type4 { background-image:url('~@/assets/images/IN/04/ico_company_type4.png');}
+          &.type5 { background-image:url('~@/assets/images/IN/04/ico_company_type5.png');}
+          &.type6 { background-image:url('~@/assets/images/IN/04/ico_company_type6.png');}
+        }
+      }
+    }
+    h3 { margin-top:40px; font-size:16px; font-weight:bold; line-height:1.5;}
+    .keyword { display:flex; flex-wrap: wrap; margin-top:4px;
+      > span { display:flex; height:36px; padding:0 12px; border:1px solid #ebebeb; border-radius:31px; align-items: center; font-size:14px; line-height:1.43;}
+      .button { width:61px; height:36px; border-radius:31px; line-height:36px; text-align:center; font-size:14px; line-height:1.43; background:#f8f8f8;}
+      
+      > span,
+      .button { margin-right:6px; margin-top:7px;}
+    }
+  }
+  .stockholding { position:relative; margin:0 -20px; padding:32px 20px; background:#f8f8f8;
+    .text { padding-right:120px; font-size:16px; font-weight:bold; line-height:1.5;
+      em {}
+      strong { display:block; font-size:20px; font-weight:bold; line-height:1.4;}
+    }
+    &:after { content:''; display:block; position:absolute; top:50%; right:0; width:120px; height:84px; transform:translateY(-50%)}
+    &.up {
+      .text strong { color:#de092f;}
+      &:after { background:url('~@/assets/images/IN/04/ico_stockholding_up.png') no-repeat center center / 100%; }
+    }
+    &.down {
+      .text strong { color:#2859d1;}
+      &:after { background:url('~@/assets/images/IN/04/ico_stockholding_down.png') no-repeat center center / 100%; }
+    }
+  }
+  .stock_diagnose_box { padding-top:32px; 
+    p.tit { margin-top:24px; font-size:20px; line-height:1.4; font-weight:bold;
+      span { display:block; margin-bottom:4px; font-size:14px; line-height:1.43;}
+      .line { background:linear-gradient(0deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 10%, rgba(255,220,0,0.5) 10%, rgba(255,220,0,0.5) 40%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 100%);}
+    }
+
+    .sub_tit { font-size:16px; line-height:1.5; text-align:center; font-weight:bold; margin-top:34px;
+      & + .img_box { margin-top:0;}
+    }
+
+    .img_box { display:flex; margin-top:30px; justify-content: center;
+      li { flex:0 1 auto; position:relative; width:140px; 
+        i { display:block; width:140px; height:140px;}
+        .top { position:absolute; top:0; left:50%; padding:6px 12px; box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.08); border-radius:4px; font-size:14px; color:#666; font-weight:bold; line-height:1.43; background:rgba(255,255,255,0.95); transform: translateX(-50%);}
+        .text { margin-top:12px; font-size:14px; font-weight:bold; text-align:center; line-height:1.43;
+          span { display:block; font-size:12px; color:#666; font-weight:normal;}
+        }
+        &:after { content:''; display:block; position:absolute; top:46px; right:-24px; width:48px; height:48px;}
+        &.up:after { background:url('~@/assets/images/IN/04/ico_up.png') no-repeat center bottom / 100%;}
+        &.down:after { background:url('~@/assets/images/IN/04/ico_down.png') no-repeat center bottom / 100%;}
+        &.same:after { background:url('~@/assets/images/IN/04/ico_same.png') no-repeat center bottom / 100%;}
+      }
+
+      &.type1 {
+        li i { background:url('~@/assets/images/IN/04/ico_type1_1.png') no-repeat center bottom / 100%;}
+        .big i { background:url('~@/assets/images/IN/04/ico_type1_2.png') no-repeat center bottom / 100%;}
+        .none i { background:url('~@/assets/images/IN/04/ico_type1_0.png') no-repeat center bottom / 100%;}
+      }
+
+      &.type2 {
+        li i { background:url('~@/assets/images/IN/04/ico_type2_1.png') no-repeat center bottom / 100%;}
+        .big i { background:url('~@/assets/images/IN/04/ico_type2_2.png') no-repeat center bottom / 100%;}
+        .none i { background:url('~@/assets/images/IN/04/ico_type2_0.png') no-repeat center bottom / 100%;}
+      }
+
+      &.type3 {
+        li i { background:url('~@/assets/images/IN/04/ico_type4_1.png') no-repeat center bottom / 100%;}
+        .big i { background:url('~@/assets/images/IN/04/ico_type4_2.png') no-repeat center bottom / 100%;}
+        .none i { background:url('~@/assets/images/IN/04/ico_type4_0.png') no-repeat center bottom / 100%;}
+      }
+
+      &.type4 {
+        li i { background:url('~@/assets/images/IN/04/ico_type5_1.png') no-repeat center bottom / 100%;}
+        .big i { background:url('~@/assets/images/IN/04/ico_type5_2.png') no-repeat center bottom / 100%;}
+        .none i { background:url('~@/assets/images/IN/04/ico_type5_0.png') no-repeat center bottom / 100%;}
+      }
+
+      &.type5 {
+        li { width:70px}
+        li + li { margin-left:35px;}
+        li i { width:70px; margin:0 auto; background:url('~@/assets/images/IN/04/ico_type3_2.png') no-repeat center bottom / 100%;}
+        .big i { background:url('~@/assets/images/IN/04/ico_type3_3.png') no-repeat center bottom / 100%;}
+        .small i { background:url('~@/assets/images/IN/04/ico_type3_1.png') no-repeat center bottom / 100%;}
+        li:after { right:-42px;}
+        li.small.up:after { top:92px;}
+        li.down:after { top:92px;}
+        li.big.down:after { top:46px;}
+      }
+    }
+
+    .img_box2 { position:relative; margin-top:32px;
+      .sub_tit { text-align:center; font-size:16px; font-weight:bold; line-height:1.5;}
+      .unit { position:absolute; top:9px; right:0; font-size:12px; color:#666; line-height:1.33;}
+      .bg {
+        &:before { content:''; display:block; position:absolute; top:0; left:0; width:100%; height:60px; border-bottom:1px solid #bbb; background:rgba(222,9,47,0.06)}
+        &:after { content:''; display:block; position:absolute; top:61px; left:0; width:100%; height:60px; border-bottom:1px solid #bbb; background:rgba(40,89,209,0.06)}
+      }
+      .list { position:relative; margin-top:12px;
+        ul { display:flex;}
+        li { flex:1 1 auto; position:relative; width:33.333%;
+          .money { display:flex; position:absolute; left:50%; width:80px; height:36px; border-radius:18px; margin-left:-40px; word-break: break-all; justify-content: center; align-items: center; font-size:12px; color:#fff; font-weight:bold;}
+          .text { margin-top:133px; font-size:14px; color:#666; line-height:1.43; text-align:center;
+            span { display:block; margin-top:2px; font-size:12px; line-height:1.33;}
+          }
+
+          &.up .money { top:12px; background:#de092f}
+          &.down .money { top:73px; background:#2859d1}
+        }
+      }
+    }
+
+    .stock_diagnose_cont + .stock_diagnose_cont { padding-top:8px; margin-top:32px; border-top:1px solid #eee;}
+
+    .description_box { position:relative; margin:32px 0; padding:20px 20px 24px; border-radius:6px; border:1px solid #eee; background:#f8f8f8;
+      &:before { content:''; display:block; position:absolute; top:20px; right:20px; width:32px; height:32px; background:url('~@/assets/images/IN/04/ico_smile.png') no-repeat center center / 100%;}
+      h3 { font-size:16px; font-weight:bold; color:#5177bc; line-height:1.5;}
+      .hashtag { margin-top:8px;
+        span { display:inline-block; margin-bottom:4px; margin-right:8px; font-size:12px; line-height:1.33; color:#6f7a94;}
+      }
+      .tit { margin-top:20px; font-size:16px; line-height:1.5; font-weight:bold;}
+      .text { margin-top:4px; font-size:14px; line-height:1.43; color:#666;
+        strong { color:#222; font-weight: normal;}
+        & + .text { margin-top:8px;}
+      }
+    }
+  }
+
+  .type_compare { padding:32px 0;
+    .chart_area { margin-top:32px;}
+  }
+}
