@@ -2,9 +2,11 @@
   <div class="section">
     <div class="month_wrap">
       <div class="top_info_check">
-        <h2>1월 잔고 체크!</h2>
-        <p class="text">출금 예정액 : 12,300,000원</p>
-        <p class="text">가까운 출금예정일 : 2021/01/03</p>
+        <kb-button not aTag>
+          <h2>1월 잔고 체크!</h2>
+          <p class="text">출금 예정액 : 12,300,000원</p>
+          <p class="text">가까운 출금예정일 : 2021/01/03</p>
+        </kb-button>
 
         <!-- 잔고가 부족한경우 -->
         <div class="infomation_box ico2">
