@@ -7,6 +7,7 @@
         :is="titleTag"
         v-if="title != null"
         class="tit"
+        :class="titClass"
         v-html="title"
       />
       <slot name="left" />
@@ -26,6 +27,7 @@ export default {
   props: {
     title: { type: String, default: null },
     titTag: { type: String, default: null },
+    titClass: { type: String, default: null },
     center: { type: Boolean, default: false },
     h1: { type: Boolean, default: false },
     h2: { type: Boolean, default: false },

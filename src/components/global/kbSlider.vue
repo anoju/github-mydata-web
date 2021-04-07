@@ -11,8 +11,6 @@
       :height="height"
       :dotSize="dotSize"
       :data="data"
-      :data-value="data-value"
-      :data-label="data-label"
       :adsorb="adsorb"
       :tooltip="tooltip"
       v-model="sliderVal"
@@ -55,8 +53,6 @@ export default {
     height: { type: Number, default: 8 },
     dotSize: { type: Number, default: 28 },
     data: { type: [Array, Object], default: null },
-    dataValue: { type: String, default: null },
-    dataLabel: { type: String, default: null },
     tooltip: { type: String, default: 'none' },
   },
   methods: {

@@ -711,13 +711,13 @@
               포스아거(공격투자형) : type1
               루나키키(적극투자형) : type2
               멜랑콜리(위험중립형) : type3
-              심쿵비비(안전추구형) : type4
+              심쿵비비(안정추구형) : type4
               롤로라무(안정형) : type5
             -->
             <div class="model_box">
               <h3>
                 <span>네가 오르면 나도 행복해.</span>
-                안전추구형
+                안정추구형
               </h3>
 
               <div class="img type4"></div><!-- 타입별 클래스 적용위치 -->
@@ -757,7 +757,7 @@
                     포스아거(공격투자형) : type1
                     루나키키(적극투자형) : type2
                     멜랑콜리(위험중립형) : type3
-                    심쿵비비(안전추구형) : type4
+                    심쿵비비(안정추구형) : type4
                     롤로라무(안정형) : type5
                   -->
                   <kb-swiper>
@@ -801,7 +801,7 @@
                       <div class="model_box bg">
                         <h3>
                           <span>네가 오르면 나도 행복해.</span>
-                          안전추구형
+                          안정추구형
                         </h3>
                         <div class="img type4"></div>
                         <div class="chart_box">
@@ -835,7 +835,7 @@
               포스아거(공격투자형) : type1
               루나키키(적극투자형) : type2
               멜랑콜리(위험중립형) : type3
-              심쿵비비(안전추구형) : type4
+              심쿵비비(안정추구형) : type4
               롤로라무(안정형) : type5
             -->
             <kb-swiper class="mg_t48">
@@ -879,7 +879,7 @@
                 <div class="model_box bg">
                   <h3>
                     <span>네가 오르면 나도 행복해.</span>
-                    안전추구형
+                    안정추구형
                   </h3>
                   <div class="img type4"></div>
                   <div class="chart_box">
