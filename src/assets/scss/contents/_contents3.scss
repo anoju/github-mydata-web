@@ -261,7 +261,7 @@
   }
   &.history{
     li{padding:16px 0;
-      &+li{border-top:1px solid #ebebeb;}
+      &+li{border-top:1px solid #eee;}
       &.nothing{margin:16px 0 0;padding:27px 0 25px;font-size:14px;font-weight:bold;line-height:1.43;text-align:center;border-radius:6px;border:1px solid #ebebeb !important;}
       &>div{
         span{font-size:14px;line-height:1.43;
@@ -272,7 +272,7 @@
         span:first-child{font-size:14px;line-height:normal;}
       }      
       &.top_tot{
-        &+li{border-top:1px solid #ddd;}
+        &+li{border-top:1px solid #bbb;}
         span{
           &:first-child{font-size:14px;}
           &:last-child{font-weight:bold;}
@@ -280,8 +280,9 @@
       }
     }
     &.bottom_line{
-      li{border-bottom:1px solid #ebebeb;}
+      li{border-bottom:1px solid #eee;
         &+li{border-top-width:0px;}
+      }
     }
   }
   &.loss{
