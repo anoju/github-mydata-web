@@ -298,7 +298,9 @@
     h2 { margin-bottom:8px; font-size:18px; font-weight:bold; line-height:1.44; color:#294e94;}
     > .text { margin-top:4px; font-size:14px; color:#6f7a94; line-height:1.43;}
 
-    .infomation_box { position:relative; padding:12px 16px; margin-top:24px; border-radius:6px; background:#fff;
+    .infomation_box { 
+      position:relative; padding:12px 16px; margin-top:24px; border-radius:6px; background:#fff;
+      +.infomation_box{margin-top:16px;}
       .tit { font-size:16px; font-weight:bold; line-height:1.5; color:#222;}
       .text { font-size:14px; line-height:1.43;}
       a { position: absolute; right:16px; bottom:12px; padding-right:18px; font-size:14px; color:#5177bc; line-height:1.43;
@@ -336,7 +338,7 @@
       }
       .sub_text { font-size:12px; line-height:1.33; color:#666; text-align:right;}
     }
-    .worning { margin-top:20px; padding:12px 0; border-radius:6px; text-align:center; font-size:14px;  background:#f8f8f8;
+    .worning { margin-top:20px; margin-left:-40px; padding:12px 0; border-radius:6px; text-align:center; font-size:14px;  background:#f8f8f8;
       &:before { content:''; display:inline-block; width:16px; height:16px; margin-right:8px;vertical-align: -2px; background:url('~@/assets/images/TO/02/ico_worning.png') no-repeat; background-size:100%; }
     }
   }
@@ -659,7 +661,7 @@
   li { margin-top:40px;
     .number { display:block; width:20px; height:20px; margin:0 auto; border-radius:50%; text-align:center; font-size:12px; color:#fff; font-weight:bold; line-height:21px; background:#5b86d4}
     .tit { margin-top:12px; font-size:20px; font-weight:bold; text-align:center; line-height:1.4;}
-    .img { margin:24px -20px 0;
+    .img { margin:24px -20px 0;text-align: center;
       img { max-width:100%;}
     }
   }

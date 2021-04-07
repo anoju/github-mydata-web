@@ -1,5 +1,5 @@
 <template>
-  <kb-page page-title="보험/연금납입 전월 비교">
+  <kb-page page-title="보험&연금 납입 지난 달 비교">
     <kb-page-body>
       <div class="section">
         <div class="inner_box month_mgt">
@@ -80,33 +80,33 @@
             <li>
               <p class="tit">31일<span class="label_plan">납입 예정</span></p>
               <div>
-                <span>매입</span>
+                <span>납입금액</span>
                 <span>30,000,000,000</span>
               </div>
               <div>
-                <span>순 매입금</span>
+                <span>납입처</span>
                 <span>보험사명</span>
               </div>
             </li>
             <li>
               <p class="tit">18일<span class="label_unpaid">미납</span></p>
               <div>
-                <span>매입</span>
+                <span>납입금액</span>
                 <span>30,000,000,000</span>
               </div>
               <div>
-                <span>순 매입금</span>
+                <span>납입처</span>
                 <span>보험사명</span>
               </div>
             </li>
             <li>
               <p class="tit">18일<span class="label_finish">납입 완료</span></p>
               <div>
-                <span>매입</span>
+                <span>납입금액</span>
                 <span>30,000,000,000</span>
               </div>
               <div>
-                <span>순 매입금</span>
+                <span>납입처</span>
                 <span>보험사명</span>
               </div>
             </li>
@@ -119,15 +119,19 @@
             <li>
               <p class="tit">18일<span class="label_unpaid">미납</span></p>
               <div>
-                <span>매입</span>
+                <span>납입금액</span>
                 <span>30,000,000,000</span>
               </div>
               <div>
-                <span>순 매입금</span>
+                <span>납입금액</span>
                 <span>보험사명</span>
               </div>
             </li>
           </ul>
+
+          <!-- <ul class="list_tot history mg_b0">
+            <li class="nothing">모두 완납하셨어요.</li>
+          </ul> -->
         </div>
       </div>
     </kb-page-body>

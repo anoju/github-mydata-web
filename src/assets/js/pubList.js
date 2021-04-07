@@ -31,6 +31,9 @@ export default [
     pageID: 'TO02C001', type: 'sub', depth1: '오늘', depth2: '월관리', depth3: null, depth4: null, etc: null, complete: '2021-03-17', change: null,
   },
   {
+    pageID: 'TO02C002', type: 'sub', depth1: '오늘', depth2: '월관리', depth3: '월관리예상잔고체크', depth4: null, etc: null, complete: '2021-03-17', change: null,
+  },
+  {
     pageID: 'TO02C003', type: 'sub', depth1: '오늘', depth2: '월관리', depth3: '현금잔고전월비교', depth4: null, etc: null, complete: '2021-03-17', change: null,
   },
   {

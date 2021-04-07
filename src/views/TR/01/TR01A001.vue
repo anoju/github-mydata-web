@@ -6,7 +6,7 @@
   >
     <template slot="title_next">
       <kb-button link blue v-if="toggleVal === '2'" @click="accountManagementOpen($event.target)">
-        은행/증권계좌
+        출금계좌관리
       </kb-button>
     </template>
     <kb-pop-body>
@@ -156,7 +156,7 @@
                 </kb-button>
                 <!-- 비활성화 시 추가 -->
               </div>
-              <div class="item">
+              <!-- <div class="item"> 삭제 20210407
                 <kb-radio
                   checkbox
                   v-model="selectVal2"
@@ -169,11 +169,11 @@
                     <div class="num mg_t4">출금가능 등록계좌없을때</div>
                   </div>
                 </kb-radio>
-              </div>
+              </div> -->
             </div>
-            <div class="btm_btn_util type3">
+            <!-- <div class="btm_btn_util type3"> 삭제 20210407
               <kb-button not class="btn_linkage">계좌추가</kb-button>
-            </div>
+            </div> -->
           </div>
           <div v-if="selectVal2 === '3'">
             <div class="no_list_txt">

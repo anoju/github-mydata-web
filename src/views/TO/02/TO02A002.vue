@@ -35,7 +35,7 @@
         </kb-folding>
       </kb-foldings>
       <div class="btm_btn">
-        <kb-button to="#" link>
+        <kb-button link>
           내 계좌 간 이체하기<i class="bt_ic_arr" aria-hidden="true" />
         </kb-button>
         <kb-checkbox

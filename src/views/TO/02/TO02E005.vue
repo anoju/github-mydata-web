@@ -53,7 +53,7 @@
             <i class="logo">
               <img src="@/assets/images/TO/02/ico_logo_kb.png" alt="KB증권" />
             </i>
-            <kb-button to="#" link>
+            <kb-button link>
               국내투자글로벌전기국내투자글로벌전기
             </kb-button>
             <strong>+999,300,000,000원</strong>
@@ -64,7 +64,7 @@
             <i class="logo">
               <img src="@/assets/images/TO/02/ico_logo_kb.png" alt="KB증권" />
             </i>
-            <kb-button to="#" link>
+            <kb-button link>
               삼성전자
             </kb-button>
             <strong>-300,000,000원</strong>
@@ -75,7 +75,7 @@
             <i class="logo">
               <img src="@/assets/images/TO/02/ico_logo_kb.png" alt="KB증권" />
             </i>
-            <kb-button to="#" link>
+            <kb-button link>
               LG화학
             </kb-button>
             <strong>+300,000,000원</strong>
@@ -97,7 +97,7 @@
             <i class="logo">
               <img src="@/assets/images/TO/02/ico_logo_kb.png" alt="KB증권" />
             </i>
-            <kb-button to="#" link>
+            <kb-button link>
               네이버
             </kb-button>
             <strong>+300,000,000원</strong>
@@ -108,7 +108,7 @@
             <i class="logo">
               <img src="@/assets/images/TO/02/ico_logo_kb.png" alt="KB증권" />
             </i>
-            <kb-button to="#" link>
+            <kb-button link>
               삼성전자
             </kb-button>
             <strong>-300,000,000원</strong>
@@ -119,7 +119,7 @@
             <i class="logo">
               <img src="@/assets/images/TO/02/ico_logo_kb.png" alt="KB증권" />
             </i>
-            <kb-button to="#" link>
+            <kb-button link>
               LG화학
             </kb-button>
             <strong>+300,000,000원</strong>
