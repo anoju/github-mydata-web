@@ -79,6 +79,92 @@ span.gd__box{
 		div{width:0;height:5px;background:#ffdc00;}
 	}
 }
+.character_face{
+	position:relative;width:240px;height:200px;background:#f1f1f1;margin:0 auto;overflow:hidden;
+	.body{position:absolute;left:50%;bottom:0;width:180px;height:120px;margin:0 0 -60px -90px;background:#ddd;border-radius:90px/50px;border:4px solid #222;}
+	.face{
+		position:absolute;left:50%;top:50%;width:140px;height:140px;margin:-70px 0 0 -70px;
+		.ear{
+			position:absolute;top:0;width:50px;height:60px;border:4px solid #222;border-radius:25px;background:#ddd;
+			&.left{left:8px;}
+			&.right{right:8px;}
+		}
+		.in{position:relative;width:100%;height:100%;background:#ddd;border-radius:50%;border:4px solid #222;}
+		.face_in{width:70px;height:50px;position:absolute;top:50%;left:50%;margin:-25px 0 0 -35px;
+			//background:#ccc;
+		}
+		.eye{
+			position:absolute;width:25px;height:15px;top:0px;overflow:hidden;
+			//background:#bbb;
+			&:before{content:'';display:block;height:4px;background:#222;border-radius:2px;}
+			&:after{content:'';display:block;width:4px;height:8px;margin:2px 4px;background:#222;border-radius:2px;}
+			&.left{
+				left:0px;
+				&:after{float:right;}
+			}
+			&.right{right:0px;}
+		}
+		.mouse{
+			position:absolute;bottom:-5px;left:50%;width:50px;height:30px;margin-left:-25px;border-radius:50%;border:4px solid #222;background:#fff;
+			&:before{content:'';display:block;width:16px;height:12px;position:absolute;top:-8px;left:50%;margin-left:-8px;background:#222;border-radius:50%;}
+			&:after{content:'';display:block;width:4px;height:14px;position:absolute;top:0px;left:50%;margin-left:-2px;background:#222;border-radius:2px;}
+		}
+
+		.ears{transform-origin: 50% 50% 5px;}
+		.eyes{transform-origin: 50% 50% -40px;}
+		.mouse{transform-origin: 50% 50% -44px;}
+		.ears, 
+		.eyes, 
+		.mouse {transition: transform .5s;}
+	}
+	&.look-away{
+		.ears,
+		.eyes,
+		.mouse {
+			transition-duration: .3s;
+			animation: 3s infinite alternate;
+		}
+		&.up{
+			.ears,
+			.eyes,
+			.mouse {
+				transform: rotate3d(.2, 0, 0, 20deg) !important;
+			}
+		}
+		&.down{
+			.ears,
+			.eyes,
+			.mouse {
+				transform: rotate3d(-.2, 0, 0, 20deg) !important;    
+			}
+		}
+	}
+	&.playing{
+		&.up{
+			.ears,
+			.eyes,
+			.mouse {
+					animation-name: lookaway-up;
+			}
+		}
+		&.down{
+			.ears,
+			.eyes,
+			.mouse {
+					animation-name: lookaway-down;
+			}
+		}
+	}
+}
+@keyframes lookaway-up {
+	from {transform: rotate3d(.2, 0, -.01, 20deg);}
+	to {transform: rotate3d(.2, -.05, -.01, 20deg);}
+}
+
+@keyframes lookaway-down {
+	0% {transform: rotate3d(-.2, 0, -.01, 20deg);}
+	100% {transform: rotate3d(-.2, -.05, .01, 20deg);}
+}
 
 // 이용안내
 .accordion_dl{
