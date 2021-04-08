@@ -29,7 +29,7 @@
           -->
         <kb-swiper
           full-width
-          index="2"
+          index="0"
         >
           <swiper-slide>
             <div class="in_chart_item">
@@ -46,6 +46,28 @@
                 <div class="chart">
                   <img src="@/assets/images/temp/chart_donut1.png" alt="" class="wp_100">
                 </div>
+              </div>
+              <div class="chart_legend">
+                <ul>
+                  <li>
+                    <div class="th">
+                      <i class="dot" style="background-color:#3e61ba;"></i>
+                      <strong>국내주식</strong>
+                    </div>
+                    <div class="td">
+                      67%
+                    </div>
+                  </li>
+                  <li>
+                    <div class="th">
+                      <i class="dot" style="background-color:#3bae6c;"></i>
+                      <strong>해외주식</strong>
+                    </div>
+                    <div class="td">
+                      67%
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
           </swiper-slide>
@@ -68,12 +90,6 @@
             <kb-button yellow class="w_200">가상투자 시작하기</kb-button>
           </div>
         </div>
-        <kb-slider
-          v-model="sliderVal"
-          :step="5"
-          :marks="[0, 25, 50, 75, 100]"
-        />
-        {{sliderVal}}
       </div>
     </kb-page-body>
   </kb-page>
@@ -83,7 +99,6 @@ export default {
   name: 'IN07A001',
   data() {
     return {
-      sliderVal: 20,
     };
   },
   methods: {

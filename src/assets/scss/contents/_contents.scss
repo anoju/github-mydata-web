@@ -348,7 +348,10 @@ span.gd__box{
 .section .ticket_money{margin-left:-20px;margin-right:-20px;}
 .ticket_money{
 	text-align:center;font-weight:bold;
-  .inner{position:relative;max-width:360px;margin:0 auto;padding-top:40%;background: url('~@/assets/images/IN/bg_ticket_box.png') no-repeat center center;background-size:contain;}
+  .inner{
+		position:relative;max-width:360px;margin:0 auto;
+		&:before{content:'';display:block;padding-top:40%;background: url('~@/assets/images/IN/bg_ticket_box.png') no-repeat center center;background-size:contain;}
+	}
 	.box{position:absolute;left:0;top:0;display:flex;width:100%;height:100%;flex-direction:column;justify-content:center;align-items:center;}
 	.info{font-size:14px;line-height:20px;opacity:0.6;}
 	.money{
@@ -359,6 +362,37 @@ span.gd__box{
 }
 .tit_h4 .tit.firecracker{padding-left:24px;background:url('~@/assets/images/common/ico_firecracker.png') no-repeat left 0px;background-size:20px;}
 
+.ui-swiper .in_chart_item{padding:0 20px;}
 .in_chart_item{
-	padding:0 20px;
+	.tit{
+		font-weight:bold;font-size:18px;line-height:26px;
+		.name{font-size:20px;line-height:28px;margin-bottom:4px;}
+		.line{
+			background:#ffdc00;
+		}
+	}
+	.summary{font-size:16px;line-height:24px;color:#666;margin-top:4px;}
+	.chart_wrap{position:relative;}
+	.character{
+		position:absolute;left:50%;top:50%;width:74px;height:110px;margin:-55px 0 0 -37px;background-repeat:no-repeat;background-position:center center;background-size:contain;z-index:1;
+		&.type1{background-image: url('~@/assets/images/IN/char_ty1.png');}
+		&.type2{background-image: url('~@/assets/images/IN/char_ty2.png');}
+		&.type3{background-image: url('~@/assets/images/IN/char_ty3.png');}
+		&.type4{background-image: url('~@/assets/images/IN/char_ty4.png');}
+		&.type5{background-image: url('~@/assets/images/IN/char_ty5.png');}
+	}
+	.chart_legend{
+		ul{
+			display:flex;flex-wrap:wrap;
+			li{
+				width:50%;padding:4px 16px;display:flex;align-items:center;justify-content:space-between;font-size:15px;line-height:22px;;
+				&:nth-child(odd){padding-left:0;}
+				&:nth-child(even){margin-right:0;}
+			}
+		}
+		.th{
+			display:flex;align-items:center;
+			.dot{display:block;width:8px;height:8px;border-radius:50px;background:#f1f1f1;margin-right:8px;}
+		}
+	}
 }
