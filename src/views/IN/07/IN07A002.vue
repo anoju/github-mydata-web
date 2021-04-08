@@ -137,7 +137,7 @@
           <div class="txt_list2 flex justify_center mg_t4">
             <div class="dot">포트폴리오 변경은 주 1회만 가능합니다.</div>
           </div>
-          <div class=" mg_t16">
+          <div class="mg_t16">
             <kb-button yellow class="w_200">자산비중 바꾸기</kb-button>
           </div>
         </div>

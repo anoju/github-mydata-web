@@ -13,6 +13,6 @@
 </template>
 <script>
 export default {
-  name: 'IN07A003_tip1',
+  name: 'IN07A003_tip2',
 };
 </script>

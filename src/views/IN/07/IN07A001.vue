@@ -391,7 +391,7 @@
         <div class="t_center mg_t32">
           <div>할까말까 망설여 질땐, <br>
             가볍게 가상투자 G0!</div>
-          <div class=" mg_t16">
+          <div class="mg_t16">
             <kb-button yellow class="w_200">가상투자 시작하기</kb-button>
           </div>
         </div>
