@@ -245,7 +245,7 @@
           </ul>
         </div>
         <div class="t_center mg_t42">
-          <kb-button yellow class="w_200">자산 비중 바꾸기</kb-button>
+          <kb-button yellow class="w_200">자산비중 바꾸기</kb-button>
         </div>
       </div>
     </kb-pop-body>

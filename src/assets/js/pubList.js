@@ -80,6 +80,9 @@ export default [
     pageID: 'IN07A003', type: 'pop', depth1: '가상투자', depth2: '자산비중변경', depth3: null, depth4: null, etc: null, complete: '', change: null,
   },
   {
+    pageID: 'IN07A004', type: 'pop', depth1: '가상투자', depth2: '유형별 포트폴리오', depth3: null, depth4: null, etc: null, complete: '', change: null,
+  },
+  {
     pageID: 'IN07A005', type: 'sub', depth1: '가상투자', depth2: '자산 비중 변경', depth3: '로딩중', depth4: null, etc: null, complete: '', change: null,
   },
   {
