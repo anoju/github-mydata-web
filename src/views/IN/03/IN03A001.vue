@@ -1011,24 +1011,32 @@
         <!-- 상품 추천 -->
         <ul class="product_list">
           <li>
-            <kb-button not a-tag>
-              <span class="stit">손해를 만회할 수 있는 극약처방!</span>
-              <p class="tit">한국판 뉴딜 관련 수혜주를 중심으로 한 그린뉴딜 테마형</p>
-              <div class="return">
-                <span>3개월 수익률</span>
-                <strong class="fc_up">21.02%</strong>
-              </div>
-            </kb-button>
+            <div class="top">
+              <kb-button not a-tag>
+                <span class="stit">손해를 만회할 수 있는 극약처방!</span>
+                <p class="tit">한국판 뉴딜 관련 수혜주를 중심으로 한 그린뉴딜 테마형</p>
+              </kb-button>
+              <!-- 활성화 시 on 클래스 적용 -->
+              <kb-button button not class="ico_like">즐겨찾기</kb-button>
+            </div>
+            <div class="return">
+              <span>3개월 수익률</span>
+              <strong class="fc_up">21.02%</strong>
+            </div>
           </li>
           <li>
-            <kb-button not a-tag>
-              <span class="stit">손해를 만회할 수 있는 극약처방!</span>
-              <p class="tit">한국판 뉴딜 관련 수혜주를 중심으로 한 그린뉴딜 테마형</p>
-              <div class="return">
-                <span>3개월 수익률</span>
-                <strong class="fc_up">21.02%</strong>
-              </div>
-            </kb-button>
+            <div class="top">
+              <kb-button not a-tag>
+                <span class="stit">손해를 만회할 수 있는 극약처방!</span>
+                <p class="tit">한국판 뉴딜 관련 수혜주를 중심으로 한 그린뉴딜 테마형</p>
+              </kb-button>
+              <!-- 활성화 시 on 클래스 적용 -->
+              <kb-button button not class="ico_like on">즐겨찾기</kb-button>
+            </div>
+            <div class="return">
+              <span>3개월 수익률</span>
+              <strong class="fc_up">21.02%</strong>
+            </div>
           </li>
         </ul>
         <!-- //상품 추천 -->
