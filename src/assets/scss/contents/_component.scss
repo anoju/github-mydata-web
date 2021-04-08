@@ -243,7 +243,7 @@ div[class*=tit_h]{
 
 /* icon in button */
 .tooltip_btn{
-	display:inline-block;width:16px;height:16px;vertical-align:middle;font-size:0;color:transparent;overflow:hidden;
+	display:inline-block;width:16px !important;height:16px;vertical-align:middle;font-size:0;color:transparent;overflow:hidden;
 	background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg%3E%3Cg transform='translate(-239 -127) translate(239 127)'%3E%3Ccircle cx='8' cy='8' r='7.25' stroke='%236F7A94' stroke-width='1.5'/%3E%3Cpath fill='%23FFF' d='M8 5.5c.551 0 1-.45 1-1 0-.552-.449-1-1-1-.554 0-1 .448-1 1 0 .55.446 1 1 1z' transform='rotate(-180 8 4.5)'/%3E%3Cpath stroke='%23FFF' stroke-width='1.5' d='M7.958 13L7.958 7'/%3E%3Cpath fill='%236F7A94' d='M8 5.5c.551 0 1-.45 1-1 0-.552-.449-1-1-1-.554 0-1 .448-1 1 0 .55.446 1 1 1z' transform='rotate(-180 8 4.5)'/%3E%3Cpath stroke='%236F7A94' stroke-width='1.5' d='M7.958 13L7.958 7'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A") no-repeat center center;
 	background-size:100% 100%;
 }

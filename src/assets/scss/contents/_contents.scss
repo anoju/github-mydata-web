@@ -394,3 +394,21 @@ span.gd__box{
 		}
 	}
 }
+.chart_legend_list{
+	li+li{margin-top:24px;}
+	.flex{
+		justify-content:space-between;line-height:22px;align-items:center;
+		>*{width:auto;}
+	}
+		
+	.th{
+		display:flex;align-items:center;font-size:15px;
+		.dot{display:block;width:8px;height:8px;border-radius:50px;background:#f1f1f1;margin-right:8px;}
+	}
+	.td{
+		font-size:14px;color:#555;
+		strong{font-size:16px;color:#5177bc;}
+	}
+	.kb_slider{margin-top:2px;}
+	.tooltip_btn{margin-left:5px;}
+}
