@@ -1012,19 +1012,22 @@
   }
 
   .kblog_box { padding:32px 0;
-    .section_scroll { display:flex; overflow-x:auto; margin:12px -20px 0;
-      .list { position:relative; flex:0 0 auto; width:220px; height:128px; padding:24px 16px; border-radius:6px; margin-right:8px; background:#f8f8f8;
-        .tit { overflow:hidden; height:48px; font-size:16px; font-weight:bold; color:#333; line-height:1.5;}
-        .date { margin-top:16px; font-size:12px; color:#666;}
-        .category { position:absolute; bottom:26px; left:70px; right:16px; text-align:right; font-size:12px; color:#6f7a94; line-height:1.33;}
-
-        &:first-child { margin-left:20px;}
-      }
-      &:after { content:''; display:block; flex:0 0 auto; width:12px; background:#fff;}
-    }
+    
   }
 
   .other_info_box { margin:0 -20px; border-top:1px solid #ddd; padding:26px 20px 22px; background:#f8f8f8;
     h3 { margin-bottom:12px; font-size:16px; font-weight:bold; line-height:1.5;}
   }
+}
+.section_scroll { display:flex; overflow-x:auto; margin:12px -20px 0;
+  .list { 
+    position:relative; flex:0 0 auto; width:220px; height:128px; padding:24px 16px; border-radius:6px; margin-right:8px; background:#f8f8f8;
+    &.ty2{height:140px;padding:20px 14px 16px;border:1px solid #eee;}
+    .tit { overflow:hidden; height:48px; font-size:16px; font-weight:bold; color:#333; line-height:1.5;}
+    .date { margin-top:16px; font-size:12px; color:#666;}
+    .category { position:absolute; bottom:26px; left:70px; right:16px; text-align:right; font-size:12px; color:#6f7a94; line-height:1.33;}
+
+    &:first-child { margin-left:20px;}
+  }
+  &:after { content:''; display:block; flex:0 0 auto; width:12px; background:#fff;}
 }

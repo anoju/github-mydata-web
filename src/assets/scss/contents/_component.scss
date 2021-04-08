@@ -29,7 +29,14 @@ component
 }
 .align_center{align-items:center;}
 .align_end{align-items:flex-end;}
-.space_around{justify-content:space-around;}
+.justify_center{
+	justify-content:center;
+	>*{width:auto;}
+}
+.space_around{
+	justify-content:space-around;
+	>*{width:auto;}
+}
 .space_between{
 	justify-content:space-between;
 	>*{width:auto;}
