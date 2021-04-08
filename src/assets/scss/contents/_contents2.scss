@@ -279,14 +279,19 @@
     .tit{font-size:18px;color: #666;line-height:26px;}
   }
   .product_list{
-    li{
+    li{      
       &+li{border-top:1px solid #ebebeb;}
-      >a{display:block;padding:32px 0 24px;}
+      .top{display:flex;
+        >a{display:block;padding:32px 0 24px;flex:1;}
+      }      
       .stit{font-size:14px;font-weight:bold;color:#5177bc;line-height:1.43;}
       .tit{margin-top:4px;font-size:18px;font-weight:bold;color:#222;line-height:1.44;}
       .return{margin-top:8px;text-align:right;
         span{font-size:12px;color:#666;line-height:1.33;}
         strong{margin-left:8px;font-size:24px;line-height:1.42;}
+      }
+      .ico_like { width:24px; height:24px; margin-top:32px; font-size:0; background:url('~@/assets/images/common/ico_like.png') no-repeat 0 0 / 24px;
+        &.on { background-position: 0 -24px;}
       }
     }
   }
