@@ -29,7 +29,7 @@
           <kb-button
             yellow
           >
-            인증서 가져오기
+            카카오페이인증서 발급하기
           </kb-button>
         </kb-button-wrap>
       </div>
