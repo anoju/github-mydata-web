@@ -77,6 +77,14 @@
             <span>etc</span>
           </router-link>
         </div>
+        <div
+          class="tab"
+          role="presentation"
+        >
+          <router-link to="/guide/test">
+            <span>test</span>
+          </router-link>
+        </div>
       </kb-tabs-link>
     </kb-page-body>
   </kb-page>

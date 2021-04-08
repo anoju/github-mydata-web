@@ -1,6 +1,5 @@
 <template>
   <div class="section pd_bottom">
-    <kb-input type="date" placeholder="날짜 선택" />
     <h2 class="gd__h1">전체선택</h2>
     <div>
       <h3 class="gd__h2">기본</h3>

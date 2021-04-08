@@ -205,7 +205,7 @@
 
 <script>
 export default {
-  name: 'animate',
+  name: 'animateGuide',
   data() {
     return {
       activeClass: 'active',

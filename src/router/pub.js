@@ -20,6 +20,7 @@ export default [
       { path: 'swiper', component: () => import('@/views/guide/swiper.vue') },
       { path: 'animate', component: () => import('@/views/guide/animate.vue') },
       { path: 'etc', component: () => import('@/views/guide/etc.vue') },
+      { path: 'test', component: () => import('@/views/guide/test.vue') },
     ],
   },
   {
