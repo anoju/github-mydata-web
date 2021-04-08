@@ -1620,6 +1620,11 @@ html:not(.ios):not(.safari) .form_item .fm_lb>.tooltip_btn{vertical-align:-3px;}
 	p strong { flex: 0 0 auto; width:120px; font-size:14px;}
 	p + p { margin-top:5px; padding-top:5px; border-top:1px dashed #ddd;}
 }
+.gray_box2 { padding:24px 16px; border:1px solid #eee; border-radius:6px; background:#f8f8f8;
+	> .sub_tit { font-size:14px; color:#5177bc; font-weight:bold; line-height:1.43;}
+	> .tit { line-height:1.5; font-size:16px; font-weight:bold;}
+	& + .gray_box2 { margin-top:8px;}
+}
 
 
 /* util */
@@ -1699,3 +1704,6 @@ html:not(.ios):not(.safari) .form_item .fm_lb>.tooltip_btn{vertical-align:-3px;}
 		background-image: linear-gradient(146deg, #fff 7%, #f8f8f8 94%);
 	}
 }
+
+/* ico_group */
+.ico_small { display:inline-block; width:32px; height:32px; vertical-align: middle; background:url('~@/assets/images/IN/04/ico_smile.png') no-repeat center center / 100%;}
