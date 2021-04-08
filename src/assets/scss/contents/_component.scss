@@ -27,6 +27,13 @@ component
 		&.unit{display:inline-flex;width:auto;align-items:center;padding:0 4px;}
 	}
 }
+.align_center{align-items:center;}
+.align_end{align-items:flex-end;}
+.space_around{justify-content:space-around;}
+.space_between{
+	justify-content:space-between;
+	>*{width:auto;}
+}
 .tbl{
 	display:table;width:100%;
 	.th,
@@ -823,7 +830,8 @@ html:not(.mobile){
 	}
 	
 	&.small{
-		padding-left:0;margin-left:-2px;margin-right:-2px;
+		padding-left:0;margin-right:0;
+		&:not(.auto){margin-left:-2px;margin-right:-2px;}
 		.checkbox,
 		.radio{
 			&.btn{
@@ -845,6 +853,14 @@ html:not(.mobile){
 			& > label:first-child,
 			& > div:first-child { margin-left:18px;}
 			&:after { content:''; flex:0 0 auto; display:block; width:18px; background:transparent;}
+		}
+	}
+
+	&.auto{
+		display:inline-block;
+		.btn_toggle_row{
+			width:auto;display:inline-flex;
+			> div{flex:1 1 auto;}
 		}
 	}
 

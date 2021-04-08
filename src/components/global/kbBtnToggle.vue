@@ -12,6 +12,7 @@ export default {
   name: 'kbBtnToggle',
   props: {
     small: { type: Boolean, default: false },
+    auto: { type: Boolean, default: false },
     inline: { type: Boolean, default: false },
     dateType: { type: Boolean, default: false },
   },
@@ -27,6 +28,7 @@ export default {
         {
           small: this.small,
           inline: this.inline,
+          auto: this.auto,
           dateType: this.dateType,
         },
       ];

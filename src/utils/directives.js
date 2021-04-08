@@ -85,6 +85,7 @@ export default {
           const elBottom = elTop + elHeight - margin;
           if ((wrapTop < elBottom) && (elTop < wrapBottom)) {
             wrap.removeEventListener('scroll', inSclEvt);
+            console.log(typeof binding.value);
             if (typeof binding.value === 'function') {
               binding.value(el, evt);
             } else if (typeof binding.value === 'string') {

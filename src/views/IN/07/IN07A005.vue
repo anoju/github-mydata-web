@@ -1,57 +1,23 @@
 <template>
   <kb-page page-title="가상투자">
     <kb-page-body>
-      <div class="section portfolio_wrap">
-        <div class="user_info">
-          <div class="fc_666 fz_12">20/10/19 기준</div>
-          <kb-title-bar h2 class="mg_t8">
-            <template slot="left">
-              <h1 class="tit">
-                김스타님 진단대상 자산은<br>
-                <strong>523,456,000</strong>원 증가했어요.
-              </h1>
-            </template>
-          </kb-title-bar>
-          <div class="invest_dl mg_t24">
-            <dl>
-              <dt>평가금액</dt>
-              <dd>
-                <strong>1,230,000,000원</strong>
-              </dd>
-            </dl>
+      <div class="section">
+        <div class="ticket_money">
+          <div class="inner">
+            <div class="box">
+              <div class="info">김스타님의 가상 투자자금</div>
+              <div class="money">
+                <div class="word">일천만원</div>
+                <div class="num">10,000,000원</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="flex space_between align_end mg_t24">
-          <div>
-            <kb-select
-              v-model="selectVal1"
-              :options="selectOpt1"
-              inline
-            />
-          </div>
-          <div>
-            <kb-btn-toggle small auto>
-              <kb-btn-toggle-row>
-                <kb-radio
-                  v-model="toggleVal1"
-                  button
-                  value="1"
-                >
-                  6개월
-                </kb-radio>
-                <kb-radio
-                  v-model="toggleVal1"
-                  button
-                  value="2"
-                >
-                  1년
-                </kb-radio>
-              </kb-btn-toggle-row>
-            </kb-btn-toggle>
-          </div>
-        </div>
-        <div class="chart_area mg_t16">
-          <img src="@/assets/images/temp/chart2.png" alt="" class="wp_100">
+        <kb-title-bar h4 center tit-class="firecracker" class="mg_t12" title="축하합니다!" />
+
+        <div class="fz_14 fc_666 t_center mg_t8">
+          가상 투자 진행을 위한 자금을 획득하셨어요!<br>
+          본격적인 투자를 위해 포트폴리오를 골라볼까요?
         </div>
         <hr class="hr_line mg_t24" aria-hidden="true">
         <!--
@@ -435,15 +401,9 @@
 </template>
 <script>
 export default {
-  name: 'IN07A001',
+  name: 'IN07A005',
   data() {
     return {
-      selectVal1: '1',
-      selectOpt1: [
-        { text: '수익금액', value: '1' },
-        { text: '수익률', value: '2' },
-      ],
-      toggleVal1: '1',
     };
   },
   methods: {
