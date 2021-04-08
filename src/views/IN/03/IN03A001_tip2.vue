@@ -4,7 +4,7 @@
   >
     <kb-pop-body>
       <div class="section breakall">
-        KB증권에서 고객님의 포트폴리오에 1년 전망치를 대입시켜 산출합니다.
+        고객님의 투자성향과 동일한 KB증권의 모델포트폴리오와 비교하여 기대수익률, 변동성, 분산정도를 표현한 것입니다.
       </div>
     </kb-pop-body>
   </kb-pop>

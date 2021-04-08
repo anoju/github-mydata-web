@@ -39,7 +39,7 @@
 
             <div class="bar">
               <!-- 그래프는 %로 조절 -->
-              <span ref="barMotion" v-scroll-in="sliderMotion">현재가 00원</span>
+              <span v-scroll-in="sliderMotion">현재가 00원</span>
             </div>
           </div>
 
@@ -1158,7 +1158,7 @@ export default {
     return {
       keywords: ['분산투자고수 관심주', '리서치 추천', '매도상위 2위', 'Day-Trader 매수(매도)2위 텍스트 길어', '운 좋은 사람 선택 종목', '5개 이상일때 나오는 키워드'],
       keywordShowCheck: false,
-      testShow: true,
+      barWidth: '50%', // 그래프 위치값
     };
   },
   methods: {
@@ -1179,12 +1179,13 @@ export default {
     sliderMotion(el) {
       const $el = el;
       console.log($el);
-      console.log(this.$refs.barMotion);
       this.$anime({
         targets: $el,
-        opacity: 0,
-        duration: 3000,
-        translateX: 50,
+        opacity: [
+          { value: [0, 1], duration: 800 },
+        ],
+        duration: 1000,
+        left: [0, this.barWidth],
         easing: 'easeInOutQuad',
         complete: (() => {
         }),

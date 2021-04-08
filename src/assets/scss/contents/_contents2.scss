@@ -286,7 +286,7 @@
       }      
       .stit{font-size:14px;font-weight:bold;color:#5177bc;line-height:1.43;}
       .tit{margin-top:4px;font-size:18px;font-weight:bold;color:#222;line-height:1.44;}
-      .return{margin-top:8px;text-align:right;
+      .return{margin-top:8px;text-align:right; padding-bottom:24px;
         span{font-size:12px;color:#666;line-height:1.33;}
         strong{margin-left:8px;font-size:24px;line-height:1.42;}
       }
@@ -844,7 +844,7 @@
     .product_list { margin:12px 0 32px;
       ul { display:flex; justify-content: center;}
       li { flex:1 1 auto; max-width:120px; height:100px; border:1px solid #f8f8f8;
-        & + li { margin-left:8px;}
+        & + li { margin-left:8px;}f
         img { height:100%;}
       }
     }
