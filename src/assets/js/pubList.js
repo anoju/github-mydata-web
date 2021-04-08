@@ -71,10 +71,13 @@ export default [
     pageID: 'IN06A002', type: 'sub', depth1: '투자생활', depth2: '고수의 PICK', depth3: '상세', depth4: null, etc: null, complete: '2021-03-30', change: null,
   },
   {
-    pageID: 'IN07A005', type: 'sub', depth1: '가상투자', depth2: '시작하기', depth3: null, depth4: null, etc: null, complete: '', change: null,
+    pageID: 'IN07A001', type: 'sub', depth1: '가상투자', depth2: '시작하기', depth3: null, depth4: null, etc: null, complete: '', change: null,
   },
   {
-    pageID: 'IN07A001', type: 'sub', depth1: '가상투자', depth2: '메인', depth3: null, depth4: null, etc: null, complete: '', change: null,
+    pageID: 'IN07A002', type: 'sub', depth1: '가상투자', depth2: '메인', depth3: null, depth4: null, etc: null, complete: '', change: null,
+  },
+  {
+    pageID: 'IN07A003', type: 'pop', depth1: '가상투자', depth2: '자산비중변경', depth3: null, depth4: null, etc: null, complete: '', change: null,
   },
   {
     pageID: 'IN10A000', type: 'sub', depth1: '투자상상퀴즈', depth2: '미완(정책적으로 확인필요 - 기획)', depth3: null, depth4: null, etc: '정답, 오답 포함', complete: '', change: null,

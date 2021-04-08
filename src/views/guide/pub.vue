@@ -34,7 +34,7 @@
                 </template>
                 <template v-else>
                   <td>
-                    <router-link v-if="item.type === 'main'" to="TO/00">
+                    <router-link v-if="item.type === 'main'" to="TO/00" target="_blank">
                       {{ item.pageID }}
                     </router-link>
                     <router-link
@@ -43,6 +43,7 @@
                         2,
                         2
                       )}/${item.pageID}`"
+                      target="_blank"
                     >
                       {{ item.pageID }}
                     </router-link>

@@ -41,8 +41,8 @@ export default [
           render(c) { return c('router-view'); },
         },
         children: [
-          { path: 'IN07A005', component: () => import('@/views/IN/07/IN07A005.vue') }, // 가상투자 시작하기
-          { path: 'IN07A001', component: () => import('@/views/IN/07/IN07A001.vue') }, // 가상투자 메인
+          { path: 'IN07A001', component: () => import('@/views/IN/07/IN07A001.vue') }, // 가상투자 시작하기
+          { path: 'IN07A002', component: () => import('@/views/IN/07/IN07A002.vue') }, // 가상투자 메인
         ],
       },
       {
