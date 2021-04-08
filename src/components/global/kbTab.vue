@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="!linkTo"
+    v-if="!linkTo && !!$slots.default"
     :id="href"
     ref="tabpanel"
     role="tabpanel"
@@ -41,8 +41,9 @@ export default {
       let rtnVal = null;
       if (this.linkTo !== null) {
         rtnVal = `${this.linkTo}`;
+      } else if (this.$slots.default === undefined) {
+        rtnVal = '';
       } else {
-        // rtnVal = `#${this.title.toLowerCase().replace(/ /g, '-')}`
         rtnVal = `tab_panel_${this.uuid}`;
       }
       return rtnVal;
@@ -50,7 +51,11 @@ export default {
     btnId() {
       let rtnVal = null;
       if (this.linkTo === null) {
-        rtnVal = `tab_btn_${this.uuid}`;
+        if (this.$slots.default === undefined) {
+          rtnVal = null;
+        } else {
+          rtnVal = `tab_btn_${this.uuid}`;
+        }
       }
       return rtnVal;
     },
@@ -61,7 +66,7 @@ export default {
   },
   mounted() {
     this.isActive = this.active;
-    this.getHeight();
+    if (this.$slots.default !== undefined) this.getHeight();
   },
   methods: {
     getHeight() {

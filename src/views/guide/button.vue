@@ -828,150 +828,207 @@
       </kb-tabs>
     </div>
     <h3 class="gd__h2">4뎁스 탭: tabmenu2</h3>
+    <div>
+      <kb-tabs type2>
+        <kb-tab
+          title="탭메뉴1"
+          active
+        >
+          <h1>탭메뉴1탭메뉴1</h1>
+          내용1 <br>
+          내용1 <br>
+          내용1
+        </kb-tab>
+        <kb-tab
+          title="탭메뉴2"
+        >
+          <h1>탭메뉴2탭메뉴2</h1>
+          내용2 <br>
+          내용2 <br>
+          내용2
+        </kb-tab>
+        <kb-tab
+          title="탭메뉴3"
+        >
+          <h1>탭메뉴3탭메뉴3</h1>
+          내용3 <br>
+          내용3 <br>
+          내용3
+        </kb-tab>
+      </kb-tabs>
 
-    <kb-tabs type2>
-      <kb-tab
-        title="탭메뉴1"
-        active
+      <kb-tabs
+        type2
+        fixed
       >
-        <h1>탭메뉴1탭메뉴1</h1>
-        내용1 <br>
-        내용1 <br>
-        내용1
-      </kb-tab>
-      <kb-tab
-        title="탭메뉴2"
-      >
-        <h1>탭메뉴2탭메뉴2</h1>
-        내용2 <br>
-        내용2 <br>
-        내용2
-      </kb-tab>
-      <kb-tab
-        title="탭메뉴3"
-      >
-        <h1>탭메뉴3탭메뉴3</h1>
-        내용3 <br>
-        내용3 <br>
-        내용3
-      </kb-tab>
-    </kb-tabs>
+        <kb-tab
+          title="탭메뉴1탭메뉴1"
+          active
+        >
+          <h1>탭메뉴1탭메뉴1</h1>
+          내용1 <br>
+          내용1 <br>
+          내용1
+        </kb-tab>
+        <kb-tab
+          title="탭메뉴2탭메뉴2"
+        >
+          <h1>탭메뉴2탭메뉴2</h1>
+          내용2 <br>
+          내용2 <br>
+          내용2
+        </kb-tab>
+        <kb-tab
+          title="탭메뉴3탭메뉴3"
+        >
+          <h1>탭메뉴3탭메뉴3</h1>
+          내용3 <br>
+          내용3 <br>
+          내용3
+        </kb-tab>
+        <kb-tab
+          title="탭메뉴4탭메뉴4"
+        >
+          <h1>탭메뉴4탭메뉴4</h1>
+          내용4 <br>
+          내용4 <br>
+          내용4
+        </kb-tab>
+        <kb-tab
+          title="탭메뉴5탭메뉴5"
+        >
+          <h1>탭메뉴5탭메뉴5</h1>
+          내용5 <br>
+          내용5 <br>
+          내용5
+        </kb-tab>
+        <kb-tab
+          title="탭메뉴6탭메뉴6"
+        >
+          <h1>탭메뉴6탭메뉴6</h1>
+          내용6 <br>
+          내용6 <br>
+          내용6
+        </kb-tab>
+      </kb-tabs>
+    </div>
 
-    <kb-tabs
-      type2
-      fixed
-    >
-      <kb-tab
-        title="탭메뉴1탭메뉴1"
-        active
+    <h3 class="gd__h2">tabmenu3</h3>
+    <div>
+      <kb-tabs type3>
+        <kb-tab
+          title="탭메뉴1탭메뉴1"
+          active
+        >
+          <h1>탭메뉴1탭메뉴1</h1>
+          내용1 <br>
+          내용1 <br>
+          내용1
+        </kb-tab>
+        <kb-tab
+          title="탭메뉴2탭메뉴2"
+        >
+          <h1>탭메뉴2탭메뉴2</h1>
+          내용2 <br>
+          내용2 <br>
+          내용2
+        </kb-tab>
+        <kb-tab
+          title="탭메뉴3탭메뉴3"
+        >
+          <h1>탭메뉴3탭메뉴3</h1>
+          내용3 <br>
+          내용3 <br>
+          내용3
+        </kb-tab>
+        <kb-tab
+          title="탭메뉴4탭메뉴4"
+        >
+          <h1>탭메뉴4탭메뉴4</h1>
+          내용4 <br>
+          내용4 <br>
+          내용4
+        </kb-tab>
+        <kb-tab
+          title="탭메뉴5탭메뉴5"
+        >
+          <h1>탭메뉴5탭메뉴5</h1>
+          내용5 <br>
+          내용5 <br>
+          내용5
+        </kb-tab>
+        <kb-tab
+          title="탭메뉴6탭메뉴6"
+        >
+          <h1>탭메뉴6탭메뉴6</h1>
+          내용6 <br>
+          내용6 <br>
+          내용6
+        </kb-tab>
+      </kb-tabs>
+    </div>
+    <h3 class="gd__h2">버튼만 있는 탭</h3>
+    <div>
+      <kb-tabs
+        type2
+        :idx="1"
       >
-        <h1>탭메뉴1탭메뉴1</h1>
-        내용1 <br>
-        내용1 <br>
-        내용1
-      </kb-tab>
-      <kb-tab
-        title="탭메뉴2탭메뉴2"
+        <kb-tab
+          title="버튼만1"
+        />
+        <kb-tab
+          title="버튼만2"
+        />
+        <kb-tab
+          title="버튼만3"
+        />
+      </kb-tabs>
+      <kb-tabs
+        type3
+        :idx="tabIdx"
       >
-        <h1>탭메뉴2탭메뉴2</h1>
-        내용2 <br>
-        내용2 <br>
-        내용2
-      </kb-tab>
-      <kb-tab
-        title="탭메뉴3탭메뉴3"
-      >
-        <h1>탭메뉴3탭메뉴3</h1>
-        내용3 <br>
-        내용3 <br>
-        내용3
-      </kb-tab>
-      <kb-tab
-        title="탭메뉴4탭메뉴4"
-      >
-        <h1>탭메뉴4탭메뉴4</h1>
-        내용4 <br>
-        내용4 <br>
-        내용4
-      </kb-tab>
-      <kb-tab
-        title="탭메뉴5탭메뉴5"
-      >
-        <h1>탭메뉴5탭메뉴5</h1>
-        내용5 <br>
-        내용5 <br>
-        내용5
-      </kb-tab>
-      <kb-tab
-        title="탭메뉴6탭메뉴6"
-      >
-        <h1>탭메뉴6탭메뉴6</h1>
-        내용6 <br>
-        내용6 <br>
-        내용6
-      </kb-tab>
-    </kb-tabs>
+        <kb-tab
+          title="버튼만1"
+          @click="changIdx(0)"
+        />
+        <kb-tab
+          title="버튼만2"
+          @click="changIdx(1)"
+        />
+        <kb-tab
+          title="버튼만3"
+          @click="changIdx(2)"
+        />
+      </kb-tabs>
+      {{tabIdx}}
+    </div>
 
-    <h3 class="gd__h2">tabmenu3??</h3>
-    <kb-tabs type3>
-      <kb-tab
-        title="탭메뉴1탭메뉴1"
-        active
-      >
-        <h1>탭메뉴1탭메뉴1</h1>
-        내용1 <br>
-        내용1 <br>
-        내용1
-      </kb-tab>
-      <kb-tab
-        title="탭메뉴2탭메뉴2"
-      >
-        <h1>탭메뉴2탭메뉴2</h1>
-        내용2 <br>
-        내용2 <br>
-        내용2
-      </kb-tab>
-      <kb-tab
-        title="탭메뉴3탭메뉴3"
-      >
-        <h1>탭메뉴3탭메뉴3</h1>
-        내용3 <br>
-        내용3 <br>
-        내용3
-      </kb-tab>
-      <kb-tab
-        title="탭메뉴4탭메뉴4"
-      >
-        <h1>탭메뉴4탭메뉴4</h1>
-        내용4 <br>
-        내용4 <br>
-        내용4
-      </kb-tab>
-      <kb-tab
-        title="탭메뉴5탭메뉴5"
-      >
-        <h1>탭메뉴5탭메뉴5</h1>
-        내용5 <br>
-        내용5 <br>
-        내용5
-      </kb-tab>
-      <kb-tab
-        title="탭메뉴6탭메뉴6"
-      >
-        <h1>탭메뉴6탭메뉴6</h1>
-        내용6 <br>
-        내용6 <br>
-        내용6
-      </kb-tab>
-    </kb-tabs>
+    <h2 class="gd__h1">slider</h2>
+    <div>
+      <kb-slider
+        v-model="sliderVal"
+        :step="5"
+        :marks="[0, 25, 50, 75, 100]"
+      />
+      {{sliderVal}}
+    </div>
   </div>
 </template>
 <script>
 export default {
-  name: 'button',
+  name: 'buttonGuide',
+  data() {
+    return {
+      tabIdx: 0,
+      sliderVal: 20,
+    };
+  },
   methods: {
     tabClick() {
       console.log('탭메뉴 클릭!!!');
+    },
+    changIdx(i) {
+      this.tabIdx = i;
     },
   },
 };

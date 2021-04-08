@@ -47,6 +47,7 @@
       />
     </div>
     <div
+      v-show="isContents"
       class="tab_content"
       :class="[contentClass]"
     >
@@ -68,6 +69,7 @@ export default {
   },
   data() {
     return {
+      isContents: false,
       isFixed: false,
       tabs: [],
       currIdx: null,
@@ -112,9 +114,12 @@ export default {
     this.$nextTick(() => {
       window.dispatchEvent(new Event('resize'));
       if (this.tabs.length) {
+        this.contentsChk();
         if (this.currIdx !== null) this.tabs[this.currIdx].isActive = true;
-        const active = this.$el.querySelector('.tab.active');
-        if (active === null) this.tabs[0].isActive = true;
+        setTimeout(() => {
+          const active = this.$el.querySelector('.tab.active');
+          if (active === null) this.tabs[0].isActive = true;
+        }, 5);
       }
       setTimeout(() => {
         this.linePosition();
@@ -137,6 +142,11 @@ export default {
     window.removeEventListener('resize', this.linePosition);
   },
   methods: {
+    contentsChk() {
+      this.tabs.forEach((tab) => {
+        if (tab.href !== '') this.isContents = true;
+      });
+    },
     selectTab(selectTab, event) {
       event.preventDefault();
       this.tabs.forEach((tab, i) => {
