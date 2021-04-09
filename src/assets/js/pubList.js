@@ -356,10 +356,21 @@ export default [
     pageID: 'MY10B001', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동정보상세', depth4: null, etc: null, complete: '', change: null,
   },
   {
-    pageID: 'MY10A001', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동해지', depth4: '1개일때 스텝1', etc: null, complete: '', change: null,
+    pageID: 'MY10A001', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동해지', depth4: '스텝1: 1개일때', etc: null, complete: '', change: null,
   },
   {
-    pageID: 'MY10D002', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동해지', depth4: '1개일때 스텝2', etc: null, complete: '', change: null,
+    pageID: 'MY10D002', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동해지', depth4: '스텝2: 1개일때', etc: null, complete: '', change: null,
   },
-
+  {
+    pageID: 'MY10D005', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동해지', depth4: '스텝3', etc: null, complete: '', change: null,
+  },
+  {
+    pageID: 'MY10D006', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동해지완료: 1개일때', depth4: null, etc: null, complete: '', change: null,
+  },
+  {
+    pageID: 'MY10D007', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동해지완료: 여러개일때', depth4: null, etc: null, complete: '', change: null,
+  },
+  {
+    pageID: 'MY10D008', type: 'pop', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동해지완료: 여러개일때', depth4: '실패사유', etc: null, complete: '', change: null,
+  },
 ];

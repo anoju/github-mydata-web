@@ -37,7 +37,7 @@
           <kb-button
             line
           >
-            취소
+            이전
           </kb-button>
           <kb-button
             yellow

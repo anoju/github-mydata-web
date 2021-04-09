@@ -1026,9 +1026,14 @@ html:not(.mobile){
 /*txt_list*/
 .txt_list{
 	font-size:14px;color:#666;line-height:20px;
-	li, div, p{
+	li+li, div, p{
 		margin-top:5px;
 		&:first-child{margin-top:0;}
+	}
+	li{
+		ul, ol, li+li, div, p{
+			margin-top:4px;
+		}
 	}
 	.dot,
 	.dash{
