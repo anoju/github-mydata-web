@@ -547,6 +547,13 @@
     }
     .hidden { position:absolute; top:50%; right:0; font-size:16px; color:#666; line-height:1.5; transform: translateY(-50%);}
   }
+  &.box_type{
+    margin:0;padding:0;background:none;
+    li{
+      border:1px solid #ebebeb;border-radius:4px;padding:16px;
+      +li{margin-top:8px;}
+    }
+  }
 }
 .button{
   &.btn_add{width:100%;font-size:14px;color:#5177bc;line-height:1.43;

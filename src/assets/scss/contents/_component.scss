@@ -1705,5 +1705,24 @@ html:not(.ios):not(.safari) .form_item .fm_lb>.tooltip_btn{vertical-align:-3px;}
 	}
 }
 
+/*step*/
+.step_wrap{
+	text-align:center;padding:16px;
+	.step_state{
+			display:flex;align-items:center;justify-content:center;
+			li{
+					position:relative;width:24px;height:24px;line-height:20px;border-radius:50%;border:2px solid #ffdc00;;background:#fff;font-size:10px;color:#666;text-align:center;
+					&+li{
+						margin-left:37px;
+						&:before{content:'';width:21px;height:1px;position:absolute;left:-29px;top:50%;background-image:linear-gradient(90deg, #aaa, #aaa 25%, transparent 25%, transparent 100%);background-size: 5px 1px;}
+					}
+					&.on{
+							&~li{background:#ddd;border-color:#f8f8f8;}
+					}
+			}
+	}
+	.step_txt{margin-top:12px;font-size:12px;color:#666;line-height:16px;}
+}
+
 /* ico_group */
 .ico_small { display:inline-block; width:32px; height:32px; vertical-align: middle; background:url('~@/assets/images/IN/04/ico_smile.png') no-repeat center center / 100%;}
