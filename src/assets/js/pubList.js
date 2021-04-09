@@ -353,6 +353,12 @@ export default [
   },
 
   {
+    pageID: 'MY10A001', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동기관 목록', depth4: '', etc: null, complete: '', change: null,
+  },
+  {
+    pageID: 'MY10A002', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '기관 목록', depth4: '일괄 정보변경/해지', etc: null, complete: '', change: null,
+  },
+  {
     pageID: 'MY10B001', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동정보상세', depth4: null, etc: null, complete: '', change: null,
   },
   {

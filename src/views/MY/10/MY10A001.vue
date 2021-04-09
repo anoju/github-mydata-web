@@ -9,7 +9,7 @@
             <kb-button
               not
               class="tooltip_btn"
-              v-tooltip="'views/MY/09/MY09A001_1_tip1.vue'"
+              v-tooltip="'views/MY/10/MY10A001_tip1.vue'"
               aria-label="팝업으로 상세내용 확인"
             >팝업으로 상세내용 확인</kb-button>
           </h2>

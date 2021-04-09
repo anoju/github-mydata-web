@@ -537,6 +537,13 @@
       &:before { content:''; display:inline-block; width:16px; height:16px; margin-right:8px; margin-top:-2px; vertical-align: -4px; background:url('~@/assets/images/common/ico_error.png') no-repeat; background-size:100%;}
     }
     .checkbox.right { display:inline-flex; flex:0 0 auto; margin:0;}
+
+    dl.list { display:flex; align-items: center;
+      dt { font-size:12px; color:#666; line-height:1.33;}
+      dd { font-size:14px; color:#666; line-height:1.43; line-height:1.43; font-weight:bold;
+        span + span:before { content:','; display:inline-block; margin-right:3px;}
+      }
+    }
   }
   li.type2 { display:block; position:relative;
     .status { font-size:0;
