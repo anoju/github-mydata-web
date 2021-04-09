@@ -85,12 +85,13 @@ export default {
     large: { type: Boolean, default: false },
     small: { type: Boolean, default: false },
     h32: { type: Boolean, default: false },
+    h40: { type: Boolean, default: false },
     h28: { type: Boolean, default: false },
   },
   data() {
     return {
       colorType: ['yellow', 'blue', 'blue', 'red', 'green', 'purple', 'dark'],
-      sizeType: ['h32', 'h28', 'large', 'small'],
+      sizeType: ['h40', 'h32', 'h28', 'large', 'small'],
       isFocus: false,
       isClick: false,
       btnInW: 0,
@@ -131,6 +132,7 @@ export default {
       }
       if (this.large) return 'large';
       if (this.small) return 'small';
+      if (this.h40) return 'h40';
       if (this.h32) return 'h32';
       if (this.h28) return 'h28';
       return null;

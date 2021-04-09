@@ -1,12 +1,10 @@
 <template>
-  <kb-page page-title="KB증권 연동해지">
+  <kb-page page-title="KB증권 연동정보">
     <kb-page-body>
       <div class="section">
-        <kb-step :total="3" :now="1">정보 및 기간확인</kb-step>
+        <p class="mg_t12 fz_12 fc_666">정보연동 추가 및 삭제, 요청기간 변경 등을 하시려면 ‘전송요청변경’을 진행해 주세요.</p>
 
-        <p class="mg_t8 fz_12 fc_666">정보 연동해지를 하시면 더 이상 전송요청을 하지 않고 연동해지 전까지 요청 받은 정보로만 서비스 이용이 가능합니다.</p>
-
-        <kb-title-bar title="연동된 개인신용정보 및 기간" class="mg_t24" />
+        <kb-title-bar title="전송요청상세" class="mg_t24" />
         <div class="info_txt_box type2 mg_t12">
           <ul class="list">
             <li>
@@ -17,8 +15,26 @@
               </div>
             </li>
             <li>
+              <div class="th">연동주기</div>
+              <div class="td">
+                <div><strong>정기적 전송</strong></div>
+                <div><strong>매일 1회</strong></div>
+              </div>
+            </li>
+            <li>
               <div class="th">정보연동 요청기간</div>
               <div class="td"><strong>2021/01/12 ~ 2022/01/11</strong></div>
+            </li>
+            <li>
+              <div class="th">정보연동목적</div>
+              <div class="td">
+                <div><strong>통합자산조회</strong></div>
+                <div><strong>금융상품추천</strong></div>
+              </div>
+            </li>
+            <li>
+              <div class="th">정보 보유기간</div>
+              <div class="td"><strong>요청 시작일로부터 5년</strong></div>
             </li>
           </ul>
         </div>
@@ -48,17 +64,28 @@
             </div>
           </li>
         </ul>
+        <kb-button-wrap class="mg_t16">
+          <kb-button
+            line
+            blue
+            h40
+          >
+            연동해지
+          </kb-button>
+          <kb-button
+            line
+            blue
+            h40
+          >
+            전송요청변경
+          </kb-button>
+        </kb-button-wrap>
 
         <kb-button-wrap bottom-fixed>
           <kb-button
-            line
-          >
-            취소
-          </kb-button>
-          <kb-button
             yellow
           >
-            다음
+            확인
           </kb-button>
         </kb-button-wrap>
       </div>

@@ -23,6 +23,7 @@ export default [
         },
         children: [
           { path: 'MY10A001', component: () => import('@/views/MY/10/MY10A001.vue') }, // 연동정보관리 연동해지
+          { path: 'MY10B001', component: () => import('@/views/MY/10/MY10B001.vue') }, // 연동정보관리 연동정보상세
         ],
       },
     ],
