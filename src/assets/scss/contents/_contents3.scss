@@ -553,6 +553,7 @@
     li{
       border:1px solid #ebebeb;border-radius:4px;padding:16px;
       +li{margin-top:8px;}
+      .status span{font-weight:bold;}
     }
   }
 }

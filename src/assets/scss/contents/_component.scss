@@ -141,6 +141,7 @@ div[class*=tit_h]{
 	&.round{border-radius:30px !important;}
 
 	&.large{height:60px;}
+	&.h40{height:40px;font-size:14px;}
 	&.h32{height:32px;font-size:13px;}
 	&.h28{height:28px;font-size:12px;}
 
@@ -584,6 +585,7 @@ input[type="checkbox"]{margin:0;}
 		&:first-child{margin-right:24px;padding-right:9px;}
 		&+input+i{left:auto;right:0;}
 	}
+	.lbl_child{margin-top:8px;font-size:14px;color:#666;margin-left:34px;}
 
 	&.small{
 		min-width:20px;min-height:20px;
@@ -610,7 +612,7 @@ input[type="checkbox"]{margin:0;}
 			&+.lbl{padding:12px 20px 12px 45px;margin-left:0;}
 		}
 		&>.lbl{padding:12px 20px;margin-left:0;}
-		.lbl_child{display:block;padding:14px 0;margin:0 16px;border-top:1px solid #ccc;line-height:1.5;font-size:12px;color:#333;word-wrap:break-word;word-break:break-all;}
+		.lbl_child{padding:14px 0;margin:0 16px;border-top:1px solid #ccc;}
 
 		&+.box{margin-top:10px;}
 	}
@@ -1024,9 +1026,14 @@ html:not(.mobile){
 /*txt_list*/
 .txt_list{
 	font-size:14px;color:#666;line-height:20px;
-	li, div, p{
+	li+li, div, p{
 		margin-top:5px;
 		&:first-child{margin-top:0;}
+	}
+	li{
+		ul, ol, li+li, div, p{
+			margin-top:4px;
+		}
 	}
 	.dot,
 	.dash{
