@@ -398,6 +398,38 @@
         </ul>
       </div>
     </div>
+
+    <h2 class="gd__h1">info_txt_box</h2>
+    <div>
+      <div class="info_txt_box">
+        <ul class="list">
+          <li>
+            <div class="th">출금가능금액</div>
+            <div class="td"><strong>1,200,000원</strong></div>
+          </li>
+          <li>
+            <div class="th">이체금액</div>
+            <div class="td"><strong>300,000,000원</strong></div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <div class="info_txt_box type2">
+        <ul class="list">
+          <li>
+            <div class="th">연동정보</div>
+            <div class="td">
+              <div><strong>계좌정보</strong></div>
+              <div><strong>개인형 IRP정보</strong></div>
+            </div>
+          </li>
+          <li>
+            <div class="th">이체금액</div>
+            <div class="td"><strong>2021/01/12 ~ 2022/01/11</strong></div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 <script>
