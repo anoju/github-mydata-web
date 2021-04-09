@@ -356,7 +356,10 @@ export default [
     pageID: 'MY10B001', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동정보상세', depth4: null, etc: null, complete: '', change: null,
   },
   {
-    pageID: 'MY10A001', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동해지', depth4: '스텝1: 1개일때', etc: null, complete: '', change: null,
+    pageID: 'MY10C001', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '전송요구 변경완료', depth4: null, etc: null, complete: '', change: null,
+  },
+  {
+    pageID: 'MY10D001', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동해지', depth4: '스텝1: 1개일때', etc: null, complete: '', change: null,
   },
   {
     pageID: 'MY10D002', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동해지', depth4: '스텝2: 1개일때', etc: null, complete: '', change: null,
