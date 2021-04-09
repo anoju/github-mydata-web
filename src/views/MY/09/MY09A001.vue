@@ -10,10 +10,75 @@
         </div>
 
         <div class="setting_view_box" ref="slideBox">
-          내용내용내용
+          <h3>상태</h3>
+          <div class="box">
+            <kb-checkbox
+              v-model="checkVal1"
+              value="1"
+              small
+            >
+              전체
+            </kb-checkbox>
+            <kb-checkbox
+              v-model="checkVal1"
+              value="2"
+              small
+            >
+              비활동
+            </kb-checkbox>
+            <kb-checkbox
+              v-model="checkVal1"
+              value="3"
+              small
+            >
+              폐쇄
+            </kb-checkbox>
+            <kb-checkbox
+              v-model="checkVal1"
+              value="4"
+              small
+            >
+              실효
+            </kb-checkbox>
+            <kb-checkbox
+              v-model="checkVal1"
+              value="5"
+              small
+            >
+              소멸
+            </kb-checkbox>
+            <kb-checkbox
+              v-model="checkVal1"
+              value="6"
+              small
+            >
+              연체정지
+            </kb-checkbox>
+            <kb-checkbox
+              v-model="checkVal1"
+              value="7"
+              small
+            >
+              고객정지
+            </kb-checkbox>
+          </div>
+          <h3>잔액</h3>
+          <kb-input
+            v-model="inpVal1"
+            placeholder="금액입력"
+            input-class="t_right"
+            unit="원 미만"
+            title="잔액"
+          />
+
+          <ul class="txt_list2">
+            <li class="dot">선택한 조건의 계좌/정보는 전체 서비스 화면에서 숨김</li>
+          </ul>
+
+          <kb-button line blue class="full">적용하기</kb-button>
         </div>
 
-        <kb-foldings type1 not-toggle class="acc_info_list mg_t24" first-open>
+        <kb-foldings type1 not-toggle class="acc_info_list mg_t0" first-open>
           <kb-folding>
             <template slot="title">
               <div class="acc_info_head">
@@ -118,6 +183,8 @@ export default {
   data() {
     return {
       slideCheck: false,
+      inpVal1: '',
+      checkVal1: [],
     };
   },
   methods: {

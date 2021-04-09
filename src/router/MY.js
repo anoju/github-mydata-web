@@ -13,7 +13,8 @@ export default [
           render(c) { return c('router-view'); },
         },
         children: [
-          { path: 'MY09A001', component: () => import('@/views/MY/09/MY09A001.vue') }, // 환경설정
+          { path: 'MY09A001', component: () => import('@/views/MY/09/MY09A001.vue') }, // 연동기관
+          { path: 'MY09A001_1', component: () => import('@/views/MY/09/MY09A001_1.vue') }, // 연동기관 목록
         ],
       },
       {
