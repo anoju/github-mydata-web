@@ -536,6 +536,7 @@
     .error{width:100%;margin-top:6px;padding-left:24px;text-indent:-24px;font-size:12px;font-weight:bold;color:#de092f;
       &:before { content:''; display:inline-block; width:16px; height:16px; margin-right:8px; margin-top:-2px; vertical-align: -4px; background:url('~@/assets/images/common/ico_error.png') no-repeat; background-size:100%;}
     }
+    .checkbox.right { display:inline-flex; flex:0 0 auto; margin:0;}
   }
   li.type2 { display:block; position:relative;
     .status { font-size:0;

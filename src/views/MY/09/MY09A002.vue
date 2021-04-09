@@ -5,19 +5,14 @@
         <p class="mg_t12 fz_14 fc_666">개인신용정보 연동 자산 및 정보의 전송요철변경 및 연동해지를 하실 수 있습니다.</p>
 
         <div class="setting_info">
-          <h2>연동자산/정보
-            <kb-button
-              not
-              class="tooltip_btn"
-              v-tooltip="'views/MY/09/MY09A001_1_tip1.vue'"
-              aria-label="팝업으로 상세내용 확인"
-            >팝업으로 상세내용 확인</kb-button>
-          </h2>
+          <p class="tit">
+            선택된 기관 <span>23</span>개
+          </p>
 
           <div class="right">
-            <kb-button to="#" link blue>
-              일괄 정보변경/해지<i class="bt_ic_arr" aria-hidden="true" />
-            </kb-button>
+            <kb-checkbox class="checkbox_all" small>
+              전체해제
+            </kb-checkbox>
           </div>
         </div>
 
@@ -35,41 +30,40 @@
                   <li>
                     <div>
                       <span>우리은행</span>
-                      <p class="acc_num">123-124234-12 02</p>
                     </div>
-                    <kb-button to="#">
-                      재연동<i class="bt_ic_arr" aria-hidden="true" />
-                    </kb-button>
-                    <p class="error">재연동이 필요합니다.</p>
+                    <kb-checkbox
+                      v-model="checkVal1"
+                      value="1"
+                      title="체크박스"
+                      class="right"
+                    >
+                    </kb-checkbox>
+                    <p class="error">자산연동관련 메시지.</p>
                   </li>
                   <li>
                     <div>
                       <span>우리은행</span>
-                      <p class="acc_num">123-124234-12 02</p>
                     </div>
-                    <kb-button to="#">
-                      <i class="bt_ic_arr" aria-hidden="true" />
-                    </kb-button>
-                    <p class="error">곧 연동 유효기간이 만료됩니다.</p>
-                  </li>
-                  <li>
-                    <div>
-                      <span>우리은행</span>
-                      <p class="acc_num">123-124234-12 02</p>
-                    </div>
-                    <kb-button to="#">
-                      연장하기<i class="bt_ic_arr" aria-hidden="true" />
-                    </kb-button>
+                    <kb-checkbox
+                      v-model="checkVal1"
+                      value="2"
+                      title="체크박스"
+                      class="right"
+                    >
+                    </kb-checkbox>
                     <p class="error">연동 유효기간이 만료되었습니다.</p>
                   </li>
                   <li>
                     <div>
                       <span>우리은행</span>
-                      <span>우리급여 저축예금</span>
-                      <p class="acc_num">123-124234-12 02</p>
                     </div>
-                    <i class="state">출금가능</i>
-                    <p class="error">에러 메시지 노출(최대 2줄)<br>에러 메시지 노출</p>
+                    <kb-checkbox
+                      v-model="checkVal1"
+                      value="3"
+                      title="체크박스"
+                      class="right"
+                    >
+                    </kb-checkbox>
                   </li>
                 </ul>
               </div>
@@ -78,8 +72,8 @@
           <kb-folding>
             <template slot="title">
               <div class="acc_info_head">
-                <strong>증권</strong>
-                <strong class="cut">2</strong>
+                <strong>투자</strong>
+                <strong class="cut">3</strong>
               </div>
             </template>
             <div class="accordion_box type2">
@@ -88,33 +82,59 @@
                   <li>
                     <div>
                       <span>우리은행</span>
-                      <span>우리급여 저축예금</span>
-                      <p class="acc_num">123-124234-12 02</p>
                     </div>
+                    <kb-checkbox
+                      v-model="checkVal1"
+                      value="1"
+                      title="체크박스"
+                      class="right"
+                    >
+                    </kb-checkbox>
+                    <p class="error">자산연동관련 메시지.</p>
                   </li>
                   <li>
                     <div>
                       <span>우리은행</span>
-                      <span>우리급여 저축예금</span>
-                      <p class="acc_num">123-124234-12 02</p>
                     </div>
+                    <kb-checkbox
+                      v-model="checkVal1"
+                      value="2"
+                      title="체크박스"
+                      class="right"
+                    >
+                    </kb-checkbox>
+                    <p class="error">연동 유효기간이 만료되었습니다.</p>
                   </li>
                   <li>
                     <div>
                       <span>우리은행</span>
-                      <span>우리급여 저축예금</span>
-                      <p class="acc_num">123-124234-12 02</p>
                     </div>
+                    <kb-checkbox
+                      v-model="checkVal1"
+                      value="3"
+                      title="체크박스"
+                      class="right"
+                    >
+                    </kb-checkbox>
                   </li>
                 </ul>
               </div>
             </div>
           </kb-folding>
         </kb-foldings>
-        <kb-button class="btn_add mg_t5">
-          계좌추가
-        </kb-button>
 
+        <kb-button-wrap bottom-fixed>
+          <kb-button
+            line
+          >
+            연동해지
+          </kb-button>
+          <kb-button
+            yellow
+          >
+            전송요구변경
+          </kb-button>
+        </kb-button-wrap>
       </div>
     </kb-page-body>
   </kb-page>
@@ -124,7 +144,7 @@ export default {
   name: 'MY09A001_1',
   data() {
     return {
-      slideCheck: false,
+      checkVal1: [],
     };
   },
   methods: {
