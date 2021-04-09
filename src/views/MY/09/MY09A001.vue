@@ -6,7 +6,9 @@
 
         <div class="setting_info">
           <h2>계좌/정보</h2>
-          <kb-button not aTag @click="slideBoxMotion"><i class="ico_setting"></i>숨김설정</kb-button>
+          <div class="right">
+            <kb-button not aTag @click="slideBoxMotion" class="setting"><i class="ico_setting"></i>숨김설정</kb-button>
+          </div>
         </div>
 
         <div class="setting_view_box" ref="slideBox">
