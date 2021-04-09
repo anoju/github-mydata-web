@@ -17,7 +17,7 @@
 </template>
 <script>
 export default {
-  name: 'UT14C019',
+  name: 'IN07A005',
   data() {
     return {
     };

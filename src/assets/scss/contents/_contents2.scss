@@ -1039,3 +1039,14 @@
   }
   
 }
+
+/* 연동정보 관리 */
+.setting_info { margin-top:24px;
+  h2 { font-size:18px; line-height:1.44;}
+  .button { font-size:12px; 
+    .ico_setting { display:inline-block; width:16px; height:16px; background:url('~@/assets/images/MY/09/ico_setting.png')}
+  }
+}
+.setting_view_box {
+
+}

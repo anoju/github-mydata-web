@@ -126,7 +126,7 @@
 </template>
 <script>
 export default {
-  name: 'IN07A001',
+  name: 'IN07A006',
   data() {
     return {
       selectVal1: '1',

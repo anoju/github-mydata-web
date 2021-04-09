@@ -344,4 +344,11 @@ export default [
   {
     pageID: 'TR10A003', type: 'pop', depth1: '즉시이체', depth2: '인증서 비밀번호 팝업', depth3: '', depth4: '', etc: null, complete: '2020-04-01', change: null,
   },
+  {
+    type: 'line',
+  },
+  // 연동정보관리
+  {
+    pageID: 'MY09A001', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '업권별', depth4: '목록', etc: null, complete: '', change: null,
+  },
 ];

@@ -111,7 +111,9 @@
 		//shape-outside:inset(inset(-3px 2px 0px 0px));
 	}
 }
+/*  확인 필요 - 2021-04-09 장영석
 .pop_head:not(.no_title)+.pop_body{padding-top:56px;}
+*/
 .pop_body{
 	position:relative;padding:20px 0;overflow:auto;box-sizing:border-box;-webkit-overflow-scrolling:touch;
 	&:before,
