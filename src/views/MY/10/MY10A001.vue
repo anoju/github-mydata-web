@@ -67,7 +67,7 @@
 </template>
 <script>
 export default {
-  name: 'MY09A001',
+  name: 'MY10A001',
   data() {
     return {
       slideCheck: false,

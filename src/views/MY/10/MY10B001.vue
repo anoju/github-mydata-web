@@ -94,7 +94,7 @@
 </template>
 <script>
 export default {
-  name: 'MY09A001',
+  name: 'MY10B001',
   data() {
     return {
       slideCheck: false,
