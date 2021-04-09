@@ -4,10 +4,10 @@
       <div class="body"></div>
       <div class="face">
         <div class="ears">
-          <div class="ear left"></div>
-          <div class="ear right"></div>
+          <div></div>
+          <div></div>
         </div>
-        <div class="in">
+        <div class="face_line">
           <div class="face_in">
             <div class="eyes">
               <div class="eye left"></div>
