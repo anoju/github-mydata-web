@@ -25,48 +25,40 @@
               {{ titMonth }}
             </kb-button>
           </div>
-          <button
-            type="button"
+          <kb-button
+            not
             class="swiper-arr swiper-arr-y swiper-prev-y"
             :class="{disabled:(minDate !== null && Number(titYear) <= Number(minDate.substr(0,4)))}"
             :disabled="(minDate !== null && Number(titYear) <= Number(minDate.substr(0,4)))"
             aria-hidden="이전년도 보기"
             @click="setCalYear('prev')"
-          >
-            <span />
-          </button>
-          <button
-            type="button"
+          >이전년도 보기</kb-button>
+          <kb-button
+            not
             class="swiper-arr swiper-prev"
             :class="{disabled:(minDate !== null && Number(titYear+titMonth) <= Number(minDate.substr(0,6)))}"
             :disabled="(minDate !== null && Number(titYear+titMonth) <= Number(minDate.substr(0,6)))"
             aria-label="이전달 보기"
             aria-disabled="false"
             @click="calSwiperPrev"
-          >
-            <span />
-          </button>
-          <button
-            type="button"
+          >이전달 보기</kb-button>
+          <kb-button
+            not
             class="swiper-arr swiper-next"
             :class="{disabled:(maxDate !== null && Number(maxDate.substr(0,6)) <= Number(titYear+titMonth))}"
             :disabled="(maxDate !== null && Number(maxDate.substr(0,6)) <= Number(titYear+titMonth))"
             aria-label="다음달 보기"
             aria-disabled="false"
             @click="calSwiperNext"
-          >
-            <span />
-          </button>
-          <button
-            type="button"
+          >다음달 보기</kb-button>
+          <kb-button
+            not
             class="swiper-arr swiper-arr-y swiper-next-y"
             :class="{disabled:(maxDate !== null && Number(maxDate.substr(0,4)) <= Number(titYear))}"
             :disabled="(maxDate !== null && Number(maxDate.substr(0,4)) <= Number(titYear))"
             aria-hidden="다음년도 보기"
             @click="setCalYear('next')"
-          >
-            <span />
-          </button>
+          >다음년도 보기</kb-button>
         </div>
         <!-- <div class="t_center">
                     오늘 날짜 {{ todayDate }}
@@ -147,7 +139,8 @@
               v-for="(month, i) in monthAry"
               :key="i"
             >
-              <button
+              <kb-button
+                not
                 class="ui-select-btn"
                 :class="{
                   selected:calendarMonth == Number(month) && calendarYear == titYear,
@@ -157,7 +150,7 @@
                 @click="onSelectYearMonth(month,'month')"
               >
                 {{ month }}월
-              </button>
+              </kb-button>
             </li>
           </ul>
           <kb-button
@@ -218,7 +211,8 @@
               v-for="(year, i) in yearAry"
               :key="i"
             >
-              <button
+              <kb-button
+                not
                 class="ui-select-btn"
                 :class="{
                   selected:titYear == year,
@@ -229,7 +223,7 @@
                 @click="onSelectYearMonth(year,'year')"
               >
                 {{ year }}년
-              </button>
+              </kb-button>
             </li>
           </ul>
           <kb-button
