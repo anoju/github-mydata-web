@@ -380,15 +380,18 @@ export default {
       //     year = Number(this.selectDate.substr(0, 4))
       //     month = Number(this.selectDate.substr(4, 2))
       // }
-      let n = Math.abs(Math.floor(idx / 12));
       month += idx;
-      if (month <= 0) {
+      const n = Math.abs(Math.floor(month / 12));
+      if (month < 1) {
         year -= n;
         month += (12 * n);
-      } else if (month >= 13) {
-        n += 1;
+      } else if (month > 12) {
         year += n;
         month -= (12 * n);
+      }
+      if (month === 0) {
+        year -= 1;
+        month = 12;
       }
       if ((`${month}`).length === 1)month = `0${month}`;
       if (this.minDate !== null) {
@@ -429,12 +432,12 @@ export default {
       const $length = this.calSwiper.pagination.bullets.length;
       let $index = this.calSwiper.snapIndex;
       if ($index === ($length - 1)) {
-        const { idx } = this.calendarAry[this.calendarAry.length - 1];
-        this.calAryPush(Number(idx) + 1);
+        const firstIdx = this.calendarAry[this.calendarAry.length - 1].idx;
+        this.calAryPush(Number(firstIdx) + 1);
       }
       if ($index === 0) {
-        const { idx } = this.calendarAry[0];
-        this.calAryPush(Number(idx) - 1, 'prev');
+        const lastIdx = this.calendarAry[0].idx;
+        this.calAryPush(Number(lastIdx) - 1, 'prev');
         if (!this.isPrevDisabled) {
           this.calSwiper.slideTo(1, 0);
           $index += 1;
