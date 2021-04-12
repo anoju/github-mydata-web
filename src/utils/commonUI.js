@@ -3,6 +3,7 @@ export default {
     if (this.installed) return;
 
     this.installed = true;
+    Vue.prototype.$getOnlyNumber = this.getOnlyNumber;
     Vue.prototype.$getStyle = this.getStyle;
     Vue.prototype.$getOffset = this.getOffset;
     Vue.prototype.$getComponentName = this.getComponentName;
@@ -19,6 +20,9 @@ export default {
     Vue.prototype.$dateString = this.dateString;
     Vue.prototype.$dateFormat = this.dateFormat;
     Vue.prototype.$weekString = this.weekString;
+  },
+  getOnlyNumber(num) {
+    return num.toString().replace(/[^0-9]/g, '');
   },
   getStyle(element, attr) {
     // const rtnVal = parseInt(window.getComputedStyle(element, null).getPropertyValue(attr), 10);

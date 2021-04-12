@@ -81,6 +81,14 @@
           class="tab"
           role="presentation"
         >
+          <router-link to="/guide/calendar">
+            <span>calendar</span>
+          </router-link>
+        </div>
+        <div
+          class="tab"
+          role="presentation"
+        >
           <router-link to="/guide/test">
             <span>test</span>
           </router-link>

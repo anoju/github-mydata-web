@@ -337,9 +337,9 @@ div[class*=tit_h]{
 	&.date{
 		input{
 			padding:0 16px;
-			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='24' viewBox='0 0 36 24'%3E%3Cdefs%3E%3Cfilter id='sdrn3ghqfa'%3E%3CfeColorMatrix in='SourceGraphic' values='0 0 0 0 0.356863 0 0 0 0 0.525490 0 0 0 0 0.831373 0 0 0 1.000000 0'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cg filter='url(%23sdrn3ghqfa)' transform='translate(-308 -575) translate(0 547) translate(16 16) translate(174)'%3E%3Cg%3E%3Cpath fill='%23222' fill-rule='nonzero' d='M15 14H17V16H15zM11 14H13V16H11zM7 14H9V16H7z' transform='translate(118 12)'/%3E%3Cpath stroke='%23222' stroke-width='1.5' d='M20.562 9H3V4h15.632C19.939 4 21 5.12 21 6.5V21H5.368C4.061 21 3 19.88 3 18.5V12M7.5 2L7.5 6M16.5 2L16.5 6' transform='translate(118 12)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");background-repeat:no-repeat;background-position:right center;
+			background-image:url("~@/assets/images/common/btn_datepicker.png");background-repeat:no-repeat;background-position:right center;background-size:auto 24px;
 			&:disabled{
-				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='24' viewBox='0 0 36 24'%3E%3Cdefs%3E%3Cfilter id='sdrn3ghqfa'%3E%3CfeColorMatrix in='SourceGraphic' values='0 0 0 0 0.356863 0 0 0 0 0.525490 0 0 0 0 0.831373 0 0 0 1.000000 0'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd' opacity='.3'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cg filter='url(%23sdrn3ghqfa)' transform='translate(-308 -575) translate(0 547) translate(16 16) translate(174)'%3E%3Cg%3E%3Cpath fill='%23222' fill-rule='nonzero' d='M15 14H17V16H15zM11 14H13V16H11zM7 14H9V16H7z' transform='translate(118 12)'/%3E%3Cpath stroke='%23222' stroke-width='1.5' d='M20.562 9H3V4h15.632C19.939 4 21 5.12 21 6.5V21H5.368C4.061 21 3 19.88 3 18.5V12M7.5 2L7.5 6M16.5 2L16.5 6' transform='translate(118 12)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");background-repeat:no-repeat;background-position:right center;
+				background-image: url("~@/assets/images/common/btn_datepicker_off.png");
 			}
 		}
 		input[readonly]+input[type="date"],
@@ -350,13 +350,18 @@ div[class*=tit_h]{
 	&.time {
 		input {
 			padding: 0 16px;
-			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='24' viewBox='0 0 36 24'%3E%3Cdefs%3E%3Cfilter id='eamq6zhkea'%3E%3CfeColorMatrix in='SourceGraphic' values='0 0 0 0 0.356863 0 0 0 0 0.525490 0 0 0 0 0.831373 0 0 0 1.000000 0'/%3E%3C/filter%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg%3E%3Cg filter='url(%23eamq6zhkea)' transform='translate(-1040 -1225) translate(748 1213)'%3E%3Cg%3E%3Cpath stroke='%23222' stroke-width='1.5' d='M17.286 19.285C15.761 20.394 13.923 21 12 21c-4.974 0-9-4.026-9-9s4.026-9 9-9 9 4.026 9 9c0 1.79-.521 3.496-1.487 4.964l-.057.067' transform='translate(292 12)'/%3E%3Cpath stroke='%23222' stroke-width='1.5' d='M8 15.5L12.5 12 12.5 7' transform='translate(292 12)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
-			background-repeat: no-repeat;
-			background-position: right center;
+			background-image:url("~@/assets/images/common/btn_timepicker.png");background-repeat:no-repeat;background-position:right center;background-size:auto 24px;
+			&:disabled{
+				background-image: url("~@/assets/images/common/btn_timepicker_off.png");
+			}
 		}
 		input[type="time"]::-webkit-calendar-picker-indicator{
 			background: none;position: absolute;right:12px;top:0;width:24px;height:100%;padding:0;
 		}
+	}
+	&.datepicker{
+		.del{padding-right:0px !important;}
+		.datepicker_btn{padding-right:12px;}
 	}
 	.vdatetime{
 		padding-left:0;flex:1 1 auto;

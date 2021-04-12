@@ -1,0 +1,121 @@
+.ui-datepicker-btn{width:24px;height:46px;font-size:3px;color:transparent;overflow:hidden;background:url("~@/assets/images/common/btn_datepicker.png") no-repeat left center;background-size:auto 24px;}
+    
+.popup.modal{
+    .pop_wrap.ui-calendar{
+        width:300px;color:#333;
+        .pop_head{
+            height:50px;padding-top:0;
+            >div{padding-top:0;padding-bottom:0;}
+            h1{font-size:1.6rem;line-height:30px;padding-top:10px;padding-bottom:10px;}
+            .pop_close{top:9px;}
+        }
+        .pop_body{padding-top:50px;padding-bottom:0;}
+    }
+}
+
+.calendar-swiper{
+    position:relative;
+    .swiper-pagination{display:none;}
+}
+.calendar-head{
+    position:relative;text-align:center;background:#f8f8f8;line-height:30px;padding:10px 100px;height:50px;
+    .tit{
+        position:relative;font-size:1.8rem;font-weight:500;
+        strong.button{vertical-align:middle;}
+        .button{
+            font-weight:500;
+            &.active{color:#3182f7;text-decoration:underline;}
+        }
+    }
+    .swiper-arr{
+        display:block;padding:0;position:absolute;top:50%;width:24px;height:24px;margin-top:-12px;background:none !important;border-radius:0;overflow:hidden;text-align:center;z-index:1;
+        span{display:block;width:18px;height:18px;margin:3px;font-size:3px;color:transparent;border-radius:50%;background-color:#306edf;background-repeat:no-repeat;background-position:center center;background-size:auto 10px;}
+        &.disabled span{background-color:#858585;}
+    }
+    .swiper-prev-y{left:28px;
+        span{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='32px' height='30px'%3E%3Cpath fill-rule='evenodd' stroke='rgb(255, 255, 255)' stroke-width='3px' stroke-linecap='round' stroke-linejoin='round' fill='none' d='M28,2 L15,15 L28,28 '/%3E%3Cpath fill-rule='evenodd' stroke='rgb(255, 255, 255)' stroke-width='3px' stroke-linecap='round' stroke-linejoin='round' fill='none' d='M15,2 L2,15 L15,28 '/%3E%3C/svg%3E");}
+    }
+    .swiper-prev{left:57px;
+        span{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='30px'%3E%3Cpath fill-rule='evenodd' stroke='rgb(255, 255, 255)' stroke-width='3px' stroke-linecap='round' stroke-linejoin='round' fill='none' d='M15,2 L2,15  L15,28'/%3E%3C/svg%3E");}
+    }
+    .swiper-next{right:57px;
+        span{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='18px' height='30px'%3E%3Cpath fill-rule='evenodd' stroke='rgb(255, 255, 255)' stroke-width='3px' stroke-linecap='round' stroke-linejoin='round' fill='none' d='M3,2 L16,15 L3,28 '/%3E%3C/svg%3E");}
+    }
+    .swiper-next-y{right:28px;
+        span{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='30px' height='30px'%3E%3Cpath fill-rule='evenodd' stroke='rgb(255, 255, 255)' stroke-width='3px' stroke-linecap='round' stroke-linejoin='round' fill='none' d='M2,2 L15,15 L2,28 '/%3E%3Cpath fill-rule='evenodd' stroke='rgb(255, 255, 255)' stroke-width='3px' stroke-linecap='round' stroke-linejoin='round' fill='none' d='M15,2 L28,15 L15,28 '/%3E%3C/svg%3E");}
+    }
+}
+.calendar-swiper-body{position:relative;padding:25px 0;box-sizing:content-box;transition:height 0.3s;overflow:hidden;height:266px;}
+
+.ui-tbl-datepicker{position:relative;padding:0 15px;}
+table.ui-datepicker-calendar{
+    width:100%;border-collapse:collapse;
+    th{
+        padding:12px 0;text-align:center;font-size:1.3rem;border:0 none;
+        span{color:#666 !important;}
+    }
+    td{
+        height:1.6em;margin:0;padding:4px 0;border:0 none;font-size:1.3rem;text-align:center;line-height:1.6em;white-space:nowrap;text-decoration:none;
+        span,
+        a{display:block;width:30px;height:30px;line-height:30px;font-size:1.3rem;color:#111;text-align:center;text-decoration:none;border-radius:50%;margin:0 auto;}
+    }
+    .ui-state-highlight{border:1px solid #666;background-color:#666;font-weight:500;color:#fff;}
+    .ui-datepicker-week-end{
+        span, 
+        a{color:#0075c5;}
+        &:first-child span,
+        &:first-child a{color:#d0021b;} 
+    }
+    .ui-state-disabled .ui-state-default{color:#ddd;}
+    .ui-state-default{ 
+        &.ui-priority-secondary{
+            color:#858585;font-weight:300;
+            &.ui-state-highlight{background-color:#eaeaea;border-color:#eaeaea;}
+        }
+        &.ui-state-hover{border-color:#444;background-color:#444;color:#fff;}
+        &.ui-state-active{background-color:#3182f7;border-color:#3182f7;color:#fff;}
+    }
+}
+.ui-datepicker-calendar{
+    font-size:1.5rem;position:relative;z-index:1;
+    .thead,
+    .tbody{display:flex;flex-wrap:wrap;}
+    .th,
+    .td{
+        display:inline-flex;flex:0 0 14.285%;height:38px;align-items:center;justify-content:center;text-align:center;font-size:1.3rem;
+        &.first{
+            color:#d0021b;
+            .ui-date-btn{color:#d0021b;}
+        }
+        &.last{
+            color:#0075c5;
+            .ui-date-btn{color:#0075c5;}
+        }
+        .ui-date-btn{
+            display:block;width:30px;height:30px;line-height:30px;font-size:1.3rem;text-align:center;border-radius:50%;margin:0 auto;
+            &.today{background-color:#666;font-weight:500;color:#fff;}
+            &.selected{background-color:#3182f7;font-weight:500;color:#fff;}
+            &.disabled{opacity:0.4;}
+        }
+    }
+}
+
+.calendar-select{
+    position:relative;padding:30px;
+    &>ul{
+        &>li{display:inline-block;width:33.33%;padding:3px;}
+    }
+    .ui-select-btn{
+        display:block;width:100%;background:#f1f1f1;border-radius:5px;font-size:1.4rem;line-height:35px;
+        &.selected{background-color:#3182f7;font-weight:500;color:#fff;}
+        &.out{color:#777;}
+        &.disabled{opacity:0.4;}
+    }
+    .ui-year-arr{
+        position:absolute;top:50%;width:30px;height:50px;margin-top:-25px;
+        background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='36.5px' height='62.5px'%3E%3Cpath fill-rule='evenodd' stroke='rgb(102, 102, 102)' stroke-width='3px' stroke-linecap='round' stroke-linejoin='miter' fill='none' d='M32.065,4.912 L6.447,30.493 L32.065,56.075 '/%3E%3C/svg%3E") 50% 50% no-repeat;background-size:12px auto;
+        &.prev{left:0;}
+        &.next{right:0;transform:rotate(180deg);}
+        &.disabled{opacity:0.4;}
+    }
+}

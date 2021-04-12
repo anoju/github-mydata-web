@@ -1,7 +1,15 @@
 <template>
   <div
     class="input"
-    :class="{focus: (isFocus && !readonly), readonly: readonly, disabled: disabled, line: line, date: date, time: time}"
+    :class="{
+      focus: (isFocus && !readonly),
+      readonly: readonly,
+      disabled: disabled,
+      line: line,
+      date: date,
+      time: time,
+      datepicker: (datepicker || monthpicker || yearpicker),
+    }"
   >
     <template v-if="!empty">
       <div
@@ -40,14 +48,14 @@
         :readonly="readonly"
         :autocomplete="autocomplete"
         v-on="listeners"
-        @focus="isFocus = true"
+        @focus="focusEvt"
         @blur="isFocus = false"
       >
       <input
         v-if="date"
         type="date"
         @change="dateChange"
-        @focus="isFocus = true"
+        @focus="focusEvt"
         @blur="isFocus = false"
       >
       <div
@@ -66,6 +74,17 @@
           aria-label="입력내용삭제"
           @click="valueReset"
         >입력내용삭제</button>
+      </div>
+      <div
+        v-if="datepicker || monthpicker || yearpicker"
+        class="datepicker_btn"
+      >
+        <kb-button
+          not
+          class="ui-datepicker-btn"
+          aria-label="달력팝업으로 기간조회"
+          @click="popCalendar($event.target)"
+        >달력팝업으로 기간조회</kb-button>
       </div>
     </template>
     <slot />
@@ -99,6 +118,13 @@ export default {
     maxlength: { type: [String, Number], default: null },
     notDel: { type: Boolean, default: false },
     delete: { type: Function, default: null },
+
+    // 달력
+    datepicker: { type: Boolean, default: false },
+    monthpicker: { type: Boolean, default: false },
+    yearpicker: { type: Boolean, default: false },
+    min: { type: [Object, String, Number], default: null },
+    max: { type: [Object, String, Number], default: null },
   },
   data() {
     return {
@@ -120,6 +146,10 @@ export default {
     focus() {
       this.$refs.input.focus();
     },
+    focusEvt(e) {
+      this.isFocus = true;
+      if (this.datepicker || this.monthpicker || this.yearpicker) this.popCalendar(e.target);
+    },
     updateValue(value) {
       this.$emit('input', value);
     },
@@ -132,6 +162,50 @@ export default {
       let targetVal = e.target.value;
       if (targetVal.indexOf('-'))targetVal = targetVal.split('-').join('/');
       this.$emit('input', targetVal);
+    },
+
+    // 달력
+    popCalendar(el) {
+      const { min } = this;
+      const { max } = this;
+      let type = 'day';
+      if (this.monthpicker)type = 'month';
+      if (this.yearpicker)type = 'year';
+      this.$modal({
+        component: () => import('@/components/modalContainer/modalCalendar.vue'),
+        componentProps: {
+          value: this.value,
+          type,
+          min,
+          max,
+        },
+        modalProps: {
+          bgClick: true,
+        },
+        returnFocus: el,
+      }).then((result) => {
+        // console.log(result)
+        if ((result.payload !== undefined) && (this.value !== result.payload)) {
+          const inpVal = this.autoDateFormet(result.payload, '/');
+          this.$emit('input', inpVal);
+        }
+      });
+    },
+    autoDateFormet(str, mark) {
+      const $date = str.replace(/[^0-9]/g, '');
+      const $dateAry = [];
+      if (!mark)mark = '/';
+      if ($date.length < 5) {
+        $dateAry.push($date);
+      } else if (str.length < 7) {
+        $dateAry.push($date.substr(0, 4));
+        $dateAry.push($date.substr(4));
+      } else {
+        $dateAry.push($date.substr(0, 4));
+        $dateAry.push($date.substr(4, 2));
+        $dateAry.push($date.substr(6));
+      }
+      return $dateAry.join(mark);
     },
   },
 };
