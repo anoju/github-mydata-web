@@ -626,6 +626,16 @@ input[type="checkbox"]{margin:0;}
 		input:checked+i+.lbl{border-color:#5b86d4;background-color:#5b86d4;color:#fff;font-weight:bold;}
 		input:checked:disabled+i+.lbl{opacity:0.7;}
 	}
+
+	// noStyle 
+	&.no_style {
+		i { border:0; background:none;
+			&:before { content:''; display:block; position:absolute; top:0; left:0; width:100%;height:100%; transition:all .3s ease; transform:scale(0);}
+			&:after { display:none;}
+		}
+		& > input:checked + i { background:none;}
+		& > input:checked + i:before {  transform:scale(1); background:url('~@/assets/images/common/ico_checkbox.png') no-repeat 0 0 / 100%;}
+	}
 }
 
 .checkbox{

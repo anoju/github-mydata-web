@@ -28,41 +28,35 @@
               <div class="acc_info_box">
                 <ul class="transfer_acc_list">
                   <li>
-                    <div>
-                      <span>우리은행</span>
-                    </div>
                     <kb-checkbox
                       v-model="checkVal1"
                       value="1"
                       title="체크박스"
-                      class="right"
+                      class="no_style"
                     >
+                      <p class="text">우리은행</p>
+                      <p class="error">자산연동관련 메시지.</p>
                     </kb-checkbox>
-                    <p class="error">자산연동관련 메시지.</p>
                   </li>
                   <li>
-                    <div>
-                      <span>우리은행</span>
-                    </div>
                     <kb-checkbox
                       v-model="checkVal1"
                       value="2"
                       title="체크박스"
-                      class="right"
+                      class="no_style"
                     >
+                      <p class="text">우리은행</p>
+                      <p class="error">연동 유효기간이 만료되었습니다.</p>
                     </kb-checkbox>
-                    <p class="error">연동 유효기간이 만료되었습니다.</p>
                   </li>
                   <li>
-                    <div>
-                      <span>우리은행</span>
-                    </div>
                     <kb-checkbox
                       v-model="checkVal1"
                       value="3"
                       title="체크박스"
-                      class="right"
+                      class="no_style"
                     >
+                      <p class="text">우리은행</p>
                     </kb-checkbox>
                   </li>
                 </ul>
@@ -80,41 +74,35 @@
               <div class="acc_info_box">
                 <ul class="transfer_acc_list">
                   <li>
-                    <div>
-                      <span>우리은행</span>
-                    </div>
                     <kb-checkbox
                       v-model="checkVal1"
                       value="1"
                       title="체크박스"
-                      class="right"
+                      class="no_style"
                     >
+                      <p class="text">우리은행</p>
+                      <p class="error">자산연동관련 메시지.</p>
                     </kb-checkbox>
-                    <p class="error">자산연동관련 메시지.</p>
                   </li>
                   <li>
-                    <div>
-                      <span>우리은행</span>
-                    </div>
                     <kb-checkbox
                       v-model="checkVal1"
                       value="2"
                       title="체크박스"
-                      class="right"
+                      class="no_style"
                     >
+                      <p class="text">우리은행</p>
+                      <p class="error">연동 유효기간이 만료되었습니다.</p>
                     </kb-checkbox>
-                    <p class="error">연동 유효기간이 만료되었습니다.</p>
                   </li>
                   <li>
-                    <div>
-                      <span>우리은행</span>
-                    </div>
                     <kb-checkbox
                       v-model="checkVal1"
                       value="3"
                       title="체크박스"
-                      class="right"
+                      class="no_style"
                     >
+                      <p class="text">우리은행</p>
                     </kb-checkbox>
                   </li>
                 </ul>
