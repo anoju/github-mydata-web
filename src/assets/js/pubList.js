@@ -371,6 +371,12 @@ export default [
     pageID: 'MY10D002', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동해지', depth4: '스텝2: 1개일때', etc: null, complete: '', change: null,
   },
   {
+    pageID: 'MY10D003', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동해지', depth4: '스텝1: 여러개일때', etc: null, complete: '', change: null,
+  },
+  {
+    pageID: 'MY10D004', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동해지', depth4: '스텝2: 여러개일때', etc: null, complete: '', change: null,
+  },
+  {
     pageID: 'MY10D005', type: 'sub', depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동해지', depth4: '스텝3', etc: null, complete: '', change: null,
   },
   {

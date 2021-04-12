@@ -29,6 +29,7 @@ export default [
           { path: 'MY10D001', component: () => import('@/views/MY/10/MY10D001.vue') }, // 연동정보관리 연동해지 (스텝1:1개일때)
           { path: 'MY10D002', component: () => import('@/views/MY/10/MY10D002.vue') }, // 연동정보관리 연동해지 (스텝2:1개일때)
           { path: 'MY10D003', component: () => import('@/views/MY/10/MY10D003.vue') }, // 연동정보관리 연동해지 (스텝1:여러개일때)
+          { path: 'MY10D004', component: () => import('@/views/MY/10/MY10D004.vue') }, // 연동정보관리 연동해지 (스텝2:여러개일때)
           { path: 'MY10D005', component: () => import('@/views/MY/10/MY10D005.vue') }, // 연동정보관리 연동해지 (스텝3)
           { path: 'MY10D006', component: () => import('@/views/MY/10/MY10D006.vue') }, // 연동정보관리 연동해지 완료(1개일때)
           { path: 'MY10D007', component: () => import('@/views/MY/10/MY10D007.vue') }, // 연동정보관리 연동해지 완료(여러개일때)
