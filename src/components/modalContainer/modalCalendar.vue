@@ -540,7 +540,6 @@ export default {
           if (type === 'year') this.yaerAryPush(Number(val));
 
           setTimeout(() => {
-            console.log(this.calSwiper.slides.length);
             if (this.isPrevDisabled && this.calSwiper.slides.length <= 2) {
               this.calSwiper.slideTo(0, 0);
             } else {
