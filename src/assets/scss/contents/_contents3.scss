@@ -415,17 +415,18 @@
   i + .lbl{margin:0;padding:40px 66px 40px 20px;
     strong{margin-right:8px;}
   }
-  .lbl_child{position:absolute;top:16px;left:20px;font-size:12px;color:#666;line-height:1.33;
+  .lbl_child{position:absolute;top:16px;left:20px; margin-left:0;font-size:12px;color:#666;line-height:1.33; margin-top:0;
     strong{
       &+strong:before{content:'';display:inline-block;width:1px;height:12px;margin:0 8px -1px;background:#ddd;}
       &.ico_state{color:#5177bc;}
     }
   }
   .acc_num{position:absolute;bottom:16px;left:20px;font-size:14px;color:#666;line-height:1.43;}
-  &.type2{
+  &.type2{ background:#f8f8f8;
+    border-radius:6px;border:1px solid #eee;
     &+.type2{margin-top:8px;}
-    border-radius:4px;border:1px solid #ebebeb;
     input,i{right:30px;}
+    i { top:16px; right:16px; transform:none;}
     .lbl{padding:40px 60px 40px 16px;}
     .lbl_child{left:16px;}
     .acc_num{left:16px;}
@@ -538,11 +539,19 @@
     }
     .checkbox.right { display:inline-flex; flex:0 0 auto; margin:0;}
 
-    dl.list { display:flex; align-items: center;
-      dt { font-size:12px; color:#666; line-height:1.33;}
-      dd { font-size:14px; color:#666; line-height:1.43; line-height:1.43; font-weight:bold;
+    dl.list { display:flex; margin-top:20px; align-items: center;
+      dt { flex:0 0 auto; font-size:12px; color:#666; line-height:1.33;}
+      dd { margin-left:auto; font-size:14px; color:#666; line-height:1.43; line-height:1.43; font-weight:bold;
         span + span:before { content:','; display:inline-block; margin-right:3px;}
       }
+      & + dl { margin-top:6px;}
+    }
+
+    .no_style {
+      .lbl { margin-left:0; padding-left:0;}
+      i { left:auto; right:0; top:50%; transform: translateY(-50%);}
+      .text {font-size:14px;line-height:1.43;}
+      & > input:checked ~ .lbl .text { color:#5177bc}
     }
   }
   li.type2 { display:block; position:relative;

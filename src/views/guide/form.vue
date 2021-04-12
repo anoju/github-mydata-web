@@ -241,6 +241,14 @@
           disabled 체크상태: {{ checkVal4 }}
         </kb-checkbox>
 
+        <h4 class="gd__h3">동그란 스타일 업는 체크박스</h4>
+        <kb-checkbox
+          v-model="checkVal4"
+          class="no_style"
+        >
+          disabled 체크상태: {{ checkVal4 }}
+        </kb-checkbox>
+
         <h4 class="gd__h3">종류</h4>
         <div>
           <kb-checkbox>

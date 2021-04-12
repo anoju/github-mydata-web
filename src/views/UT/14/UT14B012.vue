@@ -36,10 +36,11 @@
                 <!-- 계좌정보 -->
                 <div class="accordion_box type2">
                   <div class="acc_info_box">
+                    <!-- 2021-04-12 no_style 추가 -->
                     <kb-checkbox
                       v-model="chk1"
                       @change="chkItemEvt"
-                      class="acc_info_chkbox bg"
+                      class="acc_info_chkbox bg no_style"
                     >
                       <strong>KB국민은행</strong>
                       <strong>멀티플랜무배당국민통합</strong>
@@ -54,10 +55,11 @@
                   </div>
                   <!-- //계좌정보 -->
                   <div class="acc_info_box">
+                    <!-- 2021-04-12 no_style 추가 -->
                     <kb-checkbox
                       v-model="chk2"
                       @change="chkItemEvt"
-                      class="acc_info_chkbox bg"
+                      class="acc_info_chkbox bg no_style"
                     >
                       <strong>우리은행</strong>
                       <strong>우리급여저축예금</strong>
@@ -71,10 +73,11 @@
                     </kb-checkbox>
                   </div>
                   <div class="acc_info_box">
+                    <!-- 2021-04-12 no_style 추가 -->
                     <kb-checkbox
                       v-model="chk3"
                       @change="chkItemEvt"
-                      class="acc_info_chkbox bg"
+                      class="acc_info_chkbox bg no_style"
                     >
                       <strong>수산업협동조합중앙회</strong>
                       <strong>SH-아문디 필승코리아 국내 주식형 펀드</strong>
@@ -98,10 +101,11 @@
                 </template>
                 <div class="accordion_box type2">
                   <div class="acc_info_box">
+                    <!-- 2021-04-12 no_style 추가 -->
                     <kb-checkbox
                       v-model="chk4"
                       @change="chkItemEvt"
-                      class="acc_info_chkbox bg"
+                      class="acc_info_chkbox bg no_style"
                     >
                       <strong>KB국민은행</strong>
                       <strong>멀티플랜무배당국민통합</strong>
@@ -115,10 +119,11 @@
                     </kb-checkbox>
                   </div>
                   <div class="acc_info_box">
+                    <!-- 2021-04-12 no_style 추가 -->
                     <kb-checkbox
                       v-model="chk5"
                       @change="chkItemEvt"
-                      class="acc_info_chkbox bg"
+                      class="acc_info_chkbox bg no_style"
                     >
                       <strong>우리은행</strong>
                       <strong>우리급여저축예금</strong>
@@ -142,10 +147,11 @@
                 </template>
                 <div class="accordion_box type2">
                   <div class="acc_info_box">
+                    <!-- 2021-04-12 no_style 추가 -->
                     <kb-checkbox
                       v-model="chk6"
                       @change="chkItemEvt"
-                      class="acc_info_chkbox bg"
+                      class="acc_info_chkbox bg no_style"
                     >
                       <strong>KB증권</strong>
                       <strong>개인퇴직연금(IRP)</strong>
@@ -160,10 +166,11 @@
                     </kb-checkbox>
                   </div>
                   <div class="acc_info_box">
+                    <!-- 2021-04-12 no_style 추가 -->
                     <kb-checkbox
                       v-model="chk7"
                       @change="chkItemEvt"
-                      class="acc_info_chkbox bg"
+                      class="acc_info_chkbox bg no_style"
                     >
                       <strong>KB생명</strong>
                       <strong>멀티플랜무배당국민통합</strong>
@@ -177,10 +184,11 @@
                     </kb-checkbox>
                   </div>
                   <div class="acc_info_box">
+                    <!-- 2021-04-12 no_style 추가 -->
                     <kb-checkbox
                       v-model="chk8"
                       @change="chkItemEvt"
-                      class="acc_info_chkbox bg"
+                      class="acc_info_chkbox bg no_style"
                     >
                       <strong>삼성화재</strong>
                       <strong>휴대폰보험</strong>
