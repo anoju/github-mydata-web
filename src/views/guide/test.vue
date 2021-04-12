@@ -1,46 +1,48 @@
 <template>
   <div class="section">
-    <div ref="character" id="character" class="character_face">
-      <div class="body"></div>
-      <div class="face">
-        <div class="ears">
-          <div></div>
-          <div></div>
-        </div>
-        <div class="face_line">
-          <div class="face_in">
-            <div class="eyes">
-              <div class="eye left"></div>
-              <div class="eye right"></div>
-            </div>
-            <div class="mouse">
+    <div class="character_face_wrap">
+      <div ref="character" id="character" class="character_face">
+        <div class="body"></div>
+        <div class="face">
+          <div class="ears">
+            <div></div>
+            <div></div>
+          </div>
+          <div class="face_line">
+            <div class="face_in">
+              <div class="eyes">
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+              </div>
+              <div class="mouse">
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="mg_t30">
+        <kb-input
+          @focus="look"
+          @click="look"
+          @keyup="look"
+          @blur="reset"
+          v-model="inpVal1"
+          placeholder="이메일입력"
+        />
+      </div>
+      <div class="mg_t10">
+        <kb-input
+          type="password"
+          @click="lookAway"
+          @focus="lookAway"
+          @blur="reset"
+          v-model="inpVal2"
+          placeholder="비밀번호입력"
+        />
+      </div>
     </div>
-    <div class="mg_t30">
-      <kb-input
-        @focus="look"
-        @click="look"
-        @keyup="look"
-        @blur="reset"
-        v-model="inpVal1"
-        placeholder="이메일입력"
-      />
-    </div>
-    <div class="mg_t10">
-      <kb-input
-        type="password"
-        @click="lookAway"
-        @focus="lookAway"
-        @blur="reset"
-        v-model="inpVal2"
-        placeholder="비밀번호입력"
-      />
-    </div>
-    <div ref="span" style="visibility: hidden; position: absolute; top: -999px;">
-      <span>{{inpVal1}}.</span>
+    <div ref="span" style="visibility: hidden; position: absolute; top: -999px;left:0;">
+      <span>{{spanVal}}.</span>
     </div>
   </div>
 </template>
@@ -51,6 +53,7 @@ export default {
     return {
       inpVal1: '',
       inpVal2: '',
+      spanVal: '',
       timer: null,
     };
   },
@@ -81,6 +84,7 @@ export default {
     look(event) {
       const el = event.target;
       const text = el.value.substr(0, el.selectionStart);
+      this.spanVal = text;
 
       const characterRect = this.$refs.character.getBoundingClientRect();
       const inputRect = el.getBoundingClientRect();

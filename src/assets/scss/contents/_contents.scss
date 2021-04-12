@@ -79,6 +79,7 @@ span.gd__box{
 		div{width:0;height:5px;background:#ffdc00;}
 	}
 }
+.character_face_wrap{max-width:480px;margin:0 auto;}
 .character_face{
 	position:relative;width:180px;height:200px;margin:0 auto;overflow:hidden;border-radius:0 0 100px 100px;
 	&:before{content:'';display:block;width:180px;height:180px;border-radius:50%;position:absolute;left:0;bottom:0;background:#f1f1f1;}
@@ -105,7 +106,13 @@ span.gd__box{
 		}
 	}
 	.mouse{
-		position:relative;width:52px;height:48px;margin:0 auto 0;background:url('~@/assets/images/common/charater_mouse.png') no-repeat center center;background-size:contain;
+		position:relative;width:52px;height:48px;margin:0 auto 0;
+		&:before,
+		&:after{
+			content:'';display:block;width:100%;height:100%;position:absolute;left:0;top:0;background-repeat:no-repeat;background-position:center center;background-size:contain;
+		}
+		&:before{background-image:url('~@/assets/images/common/charater_mouse.png');}
+		&:after{background-image:url('~@/assets/images/common/charater_mouse2.png');opacity:0;}
 	}
 
 	.ears{transform-origin: 50% 50% 5px;}
@@ -123,7 +130,8 @@ span.gd__box{
 			}
 		}
 		.mouse{
-			background-image:url('~@/assets/images/common/charater_mouse2.png');
+			&:before{opacity:0;}
+			&:after{opacity:1;}
 		}
 		.ears,
 		.eyes,
