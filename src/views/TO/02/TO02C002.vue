@@ -29,23 +29,34 @@
               </dl>
             </div>
 
-            <!-- 차트 영역 -->
-            <div class="chart_area">
-              <img src="~@/assets/images/TO/02/chart_sample1.png" alt="" style="width:100%;" />
-            </div>
-            <!-- //차트 영역 -->
-            <div class="chart_info">
-              <dl>
-                <dt><i class="ico1"></i>입금계좌 잔고</dt>
-                <dd>300,000,000원</dd>
-              </dl>
-              <dl>
-                <dt><i class="ico2"></i>필요금액</dt>
-                <dd>12,000,000원</dd>
-              </dl>
-            </div>
-            <div class="worning">입금계좌에 12,000,000원을 추가 입금해주세요.</div>
+            <!-- 데이터 없음 -->
+            <template v-if="false">
+              <div class="data_none_chart mg_t40 mg_b40">이번달<br>
+                남은 예상지출금은<br>
+                0원 입니다.</div>
+            </template>
+            <!-- //데이터 없음 -->
 
+            <!-- 데이터 있음 -->
+            <template v-else>
+              <!-- 차트 영역 -->
+              <div class="chart_area">
+                <img src="~@/assets/images/TO/02/chart_sample1.png" alt="" style="width:100%;" />
+              </div>
+              <!-- //차트 영역 -->
+              <div class="chart_info">
+                <dl>
+                  <dt><i class="ico1"></i>입금계좌 잔고</dt>
+                  <dd>300,000,000원</dd>
+                </dl>
+                <dl>
+                  <dt><i class="ico2"></i>필요금액</dt>
+                  <dd>12,000,000원</dd>
+                </dl>
+              </div>
+              <div class="worning">입금계좌에 12,000,000원을 추가 입금해주세요.</div>
+            </template>
+            <!-- //데이터 있음 -->
           </div>
 
           <hr aria-hidden="true" class="hr_line">
