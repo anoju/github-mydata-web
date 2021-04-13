@@ -7,7 +7,7 @@
             height:50px;padding-top:0;
             >div{padding-top:0;padding-bottom:0;}
             h1{font-size:1.6rem;line-height:30px;padding-top:10px;padding-bottom:10px;}
-            .pop_close{top:9px;}
+            .pop_close{top:10px;}
         }
         .pop_body{padding-top:50px;padding-bottom:0;}
     }
@@ -18,7 +18,7 @@
     .swiper-pagination{display:none;}
 }
 .calendar-head{
-    position:relative;text-align:center;background:#f8f8f8;line-height:30px;padding:10px 100px;height:50px;
+    position:relative;text-align:center;background:#f8f8f8;line-height:30px;padding:10px 90px;height:50px;
     .tit{
         position:relative;font-size:1.8rem;font-weight:bold;
         strong.button{vertical-align:middle;}
@@ -48,34 +48,6 @@
 .calendar-swiper-body{position:relative;padding:25px 0;box-sizing:content-box;transition:height 0.3s;overflow:hidden;height:266px;}
 
 .ui-tbl-datepicker{position:relative;padding:0 15px;}
-table.ui-datepicker-calendar{
-    width:100%;border-collapse:collapse;
-    th{
-        padding:12px 0;text-align:center;font-size:1.3rem;border:0 none;
-        span{color:#666 !important;}
-    }
-    td{
-        height:1.6em;margin:0;padding:4px 0;border:0 none;font-size:1.3rem;text-align:center;line-height:1.6em;white-space:nowrap;text-decoration:none;
-        span,
-        a{display:block;width:30px;height:30px;line-height:30px;font-size:1.3rem;color:#111;text-align:center;text-decoration:none;border-radius:50%;margin:0 auto;}
-    }
-    .ui-state-highlight{border:1px solid #666;background-color:#666;font-weight:bold;color:#fff;}
-    .ui-datepicker-week-end{
-        span, 
-        a{color:#0075c5;}
-        &:first-child span,
-        &:first-child a{color:#d0021b;} 
-    }
-    .ui-state-disabled .ui-state-default{color:#ddd;}
-    .ui-state-default{ 
-        &.ui-priority-secondary{
-            color:#858585;font-weight:300;
-            &.ui-state-highlight{background-color:#eaeaea;border-color:#eaeaea;}
-        }
-        &.ui-state-hover{border-color:#444;background-color:#444;color:#fff;}
-        &.ui-state-active{background-color:#3182f7;border-color:#3182f7;color:#fff;}
-    }
-}
 .ui-datepicker-calendar{
     font-size:1.5rem;position:relative;z-index:1;
     .thead,
@@ -108,10 +80,10 @@ table.ui-datepicker-calendar{
     .ui-select-btn{
         display:block;width:100%;background:#f1f1f1;border-radius:5px;font-size:1.4rem;line-height:35px;
         &.selected{background-color:#3182f7;font-weight:bold;color:#fff;}
-        &.out{color:#777;}
+        &.out{color:#ccc;}
         &.disabled{opacity:0.4;}
     }
-    .ui-year-arr{
+    .ui-select-arr{
         position:absolute;top:50%;width:30px;height:50px;margin-top:-25px;
         background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='36.5px' height='62.5px'%3E%3Cpath fill-rule='evenodd' stroke='rgb(102, 102, 102)' stroke-width='3px' stroke-linecap='round' stroke-linejoin='miter' fill='none' d='M32.065,4.912 L6.447,30.493 L32.065,56.075 '/%3E%3C/svg%3E") 50% 50% no-repeat;background-size:12px auto;
         &.prev{left:0;}

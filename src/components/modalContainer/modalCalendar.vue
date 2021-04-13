@@ -39,7 +39,6 @@
             :class="{disabled:(minDate !== null && Number(titYear+titMonth) <= Number(minDate.substr(0,6)))}"
             :disabled="(minDate !== null && Number(titYear+titMonth) <= Number(minDate.substr(0,6)))"
             aria-label="이전달 보기"
-            aria-disabled="false"
             @click="calSwiperPrev"
           >이전달 보기</kb-button>
           <kb-button
@@ -48,7 +47,6 @@
             :class="{disabled:(maxDate !== null && Number(maxDate.substr(0,6)) <= Number(titYear+titMonth))}"
             :disabled="(maxDate !== null && Number(maxDate.substr(0,6)) <= Number(titYear+titMonth))"
             aria-label="다음달 보기"
-            aria-disabled="false"
             @click="calSwiperNext"
           >다음달 보기</kb-button>
           <kb-button
@@ -97,41 +95,31 @@
       >
         <div class="calendar-head">
           <div
-            v-if="type === 'month'"
             class="tit"
           >
             <kb-button
               not
-              @click="showSelect('year')"
+              @click="showSelect('year',true)"
             >
               {{ titYear }}
             </kb-button>
-            /
-            <strong
-              class="button not active"
-            >
-              {{ titMonth }}
-            </strong>
           </div>
-          <div
-            v-else
-            class="tit"
-          >
-            <kb-button
-              not
-              @click="showSelect('year')"
-            >
-              {{ titYear }}
-            </kb-button>
-            /
-            <kb-button
-              not
-              class="active"
-              @click="showSelect('day')"
-            >
-              {{ titMonth }}
-            </kb-button>
-          </div>
+          <kb-button
+            not
+            class="swiper-arr swiper-prev"
+            :class="{disabled:(minDate !== null && Number(titYear) <= Number(minDate.substr(0,4)))}"
+            :disabled="(minDate !== null && Number(titYear) <= Number(minDate.substr(0,4)))"
+            aria-label="이전 년도"
+            @click="setMonth('prev')"
+          >이전 년도</kb-button>
+          <kb-button
+            not
+            class="swiper-arr swiper-next"
+            :class="{disabled:(maxDate !== null && Number(maxDate.substr(0,4)) <= Number(titYear))}"
+            :disabled="(maxDate !== null && Number(maxDate.substr(0,4)) <= Number(titYear))"
+            aria-label="다음 년도"
+            @click="setMonth('next')"
+          >다음 년도</kb-button>
         </div>
         <div class="calendar-select">
           <ul>
@@ -153,22 +141,7 @@
               </kb-button>
             </li>
           </ul>
-          <kb-button
-            not
-            class="ui-year-arr prev"
-            :class="{disabled:(minDate !== null && Number(titYear) <= Number(minDate.substr(0,4)))}"
-            :disabled="(minDate !== null && Number(titYear) <= Number(minDate.substr(0,4)))"
-            aria-label="이전 년도"
-            @click="setMonth('prev')"
-          />
-          <kb-button
-            not
-            class="ui-year-arr next"
-            :class="{disabled:(maxDate !== null && Number(maxDate.substr(0,4)) <= Number(titYear))}"
-            :disabled="(maxDate !== null && Number(maxDate.substr(0,4)) <= Number(titYear))"
-            aria-label="다음 년도"
-            @click="setMonth('next')"
-          />
+
         </div>
       </div>
       <div
@@ -176,34 +149,28 @@
       >
         <div class="calendar-head">
           <div
-            v-if="type === 'year'"
             class="tit"
           >
-            <strong
-              class="button not active"
-            >
-              {{ titYear }}
+            <strong class="button not">
+              {{ yearAry[1] }} ~ {{ yearAry[10] }}
             </strong>
           </div>
-          <div
-            v-else
-            class="tit"
-          >
-            <kb-button
-              not
-              class="active"
-              @click="showSelect('day')"
-            >
-              {{ titYear }}
-            </kb-button>
-            /
-            <kb-button
-              not
-              @click="showSelect('month')"
-            >
-              {{ titMonth }}
-            </kb-button>
-          </div>
+          <kb-button
+            not
+            class="swiper-arr swiper-prev"
+            :class="{disabled:(minDate !== null && Number(yearAry[0]) <= Number(minDate.substr(0,4)))}"
+            :disabled="(minDate !== null && Number(yearAry[0]) <= Number(minDate.substr(0,4)))"
+            aria-label="이전 년도"
+            @click="setYearAry('prev')"
+          >이전 년도</kb-button>
+          <kb-button
+            not
+            class="swiper-arr swiper-next"
+            :class="{disabled:(maxDate !== null && Number(maxDate.substr(0,4)) <= Number(yearAry[11]))}"
+            :disabled="(maxDate !== null && Number(maxDate.substr(0,4)) <= Number(yearAry[11]))"
+            aria-label="다음 년도"
+            @click="setYearAry('next')"
+          >다음 년도</kb-button>
         </div>
         <div class="calendar-select">
           <ul>
@@ -226,22 +193,6 @@
               </kb-button>
             </li>
           </ul>
-          <kb-button
-            not
-            class="ui-year-arr prev"
-            :class="{disabled:(minDate !== null && Number(yearAry[0]) <= Number(minDate.substr(0,4)))}"
-            :disabled="(minDate !== null && Number(yearAry[0]) <= Number(minDate.substr(0,4)))"
-            aria-label="이전 년도"
-            @click="setYearAry('prev')"
-          />
-          <kb-button
-            not
-            class="ui-year-arr next"
-            :class="{disabled:(maxDate !== null && Number(maxDate.substr(0,4)) <= Number(yearAry[11]))}"
-            :disabled="(maxDate !== null && Number(maxDate.substr(0,4)) <= Number(yearAry[11]))"
-            aria-label="다음 년도"
-            @click="setYearAry('next')"
-          />
         </div>
       </div>
     </kb-pop-body>
@@ -266,6 +217,7 @@ export default {
       isCalendarDay: true,
       isCalendarMonth: false,
       isCalendarYear: false,
+      isCalendarBack: false,
       calendarAry: [],
       monthAry: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
       yearAry: [],
@@ -458,7 +410,7 @@ export default {
     daySelect(val) {
       this.$emit('close', { payload: val });
     },
-    showSelect(type) {
+    showSelect(type, back) {
       let isDay = false;
       let isMonth = false;
       let isYear = false;
@@ -481,6 +433,7 @@ export default {
         }, 10);
       }
       if (type === 'year') this.yaerAryPush(Number(this.titYear));
+      if (back !== undefined) this.isCalendarBack = true;
     },
     readySet() {
       const YearMonth = (this.value !== '') ? this.$getOnlyNumber(this.value) : this.todayDateString;
@@ -511,8 +464,6 @@ export default {
       } else if (this.type === 'month' && type === 'month') {
         this.daySelect(this.titYear + val);
       } else {
-        this.calendarAry = [];
-        this.isPrevDisabled = false;
         if (type === 'month') {
           this.calendarMonth = Number(val);
           this.titMonth = val;
@@ -522,7 +473,15 @@ export default {
           this.calendarMonth = Number(this.titMonth);
           this.calendarYear = Number(val);
           this.titYear = val;
+          if (this.isCalendarBack) {
+            this.isCalendarMonth = true;
+            this.isCalendarYear = false;
+            this.isCalendarBack = true;
+            return;
+          }
         }
+        this.calendarAry = [];
+        this.isPrevDisabled = false;
 
         this.calAryPush(-1);
         this.calAryPush(0);
