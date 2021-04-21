@@ -3,8 +3,8 @@
     <h2 class="gd__h1">버튼 : &lt; kb-button &gt;</h2>
     <h3 class="gd__h2">버튼 설정 guide</h3>
     <div class="gray_box">
-      <p><strong>size=""</strong>사이즈(기본:h48, h32, h28)</p>
-      <p><strong>h32, h28</strong>사이즈</p>
+      <p><strong>size=""</strong>사이즈(기본:h48, h40, h28)</p>
+      <p><strong>h40, h28</strong>사이즈</p>
       <p><strong>color=""</strong>컬러(yellow, blue, red, green, purple)</p>
       <p><strong>yellow, blue, red, green, purple</strong>컬러</p>
       <p><strong>link</strong>텍스트 버튼</p>
@@ -1002,16 +1002,6 @@
       </kb-tabs>
       {{tabIdx}}
     </div>
-
-    <h2 class="gd__h1">slider</h2>
-    <div>
-      <kb-slider
-        v-model="sliderVal"
-        :step="5"
-        :marks="[0, 25, 50, 75, 100]"
-      />
-      {{sliderVal}}
-    </div>
   </div>
 </template>
 <script>
@@ -1020,7 +1010,6 @@ export default {
   data() {
     return {
       tabIdx: 0,
-      sliderVal: 20,
     };
   },
   methods: {

@@ -7,9 +7,7 @@
     <div class="fc_blue">fc_blue:#5177BC</div>
     <div class="fc_yellow">fc_yellow:#ffdc00</div>
     <div class="fc_red">fc_red:#F46600</div>
-    <div class="fc_gray">fc_gray:#666</div>
-    <div class="fc_gray2">fc_gray2:#60584c</div>
-    <div class="fc_gray3">fc_gray2:#52555c</div>
+    <div class="fc_gray">fc_gray:#6f7a94</div>
     <br>
     <div class="fc_000">fc_000:#000</div>
     <div class="fc_222">fc_222:#222</div>
@@ -164,8 +162,11 @@
 
     <h2 class="gd__h1">중간 라인</h2>
     <hr class="hr_line" aria-hidden="true">
+    <br>
     <hr class="hr_line ty2" aria-hidden="true">
+    <br>
     <hr class="hr_line ty2 inset" aria-hidden="true">
+    <br>
     <hr class="hr_line ty2 inset dashed" aria-hidden="true">
 
     <h2 class="gd__h1">텍스트 아이콘</h2>

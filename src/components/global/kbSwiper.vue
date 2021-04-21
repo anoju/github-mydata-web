@@ -214,7 +214,7 @@ export default {
       }
     },
     swiperAppendSlide() {
-      console.log('aaa');
+      console.log('swiperAppendSlide');
     },
   },
 };

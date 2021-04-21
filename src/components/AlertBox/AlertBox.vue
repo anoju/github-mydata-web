@@ -105,7 +105,11 @@ export default {
         this.$el.classList.add('show');
       }, 50);
       setTimeout(() => {
-        this.$refs.message.focus();
+        if (this.message.title === '') {
+          this.$refs.message.focus();
+        } else {
+          this.$el.querySelector('.pop_head h1').focus();
+        }
       }, 650);
     },
     onClose(result) {

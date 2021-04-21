@@ -1,5 +1,5 @@
 <template>
-  <div class="kb_slider">
+  <div class="ui_slider">
     <vue-slider
       :disabled="disabled"
       :marks="marks"

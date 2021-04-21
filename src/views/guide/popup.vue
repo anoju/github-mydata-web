@@ -61,6 +61,13 @@
         >
           confirm
         </kb-button>
+        <kb-button
+          line
+          blue
+          @click="customAlert($event.target)"
+        >
+          버튼 custom
+        </kb-button>
       </kb-button-wrap>
     </div>
     <h2 class="gd__h1">toast</h2>
@@ -191,6 +198,8 @@ export default {
       this.$modal({
         component: () => import('@/views/guide/pop/full.vue'),
         returnFocus: el,
+      }).then((result) => {
+        if (result.payload === 'change') this.showModalPopup(el);
       });
     },
     showFullPopup2(el) {
@@ -238,6 +247,19 @@ export default {
         });
       }
       this.isAlertTitle = !this.isAlertTitle;
+    },
+    customAlert(e) {
+      const msg2 = `<div><strong class="fc_red">비밀번호 5회 오류입니다.</strong></div>
+          <br>
+          <div class="fz_12">비밀번호 차단 해지 후 다시 시도해주세요.</div>`;
+      this.$confirm(msg2, e, '', {
+        cancelTxt: '시렁',
+        confirmTxt: '차단해지',
+      }).then((result) => {
+        if (result) {
+          console.log('차단해지');
+        }
+      });
     },
     showToast(msg, link = null) {
       // console.log(msg);

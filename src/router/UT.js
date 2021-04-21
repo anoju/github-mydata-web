@@ -75,6 +75,22 @@ export default [
           { path: 'UT14C014', component: () => import('@/views/UT/14/UT14C014.vue') }, // 개별인증 전송요구서
         ],
       },
+      {
+        path: '15',
+        component: {
+          render(c) { return c('router-view'); },
+        },
+        children: [
+          { path: 'UT15D001', component: () => import('@/views/UT/15/UT15D001.vue') }, // 구매하기
+          { path: 'UT15D004', component: () => import('@/views/UT/15/UT15D004.vue') }, // 판매하기
+          { path: 'UT15D005', component: () => import('@/views/UT/15/UT15D005.vue') }, // 구매하기 주문결과(거래성공,일부성공)
+          { path: 'UT15D006', component: () => import('@/views/UT/15/UT15D006.vue') }, // 구매하기 주문결과(거래실패)
+          { path: 'UT15D005_2', component: () => import('@/views/UT/15/UT15D005_2.vue') }, // 구매하기 상세주문내역
+          { path: 'UT15D007', component: () => import('@/views/UT/15/UT15D007.vue') }, // 판매하기 주문결과(거래성공,일부성공)
+          { path: 'UT15D008', component: () => import('@/views/UT/15/UT15D008.vue') }, // 판매하기 주문결과(거래실패)
+          { path: 'UT15D010', component: () => import('@/views/UT/15/UT15D010.vue') }, // 구매하기(일괄) 상세주문내역
+        ],
+      },
     ],
   },
 

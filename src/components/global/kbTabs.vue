@@ -91,6 +91,9 @@ export default {
         this.watchEvt(this.idx);
       }
     },
+    currIdx(t) {
+      this.$emit('currentIdxTab', t);
+    },
   },
   computed: {
     tabmenuClass() {

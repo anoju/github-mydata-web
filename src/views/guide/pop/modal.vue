@@ -23,6 +23,14 @@
     </kb-pop-body>
     <kb-pop-foot>
       <kb-button
+        v-if="allClose"
+        yellow
+        @click="popClose('all')"
+      >
+        팝업 모두 닫기
+      </kb-button>
+      <kb-button
+        v-else
         yellow
         @click="popClose"
       >
@@ -34,9 +42,16 @@
 <script>
 export default {
   name: 'modal',
+  props: {
+    allClose: { type: Boolean, default: false },
+  },
   methods: {
-    popClose() {
-      this.$emit('close');
+    popClose(type) {
+      if (type === 'all') {
+        this.$emit('close', { payload: 'close' });
+      } else {
+        this.$emit('close');
+      }
     },
   },
 };

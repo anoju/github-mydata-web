@@ -65,7 +65,7 @@
         {{ unit }}
       </div>
       <div
-        v-if="value != '' && !notDel && !readonly && !disabled && !date && !time && !keypad"
+        v-if="value != '' && !notDel && !readonly && !disabled && !date && !time && !keypad && !datepicker && !monthpicker && !yearpicker"
         class="del"
       >
         <button
@@ -178,9 +178,6 @@ export default {
           type,
           min,
           max,
-        },
-        modalProps: {
-          bgClick: true,
         },
         returnFocus: el,
       }).then((result) => {

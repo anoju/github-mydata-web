@@ -51,8 +51,13 @@
                   <p class="up_down fc_up">▲350원 (+13.25%)</p>
                 </div>
                 <div class="other_box">
-                  <!-- 활성화 시 on 클래스 적용 -->
-                  <kb-button button not class="ico_like on">즐겨찾기</kb-button>
+                  <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
+                  <kb-button
+                    like
+                    :class="{checked:true}"
+                    role="checkbox"
+                    :aria-checked="true?'true':'false'"
+                  >즐겨찾기</kb-button>
                   <dl>
                     <dt>평균매수단가</dt>
                     <dd>59,300원</dd>
@@ -73,8 +78,13 @@
                   <p class="up_down fc_down">▼350원 (-13.25%)</p>
                 </div>
                 <div class="other_box">
-                  <!-- 활성화 시 on 클래스 적용 -->
-                  <kb-button button not class="ico_like">즐겨찾기</kb-button>
+                  <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
+                  <kb-button
+                    like
+                    :class="{checked:true}"
+                    role="checkbox"
+                    :aria-checked="true?'true':'false'"
+                  >즐겨찾기</kb-button>
                   <dl>
                     <dt>평균매수단가</dt>
                     <dd>59,300원</dd>
@@ -95,8 +105,13 @@
                   <p class="up_down fc_up">▲350원 (+13.25%)</p>
                 </div>
                 <div class="other_box">
-                  <!-- 활성화 시 on 클래스 적용 -->
-                  <kb-button button not class="ico_like">즐겨찾기</kb-button>
+                  <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
+                  <kb-button
+                    like
+                    :class="{checked:false}"
+                    role="checkbox"
+                    :aria-checked="false?'true':'false'"
+                  >즐겨찾기</kb-button>
                   <dl>
                     <dt>평균매수단가</dt>
                     <dd>59,300원</dd>

@@ -78,14 +78,19 @@ export default {
       if (header != null)topGap += (header.offsetHeight);
       const fixedTab = wrap.querySelector('.tab_wrap.fixed');
       if (fixedTab != null)topGap += (fixedTab.querySelector('.tabmenu').offsetHeight);
+      const wrapStart = wrapSclTop + topGap;
       let bottomGap = 10;
       const space = wrap.querySelector('.fixed_space');
       if (space != null)bottomGap += (space.offsetHeight);
       const startY = elTop - topGap;
       const endY = elEnd - wrapH + bottomGap;
       const sclMove = Math.min(startY, endY);
-      if (wrapEnd < elEnd && this.isScroll) {
-        this.$scrollTo(wrap, { top: sclMove }, 300);
+      if (this.isScroll) {
+        if (elTop < wrapStart) {
+          this.$scrollTo(wrap, { top: startY }, 300);
+        } else if (wrapEnd < elEnd) {
+          this.$scrollTo(wrap, { top: sclMove }, 300);
+        }
       }
     },
   },

@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section mg_t0">
     <div class="month_wrap">
       <div class="top_info_check">
         <kb-button not aTag>

@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section mg_t0">
     <!-- banner -->
     <div class="top_banner">
       <kb-button aTag not>
@@ -73,6 +73,7 @@
                   <p class="amount_money">454,000원 올랐어요!</p>
                 </div>
               </template>
+
               <div class="accordion_box">
                 <div class="box_header">
                   <p class="sub_tit">
@@ -136,6 +137,14 @@
                   </li>
                 </ul>
               </div>
+
+              <kb-button-wrap class="mg_t0">
+                <kb-button
+                  class="more"
+                >
+                  더보기
+                </kb-button>
+              </kb-button-wrap>
             </kb-folding>
             <!-- //현금 -->
             <!-- 투자 -->
@@ -196,6 +205,13 @@
                   </li>
                 </ul>
               </div>
+              <kb-button-wrap class="mg_t0">
+                <kb-button
+                  class="more"
+                >
+                  더보기
+                </kb-button>
+              </kb-button-wrap>
             </kb-folding>
             <!-- //투자 -->
 
@@ -308,6 +324,13 @@
                   </li>
                 </ul>
               </div>
+              <kb-button-wrap class="mg_t0">
+                <kb-button
+                  class="more"
+                >
+                  더보기
+                </kb-button>
+              </kb-button-wrap>
             </kb-folding>
             <!-- //카드 -->
           </kb-foldings>

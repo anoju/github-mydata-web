@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section mg_t0">
     <template v-if="dataOn">
       <div class="assets_change_info pd_b0">
         <kb-select
@@ -7,11 +7,18 @@
           :options="selectOpt1"
           class="type_line"
         />
-        <p class="tit">동안 투자 자산이 어떻게 변했지?</p>
-        <p class="date mg_b40">조회기간 : 2010/2/01 - 2021/1/31</p>
+        <p class="tit mg_b8">동안 투자 자산이 어떻게 변했지?</p>
+        <div class="txt_list2">
+          <div class="dot">조회기간은 KB 오늘 앱<strong>가입일</strong>부터 조회됩니다.</div>
+        </div>
+        <div class="t_center mg_t24">
+          <kb-button line blue class="w_200">투자자산 조회</kb-button>
+        </div>
       </div>
+      <hr class="hr_line mg_t32" aria-hidden="true" />
+      <p class="fz_14 fc_666 mg_t32">조회기간 : 2010/2/01(가입일) - 2021/12/23</p>
 
-      <kb-btn-toggle small inline>
+      <kb-btn-toggle small inline class="mg_t10">
         <kb-btn-toggle-row>
           <kb-radio
             v-model="toggleVal2"
@@ -334,7 +341,7 @@
         <div class="text_box">
           <h3>투자자산 변동금</h3>
           <dl>
-            <dt>손익금(펀드+주식+Wrap)</dt>
+            <dt>손익금(주식+펀드+Wrap+채권+파생+신탁+현금+IRP+단기+기탕)</dt>
             <dd>-4,000,000원</dd>
           </dl>
           <dl>

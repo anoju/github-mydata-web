@@ -45,6 +45,14 @@
         tabIdx: {{tabIdx}}
         <br>
         <br>
+        <kb-button-wrap>
+          <kb-button line @click="showModalPopup($event.target)">
+            팝업위에 팝업
+          </kb-button>
+          <kb-button line @click="changePopup">
+            팝업닫고 팝업
+          </kb-button>
+        </kb-button-wrap>
         팝업 컨텐츠<br>
         팝업 컨텐츠<br>
         팝업 컨텐츠<br>
@@ -163,6 +171,20 @@ export default {
     },
     toStep(i) {
       this.tabIdx = i;
+    },
+    showModalPopup(el) {
+      this.$modal({
+        component: () => import('@/views/guide/pop/modal.vue'),
+        returnFocus: el,
+        componentProps: {
+          allClose: true,
+        },
+      }).then((result) => {
+        if (result.payload === 'close') this.$emit('close');
+      });
+    },
+    changePopup() {
+      this.$emit('close', { payload: 'change' });
     },
   },
 };

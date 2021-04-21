@@ -8,6 +8,15 @@ export default [
     },
     children: [
       {
+        path: '04',
+        component: {
+          render(c) { return c('router-view'); },
+        },
+        children: [
+          { path: 'MY04A014', component: () => import('@/views/MY/04/MY04A014.vue') }, // 거래내역
+        ],
+      },
+      {
         path: '09',
         component: {
           render(c) { return c('router-view'); },

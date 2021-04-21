@@ -1,6 +1,6 @@
 <template>
   <kb-page page-title="오늘 나의 자산">
-    <kb-page-body>
+    <kb-page-body class="pd_b0">
       <div class="section">
         <div class="assets_header">
           <p class="tit">오늘 순자산</p>

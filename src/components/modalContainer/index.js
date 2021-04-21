@@ -19,6 +19,7 @@ function ModalContainer() {
 
       this.installed = true;
       Vue.prototype.$modal = this.modal;
+      Vue.prototype.$like = this.like;
 
       Object.defineProperty(Vue.prototype, '$modalInstance', {
         set(instance) {
@@ -42,6 +43,10 @@ function ModalContainer() {
           returnFocus,
         );
       });
+    },
+
+    like(addClass = null) {
+      modalContainer.instance.like(addClass);
     },
   };
 

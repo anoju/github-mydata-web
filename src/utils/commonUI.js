@@ -9,6 +9,7 @@ export default {
     Vue.prototype.$getComponentName = this.getComponentName;
     Vue.prototype.$getSiblings = this.getSiblings;
     Vue.prototype.$getParents = this.getParents;
+    Vue.prototype.$getIndex = this.getIndex;
     Vue.prototype.$fadeOut = this.fadeOut;
     Vue.prototype.$fadeIn = this.fadeIn;
     Vue.prototype.$slideUp = this.slideUp;
@@ -20,6 +21,7 @@ export default {
     Vue.prototype.$dateString = this.dateString;
     Vue.prototype.$dateFormat = this.dateFormat;
     Vue.prototype.$weekString = this.weekString;
+    Vue.prototype.$arrayDivision = this.arrayDivision;
   },
   getOnlyNumber(num) {
     return num.toString().replace(/[^0-9]/g, '');
@@ -92,6 +94,10 @@ export default {
     }
 
     return parents;
+  },
+  getIndex(elem) {
+    const index = Array.prototype.slice.call(elem.parentElement.children).indexOf(elem);
+    return index;
   },
   fadeOut(elem, speed, fn) {
     if (this.$getStyle(elem, 'display') === 'none' || elem.classList.contains('fadeAction')) return;
@@ -249,7 +255,6 @@ export default {
       const parts = rtnVal.split('.');
       if (parts.length > 2) {
         toFixedLength = parts[1].length;
-        console.log(toFixedLength, parts);
         rtnVal = parts[0] + `.${parts[1]}`;
       }
     }
@@ -304,10 +309,22 @@ export default {
     return console.error('$dateFormat type error');
   },
   weekString(d) {
-    console.log(d);
     const $today = d ? new Date(d) : new Date();
     const $week = ['일', '월', '화', '수', '목', '금', '토'];
     const $dayLabel = $week[$today.getDay()];
     return $dayLabel;
+  },
+  arrayDivision(arr, n) {
+    if (Array.isArray(arr)) {
+      const len = arr.length;
+      const cnt = Math.floor(len / n) + (Math.floor(len % n) < 0 ? 1 : 0);
+      const tmp = [];
+      for (let i = 0; i < cnt; i += 1) {
+        tmp.push(arr.splice(0, n));
+      }
+
+      return tmp;
+    }
+    return arr;
   },
 };

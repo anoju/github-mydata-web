@@ -38,7 +38,7 @@
                       {{ item.pageID }}
                     </router-link>
                     <router-link
-                      v-if="item.type === 'sub'"
+                      v-if="item.type === 'page'"
                       :to="`/${item.pageID.substr(0, 2)}/${item.pageID.substr(
                         2,
                         2
@@ -63,7 +63,7 @@
                       {{ item.pageID }}
                     </a>
                   </td>
-                  <td :class="{sub:item.type === 'sub'}">{{ item.type }}</td>
+                  <td :class="{sub:item.type === 'page'}">{{ item.type }}</td>
                   <td class="t_left">
                     {{ item.depth1 }}
                     <span v-if="item.depth2"> / {{ item.depth2 }}</span>

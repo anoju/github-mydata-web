@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="modals.length"
+    v-if="modals.length || isLike"
     class="modal_container"
   >
     <kb-pop-wrap
@@ -18,6 +18,17 @@
         @close="onClose(i,$event)"
       />
     </kb-pop-wrap>
+
+    <!-- like -->
+    <div
+      v-if="isLike"
+      id="layerLike"
+      class="layer_like"
+      :class="{show:isLikeShow}"
+      aria-hidden="true"
+    >
+      <div :class="likeClass"></div>
+    </div>
   </div>
 </template>
 
@@ -32,6 +43,11 @@ export default {
   data() {
     return {
       modals: [],
+      isLike: false,
+      isLikeShow: false,
+      isLikeIng: false,
+      likeClass: null,
+      isClosing: false,
     };
   },
   created() {
@@ -84,9 +100,12 @@ export default {
       this.modals[index].initialized = true;
     },
     onOpen(index, type, addClass) {
+      if (this.isClosing) return;
+      // const time = this.isClosing ? 700 : 0;
       const idx = Number(index);
       const modal = this.$children[idx].$el;
       const wrap = this.$el.childNodes[idx];
+      wrap.classList.remove('full', 'modal', 'bottom');
       wrap.classList.add(type);
       wrap.classList.add(...addClass);
       if (idx === 0 && document.querySelector('.lock') === null) uiEventBus.$emit('lock-wrap');
@@ -106,6 +125,7 @@ export default {
     },
     // onClose(index, { flag = false, payload }) {
     onClose(index, { payload } = {}) {
+      this.isClosing = true;
       const idx = Number(index);
       const wrap = this.$el.childNodes[idx];
       const modal = this.modals[idx];
@@ -117,7 +137,25 @@ export default {
       setTimeout(() => {
         this.modals.splice(idx, 1);
         if (focusEl !== undefined && typeof focusEl !== 'object')focusEl.focus();
+        this.isClosing = false;
       }, 600);
+    },
+    like(addClass) {
+      if (!this.isLikeIng) {
+        this.likeClass = addClass;
+        this.isLikeIng = true;
+        this.isLike = true;
+        setTimeout(() => {
+          this.isLikeShow = true;
+          // setTimeout(() => {
+          //   this.isLikeShow = false;
+          //   setTimeout(() => {
+          //     this.isLike = false;
+          //     this.isLikeIng = false;
+          //   }, 300);
+          // }, 2000);
+        }, 10);
+      }
     },
   },
 };

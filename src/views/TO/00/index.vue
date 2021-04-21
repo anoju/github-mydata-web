@@ -159,7 +159,10 @@ export default {
   },
   destroyed() {
     window.removeEventListener('resize', this.resizeChk);
-    this.$refs.layerContainer.querySelector('.scl__body').removeEventListener('scroll', this.scrollEvt);
+    // validation add
+    if (!!this.$refs.layerContainer && !!this.$refs.layerContainer.querySelector('.scl__body')) {
+      this.$refs.layerContainer.querySelector('.scl__body').removeEventListener('scroll', this.scrollEvt);
+    }
   },
   methods: {
     resizeChk() {
@@ -311,6 +314,11 @@ export default {
     },
     scrollEvt(e) {
       this.touchPadTop = e.target.scrollTop;
+
+      // for pageScrilling event
+      if ((e.target.scrollHeight - e.target.offsetHeight) === e.target.scrollTop) {
+        uiEventBus.$emit('pageScroll');
+      }
     },
   },
 };

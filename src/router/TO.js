@@ -54,6 +54,7 @@ export default [
           { path: 'TO02C004', component: () => import('@/views/TO/02/TO02C004.vue') }, // 투자매입 전월 비교
           { path: 'TO02C005', component: () => import('@/views/TO/02/TO02C005.vue') }, // 보험연금납입 전월 비교
           { path: 'TO02C006', component: () => import('@/views/TO/02/TO02C006.vue') }, // 부채청구납입 전월 비교
+          { path: 'TO02C007', component: () => import('@/views/TO/02/TO02C007.vue') }, // 월관리 추천 목록
         ],
       },
     ],

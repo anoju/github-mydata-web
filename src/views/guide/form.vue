@@ -952,6 +952,15 @@
         />
       </kb-form-item>
       <kb-form-item
+        type2
+        label="type2"
+        label-width="70"
+      >
+        <kb-input
+          v-model="fmVal1"
+        />
+      </kb-form-item>
+      <kb-form-item
         label="필수"
         required
       >
@@ -1082,10 +1091,26 @@
           >검색하기</kb-button>
         </kb-input>
       </kb-form-item>
-      <br>
-      <br>
-      <br>
-      <br>
+      <h2 class="gd__h1">slider</h2>
+      <div>
+        <kb-slider
+          v-model="sliderVal"
+          :step="5"
+          :marks="[0, 25, 50, 75, 100]"
+        />
+        {{sliderVal}}
+      </div>
+      <h2 class="gd__h1">spinner</h2>
+      <div>
+        <kb-spinner
+          :min="1"
+          :max="10"
+          v-model="spinnerVal"
+          unit="주"
+          title="구매수량입력"
+        />
+        {{spinnerVal}}
+      </div>
     </div>
   </div>
 </template>
@@ -1094,6 +1119,8 @@ export default {
   name: 'Form',
   data() {
     return {
+      spinnerVal: 1,
+      sliderVal: 20,
       inpVal1: 'input disabled',
       inpVal2: 'input readonly',
       inpVal3: '123456',

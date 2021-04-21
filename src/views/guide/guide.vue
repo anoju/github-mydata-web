@@ -89,6 +89,14 @@
           class="tab"
           role="presentation"
         >
+          <router-link to="/guide/drag">
+            <span>drag</span>
+          </router-link>
+        </div>
+        <div
+          class="tab"
+          role="presentation"
+        >
           <router-link to="/guide/test">
             <span>test</span>
           </router-link>

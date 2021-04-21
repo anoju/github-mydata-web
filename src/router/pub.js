@@ -22,6 +22,7 @@ export default [
       { path: 'etc', component: () => import('@/views/guide/etc.vue') },
       { path: 'calendar', component: () => import('@/views/guide/calendar.vue') },
       { path: 'test', component: () => import('@/views/guide/test.vue') },
+      { path: 'drag', component: () => import('@/views/guide/drag.vue') },
     ],
   },
   {

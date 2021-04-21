@@ -1,7 +1,7 @@
 <template>
   <kb-page page-title="주식 종목 진단">
-    <kb-page-body>
-      <div class="section stock_diagnose_wrap mg_bm60">
+    <kb-page-body class="pd_b0">
+      <div class="section stock_diagnose_wrap">
         <div class="invest_info_box">
           <div class="top">
             <p class="kind">
@@ -1148,6 +1148,26 @@
           </ul>
         </div>
       </div>
+      <kb-button-wrap bottom-fixed class="ty3">
+        <kb-button
+          like
+          role="checkbox"
+          :class="{checked: isLike}"
+          :aria-checked="isLike ? 'true' : 'false'"
+          @click="isLike = !isLike"
+        >즐겨찾기</kb-button>
+        <kb-button
+          v-if="false"
+          down
+        >
+          판매하기
+        </kb-button>
+        <kb-button
+          up
+        >
+          구매하기
+        </kb-button>
+      </kb-button-wrap>
     </kb-page-body>
   </kb-page>
 </template>
@@ -1159,6 +1179,7 @@ export default {
       keywords: ['분산투자고수 관심주', '리서치 추천', '매도상위 2위', 'Day-Trader 매수(매도)2위 텍스트 길어', '운 좋은 사람 선택 종목', '5개 이상일때 나오는 키워드'],
       keywordShowCheck: false,
       barWidth: '50%', // 그래프 위치값
+      isLike: false,
     };
   },
   methods: {
@@ -1178,7 +1199,6 @@ export default {
 
     sliderMotion(el) {
       const $el = el;
-      console.log($el);
       this.$anime({
         targets: $el,
         opacity: [

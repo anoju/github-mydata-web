@@ -2,7 +2,10 @@
   <kb-page page-title="고수의 Pick">
     <kb-page-body>
       <div class="section">
-        <kb-tabs fixed>
+        <kb-tabs
+          fixed
+          content-class="mg_t0"
+        >
           <kb-tab
             title="전체"
             active

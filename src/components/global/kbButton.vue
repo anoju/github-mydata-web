@@ -71,6 +71,9 @@ export default {
     round: { type: Boolean, default: false },
     shadow: { type: Boolean, default: false },
 
+    like: { type: Boolean, default: false },
+    star: { type: Boolean, default: false },
+
     // 색상
     color: { type: String, default: null },
     yellow: { type: Boolean, default: false },
@@ -79,6 +82,8 @@ export default {
     green: { type: Boolean, default: false },
     purple: { type: Boolean, default: false },
     dark: { type: Boolean, default: false },
+    up: { type: Boolean, default: false }, // 구매 컬러
+    down: { type: Boolean, default: false }, // 판매 컬러
 
     // 크기
     size: { type: String, default: null },
@@ -90,7 +95,7 @@ export default {
   },
   data() {
     return {
-      colorType: ['yellow', 'blue', 'blue', 'red', 'green', 'purple', 'dark'],
+      colorType: ['yellow', 'blue', 'blue', 'red', 'green', 'purple', 'dark', 'up', 'down'],
       sizeType: ['h40', 'h32', 'h28', 'large', 'small'],
       isFocus: false,
       isClick: false,
@@ -121,6 +126,8 @@ export default {
       if (this.green) return 'green';
       if (this.purple) return 'purple';
       if (this.dark) return 'dark';
+      if (this.up) return 'up';
+      if (this.down) return 'down';
       return 'default';
     },
     $size() {
@@ -153,6 +160,8 @@ export default {
           round: this.round,
           shadow: this.shadow,
           disabled: this.disabled,
+          like: this.like,
+          star: this.star,
         },
         'bt_' + this.$color,
         this.$size,
@@ -205,6 +214,31 @@ export default {
           setTimeout(() => {
             this.isClick = false;
           }, 650);
+          if ((this.like || this.star) && this.$el.classList.contains('checked')) {
+            // 좋아요
+            // '<div id="layerLike" class="layer_like" aria-hidden="true"></div>'
+            /*
+            let likeHtml = document.getElementById('layerLike');
+            if (!likeHtml) {
+              likeHtml = document.createElement('div');
+              likeHtml.id = 'layerLike';
+              likeHtml.classList.add('layer_like');
+              likeHtml.setAttribute('aria-hidden', 'true');
+              likeHtml.innerHTML = '<div></div>';
+              document.body.appendChild(likeHtml);
+            }
+            if (!likeHtml.classList.contains('show')) {
+              setTimeout(() => {
+                likeHtml.classList.add('show');
+                setTimeout(() => {
+                  likeHtml.classList.remove('show');
+                }, 2000);
+              }, 10);
+            }
+            */
+            if (this.like) this.$like('heart');
+            if (this.star) this.$like('star');
+          }
         }, 10);
       }
     },

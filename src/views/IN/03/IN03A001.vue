@@ -1016,8 +1016,13 @@
                 <span class="stit">손해를 만회할 수 있는 극약처방!</span>
                 <p class="tit">한국판 뉴딜 관련 수혜주를 중심으로 한 그린뉴딜 테마형</p>
               </kb-button>
-              <!-- 활성화 시 on 클래스 적용 -->
-              <kb-button button not class="ico_like">즐겨찾기</kb-button>
+              <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
+              <kb-button
+                like
+                :class="{checked:true}"
+                role="checkbox"
+                :aria-checked="true?'true':'false'"
+              >즐겨찾기</kb-button>
             </div>
             <div class="return">
               <span>3개월 수익률</span>
@@ -1030,8 +1035,13 @@
                 <span class="stit">손해를 만회할 수 있는 극약처방!</span>
                 <p class="tit">한국판 뉴딜 관련 수혜주를 중심으로 한 그린뉴딜 테마형</p>
               </kb-button>
-              <!-- 활성화 시 on 클래스 적용 -->
-              <kb-button button not class="ico_like on">즐겨찾기</kb-button>
+              <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
+              <kb-button
+                like
+                :class="{checked:false}"
+                role="checkbox"
+                :aria-checked="false?'true':'false'"
+              >즐겨찾기</kb-button>
             </div>
             <div class="return">
               <span>3개월 수익률</span>
