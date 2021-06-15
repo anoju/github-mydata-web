@@ -98,10 +98,10 @@ export default {
     },
   },
   created() {
-    window.addEventListener('resize', this.maxHeight);
+    if (this.modal || this.bottom) window.addEventListener('resize', this.maxHeight);
   },
   destroyed() {
-    window.removeEventListener('resize', this.maxHeight);
+    if (this.modal || this.bottom) window.removeEventListener('resize', this.maxHeight);
   },
   mounted() {
     this.addClassChk();
@@ -109,7 +109,7 @@ export default {
     if (this.idx)uiEventBus.$emit('pop-open', [this.idx, this.modalType, this.addClass]);
     this.$nextTick(() => {
       setTimeout(() => {
-        this.maxHeight();
+        if (this.modal || this.bottom) this.maxHeight();
       }, 10);
     });
     // console.log(this.propsData)

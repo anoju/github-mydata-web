@@ -23,67 +23,28 @@
 
         </div>
       </div>
-
       <kb-tabs-link
-        v-if="isMain"
         fixed
-      >
-        <div class="tab" role="presentation">
-          <router-link to="/TO/00/TO02A002">
-            <span>총자산</span>
-          </router-link>
-        </div>
-        <div class="tab" role="presentation">
-          <router-link to="/TO/00/TO02C001">
-            <span>월관리</span>
-          </router-link>
-        </div>
-        <div class="tab" role="presentation">
-          <router-link to="/TO/00/TO02D001">
-            <span>타임라인</span>
-          </router-link>
-        </div>
-        <div class="tab" role="presentation">
-          <router-link to="/TO/00/TO02E001">
-            <span>오늘투자</span>
-          </router-link>
-        </div>
-      </kb-tabs-link>
-
-      <kb-tabs-link
-        v-else
-        fixed
-      >
-        <div class="tab" role="presentation">
-          <router-link to="/TO/02/TO02A002">
-            <span>총자산</span>
-          </router-link>
-        </div>
-        <div class="tab" role="presentation">
-          <router-link to="/TO/02/TO02C001">
-            <span>월관리</span>
-          </router-link>
-        </div>
-        <div class="tab" role="presentation">
-          <router-link to="/TO/02/TO02D001">
-            <span>타임라인</span>
-          </router-link>
-        </div>
-        <div class="tab" role="presentation">
-          <router-link to="/TO/02/TO02E001">
-            <span>오늘투자</span>
-          </router-link>
-        </div>
-      </kb-tabs-link>
+        :disabled="tabDisabled"
+        :tabs="tabLink"
+      />
     </kb-page-body>
     <template slot="floating">
       <div class="quick" :class="{open:quickOpen}">
-        <kb-button not class="btn btn_quick" @click="quickOpen = !quickOpen" >퀵메뉴 열기</kb-button>
-        <div>
+        <div class="quick_bg" @click="quickOpen = false" />
+        <kb-button not class="btn btn_quick" @click="quickOpen = !quickOpen" >
+          퀵메뉴
+          <template v-if="quickOpen">닫기</template>
+          <template v-else>열기</template>
+        </kb-button>
+        <div class="quick_list">
           <ul>
-            <li><a href="#">메뉴1</a></li>
-            <li><a href="#">메뉴2</a></li>
-            <li><a href="#">메뉴3</a></li>
+            <li><kb-button a-tag not><i class="ico_quick_1" />추가연동</kb-button></li>
+            <li><kb-button a-tag not><i class="ico_quick_2" />계좌개설</kb-button></li>
+            <li><kb-button a-tag not><i class="ico_quick_3" />이체하기</kb-button></li>
+            <li><kb-button a-tag not><i class="ico_quick_4" />주식구매</kb-button></li>
+            <li><kb-button a-tag not><i class="ico_quick_5" />주식판매</kb-button></li>
+            <li><kb-button a-tag not><i class="ico_quick_6" />관심정보</kb-button></li>
           </ul>
         </div>
       </div>
@@ -95,17 +56,21 @@ export default {
   name: 'TO02',
   data() {
     return {
-      isMain: false,
       moneyValue: true,
       quickOpen: false,
       userAsset: '999,999,999,999',
+      tabDisabled: false,
+      tabLink: [
+        { to: 'TO02A002', text: '총자산' },
+        { to: 'TO02D001', text: '타임라인' },
+        { to: 'TO02C001', text: '월 지출' },
+        { to: 'TO02E001', text: '투자손익' },
+      ],
     };
   },
   computed: {
-
   },
   mounted() {
-    if (this.$el.closest('.main_layer_view') !== null) this.isMain = true;
   },
 };
 </script>

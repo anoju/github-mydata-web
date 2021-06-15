@@ -3,6 +3,7 @@
     <div
       v-if="loading"
       class="loading_layer"
+      :class="{bottom:type == 'C'}"
     >
       <div class="tl">
         <div v-if="type == 'A'">
@@ -42,19 +43,16 @@
         </div>
 
         <div v-if="type == 'C'">
-          <div class="loading_box">
+          <div class="loading_box2">
             <div
-              class="loading_icon3"
+              class="loading_icon2"
               role="img"
               aria-label="화면을 불러오는중입니다."
             >
-              <div>
-                <i /><i /><i />
-              </div>
             </div>
             <div
               v-if="text != '' && text != undefined"
-              class="loading_txt"
+              class="loading_txt2"
             >
               {{ text }}
             </div>

@@ -1,5 +1,5 @@
 /*
-this.$toast(msg, url);
+this.$toast(msg, url, type);
 this.$alarm(msg, url);
 */
 
@@ -25,8 +25,8 @@ function ToastBox() {
       });
     },
 
-    toast(text, link) {
-      toastBox.instance.addToast(text, link);
+    toast(text, link, type) {
+      toastBox.instance.addToast(text, link, type);
     },
     alarm(text, link) {
       toastBox.instance.addAlarm(text, link);

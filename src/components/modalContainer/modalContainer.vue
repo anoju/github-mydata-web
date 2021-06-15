@@ -147,13 +147,13 @@ export default {
         this.isLike = true;
         setTimeout(() => {
           this.isLikeShow = true;
-          // setTimeout(() => {
-          //   this.isLikeShow = false;
-          //   setTimeout(() => {
-          //     this.isLike = false;
-          //     this.isLikeIng = false;
-          //   }, 300);
-          // }, 2000);
+          setTimeout(() => {
+            this.isLikeShow = false;
+            setTimeout(() => {
+              this.isLike = false;
+              this.isLikeIng = false;
+            }, 300);
+          }, 2000);
         }, 10);
       }
     },

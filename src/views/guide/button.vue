@@ -969,7 +969,7 @@
     </div>
     <h3 class="gd__h2">버튼만 있는 탭</h3>
     <div>
-      <kb-tabs
+      <!-- <kb-tabs
         type2
         :idx="1"
       >
@@ -982,25 +982,41 @@
         <kb-tab
           title="버튼만3"
         />
-      </kb-tabs>
+      </kb-tabs> -->
       <kb-tabs
         type3
-        :idx="tabIdx"
+        v-model="tabIdx"
       >
         <kb-tab
           title="버튼만1"
-          @click="changIdx(0)"
         />
         <kb-tab
           title="버튼만2"
-          @click="changIdx(1)"
         />
         <kb-tab
           title="버튼만3"
-          @click="changIdx(2)"
         />
       </kb-tabs>
       {{tabIdx}}
+      <br><br>
+      <kb-tabs
+        type3
+        v-model="tabVal"
+      >
+        <kb-tab
+          title="버튼만1"
+          value="a"
+        />
+        <kb-tab
+          title="버튼만2"
+          value="b"
+        />
+        <kb-tab
+          title="버튼만3"
+          value="c"
+        />
+      </kb-tabs>
+      {{tabVal}}
     </div>
   </div>
 </template>
@@ -1009,15 +1025,13 @@ export default {
   name: 'buttonGuide',
   data() {
     return {
-      tabIdx: 0,
+      tabIdx: 1,
+      tabVal: 'a',
     };
   },
   methods: {
     tabClick() {
       console.log('탭메뉴 클릭!!!');
-    },
-    changIdx(i) {
-      this.tabIdx = i;
     },
   },
 };

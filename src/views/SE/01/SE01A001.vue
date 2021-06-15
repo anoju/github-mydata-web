@@ -2,45 +2,15 @@
   <kb-page page-title="환경설정">
     <kb-page-body>
       <div class="section">
-        <kb-title-bar h3 class="mg_t16">
-          <template slot="left">
-            <kb-button not class="tit">APP설정</kb-button>
-          </template>
-        </kb-title-bar>
-        <hr class="hr_line mg_t24" aria-hidden="true">
-
-        <kb-title-bar h3 class="mg_t24">
-          <template slot="left">
-            <kb-button not class="tit">APP Push 관리</kb-button>
-          </template>
-        </kb-title-bar>
+        <!-- 2021-06-03 수정 -->
+        <kb-title-bar h3 title="APP Push" class="mg_t24" />
         <div class="option_list mg_t8">
           <div class="item">
             <div class="flex">
-              <label for="switch1" class="lbl">자산변동알림</label>
+              <label for="switch1" class="lbl">알림 받기</label>
               <kb-checkbox
                 input-id="switch1"
                 v-model="switchVal1"
-                switch
-              />
-            </div>
-          </div>
-          <div class="item">
-            <div class="flex">
-              <label for="switch2" class="lbl">이벤트알림</label>
-              <kb-checkbox
-                input-id="switch2"
-                v-model="switchVal2"
-                switch
-              />
-            </div>
-          </div>
-          <div class="item">
-            <div class="flex">
-              <label for="switch3" class="lbl">투자정보알림</label>
-              <kb-checkbox
-                input-id="switch3"
-                v-model="switchVal3"
                 switch
               />
             </div>
@@ -61,17 +31,7 @@
           </div>
           <div class="item">
             <div class="flex">
-              <label for="switch4" class="lbl">지문인증</label>
-              <kb-checkbox
-                input-id="switch4"
-                v-model="switchVal4"
-                switch
-              />
-            </div>
-          </div>
-          <div class="item">
-            <div class="flex">
-              <label for="switch5" class="lbl">안면인증</label>
+              <label for="switch5" class="lbl">생체인증</label>
               <kb-checkbox
                 input-id="switch5"
                 v-model="switchVal5"
@@ -82,24 +42,26 @@
         </div>
         <hr class="hr_line mg_t8" aria-hidden="true">
 
-        <kb-title-bar h3 title="인증서" class="mg_t24" />
+        <kb-title-bar h3 title="거래용 인증서" class="mg_t24" />
         <div class="option_list mg_t8">
           <div class="item">
             <div class="flex">
               <div class="lbl">
-                <kb-button link class="lbl_link">
-                  <span class="block fz_16">공동인증서 가져오기</span>
-                  <span class="block fz_14 fc_666 mg_t4">KB증권에 등록된 공동인증서</span>
-                </kb-button>
+                <span class="block fz_16">공동인증서 가져오기</span>
+                <span class="block fz_14 fc_666 mg_t4">KB증권에 등록된 공동인증서</span>
+              </div>
+              <div>
+                <kb-button link><span class="fc_blue">사용중</span></kb-button>
+                <!-- <kb-button link><span class="fc_red">미사용</span></kb-button> -->
               </div>
             </div>
           </div>
           <div class="item">
             <div class="flex">
-              <div class="lbl">카카오페이 인증서</div>
-              <div>
-                <span class="fc_blue">사용중</span>
-                <!-- <kb-button link><span class="fc_red">신청하기</span></kb-button> -->
+              <div class="lbl">
+                <kb-button link class="lbl_link">
+                  <span class="block fz_16">공동인증서 가져오기</span>
+                </kb-button>
               </div>
             </div>
           </div>
@@ -132,6 +94,7 @@
             <div class="fz_14 fc_666 mg_t4">업데이트 버전이 있습니다.</div>
           </div>
         </div>
+        <!-- //2021-06-03 수정 -->
       </div>
     </kb-page-body>
   </kb-page>

@@ -1,5 +1,5 @@
 <template>
-  <kb-page page-title="연동정보 보기 설정">
+  <kb-page page-title="연동정보관리">
     <kb-page-body>
       <div class="section">
         <p class="mg_t12 fz_14 fc_666">개인신용정보 연동 자산 및 정보의 전송요철변경 및 연동해지를 하실 수 있습니다.</p>
@@ -112,7 +112,7 @@
           </kb-folding>
         </kb-foldings>
         <kb-button class="btn_add mg_t5">
-          계좌추가
+          추가연동
         </kb-button>
 
       </div>

@@ -19,15 +19,17 @@ let uuid = 0;
 export default {
   name: 'kbTab',
   props: {
+    value: { type: [String, Number], default: null },
     title: { type: String, required: true },
     active: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
     linkTo: { type: [String, Location], default: null },
+    tabStyle: { type: String, default: null },
   },
   data() {
     return {
       isActive: false,
       height: 0,
-      style: null,
     };
   },
   computed: {

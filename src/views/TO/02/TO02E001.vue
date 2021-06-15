@@ -6,6 +6,7 @@
           v-model="selectVal1"
           :options="selectOpt1"
           class="type_line"
+          inline
         />
         <p class="tit mg_b8">동안 투자 자산이 어떻게 변했지?</p>
         <div class="txt_list2">
@@ -81,7 +82,7 @@
               <kb-select
                 v-model="selectVal2"
                 :options="selectOpt2"
-                class="small_text"
+                inline
               /></dt>
             <dd>+2.01%</dd>
           </dl>
@@ -143,15 +144,15 @@
                 v-if="addMoney1 !== ''"
                 line
                 class="btn_arr"
-                @click="showGraphDetail(3,$event.target,1)"
+                @click="showGraphDetail(10,$event.target,'1')"
               >
                 <!-- 그래프
-                상승 : up
-                하락 : down
-                style의 값 :
-                width : 사이즈
-                left : 이전 수치의 종료값
-              -->
+                  상승 : up
+                  하락 : down
+                  style의 값 :
+                  width : 사이즈
+                  left : 이전 수치의 종료값
+                -->
                 <i
                   class="percent_bar"
                   :class="{up:addMoney1 > 0, down:addMoney1 < 0}"
@@ -176,12 +177,12 @@
                 @click="showGraphDetail(0,$event.target)"
               >
                 <!-- 그래프
-                상승 : up
-                하락 : down
-                style의 값 :
-                width : 사이즈
-                left : 이전 수치의 종료값
-              -->
+                  상승 : up
+                  하락 : down
+                  style의 값 :
+                  width : 사이즈
+                  left : 이전 수치의 종료값
+                -->
                 <i
                   class="percent_bar"
                   :class="{up:addMoney2 > 0, down:addMoney2 < 0}"
@@ -206,12 +207,12 @@
                 @click="showGraphDetail(1,$event.target)"
               >
                 <!-- 그래프
-                상승 : up
-                하락 : down
-                style의 값 :
-                width : 사이즈
-                left : 이전 수치의 종료값
-              -->
+                  상승 : up
+                  하락 : down
+                  style의 값 :
+                  width : 사이즈
+                  left : 이전 수치의 종료값
+                -->
                 <i
                   class="percent_bar"
                   :class="{up:addMoney3 > 0, down:addMoney3 < 0}"
@@ -236,12 +237,12 @@
                 @click="showGraphDetail(2,$event.target)"
               >
                 <!-- 그래프
-                상승 : up
-                하락 : down
-                style의 값 :
-                width : 사이즈
-                left : 이전 수치의 종료값
-              -->
+                  상승 : up
+                  하락 : down
+                  style의 값 :
+                  width : 사이즈
+                  left : 이전 수치의 종료값
+                -->
                 <i
                   class="percent_bar"
                   :class="{up:addMoney4 > 0, down:addMoney4 < 0}"
@@ -259,12 +260,222 @@
                 </dl>
                 <i class="bt_ic_arr" aria-hidden="true" />
               </kb-button>
-
               <kb-button
                 v-if="addMoney5 !== ''"
                 line
+                class="btn_arr bg_gray"
+                @click="showGraphDetail(3,$event.target)"
+              >
+                <!-- 그래프
+                  상승 : up
+                  하락 : down
+                  style의 값 :
+                  width : 사이즈
+                  left : 이전 수치의 종료값
+                -->
+                <i
+                  class="percent_bar"
+                  :class="{up:addMoney5 > 0, down:addMoney5 < 0}"
+                  :style="{left:`${moneyLeftArry[4]}%`, width:`${Math.abs(moneyWidthArry[4])}%`}"
+                ></i>
+                <!-- //그래프 -->
+                <dl>
+                  <dt>채권손익</dt>
+                  <dd>
+                    <template v-if="addMoney5 > 0">
+                      +
+                    </template>
+                    {{this.$addComma(addMoney5)}}
+                  </dd>
+                </dl>
+                <i class="bt_ic_arr" aria-hidden="true" />
+              </kb-button>
+              <kb-button
+                v-if="addMoney6 !== ''"
+                line
+                class="btn_arr bg_gray"
+                @click="showGraphDetail(4,$event.target)"
+              >
+                <!-- 그래프
+                  상승 : up
+                  하락 : down
+                  style의 값 :
+                  width : 사이즈
+                  left : 이전 수치의 종료값
+                -->
+                <i
+                  class="percent_bar"
+                  :class="{up:addMoney6 > 0, down:addMoney6 < 0}"
+                  :style="{left:`${moneyLeftArry[5]}%`, width:`${Math.abs(moneyWidthArry[5])}%`}"
+                ></i>
+                <!-- //그래프 -->
+                <dl>
+                  <dt>파생손익</dt>
+                  <dd>
+                    <template v-if="addMoney6 > 0">
+                      +
+                    </template>
+                    {{this.$addComma(addMoney6)}}
+                  </dd>
+                </dl>
+                <i class="bt_ic_arr" aria-hidden="true" />
+              </kb-button>
+              <kb-button
+                v-if="addMoney7 !== ''"
+                line
+                class="btn_arr bg_gray"
+                @click="showGraphDetail(5,$event.target)"
+              >
+                <!-- 그래프
+                  상승 : up
+                  하락 : down
+                  style의 값 :
+                  width : 사이즈
+                  left : 이전 수치의 종료값
+                -->
+                <i
+                  class="percent_bar"
+                  :class="{up:addMoney7 > 0, down:addMoney7 < 0}"
+                  :style="{left:`${moneyLeftArry[6]}%`, width:`${Math.abs(moneyWidthArry[6])}%`}"
+                ></i>
+                <!-- //그래프 -->
+                <dl>
+                  <dt>신탁손익</dt>
+                  <dd>
+                    <template v-if="addMoney7 > 0">
+                      +
+                    </template>
+                    {{this.$addComma(addMoney7)}}
+                  </dd>
+                </dl>
+                <i class="bt_ic_arr" aria-hidden="true" />
+              </kb-button>
+              <kb-button
+                v-if="addMoney8 !== ''"
+                line
+                class="btn_arr bg_gray"
+                @click="showGraphDetail(6,$event.target)"
+              >
+                <!-- 그래프
+                  상승 : up
+                  하락 : down
+                  style의 값 :
+                  width : 사이즈
+                  left : 이전 수치의 종료값
+                -->
+                <i
+                  class="percent_bar"
+                  :class="{up:addMoney8 > 0, down:addMoney8 < 0}"
+                  :style="{left:`${moneyLeftArry[7]}%`, width:`${Math.abs(moneyWidthArry[7])}%`}"
+                ></i>
+                <!-- //그래프 -->
+                <dl>
+                  <dt>현금손익</dt>
+                  <dd>
+                    <template v-if="addMoney8 > 0">
+                      +
+                    </template>
+                    {{this.$addComma(addMoney8)}}
+                  </dd>
+                </dl>
+                <i class="bt_ic_arr" aria-hidden="true" />
+              </kb-button>
+              <kb-button
+                v-if="addMoney9 !== ''"
+                line
+                class="btn_arr bg_gray"
+                @click="showGraphDetail(7,$event.target)"
+              >
+                <!-- 그래프
+                  상승 : up
+                  하락 : down
+                  style의 값 :
+                  width : 사이즈
+                  left : 이전 수치의 종료값
+                -->
+                <i
+                  class="percent_bar"
+                  :class="{up:addMoney9 > 0, down:addMoney9 < 0}"
+                  :style="{left:`${moneyLeftArry[8]}%`, width:`${Math.abs(moneyWidthArry[8])}%`}"
+                ></i>
+                <!-- //그래프 -->
+                <dl>
+                  <dt>IRP손익</dt>
+                  <dd>
+                    <template v-if="addMoney9 > 0">
+                      +
+                    </template>
+                    {{this.$addComma(addMoney9)}}
+                  </dd>
+                </dl>
+                <i class="bt_ic_arr" aria-hidden="true" />
+              </kb-button>
+              <kb-button
+                v-if="addMoney10 !== ''"
+                line
+                class="btn_arr bg_gray"
+                @click="showGraphDetail(8,$event.target)"
+              >
+                <!-- 그래프
+                  상승 : up
+                  하락 : down
+                  style의 값 :
+                  width : 사이즈
+                  left : 이전 수치의 종료값
+                -->
+                <i
+                  class="percent_bar"
+                  :class="{up:addMoney10 > 0, down:addMoney10 < 0}"
+                  :style="{left:`${moneyLeftArry[9]}%`, width:`${Math.abs(moneyWidthArry[9])}%`}"
+                ></i>
+                <!-- //그래프 -->
+                <dl>
+                  <dt>단기손익</dt>
+                  <dd>
+                    <template v-if="addMoney10 > 0">
+                      +
+                    </template>
+                    {{this.$addComma(addMoney10)}}
+                  </dd>
+                </dl>
+                <i class="bt_ic_arr" aria-hidden="true" />
+              </kb-button>
+              <kb-button
+                v-if="addMoney11 !== ''"
+                line
+                class="btn_arr bg_gray"
+                @click="showGraphDetail(9,$event.target)"
+              >
+                <!-- 그래프
+                  상승 : up
+                  하락 : down
+                  style의 값 :
+                  width : 사이즈
+                  left : 이전 수치의 종료값
+                -->
+                <i
+                  class="percent_bar"
+                  :class="{up:addMoney11 > 0, down:addMoney11 < 0}"
+                  :style="{left:`${moneyLeftArry[10]}%`, width:`${Math.abs(moneyWidthArry[10])}%`}"
+                ></i>
+                <!-- //그래프 -->
+                <dl>
+                  <dt>기타손익</dt>
+                  <dd>
+                    <template v-if="addMoney11 > 0">
+                      +
+                    </template>
+                    {{this.$addComma(addMoney11)}}
+                  </dd>
+                </dl>
+                <i class="bt_ic_arr" aria-hidden="true" />
+              </kb-button>
+
+              <kb-button
+                v-if="addMoney12 !== ''"
+                line
                 class="btn_arr"
-                @click="showGraphDetail(3,$event.target,2)"
+                @click="showGraphDetail(10,$event.target,'2')"
               >
                 <!-- 그래프
                 상승 : up
@@ -275,16 +486,16 @@
               -->
                 <i
                   class="percent_bar"
-                  :class="{up:addMoney5 > 0, down:addMoney5 < 0}"
-                  :style="{left:`${moneyLeftArry[4]}%`, width:`${Math.abs(moneyWidthArry[4])}%`}"
+                  :class="{up:addMoney12 > 0, down:addMoney12 < 0}"
+                  :style="{left:`${moneyLeftArry[11]}%`, width:`${Math.abs(moneyWidthArry[11])}%`}"
                 ></i>
                 <dl>
                   <dt>출금</dt>
                   <dd>
-                    <template v-if="addMoney5 > 0">
+                    <template v-if="addMoney12 > 0">
                       +
                     </template>
-                    {{this.$addComma(addMoney5)}}
+                    {{this.$addComma(addMoney12)}}
                   </dd>
                 </dl>
                 <i class="bt_ic_arr" aria-hidden="true" />
@@ -312,30 +523,6 @@
             </dl>
           </div>
         </div>
-        <!-- 임시입력영역 -->
-        <div style="border:1px solid #ddd;padding:15px;">
-          <kb-title-bar title="(임시) 시작자산, 손익 입력" />
-          <kb-form-item label="시작금액">
-            <kb-input v-model="startMoney" />
-          </kb-form-item>
-          <kb-form-item label="입금">
-            <kb-input v-model="addMoney1" />
-          </kb-form-item>
-          <kb-form-item label="주식손익">
-            <kb-input v-model="addMoney2" />
-          </kb-form-item>
-          <kb-form-item label="펀드손익">
-            <kb-input v-model="addMoney3" />
-          </kb-form-item>
-          <kb-form-item label="wrap손익">
-            <kb-input v-model="addMoney4" />
-          </kb-form-item>
-          <kb-form-item label="출금">
-            <kb-input v-model="addMoney5" />
-          </kb-form-item>
-        </div>
-        <!-- //임시영역 -->
-
         <hr class="hr_line" aria-hidden="true">
 
         <div class="text_box">
@@ -382,6 +569,23 @@
       </div>
     </template>
     <!-- //데이터 값이 없는 경우 -->
+
+    <!-- 2021-04-28 자산정보가 없는 경우 -->
+    <template v-if="false">
+      <div class="assets_none_box">
+        <div class="none_box">
+          <i></i>
+          이런, 자산 정보가 없네요!<br />
+          자산을 연동해주세요 :)
+          <kb-button line blue class="more">추가연동</kb-button>
+        </div>
+        <kb-button aTag not class="banner_box type3">
+          오늘 서비스를 <br />
+          체험해 보시겠어요?
+        </kb-button>
+      </div>
+    </template>
+    <!-- //2021-04-28 자산정보가 없는 경우 -->
   </div>
 </template>
 
@@ -400,27 +604,68 @@ export default {
         { text: '4년 간', value: '4년 간' },
         { text: '5년 간', value: '5년 간' },
       ],
-      selectVal2: 1,
+      selectVal2: '1',
       selectOpt2: [
-        { text: 'KOSPI 수익률', value: 1 },
-        { text: 'KOSDAQ 수익률', value: 2 },
-        { text: 'S&P500 수익률', value: 3 },
-        { text: 'NASDAQ 수익률', value: 4 },
-        { text: 'DOW 수익률', value: 5 },
+        { text: 'KOSPI 수익률', value: '1' },
+        { text: 'KOSDAQ 수익률', value: '2' },
+        { text: 'S&P500 수익률', value: '3' },
+        { text: 'NASDAQ 수익률', value: '4' },
+        { text: 'DOW 수익률', value: '5' },
       ],
       toggleVal2: '1',
       dataOn: true,
+      /*
+      startMoney: 106435437, // 시작자산
+      startMoneyWidth: 0,
+      addMoney1: 100, // 입금
+      addMoney2: -89724696, // 주식손익
+      addMoney3: -99979724696, // 펀드손익
+      addMoney4: -99979724696, // wrap 손익
+      addMoney5: 99979724696, // 채권 손익
+      addMoney6: 99979724696, // 파생 손익
+      addMoney7: 39979724696, // 신탁 손익
+      addMoney8: 9979724696, // 현금 손익
+      addMoney9: 199979724696, // IRP 손익
+      addMoney10: 299979724696, // 단기 손익
+      addMoney11: 999979724696, // 기타 손익
+      addMoney12: 0, // 출금
+      */
+
+      startMoney: -106435437, // 시작자산
+      startMoneyWidth: 0,
+      addMoney1: 15000, // 입금
+      addMoney2: -8972, // 주식손익
+      addMoney3: -99979, // 펀드손익
+      addMoney4: -724696, // wrap 손익
+      addMoney5: 99979, // 채권 손익
+      addMoney6: 724696, // 파생 손익
+      addMoney7: 39979, // 신탁 손익
+      addMoney8: 4696, // 현금 손익
+      addMoney9: 1999797, // IRP 손익
+      addMoney10: 2999797, // 단기 손익
+      addMoney11: -99997, // 기타 손익
+      addMoney12: 0, // 출금
+
+      /*
       startMoney: -50000, // 시작자산
       startMoneyWidth: 0,
       addMoney1: 500000000000, // 입금
       addMoney2: 12000, // 주식손익
       addMoney3: 5000, // 펀드손익
       addMoney4: -1000, // wrap 손익
-      addMoney5: -500000000000, // 출금
+      addMoney5: 1005, // 채권 손익
+      addMoney6: 1006, // 파생 손익
+      addMoney7: 1007, // 신탁 손익
+      addMoney8: 1008, // 현금 손익
+      addMoney9: 1009, // IRP 손익
+      addMoney10: 1010, // 단기 손익
+      addMoney11: 1011, // 기타 손익
+      addMoney12: -500000000000, // 출금
+      */
+
       changeTotalMoney: 0,
       endMoney: 0,
       endMoneyWidth: 0,
-      moneyArry: [],
       moneyWidthArry: [],
       moneyLeftArry: [],
     };
@@ -444,6 +689,27 @@ export default {
     addMoney5() {
       this.chartSet();
     },
+    addMoney6() {
+      this.chartSet();
+    },
+    addMoney7() {
+      this.chartSet();
+    },
+    addMoney8() {
+      this.chartSet();
+    },
+    addMoney9() {
+      this.chartSet();
+    },
+    addMoney10() {
+      this.chartSet();
+    },
+    addMoney11() {
+      this.chartSet();
+    },
+    addMoney12() {
+      this.chartSet();
+    },
   },
   beforeMount() {
     this.chartSet();
@@ -454,7 +720,14 @@ export default {
       if (this.addMoney2 !== 0)viewsAray.push('주식손익');
       if (this.addMoney3 !== 0)viewsAray.push('펀드손익');
       if (this.addMoney4 !== 0)viewsAray.push('Wrap손익');
-      if (this.addMoney1 !== 0 || this.addMoney5 !== 0)viewsAray.push('입출금내역');
+      if (this.addMoney5 !== 0)viewsAray.push('채권손익');
+      if (this.addMoney6 !== 0)viewsAray.push('파생손익');
+      if (this.addMoney7 !== 0)viewsAray.push('신탁손익');
+      if (this.addMoney8 !== 0)viewsAray.push('현금손익');
+      if (this.addMoney9 !== 0)viewsAray.push('IRP손익');
+      if (this.addMoney10 !== 0)viewsAray.push('단기손익');
+      if (this.addMoney11 !== 0)viewsAray.push('기타손익');
+      if (this.addMoney1 !== 0 || this.addMoney12 !== 0)viewsAray.push('입출금내역');
       this.$modal({
         component: () => import('@/views/TO/02/TO02E_pop.vue'),
         componentProps: {
@@ -470,7 +743,6 @@ export default {
       this.changeTotalMoney = 0;
       this.endMoney = 0;
       this.endMoneyWidth = 0;
-      this.moneyArry = [];
       this.moneyWidthArry = [];
       let moneyWidth = this.startMoney;
       const changeMoney = [];
@@ -481,6 +753,13 @@ export default {
       changeMoney.push(this.addMoney3 === '' ? 0 : parseInt(this.addMoney3, 10));
       changeMoney.push(this.addMoney4 === '' ? 0 : parseInt(this.addMoney4, 10));
       changeMoney.push(this.addMoney5 === '' ? 0 : parseInt(this.addMoney5, 10));
+      changeMoney.push(this.addMoney6 === '' ? 0 : parseInt(this.addMoney6, 10));
+      changeMoney.push(this.addMoney7 === '' ? 0 : parseInt(this.addMoney7, 10));
+      changeMoney.push(this.addMoney8 === '' ? 0 : parseInt(this.addMoney8, 10));
+      changeMoney.push(this.addMoney9 === '' ? 0 : parseInt(this.addMoney9, 10));
+      changeMoney.push(this.addMoney10 === '' ? 0 : parseInt(this.addMoney10, 10));
+      changeMoney.push(this.addMoney11 === '' ? 0 : parseInt(this.addMoney11, 10));
+      changeMoney.push(this.addMoney12 === '' ? 0 : parseInt(this.addMoney12, 10));
       changeMoney.forEach((val) => {
         this.changeTotalMoney += val;
         moneyArry.push(startMoney + this.changeTotalMoney);
@@ -530,14 +809,19 @@ export default {
         moneyWidth = val;
         this.moneyWidthArry.push(width);
       });
-      this.startMoneyWidth = Math.round((this.startMoney / sizeMoney) * 100);
+
+      const startM = this.startMoney > 0 && minMoney < 0 ? this.startMoney - minMoney : this.startMoney;
+      this.startMoneyWidth = Math.round((startM / sizeMoney) * 100);
       if (lastWidthTop === 0 && lastWidthBottom < 0) {
         this.startMoneyWidth = Math.min(100, Math.abs(lastWidthBottom));
       } else if (this.startMoney > 0 && this.startMoneyWidth < 3) {
         this.startMoneyWidth = 3;
+      } else if ((moneyTotalWidthP >= 100 && moneyTotalWidthM < 100) || (this.startMoney < 0 && this.endMoney < 0)) {
+        this.startMoneyWidth = moneyTotalWidthM;
       }
 
-      const gapWidth = moneyTotalWidthP + this.startMoneyWidth - 100;
+      // const gapWidth = moneyTotalWidthP + this.startMoneyWidth - 100;
+      const gapWidth = moneyTotalWidthP - 100;
       const gapWidth2 = moneyTotalWidthM - 100;
 
       if (gapWidth > 0 || gapWidth2 > 0) {
@@ -552,11 +836,9 @@ export default {
       // left값 조정 함수
       this.leftArryFn();
       if (this.startMoneyWidth === this.endMoneyWidth) {
-        // console.log('last');
         this.widthArryFn(gapWidth, gapWidth2, true);
         this.leftArryFn();
       }
-
       if (startMoney === this.endMoney) this.endMoneyWidth = this.startMoneyWidth;
     },
     widthArryFn(val1, val2, chk = false) {

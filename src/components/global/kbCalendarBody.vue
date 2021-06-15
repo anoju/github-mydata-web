@@ -1,7 +1,7 @@
 <template>
-  <div class="ui-tbl-datepicker">
+  <div class="ui_tbl_datepicker">
     <strong class="blind"> {{ year }}년 {{ month }}월 달력</strong>
-    <div class="ui-datepicker-calendar">
+    <div class="ui_datepicker_calendar">
       <div class="thead">
         <div class="th first">
           일
@@ -35,7 +35,7 @@
           <button
             v-if="day.day !== 0"
             type="button"
-            class="ui-date-btn"
+            class="ui_date_btn"
             :class="{
               today:todayDate === Number(day.date),
               selected:selectDay === day.date,

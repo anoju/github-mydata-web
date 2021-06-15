@@ -1,5 +1,11 @@
 <template>
   <div class="section">
+    <kb-input
+      type="tel"
+      v-model="inpNumber"
+      comma
+      placeholder="숫자입력"
+    />
     <div class="character_face_wrap">
       <div ref="character" id="character" class="character_face">
         <div class="body"></div>
@@ -44,6 +50,22 @@
     <div ref="span" style="visibility: hidden; position: absolute; top: -999px;left:0;">
       <span>{{spanVal}}.</span>
     </div>
+    <br>
+    <div
+      class="gd__tab_box"
+      v-touch:tap="tapEvt"
+    >
+      <div
+        class="item"
+        v-for="(item, i) of tabAry"
+        :key="i"
+        :style="{left:`${item.X}px`,top:`${item.Y}px`}"
+      >
+        {{item.X}}
+        <br>
+        {{item.Y}}
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -51,10 +73,12 @@ export default {
   name: 'test',
   data() {
     return {
+      inpNumber: '',
       inpVal1: '',
       inpVal2: '',
       spanVal: '',
       timer: null,
+      tabAry: [],
     };
   },
   mounted() {
@@ -109,6 +133,19 @@ export default {
       this.timer = setTimeout(() => {
         this.$refs.character.classList.add('playing');
       }, 300);
+    },
+    tapEvt(e) {
+      const $tap = { X: 0, Y: 0 };
+      const evt = (e.type === 'touchend') ? e.changedTouches[0] : e;
+      const wrap = e.target.classList.contains('gd__tab_box') ? e.target : e.target.closest('.gd__tab_box');
+      const sclBody = (this.$el.closest('.scl__body') === null) ? window : this.$el.closest('.scl__body');
+      const sclTop = (sclBody === window) ? sclBody.scrollY : sclBody.scrollTop;
+      $tap.X = evt.clientX;
+      $tap.Y = evt.clientY;
+      this.tabAry.push({
+        X: ($tap.X - this.$getOffset(wrap).left),
+        Y: ($tap.Y - (this.$getOffset(wrap).top - sclTop)),
+      });
     },
   },
 };

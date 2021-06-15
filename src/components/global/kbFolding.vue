@@ -1,6 +1,5 @@
 <template>
   <dl
-    v-if="!!this.$slots.title || !!title"
     class="item"
   >
     <slot name="tit_prev" />
@@ -20,6 +19,8 @@
         @click="slide($event)"
       >
         {{ title }}
+        <template v-if="visible">{{openTitle}}</template>
+        <template v-if="!visible">{{closeTitle}}</template>
         <slot name="title" />
       </kb-button>
       <slot name="title_next" />
@@ -47,6 +48,8 @@ export default {
   inject: ['items', 'notToggle', 'firstOpen'],
   props: {
     title: { type: String, default: null },
+    closeTitle: { type: String, default: null },
+    openTitle: { type: String, default: null },
     disabled: { type: Boolean, default: false },
     active: { type: Boolean, default: false },
   },
@@ -90,6 +93,11 @@ export default {
     this.uuid = uuid.toString();
     uuid += 1;
   },
+  mounted() {
+    if (this.active) {
+      this.isActive = this.active;
+    }
+  },
   methods: {
     slide(e) {
       if (e) e.preventDefault();
@@ -108,8 +116,9 @@ export default {
         this.isAnimate = false;
       }, this.duration + 50);
 
-      if (this.isActive) {
-        uiEventBus.$emit('swiperAccodion', 'update');
+      // if (this.isActive && (this.$el.querySelector('.ui-swiper-wrap') !== null)) {
+      if (this.$el.querySelector('.ui-swiper-wrap') !== null) {
+        uiEventBus.$emit('kbSwiperUpdate', 'update');
       }
     },
     slideAll(type) {
@@ -125,8 +134,8 @@ export default {
         this.isAnimate = false;
       }, this.duration + 50);
 
-      if (this.isActive) {
-        uiEventBus.$emit('swiperAccodion', 'update');
+      if (this.isActive && (this.$el.querySelector('.ui-swiper-wrap') !== null)) {
+        uiEventBus.$emit('kbSwiperUpdate', 'update');
       }
     },
   },

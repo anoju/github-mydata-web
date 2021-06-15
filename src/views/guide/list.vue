@@ -84,10 +84,7 @@
           not
           class="accordion_dl"
         >
-          <kb-folding>
-            <template slot="title">
-              이용안내
-            </template>
+          <kb-folding title="이용안내">
             <ul class="txt_list">
               <li class="dot">공동인증서를 통해 본인확인을 하신 경우에는 인증서가 바로 등록됩니다.</li>
               <li class="dot">공동인증서를 통해 본인확인을 하신 경우에는 인증서가 바로 등록됩니다.</li>
@@ -100,10 +97,7 @@
           not
           class="accordion_dl"
         >
-          <kb-folding>
-            <template slot="title">
-              유의사항
-            </template>
+          <kb-folding title="유의사항">
             <div class="txt_list">
               <ul>
                 <li class="dot">
@@ -273,8 +267,8 @@
     </div>
     <h3 class="gd__h2">accordion_list_1</h3>
     <div>
-      <h4 class="gd__h3">ty1</h4>
-      <kb-foldings type1 not-toggle>
+      <h4 class="gd__h3">ty3</h4>
+      <kb-foldings type1 not-toggle class="ty3">
         <kb-folding>
           <template slot="title">
             <div class="accodion_header">
@@ -594,58 +588,6 @@
           </div>
         </kb-folding>
       </kb-foldings>
-      <h4 class="gd__h3">ty2</h4>
-      <kb-foldings
-        type1
-        class="ty2"
-      >
-        <kb-folding>
-          <template slot="title">
-            <div class="title">
-              VIP CLUB(노블레스)
-            </div>
-            <div class="sub">
-              [캠페인] 전 가맹점 2~4개월 무이자 할부
-            </div>
-            <div class="date">
-              2018.01.01 ~ 2018.12.31
-            </div>
-          </template>
-
-          <div class="txt_list">
-            <ul>
-              <li class="dot">
-                전 가맹점 2~4개월 무이자 할부서비스
-                <ul>
-                  <li class="dash">
-                    최소매출금액 : 5만원
-                  </li>
-                  <li class="dash">
-                    무이자 할부 제외 가맹점 : 공과금, 상품권, 기프트카드, 우체국 우편요금
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </kb-folding>
-        <kb-folding>
-          <template slot="title">
-            <i
-              class="i_ico_40 ico_1"
-              aria-hidden="true"
-            >아이콘</i>
-            <div>
-              <div class="title">
-                카드승인 SMS
-              </div>
-              <div class="sub">
-                카드 승인이 발생할 때 마다 회원님께 SMS를 발송합니다.
-              </div>
-            </div>
-          </template>
-          <div>카드승인SMS 서비스는 카드 승인이 발생할 때 마다 회원님께 SMS를 발송 함으로써, 카드 부정 사용으로 부터 회원님을 보호 합니다.</div>
-        </kb-folding>
-      </kb-foldings>
     </div>
     <h3 class="gd__h2">accordion_list_2</h3>
     <div>
@@ -675,134 +617,98 @@
           폴딩컨텐츠
         </kb-folding>
       </kb-foldings>
-
-      <h4 class="gd__h3">ty3</h4>
-
-      <kb-foldings
-        type2
-        class="ty3"
-      >
-        <kb-folding>
-          <template slot="title">
-            <div class="tbl">
-              <div class="th">
-                실적 충족 부분합산
-              </div>
-              <div class="td t_right">
-                <strong>123,456,789</strong> 원
-              </div>
-            </div>
-          </template>
-          <div class="line_list_2 ty2">
-            <ul>
-              <li>
-                <div class="inner">
-                  <div class="tbl">
-                    <div class="td">
-                      <div class="tit">
-                        지방세
-                      </div>
-                      <ul class="sub_info">
-                        <li>2020.03.16 15:15:56</li>
-                        <li>일시불</li>
-                      </ul>
-                    </div>
-                    <div class="td">
-                      <ul class="info_right">
-                        <li class="price">
-                          <strong class="fc_blue">123,456,789</strong> 원
-                        </li>
-                        <li class="state cancel">
-                          미합산 : 50,000
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <div class="btn_more ty3">
-              <kb-button
-                button
-                line
-                round
-                h28
-              >
-                더보기 (<strong>20</strong>/25)
-              </kb-button>
-            </div>
-          </div>
-        </kb-folding>
-
-        <kb-folding>
-          <template slot="title">
-            <div class="tbl">
-              <div class="th">
-                실적 충족 부분합산
-              </div>
-              <div class="td t_right">
-                <strong>123,456,789</strong> 원
-              </div>
-            </div>
-          </template>
-          <div class="no_list">
-            <i
-              class="i_ico_50 ico_2"
-              aria-hidden="true"
-            />
-            <div class="txt">
-              조회내역이 없습니다.
-            </div>
-          </div>
-        </kb-folding>
-
-        <kb-folding disabled>
-          <template slot="title">
-            <div class="tbl">
-              <div class="th">
-                실적 충족 부분합산
-              </div>
-              <div class="td t_right">
-                <strong>123,456,789</strong> 원
-              </div>
-            </div>
-          </template>
-          <div class="no_list">
-            <i
-              class="i_ico_50 ico_2"
-              aria-hidden="true"
-            />
-            <div class="txt">
-              조회내역이 없습니다.
-            </div>
-          </div>
-        </kb-folding>
-      </kb-foldings>
     </div>
     <h2 class="gd__h1">리스트</h2>
-    <h3 class="gd__h2">데이터 없음</h3>
-    <!--리스트데이터 없음-->
-    <div class="no_list">
-      <i
-        class="i_ico_50 ico_2"
-        aria-hidden="true"
-      />
-      <div class="txt">
-        조회내역이 없습니다.
+    <h3 class="gd__h2">no_list_txt(데이터 없음)</h3>
+    <div>
+      <div class="no_list_txt">
+        <strong class="tit">등록된 내용이 없습니다.</strong>
+      </div>
+
+      <div class="no_list_txt icon">
+        <strong class="tit">등록된 내용이 없습니다.</strong>
+      </div>
+
+      <div class="no_list_txt">
+        <strong class="tit">KB증권 계좌가 없습니다.</strong>
+        <div class="txt">계좌개설 후 이체는 물론 상품가입, 매매까지 이용해 보세요.</div>
+      </div>
+
+      <div class="no_list_txt face">
+        <div class="tit">내일 다시오면 알려드릴게요~</div>
       </div>
     </div>
-    <!--//리스트데이터 없음-->
-    <!--검색결과 없음-->
-    <div class="no_list">
-      <i
-        class="i_ico_50 ico_2"
-        aria-hidden="true"
-      />
-      <div class="txt">
-        검색결과가 없습니다.
-      </div>
+    <h3 class="gd__h2">gray_box_list + ico_info_list</h3>
+    <div>
+      <ul class="gray_box_list">
+        <li>
+          <div class="gray_box_item">
+            <div class="head">
+              <div class="flex_wrap space_between">
+                <div>퇴직연금</div>
+                <div>1,000,000,000원</div>
+              </div>
+            </div>
+            <div class="cont">
+              <div class="ico_info_item">
+                <div class="info">
+                  <div class="left">
+                    <!-- 이미지(i태그)는 있을수도 있고 없을수도 있음 -->
+                    <i class="ico" style="background:skyblue"></i>
+                    <p class="tit">KB able Plus 통장 KB able Plus 통장</p>
+                  </div>
+                  <div class="right">
+                    <p class="money">300,000,000원</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="gray_box_item">
+            <div class="head">
+              <div class="flex_wrap space_between">
+                <div>퇴직연금</div>
+                <div>1,000,000,000원</div>
+              </div>
+            </div>
+            <div class="cont">
+              <ul class="ico_info_list">
+                <li>
+                  <div class="ico_info_item">
+                    <div class="info">
+                      <div class="left">
+                        <!-- 이미지(i태그)는 있을수도 있고 없을수도 있음 -->
+                        <i class="ico" style="background:skyblue"></i>
+                        <p class="tit">KB able Plus 통장 KB able Plus 통장</p>
+                      </div>
+                      <div class="right">
+                        <p class="money">300,000,000원</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ico_info_item">
+                    <div class="info">
+                      <div class="left">
+                        <!-- 이미지(i태그)는 있을수도 있고 없을수도 있음 -->
+                        <i class="ico" style="background:skyblue"></i>
+                        <p class="tit">KB able Plus 통장 KB able Plus 통장</p>
+                      </div>
+                      <div class="right">
+                        <p class="money">300,000,000원</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
-    <!--//검색결과 없음-->
   </div>
 </template>
 <script>

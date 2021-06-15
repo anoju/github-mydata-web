@@ -3,11 +3,13 @@
     <kb-page-body>
       <div class="section">
         <div class="balance_check_wrap">
+          <!-- 2021-06-11 텍스트 위치및 내용 변경 -->
           <div class="top_info">
+            <p class="tit">현재 잔고와 <br />예상 지출금을 확인하세요.</p>
             <p class="info_text">가장 가까운 출금 정보</p>
-            <p class="tit">1월 3일에 1,623,000원 <br />출금될 예정입니다. </p>
-            <p class="text">12,000원 추가 입금이 필요해요.</p>
+            <p class="text">4월 1일에 5,000,000원 출금될 예정입니다.<br />12,000원 추가 입금이 필요해요.</p>
           </div>
+          <!-- //2021-06-11 텍스트 위치및 내용 변경 -->
 
           <hr aria-hidden="true" class="hr_line">
           <div class="chart_info_box">

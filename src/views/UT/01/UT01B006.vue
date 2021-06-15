@@ -48,18 +48,21 @@
   </kb-page>
 </template>
 <script>
+/* 2021-05-24 스크립트 확인 */
 export default {
   name: 'UT01B006',
   data() {
     return {
       passwordVal: '',
       errorMsg: '',
+      errorCount: 0,
     };
   },
   methods: {
     keyUpEvt() {
       if (this.passwordVal.length === 6) {
-        this.errorMsg = '비밀번호를 다시 확인해주세요.(1/5)';
+        this.errorCount += 1;
+        this.errorMsg = `입력하신 비밀번호와 다릅니다. (${this.errorCount}/5)`;
         this.passwordVal = '';
       }
     },

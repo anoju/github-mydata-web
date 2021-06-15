@@ -16,7 +16,7 @@
         팝업 컨텐츠<br>
         팝업 컨텐츠<br>
         팝업 컨텐츠<br>
-        <kb-tabs fixed :idx="tabIdx" @idx="changIdx">
+        <kb-tabs fixed v-model="tabIdx">
           <kb-tab
             title="탭메뉴1"
           >
@@ -165,9 +165,6 @@ export default {
   methods: {
     popClose() {
       this.$emit('close');
-    },
-    changIdx(i) {
-      this.tabIdx = i;
     },
     toStep(i) {
       this.tabIdx = i;

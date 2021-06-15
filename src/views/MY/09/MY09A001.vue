@@ -192,11 +192,11 @@ export default {
   methods: {
     slideBoxMotion() {
       if (this.slideCheck) {
-        this.$slideDown(this.$refs.slideBox, 500, () => {
+        this.$slideUp(this.$refs.slideBox, 300, () => {
           this.slideCheck = false;
         });
       } else {
-        this.$slideUp(this.$refs.slideBox, 500, () => {
+        this.$slideDown(this.$refs.slideBox, 300, () => {
           this.slideCheck = true;
         });
       }

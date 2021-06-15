@@ -3,11 +3,11 @@
     <kb-page-body>
       <div class="pick_view_wrap">
         <!--
-          진행형 고수 pick : type1
-          햄릿 고수의 pick : type2
-          동레벨 고수의 pick : type3
-          운빨최고 고수의 pick : type4
-          5자이내로 고수의 pick : type5
+          투자품격 : type1
+          보유멘탈 : type2
+          자본포스 : type3
+          운빨최고 : type4
+          찐찐고수 : type5
           -->
         <div class="top_info_box type1">
           <div class="text_box">
@@ -18,8 +18,14 @@
             -->
             <p class="rate">최근1년 수익률<span class="fc_up">+15.26%</span></p>
           </div>
-          <i class="ico"></i>
-
+          <i class="ico">투자품격</i>
+          <!--
+            투자품격
+            보유멘탈
+            자본포스
+            운빨최고
+            찐찐고수
+           -->
           <div class="info_box">
             <dl>
               <dt>장기보유 기준</dt>
@@ -54,9 +60,10 @@
                   <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
                   <kb-button
                     like
-                    :class="{checked:true}"
+                    :class="{checked:isLike1}"
                     role="checkbox"
-                    :aria-checked="true?'true':'false'"
+                    :aria-checked="isLike1?'true':'false'"
+                    @click="isLike1 = !isLike1"
                   >즐겨찾기</kb-button>
                   <dl>
                     <dt>평균매수단가</dt>
@@ -81,9 +88,10 @@
                   <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
                   <kb-button
                     like
-                    :class="{checked:true}"
+                    :class="{checked:isLike2}"
                     role="checkbox"
-                    :aria-checked="true?'true':'false'"
+                    :aria-checked="isLike2?'true':'false'"
+                    @click="isLike2 = !isLike2"
                   >즐겨찾기</kb-button>
                   <dl>
                     <dt>평균매수단가</dt>
@@ -108,9 +116,10 @@
                   <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
                   <kb-button
                     like
-                    :class="{checked:false}"
+                    :class="{checked:isLike3}"
                     role="checkbox"
-                    :aria-checked="false?'true':'false'"
+                    :aria-checked="isLike3?'true':'false'"
+                    @click="isLike3 = !isLike3"
                   >즐겨찾기</kb-button>
                   <dl>
                     <dt>평균매수단가</dt>
@@ -129,5 +138,12 @@
 <script>
 export default {
   name: 'IN06A002',
+  data() {
+    return {
+      isLike1: false,
+      isLike2: false,
+      isLike3: false,
+    };
+  },
 };
 </script>

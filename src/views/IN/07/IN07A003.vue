@@ -19,7 +19,7 @@
           <div class="chart_wrap ">
             <div class="character type5"></div>
             <div class="chart">
-              <img src="@/assets/images/temp/chart_donut1.png" alt="" class="wp_100">
+              <img src="@/assets/images/temp/chart_donut1.png" alt="">
             </div>
           </div>
           <div class="chart_legend">

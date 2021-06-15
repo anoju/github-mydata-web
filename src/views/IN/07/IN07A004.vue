@@ -26,7 +26,7 @@
         -->
         <kb-tabs
           type3
-          :idx="tabIdx"
+          v-model="tabIdx"
           class="mg_t24"
         >
           <kb-tab
@@ -38,7 +38,7 @@
               <div class="chart_wrap ">
                 <div class="character type1"></div>
                 <div class="chart">
-                  <img src="@/assets/images/temp/chart_donut1.png" alt="" class="wp_100">
+                  <img src="@/assets/images/temp/chart_donut1.png" alt="">
                 </div>
               </div>
               <div class="chart_legend">
@@ -105,7 +105,7 @@
               <div class="chart_wrap ">
                 <div class="character type2"></div>
                 <div class="chart">
-                  <img src="@/assets/images/temp/chart_donut1.png" alt="" class="wp_100">
+                  <img src="@/assets/images/temp/chart_donut1.png" alt="">
                 </div>
               </div>
               <div class="chart_legend">
@@ -172,7 +172,7 @@
               <div class="chart_wrap ">
                 <div class="character type3"></div>
                 <div class="chart">
-                  <img src="@/assets/images/temp/chart_donut1.png" alt="" class="wp_100">
+                  <img src="@/assets/images/temp/chart_donut1.png" alt="">
                 </div>
               </div>
               <div class="chart_legend">
@@ -239,7 +239,7 @@
               <div class="chart_wrap ">
                 <div class="character type4"></div>
                 <div class="chart">
-                  <img src="@/assets/images/temp/chart_donut1.png" alt="" class="wp_100">
+                  <img src="@/assets/images/temp/chart_donut1.png" alt="">
                 </div>
               </div>
               <div class="chart_legend">
@@ -306,7 +306,7 @@
               <div class="chart_wrap ">
                 <div class="character type5"></div>
                 <div class="chart">
-                  <img src="@/assets/images/temp/chart_donut1.png" alt="" class="wp_100">
+                  <img src="@/assets/images/temp/chart_donut1.png" alt="">
                 </div>
               </div>
               <div class="chart_legend">

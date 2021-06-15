@@ -64,8 +64,12 @@ export default [
           { path: 'UT14B001', component: () => import('@/views/UT/14/UT14B001.vue') }, // 마이데이터연동 통합인증 기관/업체선택
           { path: 'UT14B012', component: () => import('@/views/UT/14/UT14B012.vue') }, // 마이데이터연동 통합인증 계좌선택
           { path: 'UT14B013', component: () => import('@/views/UT/14/UT14B013.vue') }, // 마이데이터연동 통합인증 연동계좌 없음
-          { path: 'UT14C001', component: () => import('@/views/UT/14/UT14C001.vue') }, // 마이데이터연동 개별인증 기관/업체선택
+          { path: 'UT14B021', component: () => import('@/views/UT/14/UT14B021.vue') }, // 마이데이터연동 통합인증 한번에 연동
+          { path: 'UT14B022', component: () => import('@/views/UT/14/UT14B022.vue') }, // 마이데이터연동 통합인증 한번에 연동 전송요구서(기관/업체)
+          { path: 'UT14B024', component: () => import('@/views/UT/14/UT14B024.vue') }, // 마이데이터연동 통합인증 약관동의
+          { path: 'UT14B030', component: () => import('@/views/UT/14/UT14B030.vue') }, // 마이데이터연동 통합인증 요청결과
 
+          { path: 'UT14C001', component: () => import('@/views/UT/14/UT14C001.vue') }, // 마이데이터연동 개별인증 기관/업체선택
           { path: 'UT14C012', component: () => import('@/views/UT/14/UT14C012.vue') }, // KB증권 인증
           { path: 'UT14C019', component: () => import('@/views/UT/14/UT14C019.vue') }, // 연동중
           { path: 'UT14C020_1', component: () => import('@/views/UT/14/UT14C020_1.vue') }, // 개별인증 연동결과
@@ -89,6 +93,7 @@ export default [
           { path: 'UT15D007', component: () => import('@/views/UT/15/UT15D007.vue') }, // 판매하기 주문결과(거래성공,일부성공)
           { path: 'UT15D008', component: () => import('@/views/UT/15/UT15D008.vue') }, // 판매하기 주문결과(거래실패)
           { path: 'UT15D010', component: () => import('@/views/UT/15/UT15D010.vue') }, // 구매하기(일괄) 상세주문내역
+          { path: 'UT15H001', component: () => import('@/views/UT/15/UT15H001.vue') }, // 서비스체험
         ],
       },
     ],

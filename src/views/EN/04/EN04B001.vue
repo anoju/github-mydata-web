@@ -19,10 +19,7 @@
           not
           class="accordion_dl section"
         >
-          <kb-folding class="pd_b25">
-            <template slot="title">
-              이용안내
-            </template>
+          <kb-folding class="pd_b25" title="이용안내">
             <ul class="txt_list">
               <li class="dot">KB증권 '오늘'APP을 삭제하시거나 스마트폰을 변경하시면 지문을 재등록 해 주세요.</li>
               <li class="dot">지문인증 등록 후 스마트폰에 등록된 지문 정보가 추가, 삭제 등 변경되면 지문인증을 재등록하셔야 합니다.</li>

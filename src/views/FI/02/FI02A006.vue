@@ -1,31 +1,49 @@
 <template>
-  <kb-page page-title="소비달력">
-    <kb-page-body class="pd_b0">
-      <div
-        class="section"
-      >
-        <div class="t_center">
+  <kb-page
+    page-title="소비달력"
+    @scroll="scrollChk"
+    :class="{scl_lock:isSclLock}"
+  >
+    <kb-page-body
+      class="pd_b0"
+      v-touch:start="touchStartEvt"
+      v-touch:end="touchEndEvt"
+    >
+      <div class="section">
+        <div class="flex_wrap space_between align_center">
+          <div>
+            <div v-if="true" class="error_txt icon mg_t0">연동 실패</div>
+            <kb-button not aTag v-if="false" class="error_txt icon mg_t0">연결 정보를 확인하세요.<i aria-hidden="true" class="bt_ic_arr"></i></kb-button>
+            <kb-button not aTag v-if="false" class="error_txt icon mg_t0">금융사 약관 동의가 필요합니다.<i aria-hidden="true" class="bt_ic_arr"></i></kb-button>
+            <kb-button not aTag v-if="false" class="error_txt icon mg_t0">연동 유효기간이 만료되었습니다.<i aria-hidden="true" class="bt_ic_arr"></i></kb-button>
+          </div>
+          <div>
+            <kb-button button class="refresh">09:00:03</kb-button>
+          </div>
+        </div>
+        <div class="calendar_head mg_t12">
           <kb-button
-            line
-            h40
+            not
+            class="swiper_arr swiper_prev"
             @click="controlMonth('prev')"
             :disabled="(Number(yearMonth) <= (Number(today.substr(0,6)) - 500 ))"
           >이전달</kb-button>
+          <div class="tit">
+            <kb-button
+              not
+              @click="selectMonth($event.target)"
+            >
+              {{year}}년 {{Number(month)}}월
+            </kb-button>
+          </div>
           <kb-button
-            line
-            h40
-            @click="selectMonth($event.target)"
-          >
-            {{year}}년 {{Number(month)}}월
-          </kb-button>
-          <kb-button
-            line
-            h40
+            not
+            class="swiper_arr swiper_next"
             @click="controlMonth('next')"
             :disabled="(Number(yearMonth) >= Number(today.substr(0,6)))"
           >다음달</kb-button>
         </div>
-        <kb-btn-toggle small inline>
+        <kb-btn-toggle small inline class="mg_t24">
           <kb-btn-toggle-row>
             <kb-radio
               v-model="toggleVal1"
@@ -40,6 +58,7 @@
               value="1"
             >
               KB국민카드
+              <span class="point">2</span>
             </kb-radio>
             <kb-radio
               v-model="toggleVal1"
@@ -65,7 +84,7 @@
           </kb-btn-toggle-row>
         </kb-btn-toggle>
 
-        <div class="calendar_table">
+        <div class="calendar_table mg_t24">
           <div class="thead">
             <div class="th first">
               일
@@ -101,10 +120,10 @@
                 class="td"
                 :class="{unused:day.day === 0, first: (i % 7) == 0, last: (i % 7) == 6}"
               >
-                <a
-                  href="#"
+                <kb-button
                   v-if="day.day !== 0"
-                  role="button"
+                  not
+                  a-tag
                   class="calendar_btn"
                   :class="{
                     today:Number(today) === Number(day.date),
@@ -118,136 +137,126 @@
                     {{ day.day }}
                   </div>
                   <div class="cont">
-                    내용 노출
+                    999,999,999
                   </div>
-                </a>
+                </kb-button>
               </div>
             </div>
-            <!--
-            <div
-              v-for="(day, k) in dayAry"
-              :key="'d'+k"
-              class="td"
-              :class="{unused:day.day === 0, first: (k % 7) == 0, last: (k % 7) == 6}"
-            >
-              <a
-                href="#"
-                v-if="day.day !== 0"
-                role="button"
-                class="calendar_btn"
-                :class="{
-                  today:Number(today) === Number(day.date),
-                  selected:(Number(selectDay) === Number(day.date)),
-                  disabled:(Number(today) < Number(day.date) || Number(day.date) < firstDate)
-                }"
-                :data-date="day.date"
-                @click="calendarSelect($event, day.date, (Number(today) < Number(day.date) || Number(day.date) < firstDate))"
-              >
-                <div class="day">
-                  {{ day.day }}
-                </div>
-                <div class="cont">
-                  내용 노출
-                </div>
-              </a>
-            </div>
-            -->
           </div>
         </div>
-
-        <kb-title-bar>
-          <template slot="left">
-            <div class="tit">
-              <strong
-                v-if="selectDay === today"
-                class="fc_blue"
-              >오늘 &middot;</strong>
-              {{selectDay.substr(0,4)}}년 {{Number(selectDay.substr(4,2))}}월 {{Number(selectDay.substr(6,2))}}일
-            </div>
-          </template>
+        <div class="calendar_detail_head">
           <kb-button
-            line
-            h32
+            not
+            a-tag
+            :class="{expend:isFoldingCalendar}"
             @click="toggleCalendar"
           >
-            달력
-            <template v-if="!isFoldingCalendar">
-              접기
-            </template>
-            <template v-else>
-              열기
-            </template>
+            <div class="head_in">
+              {{selectDay.substr(0,4)}}년 {{Number(selectDay.substr(4,2))}}월 {{Number(selectDay.substr(6,2))}}일
+              <strong class="mg_l8"  v-if="selectDay === today">오늘</strong>
+            </div>
           </kb-button>
-        </kb-title-bar>
+        </div>
 
         <div
           class="calendar_detail_wrap"
           :class="{expend:isFoldingCalendar}"
         >
-          <div class="no_list_txt">
-            <strong class="tit">내역이 없습니다.</strong>
+          <div class="no_list_txt icon">
+            <strong class="tit">거래내역이 없습니다.</strong>
           </div>
-          <div class="line_list_ty1">
+          <div class="line_list_ty2 border_none">
             <ul>
               <li>
                 <div class="item">
-                  <i class="ico" style="background:skyblue"></i>
-                  <div class="inner">
-                    <div class="flex">
-                      <div class="left">
-                        <div class="tit"><strong>여의도식당</strong></div>
+                  <kb-button aTag not class="inner">
+                    <div class="flex_wrap space_between align_center">
+                      <div class="fz_12 fc_666">2021/01/01(13:50:23)</div>
+                      <div class="fz_14"><strong>승인</strong></div>
+                    </div>
+                    <div class="sub_info mg_t8">
+                      <ul>
+                        <li>KB국민카드</li>
+                        <li>본인 1234</li>
+                        <li>일시불</li>
+                      </ul>
+                    </div>
+                    <div class="flex_wrap space_between align_end mg_t3">
+                      <div class="breakall">
+                        <strong>여의도식당여의도식당여의도식당여의도식당여의도식당여의도식당여의도식당여의도식당여의도식당여의도식당여의도식당여의도식당</strong>
                       </div>
-                      <div class="right">
-                        <div class="price"><strong>300,000,000원</strong></div>
+                      <div class="nowrap pd_l10">
+                        <strong class="fz_18">12,400원</strong>
                       </div>
                     </div>
-                    <div class="flex">
-                      <div class="left">
-                        <ul class="sub">
-                          <li><strong>출금 1234</strong></li>
-                          <li><strong>일시불</strong></li>
-                          <li>2021/03/04 13:50:23</li>
-                        </ul>
-                      </div>
-                      <div class="right">
-                        <div class="sub"><strong>승인</strong></div>
-                      </div>
-                    </div>
-                    <div class="sub">
-                      <strong class="mg_r8 fc_blue">#점심</strong>
-                      <span>카드재결제</span>
-                    </div>
+                  </kb-button>
+                  <div class="category_info">
+                    <ul>
+                      <li class="tag">#식비</li>
+                      <li>강추 맛집</li>
+                    </ul>
                   </div>
                 </div>
               </li>
               <li>
                 <div class="item">
-                  <i class="ico" style="background:skyblue"></i>
-                  <div class="inner">
-                    <div class="flex">
-                      <div class="left">
-                        <div class="tit"><strong>여의도식당</strong></div>
+                  <kb-button aTag not class="inner">
+                    <div class="flex_wrap space_between align_center">
+                      <div class="fz_12 fc_666">2021/01/01(13:50:23)</div>
+                      <div class="fz_14"><strong class="fc_up">승인취소</strong></div>
+                    </div>
+                    <div class="sub_info mg_t8">
+                      <ul>
+                        <li>KB국민카드</li>
+                        <li>본인 1234</li>
+                        <li>일시불</li>
+                      </ul>
+                    </div>
+                    <div class="flex_wrap space_between align_end mg_t3">
+                      <div class="breakall">
+                        <strong>여의도식당</strong>
                       </div>
-                      <div class="right">
-                        <div class="price"><strong>-300,000,000원</strong></div>
+                      <div class="nowrap  pd_l10">
+                        <strong class="fz_18">-12,400원</strong>
                       </div>
                     </div>
-                    <div class="flex">
-                      <div class="left">
-                        <ul class="sub">
-                          <li><strong>출금 1234</strong></li>
-                          <li><strong>일시불</strong></li>
-                          <li>2021/03/04 13:50:23</li>
-                        </ul>
+                  </kb-button>
+                  <div class="category_info">
+                    <ul>
+                      <li class="tag">#식비</li>
+                      <li>강추 맛집</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item">
+                  <kb-button aTag not class="inner">
+                    <div class="flex_wrap space_between align_center">
+                      <div class="fz_12 fc_666">2021/01/01(13:50:23)</div>
+                      <div class="fz_14"><strong>승인</strong></div>
+                    </div>
+                    <div class="sub_info mg_t8">
+                      <ul>
+                        <li>KB국민카드</li>
+                        <li>본인 1234</li>
+                        <li>일시불</li>
+                      </ul>
+                    </div>
+                    <div class="flex_wrap space_between align_end mg_t3">
+                      <div class="breakall">
+                        <strong>여의도식당</strong>
                       </div>
-                      <div class="right">
-                        <div class="sub"><strong class="fc_red">승인취소</strong></div>
+                      <div class="nowrap pd_l10">
+                        <strong class="fz_18">12,400원</strong>
                       </div>
                     </div>
-                    <div class="sub">
-                      <strong class="mg_r8 fc_blue">#점심</strong>
-                      <span>카드재결제</span>
-                    </div>
+                  </kb-button>
+                  <div class="category_info">
+                    <ul>
+                      <li class="tag">#식비</li>
+                      <li>강추 맛집</li>
+                    </ul>
                   </div>
                 </div>
               </li>
@@ -260,9 +269,11 @@
 </template>
 <script>
 export default {
-  name: 'TO02C007',
+  name: 'FI02A006',
   data() {
     return {
+      isSclLock: false,
+      scrollTop: 0,
       yearMonth: '',
       year: '',
       month: '',
@@ -274,6 +285,7 @@ export default {
       isFoldingCalendar: false,
       isFoldingCalendarIng: false,
       toggleVal1: 'all',
+      touchStartY: 0,
     };
   },
   watch: {
@@ -437,18 +449,36 @@ export default {
         }
       });
     },
-    swipeTopEvt() {
+    scrollChk(e) {
+      this.scrollTop = e.target.scrollTop;
+    },
+    touchStartEvt(e) {
+      if (this.scrollTop === 0 && !this.isFoldingCalendar) this.isSclLock = true;
+      this.touchStartY = (e.type === 'touchstart') ? e.touches[0].clientY : e.clientY;
+    },
+    touchEndEvt(e) {
+      this.isSclLock = false;
+      const move = (e.type === 'touchend') ? e.changedTouches[0].clientY : e.clientY;
+      this.touchDistance = move - this.touchStartY;
+
+      // down
+      if (this.touchDistance > 10) this.swipeDownEvt();
+
+      // up
+      if (this.touchDistance < -10) this.swipeUpEvt();
+    },
+    swipeUpEvt() {
       if (!this.isFoldingCalendar) {
         this.toggleCalendar();
         const wrap = this.$el.closest('.scl__body');
         setTimeout(() => {
-          this.$scrollTo(wrap, { top: 0 }, 100);
-        }, 300);
+          console.log(this.scrollTop);
+          if (this.scrollTop !== 0) this.$scrollTo(wrap, { top: 0 }, 10);
+        }, 50);
       }
     },
-    swipeBottomEvt() {
-      const wrap = this.$el.closest('.scl__body');
-      if (this.isFoldingCalendar && (wrap.scrollTop === 0)) this.toggleCalendar();
+    swipeDownEvt() {
+      if (this.isFoldingCalendar && this.scrollTop === 0) this.toggleCalendar();
     },
   },
 };

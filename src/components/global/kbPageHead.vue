@@ -8,7 +8,7 @@
         v-if="headerType != 'close' && !noBack"
         type="button"
         class="btn_back"
-        @click="historyBack"
+        @click="backClick"
       >
         <span class="blind">이전화면</span>
       </button>
@@ -24,7 +24,7 @@
               to="/"
               role="button"
             >
-              KB증권 마이데이타 모바일
+              KB증권 마이데이터 모바일
             </router-link>
           </h1> -->
           <h1>
@@ -66,6 +66,7 @@ export default {
     noBack: { type: Boolean, default: false },
     isLock: { type: Boolean, default: false },
     headerType: { type: String, default: null },
+    back: { type: [String, Function], default: null },
   },
   data() {
     return {
@@ -85,8 +86,14 @@ export default {
       e.preventDefault();
       uiEventBus.$emit('open-gnb', target);
     },
-    historyBack() {
-      window.history.back();
+    backClick() {
+      if (this.back === null) {
+        window.history.back();
+      } else if (typeof this.back === 'function') {
+        this.back();
+      } else if (typeof this.back === 'string') {
+        this.$router.replace(this.back);
+      }
     },
     headerFixed() {
       if (!this.isLock) {

@@ -6,6 +6,7 @@
     <div
       v-if="!!label || !!$slots.labelLeft || !!$slots.labelRight"
       class="fm_lb"
+      :class="labelClass"
       :style="{
         width: `${labelWidth}px`,
         flex: `0 0 ${labelWidth}px`
@@ -34,6 +35,7 @@ export default {
   name: 'kbFormItem',
   props: {
     label: { type: String, default: null },
+    labelClass: { type: String, default: null },
     labelWidth: { type: [String, Number], default: null },
     required: { type: Boolean, default: false },
     type2: { type: Boolean, default: false },

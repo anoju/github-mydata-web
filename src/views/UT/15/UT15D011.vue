@@ -48,10 +48,7 @@
           not
           class="accordion_dl"
         >
-          <kb-folding>
-            <template slot="title">
-              적립식 거래
-            </template>
+          <kb-folding title="적립식 거래">
             <ul class="txt_list pd_b90">
               <li class="dot">적립식 거래는 최소 3개월 이상 매 1개월 단위로 지정하신 일자에 은행의 적금처럼 매월 일정액의 상품을 매수하는 거래입니다.</li>
               <li class="dot">시작년월이 당월인 경우 서비스 개시일은 다음 영업일이 되며, 당월이 아닌 경우에는 신청월 초일이 서비스 개시일이 됩니다.</li>

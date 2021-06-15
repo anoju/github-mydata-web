@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view />
-    <kb-page-gnb />
+    <kb-page-gnb v-if="!isAPI" />
     <toast-box />
     <modal-container />
     <alert-box />
@@ -21,9 +21,43 @@ export default {
     Loading,
     ToastBox,
   },
-  computed: {
-    // PC 디바이스 체크
-    isPcClass() {
+  data() {
+    return {
+      isAPI: false,
+    };
+  },
+  watch: {
+    $route(from) {
+      const $path = from.path;
+      if ($path.indexOf('/API/') >= 0) {
+        this.isAPI = true;
+      } else {
+        this.isAPI = false;
+      }
+    },
+  },
+  created() {
+    if (this.$route.path.indexOf('/API/') >= 0) this.isAPI = true;
+    window.addEventListener('resize', this.vhChk);
+  },
+  mounted() {
+    this.deviceChk();
+    this.vhChk();
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.vhChk);
+  },
+  methods: {
+    deviceChk() {
+      this.pcClassChk();
+      this.mobileClassChk();
+      if (this.isMobileClass !== undefined)document.querySelector('html').classList.add(...this.isMobileClass);
+      // try {
+      //     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: Dark)').matches
+      //     if (prefersDark)document.querySelector('html').classList.add('darkmode')
+      // } catch (e) { console.log(e) }
+    },
+    pcClassChk() {
       const $agent = navigator.userAgent;
       const isWindow = ($agent.match(/windows/i) != null);
       const isMac = ($agent.match(/macintosh/i) != null);
@@ -60,14 +94,16 @@ export default {
           rtnClass.push('firefox');
         }
       }
-      return rtnClass;
+
+      if (rtnClass.length) {
+        document.querySelector('html').classList.add(...rtnClass);
+      }
     },
-    // 모바일 디바이스 체크
-    isMobileClass() {
+    mobileClassChk() {
       const $agent = navigator.userAgent;
       const isAndroid = ($agent.match(/Android/i) != null);
       const isBlackBerry = ($agent.match(/BlackBerry/i) != null);
-      const isIOS = ($agent.match(/iPhone|iPad|iPod/i) != null);
+      const isIOS = ($agent.match(/iPhone|iPad|iPod|iOS/i) != null);
       const isIPhone = ($agent.match(/iPhone/i) != null);
       const isIPad = ($agent.match(/iPad/i) != null);
       const isOpera = ($agent.match(/Opera Mini/i) != null);
@@ -75,7 +111,7 @@ export default {
       const isNaverApp = ($agent.indexOf('NAVER(inapp') !== -1);
       const isDaumApp = ($agent.match(/DaumApps/i) != null);
       const isKakaoTalk = ($agent.match(/KAKAOTALK/i) != null);
-      const isApp = ($agent.match(/KBOneul/i) != null); // 아직 미정 추후 변경(KB오늘앱 확인)
+      const isApp = ($agent.match(/KBSecMyDataApp/i) != null);
       const isAny = (isAndroid || isIOS || isBlackBerry || isOpera || isWindows);
       function tabletchk() {
         const standard = 760;
@@ -112,20 +148,14 @@ export default {
         if (isKakaoTalk) rtnClass.push('kakao_talk'); // 카카오톡
         if (isApp) rtnClass.push('is_app'); // 오늘앱
       }
-      return rtnClass;
+
+      if (rtnClass.length) {
+        document.querySelector('html').classList.add(...rtnClass);
+      }
     },
-  },
-  mounted() {
-    this.deviceChk();
-  },
-  methods: {
-    deviceChk() {
-      if (this.isPcClass !== undefined)document.querySelector('html').classList.add(...this.isPcClass);
-      if (this.isMobileClass !== undefined)document.querySelector('html').classList.add(...this.isMobileClass);
-      // try {
-      //     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: Dark)').matches
-      //     if (prefersDark)document.querySelector('html').classList.add('darkmode')
-      // } catch (e) { console.log(e) }
+    vhChk() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
     },
   },
 };

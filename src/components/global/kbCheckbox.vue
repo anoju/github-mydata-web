@@ -2,6 +2,14 @@
   <div
     :class="checkboxClass"
   >
+    <label
+      v-if="right && !!$slots.default"
+      class="lbl"
+      :class="lblClass"
+      :for="chkboxId"
+    >
+      <slot />
+    </label>
     <input
       :id="chkboxId"
       ref="checkbox"
@@ -17,9 +25,11 @@
       v-on="listeners"
     ><i aria-hidden="true" />
     <label
+      v-if="!right && !!$slots.default"
       class="lbl"
+      :class="lblClass"
+      :style="lblStyle"
       :for="chkboxId"
-      v-if="!!$slots.default"
     >
       <slot />
     </label>
@@ -46,6 +56,7 @@ export default {
     inputClass: { type: String, default: null },
     title: { type: String, default: null },
     disabled: { type: Boolean, default: false },
+    right: { type: Boolean, default: false },
     size: { type: String, default: null },
     small: { type: Boolean, default: false },
     large: { type: Boolean, default: false },
@@ -56,8 +67,10 @@ export default {
     button: { type: Boolean, default: false },
     value: { type: [String, Number], default: null },
     modelValue: { type: [String, Number, Boolean, Array, Object], default: null },
-    trueValue: { type: Boolean, default: true },
-    falseValue: { type: Boolean, default: false },
+    trueValue: { type: [String, Number, Boolean], default: true },
+    falseValue: { type: [String, Number, Boolean], default: false },
+    lblClass: { type: String, default: null },
+    lblStyle: { type: String, default: null },
   },
   data() {
     return {
@@ -173,6 +186,9 @@ export default {
       }
     },
     */
+    focus() {
+      this.$refs.checkbox.focus();
+    },
     clickEvt() {
       if (this.button && this.$el.closest('.btn_toggle_row') !== null) {
         const wrap = this.$el.closest('.btn_toggle_row');

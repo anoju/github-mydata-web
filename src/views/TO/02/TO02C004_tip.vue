@@ -3,7 +3,7 @@
     tooltip
   >
     <kb-pop-body>
-      <div class="section breakall">
+      <div class="section">
         순 매입금이란?<br>평가금액에서 수익금을 제외한 추가 매입한 금액(융자금포함) 입니다.
       </div>
     </kb-pop-body>

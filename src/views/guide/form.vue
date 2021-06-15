@@ -1099,6 +1099,18 @@
           :marks="[0, 25, 50, 75, 100]"
         />
         {{sliderVal}}
+        <br>
+        <input type="text" v-model="sliderVal" id="">
+        <br><br>
+        <kb-slider
+          v-model="sliderVal2"
+          :min="30"
+          :max="90"
+          :marks="false"
+          :tooltip="'active'"
+          :tooltip-formatter="'{value}살'"
+        />
+        {{sliderVal2}}
       </div>
       <h2 class="gd__h1">spinner</h2>
       <div>
@@ -1121,6 +1133,7 @@ export default {
     return {
       spinnerVal: 1,
       sliderVal: 20,
+      sliderVal2: 35,
       inpVal1: 'input disabled',
       inpVal2: 'input readonly',
       inpVal3: '123456',

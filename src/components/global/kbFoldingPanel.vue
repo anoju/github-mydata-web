@@ -3,7 +3,7 @@
     :is="tag"
     v-if="!!$slots.default"
     :style="setStyle"
-    :class="{folding_open:active}"
+    :class="{folding_open:active, folding_ing: isAnimation}"
     :aria-hidden="active?'false':'true'"
   >
     <div class="inner">
@@ -20,13 +20,14 @@ export default {
   props: {
     active: Boolean,
     tag: { type: String, default: 'div' },
-    duration: { type: Number, default: 500 },
+    duration: { type: Number, default: 300 },
     endScroll: { type: Boolean, default: true },
   },
   data() {
     return {
       setStyle: null,
       isScroll: true,
+      isAnimation: false,
     };
   },
   watch: {
@@ -48,11 +49,16 @@ export default {
     folding() {
       const intervalTime = 20;
       if (this.active) {
+        this.isAnimation = true;
         this.$slideDown(this.$el, this.duration, () => {
           this.foldingCallback();
+          this.isAnimation = false;
         });
       } else {
-        this.$slideUp(this.$el, this.duration);
+        this.isAnimation = true;
+        this.$slideUp(this.$el, this.duration, () => {
+          this.isAnimation = false;
+        });
       }
 
       if (this.$el.closest('.main_swiper') !== null) {
@@ -73,13 +79,13 @@ export default {
       const elTop = this.$getOffset(el).top;
       const elH = el.offsetHeight;
       const elEnd = elTop + elH;
-      let topGap = 10;
+      let topGap = 0;
       const header = wrap.querySelector('.scl__head');
       if (header != null)topGap += (header.offsetHeight);
       const fixedTab = wrap.querySelector('.tab_wrap.fixed');
       if (fixedTab != null)topGap += (fixedTab.querySelector('.tabmenu').offsetHeight);
       const wrapStart = wrapSclTop + topGap;
-      let bottomGap = 10;
+      let bottomGap = 0;
       const space = wrap.querySelector('.fixed_space');
       if (space != null)bottomGap += (space.offsetHeight);
       const startY = elTop - topGap;

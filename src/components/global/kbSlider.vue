@@ -13,8 +13,10 @@
       :data="data"
       :adsorb="adsorb"
       :tooltip="tooltip"
+      :tooltip-formatter="tooltipFormatter"
       v-model="sliderVal"
-    ></vue-slider>
+    >
+    </vue-slider>
   </div>
 </template>
 
@@ -36,9 +38,12 @@ export default {
     sliderVal(v) {
       this.$emit('input', v);
     },
+    value() {
+      this.valueSet();
+    },
   },
   beforeMount() {
-    if (this.value !== null) this.sliderVal = this.value;
+    this.valueSet();
   },
   props: {
     value: { type: [String, Number], default: null },
@@ -54,8 +59,19 @@ export default {
     dotSize: { type: Number, default: 28 },
     data: { type: [Array, Object], default: null },
     tooltip: { type: String, default: 'none' },
+    tooltipFormatter: { type: String, default: null },
+  },
+  mounted() {
   },
   methods: {
+    valueSet() {
+      const $val = (this.value === null || this.value === '') ? this.min : this.$getOnlyNumber(this.value);
+      // if (Number($val) < this.min)$val = this.min;
+      // if (Number($val) > this.max)$val = this.max;
+      if (this.min <= Number($val) && Number($val) <= this.max) {
+        this.sliderVal = $val;
+      }
+    },
   },
 };
 </script>

@@ -10,68 +10,109 @@
       class="bg"
       aria-hidden="true"
     />
-
+    <!-- <div
+      class="inner"
+      v-touch:start="touchStart"
+      v-touch:end="touchEnd"
+    > -->
     <div class="inner">
-      <div class="gnb_header">
-        <div class="gnb_head_top">
-          <div class="f_right">
+      <div
+        class="gnb_header"
+        :class="{reduce:isReduce}"
+      >
+        <div
+          ref="headTop"
+          class="gnb_head_top"
+        >
+          <div class="left">
+            <div
+              v-if="isLogin"
+              ref="userInfo"
+              class="gnb_user_info"
+            >
+              <kb-button
+                ref="first"
+                not
+                a-tag
+                class="inner"
+                to="#"
+                @click.native="gnbClose"
+              >
+                <div class="img">
+                  <!--
+                    케릭터 이미지 별 클래스 정의
+                    루나키키 : ico1
+                    포스악어 : ico2
+                    심쿵비비 : ico3
+                    롤로나무 : ico4
+                    멜랑콜리 : ico5
+                    의문의 낯선자 : ico6
+                  -->
+                  <i class="character_ico ico1"></i>
+                </div>
+                <h2 class="tit">
+                  <strong>김증권</strong>님
+                </h2>
+              </kb-button>
+            </div>
+            <div
+              v-else
+              ref="userInfo"
+              class="gnb_user_info"
+            >
+              <kb-button
+                ref="first"
+                not
+                a-tag
+                class="inner"
+                to="#"
+                @click.native="gnbClose"
+              >
+                <div class="img"></div>
+                <h2 class="tit">
+                  <strong>로그인을 해주세요</strong>
+                </h2>
+              </kb-button>
+            </div>
+          </div>
+          <div class="right">
             <kb-button
+              v-if="isLogin"
+              not
+              a-tag
+              class="btn_gnb_logout"
+              @click.native="gnbClose"
+            >
+              로그아웃
+            </kb-button>
+            <kb-button
+              not
               ref="home"
               to="/TO/00"
               class="btn_gnb_home"
               aria-label="메인화면으로 이동"
               @click.native="gnbClose"
-            />
+            >메인으로</kb-button>
+
           </div>
-          <a
-            href="#btnGnb"
-            class="btn_gnb_close"
-            role="button"
-            aria-label="전체메뉴 닫기"
-            @click="btnGnbClose"
-          />
         </div>
+        <kb-button
+          not
+          a-tag
+          class="btn_gnb_close"
+          aria-label="전체메뉴 닫기"
+          @click="btnGnbClose"
+        >전체메뉴 닫기</kb-button>
 
         <div
-          v-if="isLogin"
-          class="gnb_user_info"
+          ref="headLink"
+          class="gnb_head_link"
         >
-          <router-link
-            class="inner"
-            to="#"
-            @click.native="gnbClose"
-          >
-            <div class="img"></div>
-            <h2 class="tit">
-              <strong>김증권</strong>님, 반갑습니다!
-            </h2>
-          </router-link>
-          <kb-button not>
-            로그아웃
-          </kb-button>
-        </div>
-
-        <div
-          v-else
-          class="gnb_user_info"
-        >
-          <router-link
-            class="inner"
-            to="#"
-            @click.native="gnbClose"
-          >
-            <div class="img"></div>
-            <h2 class="tit">
-              <strong>로그인</strong>을 해주세요
-            </h2>
-          </router-link>
-        </div>
-
-        <div class="gnb_head_link">
-          <kb-button link>즉시이체</kb-button>
-          <kb-button link>계좌개설</kb-button>
-          <kb-button link>거래내역</kb-button>
-          <kb-button link>가상체험</kb-button>
+          <ul>
+            <li><kb-button not><i class="gnb_link_ico_1" />즉시이체</kb-button></li>
+            <li><kb-button not><i class="gnb_link_ico_2" />계좌개설</kb-button></li>
+            <li><kb-button not><i class="gnb_link_ico_3" />거래내역</kb-button></li>
+          </ul>
         </div>
       </div>
       <div class="gnb_content">
@@ -100,61 +141,58 @@
             </li>
           </ul>
           <div class="gnb_dep1_etc">
-            <kb-button line h40>환경설정</kb-button>
+            <div class="call">
+              <kb-button not a-tag class="dl" href="tel:1588-6611">
+                <div class="dt">고객센터</div>
+                <div class="dd">1588-6611</div>
+              </kb-button>
+            </div>
+            <kb-button line h40>
+              <i class="bt_ic_setting" />
+              환경설정
+            </kb-button>
           </div>
         </div>
-        <div
+        <ul
           ref="wrap"
           class="gnb_dep2_wrap"
           @scroll="wrapScroll($event.target)"
         >
           <!-- 오늘 -->
-          <div class="gnb_dep2">
-            <h3 class="gnb_dep2_tit">오늘</h3>
+          <li class="gnb_dep2">
+            <div class="gnb_dep2_tit"><strong>오늘</strong></div>
             <ul>
               <li>
                 <router-link
                   to="/TO/02/TO02A002"
                   @click.native="gnbClose"
                 >
-                  오늘 나의 자산
+                  총자산
                 </router-link>
-                <div class="gnb_dep3">
-                  <ul>
-                    <li>
-                      <router-link
-                        to="/TO/02/TO02A002"
-                        @click.native="gnbClose"
-                      >
-                        총 자산
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="/TO/02/TO02C001"
-                        @click.native="gnbClose"
-                      >
-                        월 관리
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="/TO/02/TO02D001"
-                        @click.native="gnbClose"
-                      >
-                        타임라인
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="/TO/02/TO02E001"
-                        @click.native="gnbClose"
-                      >
-                        오늘투자
-                      </router-link>
-                    </li>
-                  </ul>
-                </div>
+              </li>
+              <li>
+                <router-link
+                  to="/TO/02/TO02C001"
+                  @click.native="gnbClose"
+                >
+                  월 지출
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/TO/02/TO02D001"
+                  @click.native="gnbClose"
+                >
+                  타임라인
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/TO/02/TO02E001"
+                  @click.native="gnbClose"
+                >
+                  투자손익
+                </router-link>
               </li>
               <li>
                 <router-link
@@ -166,10 +204,10 @@
               </li>
               <li>
                 <router-link
-                  to="#"
+                  to="/TO/01/TO01D002"
                   @click.native="gnbClose"
                 >
-                  내자산 QUIZ
+                  내자산 QnA
                 </router-link>
               </li>
               <li>
@@ -181,16 +219,16 @@
                 </router-link>
               </li>
             </ul>
-          </div>
+          </li>
           <!-- //오늘 -->
 
           <!-- 금융생활 -->
-          <div class="gnb_dep2">
-            <h3 class="gnb_dep2_tit">금융생활</h3>
+          <li class="gnb_dep2">
+            <div class="gnb_dep2_tit"><strong>금융생활</strong></div>
             <ul>
               <li>
                 <router-link
-                  to="#"
+                  to="/FI/04/FI04A001"
                   @click.native="gnbClose"
                 >
                   은행
@@ -198,7 +236,7 @@
               </li>
               <li>
                 <router-link
-                  to="#"
+                  to="/FI/02/FI02A001"
                   @click.native="gnbClose"
                 >
                   카드
@@ -207,7 +245,7 @@
                   <ul>
                     <li>
                       <router-link
-                        to="#"
+                        to="/FI/02/FI02A001"
                         @click.native="gnbClose"
                       >
                         보유현황
@@ -215,7 +253,7 @@
                     </li>
                     <li>
                       <router-link
-                        to="#"
+                        to="/FI/02/FI02A005.vue"
                         @click.native="gnbClose"
                       >
                         승인내역
@@ -223,7 +261,7 @@
                     </li>
                     <li>
                       <router-link
-                        to="#"
+                        to="/FI/02/FI02A006.vue"
                         @click.native="gnbClose"
                       >
                         소비달력
@@ -231,7 +269,7 @@
                     </li>
                     <li>
                       <router-link
-                        to="#"
+                        to="/FI/02/FI02A007.vue"
                         @click.native="gnbClose"
                       >
                         포인트 목록
@@ -239,7 +277,7 @@
                     </li>
                     <li>
                       <router-link
-                        to="#"
+                        to="/FI/02/FI02A008.vue"
                         @click.native="gnbClose"
                       >
                         할부관리
@@ -250,7 +288,7 @@
                         to="#"
                         @click.native="gnbClose"
                       >
-                        대출내역
+                        대출내역??
                       </router-link>
                     </li>
                   </ul>
@@ -258,7 +296,7 @@
               </li>
               <li>
                 <router-link
-                  to="#"
+                  to="/FI/03/FI03A001.vue"
                   @click.native="gnbClose"
                 >
                   보험
@@ -266,7 +304,7 @@
               </li>
               <li>
                 <router-link
-                  to="#"
+                  to="/FI/10/FI10A001.vue"
                   @click.native="gnbClose"
                 >
                   할부금융
@@ -274,7 +312,7 @@
               </li>
               <li>
                 <router-link
-                  to="#"
+                  to="/FI/09/FI09A001.vue"
                   @click.native="gnbClose"
                 >
                   PAY(전자금융)
@@ -285,7 +323,7 @@
                   to="#"
                   @click.native="gnbClose"
                 >
-                  통신/보증보험
+                  통신/보증보험??
                 </router-link>
               </li>
               <li>
@@ -293,20 +331,20 @@
                   to="#"
                   @click.native="gnbClose"
                 >
-                  자동차/부동산
+                  자동차/부동산??
                 </router-link>
               </li>
             </ul>
-          </div>
+          </li>
           <!-- //금융생활 -->
 
           <!-- 투자생활 -->
-          <div class="gnb_dep2">
-            <h3 class="gnb_dep2_tit">투자생활</h3>
+          <li class="gnb_dep2">
+            <div class="gnb_dep2_tit"><strong>투자생활</strong></div>
             <ul>
               <li>
                 <router-link
-                  to="#"
+                  to="/IN/05/IN05A001"
                   @click.native="gnbClose"
                 >
                   투자 진단
@@ -315,7 +353,7 @@
                   <ul>
                     <li>
                       <router-link
-                        to="#"
+                        to="/IN/05/IN05A001"
                         @click.native="gnbClose"
                       >
                         투자습관 진단
@@ -323,7 +361,7 @@
                     </li>
                     <li>
                       <router-link
-                        to="#"
+                        to="/IN/04/IN04A001"
                         @click.native="gnbClose"
                       >
                         주식종목 진단
@@ -339,7 +377,7 @@
                     </li>
                     <li>
                       <router-link
-                        to="#"
+                        to="/IN/12/IN12A001"
                         @click.native="gnbClose"
                       >
                         모델 포트폴리오
@@ -350,7 +388,7 @@
               </li>
               <li>
                 <router-link
-                  to="#"
+                  to="/IN/06/IN06A001"
                   @click.native="gnbClose"
                 >
                   투자정보
@@ -359,7 +397,7 @@
                   <ul>
                     <li>
                       <router-link
-                        to="#"
+                        to="/IN/06/IN06A001"
                         @click.native="gnbClose"
                       >
                         고수의 투자정보
@@ -367,7 +405,7 @@
                     </li>
                     <li>
                       <router-link
-                        to="#"
+                        to="/IN/02/IN02A002"
                         @click.native="gnbClose"
                       >
                         금융상품 검색
@@ -414,7 +452,7 @@
               </li>
               <li>
                 <router-link
-                  to="#"
+                  to="/IN/07/IN07A001"
                   @click.native="gnbClose"
                 >
                   가상투자
@@ -422,7 +460,7 @@
               </li>
               <li>
                 <router-link
-                  to="#"
+                  to="/IN/09/IN09A001"
                   @click.native="gnbClose"
                 >
                   은퇴설계
@@ -433,16 +471,16 @@
                   to="#"
                   @click.native="gnbClose"
                 >
-                  로보 오드바이저
+                  로보 어드바이저
                 </router-link>
               </li>
             </ul>
-          </div>
+          </li>
           <!-- //투자생활 -->
 
           <!-- 내서랍 -->
-          <div class="gnb_dep2">
-            <h3 class="gnb_dep2_tit">내 서랍</h3>
+          <li class="gnb_dep2">
+            <div class="gnb_dep2_tit"><strong>내 서랍</strong></div>
             <ul>
               <li>
                 <router-link
@@ -461,16 +499,32 @@
                 </router-link>
               </li>
             </ul>
-          </div>
+          </li>
           <!-- //내서랍 -->
 
           <!-- 고객센터 -->
-          <div class="gnb_dep2">
-            <h3 class="gnb_dep2_tit">고객센터</h3>
+          <li class="gnb_dep2">
+            <div class="gnb_dep2_tit"><strong>고객센터</strong></div>
             <ul>
               <li>
                 <router-link
-                  to="#"
+                  to="/SC/01/SC01A001"
+                  @click.native="gnbClose"
+                >
+                  상담신청/조회
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/SC/02/SC02A001"
+                  @click.native="gnbClose"
+                >
+                  공지사항
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/SC/03/SC03A001"
                   @click.native="gnbClose"
                 >
                   FAQ
@@ -478,46 +532,22 @@
               </li>
               <li>
                 <router-link
-                  to="#"
+                  to="/SC/04/SC04A001"
                   @click.native="gnbClose"
                 >
-                  로그인 수단
-                </router-link>
-              </li>
-              <li>
-                <router-link
-                  to="#"
-                  @click.native="gnbClose"
-                >
-                  간편인증 로그인
-                </router-link>
-              </li>
-              <li>
-                <router-link
-                  to="#"
-                  @click.native="gnbClose"
-                >
-                  인증서
-                </router-link>
-              </li>
-              <li>
-                <router-link
-                  to="#"
-                  @click.native="gnbClose"
-                >
-                  보안
+                  이벤트
                 </router-link>
               </li>
             </ul>
-          </div>
+          </li>
           <!-- //고객센터 -->
 
           <!-- 가이드 -->
-          <div
+          <li
             v-if="isDev"
             class="gnb_dep2"
           >
-            <h3 class="gnb_dep2_tit">가이드</h3>
+            <div class="gnb_dep2_tit"><strong>가이드</strong></div>
             <ul>
               <li>
                 <router-link
@@ -604,9 +634,9 @@
                 </div>
               </li>
             </ul>
-          </div>
+          </li>
           <!-- //가이드 -->
-        </div>
+        </ul>
       </div>
     </div>
   </nav>
@@ -620,9 +650,12 @@ export default {
     return {
       isLogin: true,
       isShow: false,
+      isReduce: false,
       closeReturnFocus: null,
       gnb2Top: [],
       wrapSclTop: 0,
+      touchStartY: 0,
+      touchDistance: 0,
       observer: null,
       currentSection: 'null',
       isDev: false,
@@ -634,7 +667,6 @@ export default {
   mounted() {
     uiEventBus.$on('close-gnb', this.gnbClose);
     uiEventBus.$on('open-gnb', this.gnbOpen);
-    this.gnbNaviSet();
 
     // this.initObserver();
     // this.observeSections();
@@ -648,28 +680,26 @@ export default {
       this.closeReturnFocus = target;
       uiEventBus.$emit('lock-wrap');
       this.isShow = true;
-      const $navi = this.$el.querySelector('.gnb_dep1');
-
-      // active
-      const $path = this.$route.path;
-      const $link = $navi.querySelectorAll('a');
-      $link.forEach((el) => {
-        const $href = el.getAttribute('href');
-        if ($href === $path) {
-          const $parents = this.$getParents(el, 'li');
-          $parents.forEach((li) => {
-            li.classList.add('active');
-          });
-        }
-      });
+      this.gnbNaviSet();
+      const $wrap = this.$el.querySelector('.gnb_dep2_wrap');
+      this.gnbActive();
+      const $active = $wrap.querySelector('.active');
+      if ($active === null) {
+        this.$scrollTo($wrap, { top: 0 }, 100);
+      } else {
+        const $closest = $active.closest('.gnb_dep2');
+        const $top = $closest.offsetTop;
+        this.$scrollTo($wrap, { top: $top }, 500);
+      }
 
       window.setTimeout(() => {
         // this.$el.querySelector('.btn_gnb_home').focus();
-        this.$refs.home.$el.focus();
+        this.$refs.first.$el.focus();
       }, 600);
     },
     gnbClose() {
       this.isShow = false;
+      this.wrapDownEvt();
       window.setTimeout(() => {
         uiEventBus.$emit('unlock-wrap');
         this.closeReturnFocus.focus();
@@ -703,6 +733,28 @@ export default {
       const { wrap } = this.$refs;
       this.wrapScroll(wrap);
     },
+    gnbActive() {
+      // 메뉴 active
+      const $path = this.$route.path;
+      const $pathLast = $path.split('/').pop();
+      const $wrap = this.$el.querySelector('.gnb_dep2_wrap');
+      const $li = $wrap.querySelectorAll('li');
+      const $link = $wrap.querySelectorAll('a');
+      $li.forEach((el) => {
+        el.classList.remove('active');
+      });
+      $link.forEach((el) => {
+        const $href = el.getAttribute('href');
+        const $hrefLast = $href.split('/').pop();
+        // if ($href === $path) {
+        if (($hrefLast.indexOf('#') < 0) && ($hrefLast.substr(0, 5) === $pathLast.substr(0, 5))) {
+          const $parents = this.$getParents(el, 'li');
+          $parents.forEach((li) => {
+            li.classList.add('active');
+          });
+        }
+      });
+    },
     gnbDep1Open(e) {
       e.preventDefault();
       const btn = e.target.tagName === 'SPAN' ? e.target.parentNode : e.target;
@@ -713,7 +765,8 @@ export default {
       this.$scrollTo(wrap, { top: $top }, 300);
     },
     wrapScroll(el) {
-      this.wrapSclTop = el.scrollTop;
+      // this.wrapSclTop = Math.round(el.scrollTop);
+      this.wrapSclTop = Math.round(el.scrollTop) + Math.round(el.offsetHeight * 0.1);
       let index = -1;
       this.gnb2Top.forEach((val) => {
         if (this.wrapSclTop >= val) {
@@ -764,6 +817,29 @@ export default {
         root: this.$el.querySelector('.gnb_dep2_wrap'),
         threshold: 1,
       });
+    },
+    wrapUpEvt() {
+      this.isReduce = true;
+      this.$slideUp(this.$refs.headTop, 300);
+      this.$slideUp(this.$refs.userInfo, 300);
+    },
+    wrapDownEvt() {
+      this.isReduce = false;
+      this.$slideDown(this.$refs.headTop, 300);
+      this.$slideDown(this.$refs.userInfo, 300);
+    },
+    touchStart(e) {
+      this.touchStartY = (e.type === 'touchstart') ? e.touches[0].clientY : e.clientY;
+    },
+    touchEnd(e) {
+      const move = (e.type === 'touchend') ? e.changedTouches[0].clientY : e.clientY;
+      this.touchDistance = move - this.touchStartY;
+
+      // down
+      if (this.touchDistance > 10) this.wrapDownEvt();
+
+      // up
+      if (this.touchDistance < -10) this.wrapUpEvt();
     },
   },
 };

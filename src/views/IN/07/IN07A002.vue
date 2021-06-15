@@ -73,7 +73,7 @@
           <div class="chart_wrap ">
             <div class="character type5"></div>
             <div class="chart">
-              <img src="@/assets/images/temp/chart_donut1.png" alt="" class="wp_100">
+              <img src="@/assets/images/temp/chart_donut1.png" alt="">
             </div>
           </div>
           <div class="chart_legend">
@@ -144,7 +144,7 @@
 
         <div class="section_scroll mg_t48">
           <div class="list ty2">
-            <div class="fz_14 t_center">원하는 구성이 아니라면<br>내 맘대로 다시 시작!</div>
+            <div class="fz_14 t_center">가상 투자는 이제 그만!<br />진정한 투자의 맛을 느껴보고 싶다면?</div>
             <div class="mg_t16">
               <kb-button line blue class="wp_100">가상투자 종료하기</kb-button>
             </div>

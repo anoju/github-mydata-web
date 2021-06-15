@@ -21,187 +21,146 @@
             </div>
             <!-- //내용없음 -->
 
-            <dl class="transactional_info" v-if="!dataNone">
-              <dt class="header">
-                <p class="caption">종목</p>
-                <p class="caption day">자동구매일</p>
-                <p class="caption money">신청가격</p>
-              </dt>
-
-              <dd class="cont_box">
-                <kb-button aTag not>
-                  <ol class="view">
-                    <li class="name">
-                      <span>123456</span>
-                      삼성전자
-                    </li>
-                    <li class="day">12일</li>
-                    <li class="money">9,000,000,000원</li>
-                  </ol>
-                </kb-button>
-              </dd>
-
-              <dd class="cont_box">
-                <kb-button aTag not>
-                  <ol class="view">
-                    <li class="name">
-                      <span>123456</span>
-                      삼성전자
-                    </li>
-                    <li class="day">12일</li>
-                    <li class="money">9,000,000,000원</li>
-                  </ol>
-                </kb-button>
-              </dd>
-
-              <dd class="cont_box">
-                <kb-button aTag not>
-                  <ol class="view">
-                    <li class="name">
-                      <span>123456</span>
-                      삼성전자
-                    </li>
-                    <li class="day">12일</li>
-                    <li class="money">9,000,000,000원</li>
-                  </ol>
-                </kb-button>
-              </dd>
-
-              <dd class="cont_box">
-                <kb-button aTag not>
-                  <ol class="view">
-                    <li class="name">
-                      <span>123456</span>
-                      삼성전자
-                    </li>
-                    <li class="day">12일</li>
-                    <li class="money">9,000,000,000원</li>
-                  </ol>
-                </kb-button>
-              </dd>
-
-              <dd class="cont_box">
-                <kb-button aTag not>
-                  <ol class="view">
-                    <li class="name">
-                      <span>123456</span>
-                      삼성전자
-                    </li>
-                    <li class="day">12일</li>
-                    <li class="money">9,000,000,000원</li>
-                  </ol>
-                </kb-button>
-              </dd>
-            </dl>
+            <!-- 2021-05-12 기획 변경에 따른 내용변경 -->
+            <div class="transactional_info" v-if="!dataNone">
+              <kb-button aTag not class="list_box">
+                <div class="left">
+                  <p class="kind">
+                    <span>주식</span>
+                    <span>1233242</span>
+                  </p>
+                  <p class="tit"> LG디스플레이 LG디스플레이</p>
+                </div>
+                <div class="right">
+                  <p class="kind">오늘</p>
+                  <p class="date">12일 / 13:20</p>
+                </div>
+              </kb-button>
+              <kb-button aTag not class="list_box">
+                <div class="left">
+                  <p class="kind">
+                    <span>주식</span>
+                    <span>1233242</span>
+                  </p>
+                  <p class="tit"> LG디스플레이 LG디스플레이</p>
+                </div>
+                <div class="right">
+                  <p class="kind">오늘</p>
+                  <p class="date">12일 / 13:20</p>
+                </div>
+              </kb-button>
+              <kb-button aTag not class="list_box">
+                <div class="left">
+                  <p class="kind">
+                    <span>주식</span>
+                    <span>1233242</span>
+                  </p>
+                  <p class="tit"> LG디스플레이 LG디스플레이</p>
+                </div>
+                <div class="right">
+                  <p class="kind">오늘</p>
+                  <p class="date">12일 / 13:20</p>
+                </div>
+              </kb-button>
+              <kb-button aTag not class="list_box">
+                <div class="left">
+                  <p class="kind">
+                    <span>주식</span>
+                    <span>1233242</span>
+                  </p>
+                  <p class="tit"> LG디스플레이 LG디스플레이</p>
+                </div>
+                <div class="right">
+                  <p class="kind">오늘</p>
+                  <p class="date">12일 / 13:20</p>
+                </div>
+              </kb-button>
+            </div>
+            <!-- //2021-05-12 기획 변경에 따른 내용변경 -->
 
           </kb-tab>
           <kb-tab
             title="완료 내역"
           >
-            <dl class="transactional_info" v-if="!dataNone">
-              <dt class="header">
-                <p class="caption">종목</p>
-                <p class="caption result">결과</p>
-                <p class="caption money">신청가격</p>
-              </dt>
+            <!-- 2021-05-12 기획 변경에 따른 내용변경 -->
+            <div class="transactional_info" v-if="!dataNone">
+              <div class="day_box">
+                <p class="day">04/01</p>
+                <kb-button aTag not class="list_box">
+                  <div class="left">
+                    <p class="kind">
+                      <span>주식</span>
+                      <span>1233242</span>
+                    </p>
+                    <p class="tit"> LG디스플레이 LG디스플레이</p>
+                  </div>
+                  <div class="right">
+                    <p class="kind">오늘</p>
+                    <!--
+                      fc_blue : 구매완료
+                      defult : 구매실패
+                     -->
+                    <p class="date fc_blue"><strong>구매완료</strong></p>
+                  </div>
+                </kb-button>
+                <kb-button aTag not class="list_box">
+                  <div class="left">
+                    <p class="kind">
+                      <span>주식</span>
+                      <span>1233242</span>
+                    </p>
+                    <p class="tit"> LG디스플레이 LG디스플레이</p>
+                  </div>
+                  <div class="right">
+                    <p class="kind">오늘</p>
+                    <!--
+                      fc_blue : 구매완료
+                      defult : 구매실패
+                     -->
+                    <p class="date"><strong>구매실패</strong></p>
+                  </div>
+                </kb-button>
+              </div>
 
-              <!-- 하루 -->
-              <dd class="cont_box type2">
-                <p class="date">10/19</p>
-                <kb-button aTag not>
-                  <ol class="view">
-                    <li class="name">
-                      <span>123456</span>
-                      삼성전자
-                    </li>
+              <div class="day_box">
+                <p class="day">03/30</p>
+                <kb-button aTag not class="list_box">
+                  <div class="left">
+                    <p class="kind">
+                      <span>주식</span>
+                      <span>1233242</span>
+                    </p>
+                    <p class="tit"> LG디스플레이 LG디스플레이</p>
+                  </div>
+                  <div class="right">
+                    <p class="kind">오늘</p>
                     <!--
-                      구매완료 : success
-                      구매실패 : fail
-                    -->
-                    <li class="result success">구매완료</li>
-                    <li class="money">9,000,000,000원</li>
-                  </ol>
+                      fc_blue : 구매완료
+                      defult : 구매실패
+                     -->
+                    <p class="date fc_blue"><strong>구매완료</strong></p>
+                  </div>
                 </kb-button>
-                <kb-button aTag not>
-                  <ol class="view">
-                    <li class="name">
-                      <span>123456</span>
-                      삼성전자
-                    </li>
+                <kb-button aTag not class="list_box">
+                  <div class="left">
+                    <p class="kind">
+                      <span>주식</span>
+                      <span>1233242</span>
+                    </p>
+                    <p class="tit"> LG디스플레이 LG디스플레이</p>
+                  </div>
+                  <div class="right">
+                    <p class="kind">오늘</p>
                     <!--
-                      구매완료 : success
-                      구매실패 : fail
-                    -->
-                    <li class="result fail">구매실패</li>
-                    <li class="money">9,000,000,000원</li>
-                  </ol>
+                      fc_blue : 구매완료
+                      defult : 구매실패
+                     -->
+                    <p class="date"><strong>구매실패</strong></p>
+                  </div>
                 </kb-button>
-                <kb-button aTag not>
-                  <ol class="view">
-                    <li class="name">
-                      <span>123456</span>
-                      삼성전자
-                    </li>
-                    <!--
-                      구매완료 : success
-                      구매실패 : fail
-                    -->
-                    <li class="result success">구매완료</li>
-                    <li class="money">9,000,000,000원</li>
-                  </ol>
-                </kb-button>
-              </dd>
-              <!-- //하루 -->
-
-              <!-- 하루 -->
-              <dd class="cont_box type2">
-                <p class="date">10/18</p>
-                <kb-button aTag not>
-                  <ol class="view">
-                    <li class="name">
-                      <span>123456</span>
-                      삼성전자
-                    </li>
-                    <!--
-                      구매완료 : success
-                      구매실패 : fail
-                    -->
-                    <li class="result success">구매완료</li>
-                    <li class="money">9,000,000,000원</li>
-                  </ol>
-                </kb-button>
-                <kb-button aTag not>
-                  <ol class="view">
-                    <li class="name">
-                      <span>123456</span>
-                      삼성전자
-                    </li>
-                    <!--
-                      구매완료 : success
-                      구매실패 : fail
-                    -->
-                    <li class="result fail">구매실패</li>
-                    <li class="money">9,000,000,000원</li>
-                  </ol>
-                </kb-button>
-                <kb-button aTag not>
-                  <ol class="view">
-                    <li class="name">
-                      <span>123456</span>
-                      삼성전자
-                    </li>
-                    <!--
-                      구매완료 : success
-                      구매실패 : fail
-                    -->
-                    <li class="result success">구매완료</li>
-                    <li class="money">9,000,000,000원</li>
-                  </ol>
-                </kb-button>
-              </dd>
-              <!-- //하루 -->
-
-            </dl>
+              </div>
+            </div>
+            <!-- //2021-05-12 기획 변경에 따른 내용변경 -->
 
           </kb-tab>
         </kb-tabs>

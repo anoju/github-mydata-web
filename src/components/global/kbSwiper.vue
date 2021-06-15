@@ -9,10 +9,10 @@
       :class="{loop:loop, 'auto-height':autoHeight}"
       @ready="swiperReady"
       @resize="swiperResize"
-      @click-slide="swiperClickSlide"
       @touchEnd="swiperTouchEnd"
       @transitionStart="swiperSlideChange"
       @observerUpdate="swiperAppendSlide"
+      @slideChange="swiperChange"
       :dir="dir"
     >
       <div class="swiper-wrapper">
@@ -117,11 +117,7 @@ export default {
       this.isAutoplay = true;
     }
 
-    uiEventBus.$on('swiperAccodion', () => {
-      setTimeout(() => {
-        this.mySwiper.update();
-      }, 20);
-    });
+    uiEventBus.$on('kbSwiperUpdate', this.swiperUpdate);
     // if (this.index > 0) {
     //     this.mySwiper.slideTo(this.index, 0, false)
     // }
@@ -129,7 +125,15 @@ export default {
     //     this.mySwiper.slideTo(this.index, 0, false)
     // }
   },
+  destroyed() {
+    uiEventBus.$off('kbSwiperUpdate', this.swiperUpdate);
+  },
   methods: {
+    swiperUpdate() {
+      setTimeout(() => {
+        this.mySwiper.update();
+      }, 20);
+    },
     swiperReady(swiper) {
       this.$nextTick(() => {
         this.swiperCheck(swiper);
@@ -215,6 +219,10 @@ export default {
     },
     swiperAppendSlide() {
       console.log('swiperAppendSlide');
+    },
+
+    swiperChange() {
+      this.$emit('swiperChange', this.mySwiper.snapIndex);
     },
   },
 };

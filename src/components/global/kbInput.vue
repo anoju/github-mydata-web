@@ -1,5 +1,6 @@
 <template>
-  <div
+  <component
+    :is="tag"
     class="input"
     :class="{
       focus: (isFocus && !readonly),
@@ -91,7 +92,7 @@
     <template v-if="empty || keypad">
       <i class="inp_line" aria-hidden="true" />
     </template>
-  </div>
+  </component>
 </template>
 
 <script>
@@ -117,7 +118,9 @@ export default {
     unit: { type: String, default: null },
     maxlength: { type: [String, Number], default: null },
     notDel: { type: Boolean, default: false },
+    comma: { type: Boolean, default: false },
     delete: { type: Function, default: null },
+    tag: { type: String, default: 'div' },
 
     // 달력
     datepicker: { type: Boolean, default: false },
@@ -137,7 +140,12 @@ export default {
       return {
         ...this.$listeners,
         input(event) {
-          vm.$emit('input', event.target.value);
+          let $value = event.target.value;
+          if (vm.comma) {
+            $value = vm.$removeComma($value);
+            $value = vm.$addComma($value);
+          }
+          vm.$emit('input', $value);
         },
       };
     },
@@ -147,8 +155,33 @@ export default {
       this.$refs.input.focus();
     },
     focusEvt(e) {
-      this.isFocus = true;
+      if (!this.keypad) this.isFocus = true;
       if (this.datepicker || this.monthpicker || this.yearpicker) this.popCalendar(e.target);
+      setTimeout(() => {
+        // this.focusScroll();
+      }, 300);
+    },
+    focusScroll() {
+      const isApp = document.querySelector('html').classList.contains('is_app');
+      const isAndroid = document.querySelector('html').classList.contains('android');
+      if (isApp && isAndroid) {
+        const { $el } = this;
+        const $offset = this.$getOffset($el);
+        const thisH = $el.offsetHeight;
+        let wrap = $el.closest('.scl__body');
+        // let headH = 0;
+        if (wrap === null)wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
+        // const head = wrap.querySelector('.scl__head');
+        // if (head === null)headH = head.offsetHeight;
+        const sclTop = wrap.scrollTop;
+        const positionTop = $offset.top - sclTop;
+        const winCenter = (window.innerHeight / 2);
+        const move = $offset.top - (winCenter / 2) - (thisH / 2);
+        // console.log(winCenter, positionTop, sclTop, thisH, move);
+        if (winCenter < positionTop) {
+          this.$scrollTo(wrap, { top: move }, 200);
+        }
+      }
     },
     updateValue(value) {
       this.$emit('input', value);

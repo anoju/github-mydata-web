@@ -1,7 +1,7 @@
 <template>
   <kb-pop
     full
-    title="월 관리 등록하기"
+    title="월 지출 등록하기"
   >
     <kb-pop-body>
       <div class="section">

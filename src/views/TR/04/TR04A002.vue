@@ -95,7 +95,6 @@
           <kb-tabs
             type2
             class="mg_t16"
-            tabs-class="no_line"
             content-class="mg_t0"
           >
             <kb-tab

@@ -2,6 +2,7 @@
   <div class="step_wrap">
     <ol
       class="step_state"
+      :class="{short:total > 4}"
       role="img"
       :aria-label="`총 ${total}단계 중 현재단계 ${now}단계`"
     >

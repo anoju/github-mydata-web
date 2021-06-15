@@ -338,10 +338,7 @@
             class="accordion_dl mg_t28"
             first-open
           >
-            <kb-folding active>
-              <template slot="title">
-                유의사항
-              </template>
+            <kb-folding title="유의사항">
               <div class="txt_list">
                 <ul>
                   <li class="dot">
@@ -380,10 +377,7 @@
             class="accordion_dl mg_t28"
             first-open
           >
-            <kb-folding active>
-              <template slot="title">
-                적립식 거래
-              </template>
+            <kb-folding title="적립식 거래">
               <div class="txt_list">
                 <ul>
                   <li class="dot">적립식 거래는 최소 3개월 이상, 매 1개월 단위로 지정하신 일자에 은행의 적금처럼 매월 일정액의 상품을 매수하는 거래입니다.</li>

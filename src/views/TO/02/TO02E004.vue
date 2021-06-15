@@ -43,7 +43,7 @@
       <kb-select
         v-model="selectVal1"
         :options="selectOpt1"
-        class="type_nobg"
+        inline
       />
       <p class="date_tit t_right">조회기간 : 20/10/19 ~ 20/12/12</p>
     </div>
@@ -120,11 +120,11 @@ export default {
   data() {
     return {
       toggleVal1: '1',
-      selectVal1: 0,
+      selectVal1: '0',
       selectOpt1: [
-        { text: '전체보기', value: 0 },
-        { text: '입금만 보기', value: 1 },
-        { text: '출금만 보기', value: 2 },
+        { text: '전체보기', value: '0' },
+        { text: '입금만 보기', value: '1' },
+        { text: '출금만 보기', value: '2' },
       ],
     };
   },
@@ -132,7 +132,7 @@ export default {
     selVal: { type: [String, Number], default: null },
   },
   beforeMount() {
-    this.selectVal1 = this.selVal;
+    if (this.selVal !== null) this.selectVal1 = this.selVal;
   },
   methods: {
   },

@@ -79,16 +79,15 @@ enableCloudfront : N 입력,
    npm run deploy
 
 ## chart.js
-json-server 실행: 
+
+json-server 실행:
+
 ```javascript
    npx json-server ./chartData.json --port 8080
 ```
 
-|체크|상세|
-|---|---|
-|좌우스크롤|https://jsfiddle.net/EmmaLouise/eb1aqpx8/3/|
-|차트내 클릭 이벤트|https://www.chartjs.org/docs/latest/general/interactions/events.html|
-|차트 외부 이벤트|http://localhost:8082/dev/chart|
-
-
-
+| 체크               | 상세                                                                 |
+| ------------------ | -------------------------------------------------------------------- |
+| 좌우스크롤         | https://jsfiddle.net/EmmaLouise/eb1aqpx8/3/                          |
+| 차트내 클릭 이벤트 | https://www.chartjs.org/docs/latest/general/interactions/events.html |
+| 차트 외부 이벤트   | http://localhost:8082/dev/chart                                      |

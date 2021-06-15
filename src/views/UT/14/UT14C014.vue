@@ -74,17 +74,18 @@
           </kb-select>
         </kb-form-item>
 
+        <!-- 2021-05-24 -->
         <kb-form-item
-          label="정보연동 요청기간"
+          label="연동정보 요청기간"
         >
-          <div class="datepicker_box">
-            <div class="flex">
-              <div><kb-input line date v-model="inpVal1" title="시작일 선택" disabled /></div>
-              <span>-</span>
-              <div><kb-input line date v-model="inpVal2" title="종요일 선택" /></div>
-            </div>
-          </div>
+          <kb-select
+            v-model="selectVal4"
+            :options="selectOpt4"
+            title="정보연동 요청기간 선택"
+          >
+          </kb-select>
         </kb-form-item>
+        <!-- //2021-05-24 -->
 
         <kb-form-item
           label="정보연동 목적"
@@ -117,6 +118,19 @@
           </div>
         </kb-form-item>
 
+        <!-- 2021-06-03 디자인 위치에 따른 변경 -->
+        <kb-form-item
+          label="정보연동 요청기한"
+        >
+          <div class="datepicker_box">
+            <div class="flex">
+              <div class="flex11"><kb-input line date v-model="inpVal2" title="종료일 선택" placeholder="종료일" /></div>
+            </div>
+          </div>
+          <p class=" mg_t12 fz_12 fc_blue_gray">*종료일은 요청시작일로부터 1년이내로만 선택이 가능합니다.</p>
+        </kb-form-item>
+        <!-- 2021-06-03 디자인 위치에 따른 변경 -->
+
         <kb-form-item
           label="정보 보유기간"
         >
@@ -132,7 +146,7 @@
           <kb-button
             yellow
           >
-            연동요청
+            다음
           </kb-button>
         </kb-button-wrap>
       </div>
@@ -168,6 +182,12 @@ export default {
         { text: '요청시작일부터 5년', value: '1' },
         { text: '요청시작일부터 1년', value: '2' },
         { text: '서비스 해지 후 즉시 파기', value: '3' },
+      ],
+      selectVal4: '1',
+      selectOpt4: [
+        { text: '요청시작일부터 과거 3개월', value: '1' },
+        { text: '요청시작일부터 과거 1년', value: '2' },
+        { text: '요청시작일부터 과거 5년', value: '3' },
       ],
       checkVal2: ['1', '2'],
     };

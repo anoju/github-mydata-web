@@ -10,27 +10,75 @@
       class="pop_toast"
       :class="{show:toast.show, no_ef:toast.noEf}"
     >
-      <div>
-        <router-link v-if="toast.link !== undefined && toast.link !== null && toast.link !== ''" :to="toast.link" class="inner"  @click.native="onClose(toast.idx)">
+      <div
+        v-if="toast.type !== undefined && toast.type !== null && toast.type !== ''"
+        class="ty2"
+        :class="toast.type"
+      >
+        <div
+          class="inner"
+          v-html="toast.text"
+        />
+        <div
+          v-if="toast.link !== undefined && toast.link !== null && toast.link !== ''"
+        >
+          <kb-button
+            :to="toast.link"
+            h32
+            round
+            purple
+            @click.native="onToastClose(toast.idx)"
+          >
+            <template v-if="toast.type == 'mission'">보상받기</template>
+            <template v-else>바로가기</template>
+          </kb-button>
+        </div>
+      </div>
+      <div v-else>
+        {{toast.type}}
+        <router-link
+          v-if="toast.link !== undefined && toast.link !== null && toast.link !== ''"
+          :to="toast.link"
+          class="inner"
+          @click.native="onToastClose(toast.idx)"
+        >
           {{ toast.text }}
         </router-link>
-        <div v-else class="inner">{{ toast.text }}</div>
+        <div
+          v-else
+          class="inner"
+          v-html="toast.text"
+        />
       </div>
     </div>
 
     <!-- 알람 팝업 -->
     <div
-      v-for="(alarm, i) in alarmAry"
-      :key="i"
+      v-for="(alarm, j) in alarmAry"
+      :key="j"
       class="pop_alarm"
       :class="{show:alarm.show, no_ef:alarm.noEf}"
     >
       <div>
-        <router-link v-if="alarm.link !== undefined && alarm.link !== null && alarm.link !== ''" :to="alarm.link" class="inner"  @click.native="onClose(alarm.idx)">
+        <router-link
+          v-if="alarm.link !== undefined && alarm.link !== null && alarm.link !== ''"
+          :to="alarm.link"
+          class="inner"
+          @click.native="onClose(alarm.idx)"
+        >
           {{ alarm.text }}
         </router-link>
-        <div v-else class="inner">{{ alarm.text }}</div>
-        <kb-button not class="pop_close" aria-label="닫기" @click="onAlarmClose(alarm.idx)">닫기</kb-button>
+        <div
+          v-else
+          class="inner"
+          v-html="alarm.text"
+        />
+        <kb-button
+          not
+          class="pop_close"
+          aria-label="닫기"
+          @click="onAlarmClose(alarm.idx)"
+        >닫기</kb-button>
       </div>
     </div>
   </div>
@@ -58,7 +106,7 @@ export default {
     this.$toastBoxInstance = null;
   },
   methods: {
-    addToast(text, link) {
+    addToast(text, link, type) {
       // if (!this.isToastOpen) return;
       // this.isToastOpen = true;
       const index = this.toastIdx;
@@ -66,6 +114,7 @@ export default {
         idx: index,
         text,
         link,
+        type,
         show: false,
         noEf: false,
       });

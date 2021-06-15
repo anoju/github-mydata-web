@@ -28,6 +28,25 @@
         </div>
       </div>
 
+      <!-- 2021-06-11 자산 정보가 없는 경우의 화면 신규 추가 -->
+      <div class="top_info_check bg_none">
+        <div class="non_text_box">
+          <h2>1월 잔고 체크!</h2>
+          <p class="text">전월 정보가 없어 월 지출을 예상 할 수가 없어요 ㅠㅠ<br />
+            다음달이 되면 다시 방문해 주세요<br />
+            예상 지출과 필요금액을 안내 해 드려요.</p>
+        </div>
+
+        <div class="infomation_box">
+          <div class="flex_wrap">
+            <p class="tit">현재 잔고</p>
+            <p class="text flex11 t_right">1,000,000원</p>
+          </div>
+        </div>
+
+      </div>
+      <!-- //2021-06-11 자산 정보가 없는 경우의 화면 신규 추가 -->
+
       <div class="bar_graph_box">
         <h2 class="tit">지난달보다 출금이 늘었어요.</h2>
         <p class="text">당월(예상) - 지난달: +999,999,999원</p>
@@ -129,6 +148,23 @@
       <kb-button aTag not class="btn_refresh">새로고침</kb-button>
       <kb-button aTag not class="btn_linkage">추가연동</kb-button>
     </div>
+
+    <!-- 2021-04-28 자산정보가 없는 경우 -->
+    <template v-if="false">
+      <div class="assets_none_box">
+        <div class="none_box">
+          <i></i>
+          이런, 자산 정보가 없네요!<br />
+          자산을 연동해주세요 :)
+          <kb-button line blue class="more">추가연동</kb-button>
+        </div>
+        <kb-button aTag not class="banner_box type3">
+          오늘 서비스를 <br />
+          체험해 보시겠어요?
+        </kb-button>
+      </div>
+    </template>
+    <!-- //2021-04-28 자산정보가 없는 경우 -->
   </div>
 </template>
 <script>

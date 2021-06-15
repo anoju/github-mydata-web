@@ -72,6 +72,13 @@
               </div>
             </li>
           </ul>
+          <kb-button-wrap class="mg_t0">
+            <kb-button
+              class="more"
+            >
+              더보기
+            </kb-button>
+          </kb-button-wrap>
         </div>
         <hr aria-hidden="true" class="hr_line">
         <div class="inner_section">
@@ -111,6 +118,13 @@
               </div>
             </li>
           </ul>
+          <kb-button-wrap class="mg_t0">
+            <kb-button
+              class="more"
+            >
+              더보기
+            </kb-button>
+          </kb-button-wrap>
         </div>
         <hr aria-hidden="true" class="hr_line">
         <div class="inner_section">

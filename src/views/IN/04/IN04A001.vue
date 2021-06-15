@@ -157,10 +157,10 @@
           <h3>종목 키워드</h3>
           <div class="keyword">
             <!-- 키워드는 5개 까지 노출 이후 더보기 버튼 노출 -->
-            <span v-for="(index, key) in keyword()" :key="key">{{index}}</span>
-            <kb-button not v-if="this.keywords.length > 5" @click="keywordShow">
-              <span v-if="!this.keywordShowCheck">더보기</span>
-              <span v-if="this.keywordShowCheck">접기</span>
+            <kb-button not v-for="(index, key) in keyword()" :key="key">{{index}}</kb-button>
+            <kb-button not class="add" v-if="this.keywords.length > 5" @click="keywordShow">
+              <template v-if="!this.keywordShowCheck">더보기</template>
+              <template v-else>접기</template>
             </kb-button>
           </div>
         </div>
@@ -171,7 +171,7 @@
           오름 : up
           내림 : down
         -->
-        <div class="stockholding up">
+        <div class="stockholding up" v-if="!isAPI">
           <p class="text">
             <em>김스타</em>님은 총 <em>23</em>주 보유중이며, <br />구매가격 <em>54,300</em>원보다
             <strong>52,000원 올랐어요.</strong>
@@ -1022,6 +1022,7 @@
         <hr aria-hidden="true" class="hr_line">
 
         <!-- 고수의 매매동향 -->
+        <!-- 2021-05-12 기획변경에 따른 내용수정 -->
         <div class="stock_diagnose_box">
           <kb-title-bar h3>
             <template slot="left">
@@ -1029,115 +1030,75 @@
                 고수의 매매동향
               </h2>
             </template>
+            <span class="fz_12 fc_666 mg_t4">10시 기준</span>
           </kb-title-bar>
 
-          <div class="status_box">
-            <p class="sub_tit">현재 기준</p>
-            <ul class="status">
-              <!-- 활성화 : on -->
-              <li>강력매도</li>
-              <li>매도</li>
-              <li class="on">종합</li>
-              <li>매수</li>
-              <li>강력매수</li>
-            </ul>
+          <p class="fz_14 mg_t24">
+            #선택이 필요한 순간! 살까? 팔까?<br />
+            #고수들의 선택은?
+          </p>
+          <p class="tit mg_t4 mg_b24">
+            고수 20명이<br />
+            <strong class="line pink">매수</strong>중입니다.
+          </p>
+
+          <div class="chart_area">
+            <img src="~@/assets/images/temp/sample_in04a001.png" alt="" />
           </div>
 
-          <kb-foldings type1 not-toggle>
-            <kb-folding>
-              <template slot="title">
-                <div class="tbl">
-                  <div class="th fw_bold">추가정보</div>
-                  <div class="td t_right fz_14 fc_666">어제/주간/월간 기준</div>
-                </div>
-              </template>
-              <div class="section">
-                <div class="status_box mg_t242">
-                  <p class="sub_tit">어제 기준</p>
-                  <ul class="status">
-                    <!-- 활성화 : on -->
-                    <li>강력매도</li>
-                    <li>매도</li>
-                    <li>종합</li>
-                    <li>매수</li>
-                    <li class="on">강력매수</li>
-                  </ul>
-                </div>
-                <div class="status_box">
-                  <p class="sub_tit">주간(7일 누적)기준</p>
-                  <ul class="status">
-                    <!-- 활성화 : on -->
-                    <li>강력매도</li>
-                    <li class="on">매도</li>
-                    <li>종합</li>
-                    <li>매수</li>
-                    <li>강력매수</li>
-                  </ul>
-                </div>
-                <div class="status_box">
-                  <p class="sub_tit">월간(30일 누적)기준</p>
-                  <ul class="status">
-                    <!-- 활성화 : on -->
-                    <li class="on">강력매도</li>
-                    <li>매도</li>
-                    <li>종합</li>
-                    <li>매수</li>
-                    <li>강력매수</li>
-                  </ul>
-                </div>
-              </div>
-            </kb-folding>
-          </kb-foldings>
         </div>
+        <!-- //2021-05-12 기획변경에 따른 내용수정 -->
         <!-- //고수의 매매동향 -->
-        <hr aria-hidden="true" class="hr_line">
 
-        <!-- KBlog -->
-        <div class="kblog_box">
-          <kb-title-bar h3>
-            <template slot="left">
-              <h2 class="tit">
-                KBlog
-              </h2>
-            </template>
-            <kb-button link not class="fz_12 fc_666">
-              더보기 <i class="bt_ic_arr mg_l2" aria-hidden="true" />
-            </kb-button>
-          </kb-title-bar>
-          <div class="section_scroll">
-            <kb-button not aTag class="list">
-              <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
-              <p class="date">20/11/12</p>
-              <p class="category">삼성증권관련</p>
-            </kb-button>
-            <kb-button not aTag class="list">
-              <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
-              <p class="date">20/11/12</p>
-              <p class="category">삼성증권관련</p>
-            </kb-button>
-            <kb-button not aTag class="list">
-              <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
-              <p class="date">20/11/12</p>
-              <p class="category">삼성증권관련</p>
-            </kb-button>
-            <kb-button not aTag class="list">
-              <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
-              <p class="date">20/11/12</p>
-              <p class="category">삼성증권관련</p>
-            </kb-button>
-            <kb-button not aTag class="list">
-              <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
-              <p class="date">20/11/12</p>
-              <p class="category">삼성증권관련</p>
-            </kb-button>
-            <kb-button not aTag class="list">
-              <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
-              <p class="date">20/11/12</p>
-              <p class="category">삼성증권관련</p>
-            </kb-button>
+        <template v-if="!isAPI">
+          <hr aria-hidden="true" class="hr_line mg_t32">
+          <!-- KBlog -->
+          <div class="kblog_box">
+            <kb-title-bar h3>
+              <template slot="left">
+                <h2 class="tit">
+                  내 서랍<!--2021-06-08 명칭변경 -->
+                </h2>
+              </template>
+              <kb-button link not class="fz_12 fc_666">
+                더보기 <i class="bt_ic_arr mg_l2" aria-hidden="true" />
+              </kb-button>
+            </kb-title-bar>
+            <div class="section_scroll">
+              <kb-button not aTag class="list">
+                <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
+                <p class="date">20/11/12</p>
+                <p class="category">삼성증권관련</p>
+              </kb-button>
+              <kb-button not aTag class="list">
+                <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
+                <p class="date">20/11/12</p>
+                <p class="category">삼성증권관련</p>
+              </kb-button>
+              <kb-button not aTag class="list">
+                <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
+                <p class="date">20/11/12</p>
+                <p class="category">삼성증권관련</p>
+              </kb-button>
+              <kb-button not aTag class="list">
+                <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
+                <p class="date">20/11/12</p>
+                <p class="category">삼성증권관련</p>
+              </kb-button>
+              <kb-button not aTag class="list">
+                <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
+                <p class="date">20/11/12</p>
+                <p class="category">삼성증권관련</p>
+              </kb-button>
+              <kb-button not aTag class="list">
+                <p class="tit">삼성전자 관련 컨텐츠 스크랩 리스트 두줄까지만 나오기</p>
+                <p class="date">20/11/12</p>
+                <p class="category">삼성증권관련</p>
+              </kb-button>
+            </div>
           </div>
-        </div>
         <!-- //KBlog -->
+        </template>
 
         <div class="other_info_box">
           <h3>알려드려요</h3>
@@ -1148,7 +1109,7 @@
           </ul>
         </div>
       </div>
-      <kb-button-wrap bottom-fixed class="ty3">
+      <kb-button-wrap bottom-fixed class="ty3" v-if="!isAPI">
         <kb-button
           like
           role="checkbox"
@@ -1176,11 +1137,15 @@ export default {
   name: 'IN04A001',
   data() {
     return {
+      isAPI: false,
       keywords: ['분산투자고수 관심주', '리서치 추천', '매도상위 2위', 'Day-Trader 매수(매도)2위 텍스트 길어', '운 좋은 사람 선택 종목', '5개 이상일때 나오는 키워드'],
       keywordShowCheck: false,
       barWidth: '50%', // 그래프 위치값
       isLike: false,
     };
+  },
+  created() {
+    if (this.$route.path.indexOf('/API/') >= 0) this.isAPI = true;
   },
   methods: {
     keywordShow() {
@@ -1214,11 +1179,3 @@ export default {
   },
 };
 </script>
-<style>
-.test-enter {
-  opacity:0;
-}
-.test-enter-active {
-  transition:opacity 10s;
-}
-</style>

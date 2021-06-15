@@ -139,10 +139,7 @@
           class="accordion_dl mg_t28"
           first-open
         >
-          <kb-folding active>
-            <template slot="title">
-              유의사항
-            </template>
+          <kb-folding title="유의사항">
             <div class="txt_list">
               <ul>
                 <li class="dot">

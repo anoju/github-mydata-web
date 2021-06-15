@@ -1,4 +1,5 @@
 import ClickOutSide from 'vue-click-outside';
+import uiEventBus from '@/components/uiEventBus.vue';
 
 export default {
   install(Vue) {
@@ -85,6 +86,7 @@ export default {
           const elBottom = elTop + elHeight - margin;
           if ((wrapTop < elBottom) && (elTop < wrapBottom)) {
             wrap.removeEventListener('scroll', inSclEvt);
+            window.removeEventListener('resize', inSclEvt);
             if (typeof binding.value === 'function') {
               binding.value(el, evt);
             } else if (typeof binding.value === 'string') {
@@ -141,6 +143,7 @@ export default {
               child.setAttribute('style', `top:${fixedTop}px;`);
               childH = child.offsetHeight;
               isFixed = true;
+              uiEventBus.$emit('kbSwiperUpdate', 'update');
             }
           } else {
             el.classList.remove('fixed');
@@ -148,6 +151,7 @@ export default {
               el.removeAttribute('style');
               child.removeAttribute('style');
               isFixed = false;
+              uiEventBus.$emit('kbSwiperUpdate', 'update');
             }
             setTimeout(() => {
               lastScrollPosition = sclTop;

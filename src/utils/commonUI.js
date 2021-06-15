@@ -15,6 +15,7 @@ export default {
     Vue.prototype.$slideUp = this.slideUp;
     Vue.prototype.$slideDown = this.slideDown;
     Vue.prototype.$scrollTo = this.scrollTo;
+    Vue.prototype.$hashScroll = this.hashScroll;
     Vue.prototype.$addComma = this.addComma;
     Vue.prototype.$removeComma = this.removeComma;
     Vue.prototype.$onlyNumber = this.onlyNumber;
@@ -174,13 +175,17 @@ export default {
     elem.classList.add('slideAction');
     if (speed === undefined)speed = 500;
     elem.removeAttribute('style');
+    let isHide = false;
+    if (this.$getStyle(elem, 'display') === 'none') {
+      elem.style.display = 'block';
+      isHide = true;
+    }
     const elHeight = elem.offsetHeight;
     const elMgT = parseInt(this.$getStyle(elem, 'margin-top'), 10);
     const elMgB = parseInt(this.$getStyle(elem, 'margin-bottom'), 10);
     const elPdT = parseInt(this.$getStyle(elem, 'padding-top'), 10);
     const elPdB = parseInt(this.$getStyle(elem, 'padding-bottom'), 10);
-    let isHide = false;
-    if (this.$getStyle(elem, 'display') === 'none')isHide = true;
+
     elem.style.overflow = 'hidden';
     elem.style.height = '0px';
     elem.style.marginTop = '0px';
@@ -237,6 +242,16 @@ export default {
       }),
     });
   },
+  hashScroll(el) {
+    const $el = document.querySelector(el);
+    const position = this.$getOffset($el);
+    let wrap = $el.closest('.scl__body');
+    let headH = 0;
+    if (wrap === null) wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
+    const head = wrap.querySelector('.scl__head');
+    if (head === null)headH = head.offsetHeight;
+    this.$scrollTo(wrap, { top: (position.top - headH) }, 200);
+  },
   addComma(val) {
     if (val === null || val === undefined) return '';
     const parts = val.toString().split('.');
@@ -258,7 +273,7 @@ export default {
         rtnVal = parts[0] + `.${parts[1]}`;
       }
     }
-    rtnVal = parseFloat(rtnVal, 10).toFixed(toFixedLength);
+    rtnVal = toFixedLength > 0 ? parseFloat(rtnVal, 10).toFixed(toFixedLength) : parseFloat(rtnVal, 10);
     return rtnVal;
   },
   dateString(start = 0, digit = 16, afterDay = 0) {

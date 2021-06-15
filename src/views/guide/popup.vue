@@ -100,6 +100,14 @@
           토스트(알람), 링크이동
         </kb-button>
       </kb-button-wrap>
+      <kb-button-wrap>
+        <kb-button
+          line
+          @click="showMissionToast"
+        >
+          미션 토스트
+        </kb-button>
+      </kb-button-wrap>
     </div>
     <h2 class="gd__h1">로딩</h2>
     <div>
@@ -147,7 +155,7 @@
           로딩닫기
         </kb-button>
       </kb-button-wrap>
-      <h3 class="gd__h2">로딩C: 이벤트로딩 (아직 정의 안됨)</h3>
+      <h3 class="gd__h2">로딩C: 새로고침로딩</h3>
       <kb-button-wrap>
         <kb-button
           line
@@ -270,6 +278,16 @@ export default {
       // console.log(msg);
       this.$alarm(msg + this.idx, link);
       this.idx += 1;
+    },
+    showMissionToast() {
+      // const html = `<div class="flex_wrap space_between align_center">
+      //   <div></div>
+      //   <div>
+      //     <button type="button" class="button small round h32 bt_purple fz_12">보상받기</button>
+      //   </div>
+      // </div>`;
+      // this.$toast(html);
+      this.$toast('오늘은 어떤 소식이 있을까?<br>Insight 카드를 확인해보세요.', '/guide/table', 'mission');
     },
   },
 };

@@ -69,7 +69,7 @@
         <kb-select
           v-model="selectVal1"
           :options="selectOpt1"
-          class="type_nobg"
+          inline
         />
         <kb-checkbox
           switch small
@@ -230,10 +230,28 @@
       </div>
     </div>
 
-    <div class="btm_btn_util">
+    <div class="btm_btn_util type2">
+      <p class="text">오늘 정보는 마이데이터 제공 데이터를 기반으로 작성되어 실제 정보와 다를 수 있습니다.</p>
       <kb-button aTag not class="btn_refresh">새로고침</kb-button>
       <kb-button aTag not class="btn_linkage">추가연동</kb-button>
     </div>
+
+    <!-- 2021-04-28 자산정보가 없는 경우 -->
+    <template v-if="false">
+      <div class="assets_none_box">
+        <div class="none_box">
+          <i></i>
+          이런, 자산 정보가 없네요!<br />
+          자산을 연동해주세요 :)
+          <kb-button line blue class="more">추가연동</kb-button>
+        </div>
+        <kb-button aTag not class="banner_box type3">
+          오늘 서비스를 <br />
+          체험해 보시겠어요?
+        </kb-button>
+      </div>
+    </template>
+    <!-- //2021-04-28 자산정보가 없는 경우 -->
   </div>
 </template>
 <script>
@@ -244,10 +262,10 @@ export default {
   data() {
     return {
       toggleVal1: '1',
-      selectVal1: '1년 간',
+      selectVal1: '1',
       selectOpt1: [
-        { text: '전체보기', value: '전체보기' },
-        { text: '출금만 보기', value: '출금만 보기' },
+        { text: '전체보기', value: '1' },
+        { text: '출금만 보기', value: '2' },
       ],
       tooltipShow: true,
       date1: '',

@@ -4,37 +4,54 @@
     :class="{lock:isLayerFull}"
     no-header-back
     @scroll="onScroll"
+    page-title="메인"
   >
     <template slot="header">
-      <div class="main_pagination" />
+      <div class="header_flex">
+        <div class="main_user_info">
+          <kb-button not a-tag class="level">1</kb-button>
+          <kb-button not a-tag>김스타님의 오늘</kb-button>
+        </div>
+        <kb-button not class="btn_drawer"><span class="blind">내서랍</span></kb-button>
+      </div>
     </template>
     <kb-page-body>
-      <div class="main_swiper">
-        <div
-          v-swiper:mainSwiper="swiperOption"
-          @ready="swiperReady"
-          @resize="swiperResize"
-          @slideChange="swiperSlideChange"
-        >
-          <div class="swiper-wrapper">
-            <swiper-slide>
-              <!-- 금융생활 -->
-              <main-financial />
-            </swiper-slide>
-            <swiper-slide>
-              <!-- 오늘 -->
-              <main-today />
-            </swiper-slide>
-            <swiper-slide>
-              <!-- 투자생활 -->
-              <main-invest />
-            </swiper-slide>
+      <div class="main_swiper_wrap">
+        <kb-tabs class="main_tab" v-model="mainTabIdx">
+          <kb-tab title="금융생활" @click="tabSlideTo(0)" />
+          <kb-tab title="오늘" @click="tabSlideTo(1)" />
+          <kb-tab title="투자생활" @click="tabSlideTo(2)" />
+        </kb-tabs>
+        <div class="main_pagination" />
+        <div class="main_swiper">
+          <div
+            v-swiper:mainSwiper="swiperOption"
+            @ready="swiperReady"
+            @resize="swiperResize"
+            @slideChange="swiperSlideChange"
+          >
+            <div class="swiper-wrapper">
+              <swiper-slide>
+                <!-- 금융생활 -->
+                <main-financial />
+              </swiper-slide>
+              <swiper-slide>
+                <!-- 오늘 -->
+                <main-today />
+              </swiper-slide>
+              <swiper-slide>
+                <!-- 투자생활 -->
+                <main-invest />
+              </swiper-slide>
+            </div>
           </div>
         </div>
+
       </div>
       <div
         class="main_layer_view"
-        :class="{full:isLayerFull, off: !LayerShow}"
+        ref="layerWrap"
+        :class="{full:isLayerFull, off: !LayerShow, downsize: LayerDownsize && !isLayerFull && !isLayerTouch}"
       >
         <a
           role="button"
@@ -71,7 +88,7 @@ import mainFinancial from '@/views/FI/00/FI00A001.vue';
 import mainInvest from '@/views/IN/00/IN00A001.vue';
 
 export default {
-  name: 'main',
+  name: 'mainPage',
   components: {
     mainToday,
     mainFinancial,
@@ -82,8 +99,10 @@ export default {
   },
   data() {
     return {
+      mainTabIdx: 1,
       isSwiperTouch: false,
       LayerShow: true,
+      LayerDownsize: false,
       isLayerFull: false,
       LayerHeight: 0,
       LayerStyle: null,
@@ -94,6 +113,7 @@ export default {
       LayerOffset: 50,
       lastScrollPosition: 0,
       isLayerTouch: false,
+      lastPath: '/TO/00/TO02A002',
       touchStartY: 0,
       touchDistance: 0,
       touchSpeed: 0,
@@ -105,10 +125,9 @@ export default {
     };
   },
   watch: {
-    $route(to, from) {
-      console.log(to.path, from.path);
+    $route(to) {
       if (this.isRoute) {
-        if (to.path !== '/TO/00') {
+        if (to.path !== '/TO/00' && to.path !== '/TO/00/') {
           this.LayerStyle = this.layerSetStyle(true, 100);
           this.LayerBgStyle = this.layerBgSetStyle(true, 100);
         } else {
@@ -125,17 +144,17 @@ export default {
         allowTouchMove: !this.isSwiperTouch,
         autoHeight: true,
         initialSlide: 1,
-        threshold: 10,
+        threshold: 30,
         pagination: {
           el: '.main_pagination',
           clickable: true,
-          renderBullet(index, className) {
-            let txt = `슬라이드${index}`;
-            if (index === 0)txt = '금융생활';
-            if (index === 1)txt = '오늘';
-            if (index === 2)txt = '투자생활';
-            return `<button type="button" class="${className}"><span>${txt}</span></button>`;
-          },
+          // renderBullet(index, className) {
+          //   let txt = `슬라이드${index}`;
+          //   if (index === 0)txt = '금융생활';
+          //   if (index === 1)txt = '오늘';
+          //   if (index === 2)txt = '투자생활';
+          //   return `<button type="button" class="${className}">${txt}</button>`;
+          // },
         },
       };
     },
@@ -143,11 +162,11 @@ export default {
   mounted() {
     this.LayerHeight = this.$refs.layerContainer.offsetHeight;
     this.LayerMinHeight = this.$refs.layerContainer.offsetHeight;
-    this.LayerMaxHeight = window.innerHeight;
+    this.LayerMaxHeight = this.$refs.layerWrap.offsetHeight - parseInt(this.$getStyle(this.$refs.layerWrap, 'padding-top'), 10);
     window.addEventListener('resize', this.resizeChk);
     uiEventBus.$on('main-update', this.mainUpdate);
 
-    if (this.$route.path !== '/TO/00') {
+    if (this.$route.path !== '/TO/00' && this.$route.path !== '/TO/00/') {
       // this.LayerStyle = this.layerSetStyle(true, 10);
       // this.LayerBgStyle = this.layerBgSetStyle(true, 10);
       this.isLayerFull = true;
@@ -166,7 +185,7 @@ export default {
   },
   methods: {
     resizeChk() {
-      this.LayerMaxHeight = window.innerHeight;
+      this.LayerMaxHeight = this.$refs.layerWrap.offsetHeight - parseInt(this.$getStyle(this.$refs.layerWrap, 'padding-top'), 10);
     },
     // swiperReady(swiper) {
     swiperReady() {
@@ -181,6 +200,13 @@ export default {
       }, 300);
     },
     swiperSlideChange() {
+      const $realIndex = this.mainSwiper.realIndex;
+      this.mainTabIdx = $realIndex;
+      if ($realIndex !== 1) {
+        this.LayerDownsize = true;
+      } else {
+        this.LayerDownsize = false;
+      }
       const elY = this.$el.offsetTop;
       const wrap = this.$el.closest('.scl__body');
       wrap.scrollTo(0, elY);
@@ -189,9 +215,9 @@ export default {
       this.mainSwiper.update();
     },
     touchStart(e) {
-      if (this.$route.path === '/TO/00') {
+      if (this.$route.path === '/TO/00' || this.$route.path === '/TO/00/') {
         this.isRoute = false;
-        this.$router.push('/TO/00/TO02A002');
+        this.$router.push(this.lastPath);
       }
       this.isLayerTouch = true;
       const intervalTime = 10;
@@ -246,6 +272,7 @@ export default {
         } else {
           this.isLayerFull = false;
           this.isRoute = false;
+          this.lastPath = this.$route.path;
           this.$router.push('/TO/00');
           setTimeout(() => {
             this.isRoute = true;
@@ -294,6 +321,7 @@ export default {
         this.LayerStyle = null;
         this.LayerBgStyle = null;
         this.isRoute = false;
+        this.lastPath = this.$route.path;
         this.$router.push('/TO/00');
         setTimeout(() => {
           this.isRoute = true;
@@ -314,11 +342,9 @@ export default {
     },
     scrollEvt(e) {
       this.touchPadTop = e.target.scrollTop;
-
-      // for pageScrilling event
-      if ((e.target.scrollHeight - e.target.offsetHeight) === e.target.scrollTop) {
-        uiEventBus.$emit('pageScroll');
-      }
+    },
+    tabSlideTo(idx) {
+      this.mainSwiper.slideTo(idx, 300);
     },
   },
 };

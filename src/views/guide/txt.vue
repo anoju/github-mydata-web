@@ -172,174 +172,10 @@
     <h2 class="gd__h1">텍스트 아이콘</h2>
     <h3 class="gd__h2">기본</h3>
     <div>
-      <ico-txt class="red">red</ico-txt>
-      <ico-txt class="blue">blue1</ico-txt>
-      <ico-txt class="blue2">blue2</ico-txt>
-      <ico-txt class="yellow">yellow</ico-txt>
-      <ico-txt class="green">green</ico-txt>
-      <ico-txt class="skyblue">skyblue</ico-txt>
-      <ico-txt class="purple">purple</ico-txt><br>
-      <ico-txt class="green5 fc_green3">TIP</ico-txt>
+      <ico-txt>기본</ico-txt>
+      <ico-txt blue>blue</ico-txt>
+      <ico-txt yellow>yellow</ico-txt>
     </div>
-    <h3 class="gd__h2">카테고리별 flag 컬러</h3>
-    <kb-table-scroll class="flag">
-      <kb-table
-        caption="카테고리별 flag 컬러0"
-        :col-width="['100px','100px','100px','100px','100px']"
-      >
-        <thead>
-          <tr>
-            <th scope="col">blue2</th>
-            <th scope="col">green</th>
-            <th scope="col">yellow</th>
-            <th scope="col">blue</th>
-            <th scope="col">red</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <ico-txt class="blue2">금융</ico-txt>
-              <br>
-              <ico-txt class="blue2">보험</ico-txt>
-            </td>
-            <td>
-              <ico-txt class="green">스포츠</ico-txt>
-              <br>
-              <ico-txt class="green">영화/공연</ico-txt>
-              <br>
-              <ico-txt class="green">뷰티</ico-txt>
-              <br>
-              <ico-txt class="green">웰빙</ico-txt>
-              <br>
-              <ico-txt class="green">레져</ico-txt>
-              <br>
-              <ico-txt class="green">항공</ico-txt>
-              <br>
-              <ico-txt class="green">여행</ico-txt>
-              <br>
-              <ico-txt class="green">골프</ico-txt>
-              <br>
-              <ico-txt class="green">도서</ico-txt>
-              <br>
-              <ico-txt class="green">놀이공원</ico-txt>
-            </td>
-            <td>
-              <ico-txt class="yellow">커피</ico-txt>
-              <br>
-              <ico-txt class="yellow">외식</ico-txt>
-              <br>
-              <ico-txt class="yellow">베이커리</ico-txt>
-            </td>
-            <td>
-              <ico-txt class="blue">주유</ico-txt>
-              <br>
-              <ico-txt class="blue">쇼핑</ico-txt>
-              <br>
-              <ico-txt class="blue">교육</ico-txt>
-              <br>
-              <ico-txt class="blue">통신</ico-txt>
-              <br>
-              <ico-txt class="blue">교통</ico-txt>
-              <br>
-              <ico-txt class="blue">의료</ico-txt>
-              <br>
-              <ico-txt class="blue">전가맹점</ico-txt>
-              <br>
-              <ico-txt class="blue">해외가맹점</ico-txt>
-              <br>
-              <ico-txt class="blue">비즈니스</ico-txt>
-            </td>
-            <td>
-              <ico-txt class="red">포인트</ico-txt>
-              <br>
-              <ico-txt class="red">무이자할부</ico-txt>
-              <br>
-              <ico-txt class="red">프리미엄</ico-txt>
-              <br>
-              <ico-txt class="red">선포인트/특별할부</ico-txt>
-              <br>
-              <ico-txt class="red">마일리지</ico-txt>
-            </td>
-          </tr>
-        </tbody>
-      </kb-table>
-    </kb-table-scroll>
-    <h4 class="gd__h3">그외 혜택 표기</h4>
-    <ico-txt class="red">추천</ico-txt>
-    <ico-txt class="green">이벤트</ico-txt>
-    <ico-txt class="blue">인기</ico-txt>
-    <ico-txt class="blue2">NEW</ico-txt>
-    <ico-txt
-      class="more"
-      role="img"
-      aria-label="그외 혜택들"
-    />
-
-    <h4 class="gd__h3">회원등급</h4>
-    <ico-txt class="blue2">노블레스</ico-txt>
-    <ico-txt class="green">슈퍼로얄</ico-txt>
-    <ico-txt class="yellow">로얄</ico-txt>
-    <ico-txt class="blue">프라임</ico-txt>
-
-    <h4 class="gd__h3">카드구분</h4>
-    <ico-txt class="blue">신용</ico-txt>
-    <ico-txt class="green">체크</ico-txt>
-    <ico-txt class="red">신용/체크 통합</ico-txt>
-    <ico-txt class="blue">대환대출</ico-txt>
-    <ico-txt class="green">장기카드대출</ico-txt>
-
-    <h4 class="gd__h3">성별, 나이</h4>
-    <ico-txt class="pink">여성</ico-txt>
-    <ico-txt class="gray2">남성</ico-txt>
-    <br>
-    <ico-txt class="green2">20대</ico-txt>
-
-    <h4 class="gd__h3">완료,미완료</h4>
-    <ico-txt class="blue">동의</ico-txt>
-    <ico-txt class="red">동의안함</ico-txt>
-    <br>
-    <ico-txt class="green">진행중</ico-txt>
-    <ico-txt class="red">종료</ico-txt>
-    <br>
-    <ico-txt class="green">신청중</ico-txt>
-    <ico-txt class="blue">처리완료</ico-txt>
-    <ico-txt class="red">취소(INT)</ico-txt>
-    <ico-txt class="red">발급불가</ico-txt>
-    <br>
-    <ico-txt class="red">접수</ico-txt>
-    <ico-txt class="green">신청중</ico-txt>
-    <ico-txt class="green">심사중</ico-txt>
-    <ico-txt class="green">심사완료</ico-txt>
-    <ico-txt class="blue">발급완료</ico-txt>
-    <ico-txt class="blue">배송완료</ico-txt>
-    <ico-txt class="red">발급불가</ico-txt>
-    <ico-txt class="red">심사전 취소</ico-txt>
-    <br>
-    <ico-txt class="green">정상</ico-txt>
-    <ico-txt class="blue">완납</ico-txt>
-    <ico-txt class="red">철회</ico-txt>
-    <br>
-    <ico-txt class="red">미충족</ico-txt>
-    <ico-txt class="blue">충족</ico-txt>
-    <br>
-    <ico-txt class="red">탈회방지미등록</ico-txt>
-    <ico-txt class="blue">탈회방지등록</ico-txt>
-    <br>
-    <ico-txt class="blue">철회완료</ico-txt>
-    <ico-txt class="red">철회불가</ico-txt>
-    <br>
-    <ico-txt class="blue">이용중</ico-txt>
-
-    <h4 class="gd__h3">etc</h4>
-    <ico-txt class="purple">U+</ico-txt>
-    <br>
-    <ico-txt class="angle blue">소득공제</ico-txt>
-    <ico-txt class="red">분실</ico-txt>
-    <ico-txt class="blue">대표카드</ico-txt>
-    <br>
-    <ico-txt class="line red">만료</ico-txt>
-
     <h2 class="gd__h1">텍스트 리스트 txt_list</h2>
     <div>
       <h3 class="gd__h2">dot</h3>
@@ -398,10 +234,25 @@
           </li>
         </ul>
       </div>
+      <h3 class="gd__h2">txt_list2</h3>
+      <div class="txt_list2">
+        <ul>
+          <li class="dot">
+            설명하는 텍스트 입니다. 설명하는 텍스트 입니다. 설명하는 텍스트 입니다. 설명하는 텍스트 입니다.
+          </li>
+          <li class="dot">
+            설명하는 텍스트 입니다. 설명하는 텍스트 입니다. 설명하는 텍스트 입니다. 설명하는 텍스트 입니다.
+          </li>
+          <li class="dot">
+            설명하는 텍스트 입니다. 설명하는 텍스트 입니다. 설명하는 텍스트 입니다. 설명하는 텍스트 입니다.
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <h2 class="gd__h1">info_txt_box</h2>
+    <h2 class="gd__h1">etc</h2>
     <div>
+      <h3 class="gd__h2">info_txt_box</h3>
       <div class="info_txt_box">
         <ul class="list">
           <li>
@@ -430,6 +281,46 @@
           </li>
         </ul>
       </div>
+      <h3 class="gd__h2">info_txt_list</h3>
+      <div class="info_txt_list">
+        <ul class="list">
+          <li>
+            <div class="th">출금가능금액</div>
+            <div class="td fc_666"><strong>1,200,000원</strong></div>
+          </li>
+          <li>
+            <div class="th">이체금액</div>
+            <div class="td fc_666"><strong>300,000,000원</strong></div>
+          </li>
+        </ul>
+      </div>
+      <h3 class="gd__h2">circle_color_list</h3>
+      <ul class="circle_color_list">
+        <li>
+          <div class="item">
+            <div class="ico blue">
+              <strong>유사그룹<br>비교</strong>
+            </div>
+            <div class="txt">나와 유사한 그룹간의 비교 데이터를 통해 현 위치를 활인 할 수 있어요.</div>
+          </div>
+        </li>
+        <li>
+          <div class="item">
+            <div class="ico yellow">
+              <strong>패턴분석</strong>
+            </div>
+            <div class="txt">주로 투자하는 종목군, 규모별, 투자/손익 비중, 추세 매매 스타일, 보유 기간 스타일을 분석해 드려요.</div>
+          </div>
+        </li>
+        <li>
+          <div class="item">
+            <div class="ico purple">
+              <strong>투자카드</strong>
+            </div>
+            <div class="txt">앞서 분석한 투자 습관과 투자 패턴을 종합 점수와 함께 확인 할 수 있어요.</div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>

@@ -21,7 +21,8 @@
               <kb-button not class="ico_button ty2"><i class="bt_ic_40 ic1" aria-hidden="true" /><span>한번에 연동</span></kb-button>
             </li>
             <li>
-              <kb-button not class="ico_button ty2"><i class="bt_ic_40 ic1" aria-hidden="true" /><span>하나씩 연동</span></kb-button>
+              <!-- 2021-05-24 -->
+              <kb-button not class="ico_button ty2"><i class="bt_ic_40 ic2" aria-hidden="true" /><span>하나씩 연동</span></kb-button>
             </li>
           </ul>
         </div>
@@ -29,10 +30,7 @@
           not
           class="accordion_dl mg_b25"
         >
-          <kb-folding>
-            <template slot="title">
-              이용안내
-            </template>
+          <kb-folding title="이용안내">
             <ul class="txt_list">
               <li class="dot">자산연동시 '정보전송주기'를 정기적 전송으로 요청하시면 KB증권에서 제공하는 자산관리, 포트폴리오 진단, 투자습관 진단 등의 프리미엄 서비스를 받으실 수 있습니다.</li>
             </ul>

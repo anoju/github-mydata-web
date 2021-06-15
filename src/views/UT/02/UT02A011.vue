@@ -32,10 +32,18 @@
               </div>
             </kb-button>
           </div>
+
+          <!-- 2021-05-24 -->
+          <kb-button-wrap>
+            <kb-button line>공동인증서 가져오기</kb-button>
+          </kb-button-wrap>
+
+          <ul class="txt_list mg_t16">
+            <li class="dot">이체, 매도/매수, 상품가입 등 일부 서비스를 이용하시려면 KB증권에 등록된 공동인증서를 선택하세요.<br />
+              공동인증서 가져오기를 선택하시면 KB증권에 등록된 공동인증서를 가져올수 있습니다.</li>
+          </ul>
+          <!-- //2021-05-24 -->
         </div>
-        <ul class="txt_list">
-          <li class="dot">은행전용(무료) 인증서의 경우에는 상품매매, 뱅킹 등 일부 서비스에서는 지원되지 않을 수 있습니다.</li>
-        </ul>
       </div>
     </kb-page-body>
   </kb-page>

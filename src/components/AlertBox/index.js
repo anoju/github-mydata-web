@@ -32,12 +32,14 @@ function MessageBox() {
       });
     },
 
-    alert(text, returnFocus, title) {
+    alert(text, returnFocus, title, options = {}) {
       return new Promise((resolve) => {
         msgBox.instance.addMessage({
           text,
           title,
           isConfirm: false,
+          addClass: options.addClass,
+          confirmTxt: options.confirmTxt,
           returnFocus,
           resolve,
         });
@@ -50,6 +52,7 @@ function MessageBox() {
           text,
           title,
           isConfirm: true,
+          addClass: options.addClass,
           confirmTxt: options.confirmTxt,
           cancelTxt: options.cancelTxt,
           returnFocus,

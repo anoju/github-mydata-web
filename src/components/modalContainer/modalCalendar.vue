@@ -2,7 +2,6 @@
   <kb-pop
     modal
     class="ui-calendar"
-    title="기간선택"
   >
     <kb-pop-body>
       <kb-calendar

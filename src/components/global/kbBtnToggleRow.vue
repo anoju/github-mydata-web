@@ -15,10 +15,17 @@ export default {
       length: 0,
     };
   },
+  props: {
+    col: { type: Number, default: null },
+  },
   computed: {
     colClass() {
       const rtnClass = [];
-      if (this.length > 1)rtnClass.push(`col_${this.length}`);
+      if (this.col > 1) {
+        rtnClass.push(`col_${this.col}`);
+      } else if (this.length > 1) {
+        rtnClass.push(`col_${this.length}`);
+      }
       return rtnClass;
     },
   },

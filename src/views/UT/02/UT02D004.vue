@@ -36,10 +36,7 @@
             not
             class="accordion_dl mg_t20"
           >
-            <kb-folding class="pd_b25">
-              <template slot="title">
-                이용안내
-              </template>
+            <kb-folding class="pd_b25" title="이용안내">
               <ul class="txt_list">
                 <li class="dot">KB증권 '오늘'APP을 삭제하시거나 스마트폰을 변경하시면 얼굴을 재등록 해 주세요.</li>
                 <li class="dot">연속으로 5회 안면인증 실패하시면 다른 방법으로 로그인을 하셔야 합니다.</li>

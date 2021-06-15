@@ -30,6 +30,15 @@ export default [
         },
         children: [
           { path: 'TO01B001', component: () => import('@/views/TO/01/TO01B001.vue') }, // insight
+          { path: 'TO01D002', component: () => import('@/views/TO/01/TO01D002.vue') }, // 내잔 QnA
+          { path: 'TO01D003', component: () => import('@/views/TO/01/TO01D003.vue') }, // 내잔 QnA
+          { path: 'TO01D004', component: () => import('@/views/TO/01/TO01D004.vue') }, // 내잔 QnA
+          { path: 'TO01D005', component: () => import('@/views/TO/01/TO01D005.vue') }, // 내잔 QnA
+          { path: 'TO01D006', component: () => import('@/views/TO/01/TO01D006.vue') }, // 내잔 QnA
+          { path: 'TO01D007', component: () => import('@/views/TO/01/TO01D007.vue') }, // 내잔 QnA
+          { path: 'TO01D008', component: () => import('@/views/TO/01/TO01D008.vue') }, // 내잔 QnA
+          { path: 'TO01D009', component: () => import('@/views/TO/01/TO01D009.vue') }, // 내잔 QnA
+          { path: 'TO01E001', component: () => import('@/views/TO/01/TO01E001.vue') }, // 내자산비타민
         ],
       },
       {
@@ -54,7 +63,9 @@ export default [
           { path: 'TO02C004', component: () => import('@/views/TO/02/TO02C004.vue') }, // 투자매입 전월 비교
           { path: 'TO02C005', component: () => import('@/views/TO/02/TO02C005.vue') }, // 보험연금납입 전월 비교
           { path: 'TO02C006', component: () => import('@/views/TO/02/TO02C006.vue') }, // 부채청구납입 전월 비교
-          { path: 'TO02C007', component: () => import('@/views/TO/02/TO02C007.vue') }, // 월관리 추천 목록
+          {
+            path: 'TO02C007', name: 'TO02C007', component: () => import('@/views/TO/02/TO02C007.vue'), props: true,
+          }, // 월관리 추천 목록
         ],
       },
     ],

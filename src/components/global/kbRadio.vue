@@ -2,6 +2,14 @@
   <div
     :class="radioClass"
   >
+    <label
+      v-if="right && !!$slots.default"
+      class="lbl"
+      :class="lblClass"
+      :for="radioId"
+    >
+      <slot />
+    </label>
     <input
       :id="radioId"
       ref="radio"
@@ -17,7 +25,10 @@
       v-on="listeners"
     ><i aria-hidden="true" />
     <label
+      v-if="!right && !!$slots.default"
       class="lbl"
+      :class="lblClass"
+      :style="lblStyle"
       :for="radioId"
     >
       <slot />
@@ -45,6 +56,7 @@ export default {
     inputClass: { type: String, default: null },
     title: { type: String, default: null },
     disabled: { type: Boolean, default: false },
+    right: { type: Boolean, default: false },
     size: { type: String, default: null },
     small: { type: Boolean, default: false },
     large: { type: Boolean, default: false },
@@ -56,6 +68,8 @@ export default {
     modelValue: { type: [String, Number, Boolean, Array, Object], default: null },
     trueValue: { type: Boolean, default: true },
     falseValue: { type: Boolean, default: false },
+    lblClass: { type: String, default: null },
+    lblStyle: { type: String, default: null },
   },
   data() {
     return {
@@ -131,6 +145,9 @@ export default {
       this.$emit('change', this.value);
     },
     */
+    focus() {
+      this.$refs.radio.focus();
+    },
     clickEvt() {
       if (this.button && this.$el.closest('.btn_toggle_row') !== null) {
         const wrap = this.$el.closest('.btn_toggle_row');

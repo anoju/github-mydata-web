@@ -3,110 +3,32 @@
     <kb-page-body>
       <kb-tabs-link
         class="first"
+        :tabs="tabLink"
         fixed
-      >
-        <div
-          class="tab"
-          role="presentation"
-        >
-          <router-link to="/guide/txt">
-            <span>텍스트</span>
-          </router-link>
-        </div>
-        <div
-          class="tab"
-          role="presentation"
-        >
-          <router-link to="/guide/button">
-            <span>버튼</span>
-          </router-link>
-        </div>
-        <div
-          class="tab"
-          role="presentation"
-        >
-          <router-link to="/guide/form">
-            <span>form 요소</span>
-          </router-link>
-        </div>
-        <div
-          class="tab"
-          role="presentation"
-        >
-          <router-link to="/guide/list">
-            <span>리스트</span>
-          </router-link>
-        </div>
-        <div
-          class="tab"
-          role="presentation"
-        >
-          <router-link to="/guide/table">
-            <span>테이블</span>
-          </router-link>
-        </div>
-        <div
-          class="tab"
-          role="presentation"
-        >
-          <router-link to="/guide/popup">
-            <span>팝업</span>
-          </router-link>
-        </div>
-        <div
-          class="tab"
-          role="presentation"
-        >
-          <router-link to="/guide/swiper">
-            <span>swiper</span>
-          </router-link>
-        </div>
-        <div
-          class="tab"
-          role="presentation"
-        >
-          <router-link to="/guide/animate">
-            <span>animate</span>
-          </router-link>
-        </div>
-        <div
-          class="tab"
-          role="presentation"
-        >
-          <router-link to="/guide/etc">
-            <span>etc</span>
-          </router-link>
-        </div>
-        <div
-          class="tab"
-          role="presentation"
-        >
-          <router-link to="/guide/calendar">
-            <span>calendar</span>
-          </router-link>
-        </div>
-        <div
-          class="tab"
-          role="presentation"
-        >
-          <router-link to="/guide/drag">
-            <span>drag</span>
-          </router-link>
-        </div>
-        <div
-          class="tab"
-          role="presentation"
-        >
-          <router-link to="/guide/test">
-            <span>test</span>
-          </router-link>
-        </div>
-      </kb-tabs-link>
+      />
     </kb-page-body>
   </kb-page>
 </template>
 <script>
 export default {
   name: 'guide',
+  data() {
+    return {
+      tabLink: [
+        { to: '/guide/txt', text: '텍스트' },
+        { to: '/guide/button', text: '버튼' },
+        { to: '/guide/form', text: '폼 요소' },
+        { to: '/guide/list', text: '리스트' },
+        { to: '/guide/table', text: '테이블' },
+        { to: '/guide/popup', text: '팝업' },
+        { to: '/guide/swiper', text: 'swiper' },
+        { to: '/guide/animate', text: 'animate' },
+        { to: '/guide/etc', text: 'etc' },
+        { to: '/guide/calendar', text: 'calendar' },
+        { to: '/guide/drag', text: 'drag' },
+        { to: '/guide/test', text: 'test' },
+      ],
+    };
+  },
 };
 </script>

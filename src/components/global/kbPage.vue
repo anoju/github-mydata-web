@@ -1,39 +1,57 @@
 <template>
   <div
     class="page_wrap scl__body"
-    :class="{lock : isLock, fixed_hide: !layoutFixedShow}"
+    :class="{lock : isLock, fixed_hide: !layoutFixedShow, gray: grayBg, apiPage:isAPI}"
     :aria-hidden="isLock"
     v-on="listeners"
-    @scroll="wrapScrollEvt"
+    v-touch:start="represhPullStart"
+    v-touch:moving="represhPullMoving"
+    v-touch:end="represhPullEnd"
   >
+    <div
+      v-if="isPullShow"
+      ref="refreshWrap"
+      class="page_refresh"
+      aria-hidden="true"
+      :style="{top:(pullDistance/2)+'px'}"
+    >
+      <div class="ico"><div class="ico_in"></div></div>
+      <div class="blind">새로고침</div>
+    </div>
     <div class="page_inner">
       <template v-if="!!$slots.header">
         <kb-page-head
-          v-if="!noHeader && !isMainLayer"
+          v-if="!noHeader && !isMainLayer && !isAPI"
           ref="header"
           :title="pageTitle"
           :no-back="noHeaderBack"
           :is-lock="isLock"
           :header-type="headerType"
+          :back="back"
         >
           <slot name="header" />
         </kb-page-head>
       </template>
       <template v-else>
         <kb-page-head
-          v-if="!noHeader && !isMainLayer"
+          v-if="!noHeader && !isMainLayer && !isAPI"
           ref="header"
           :title="pageTitle"
           :no-back="noHeaderBack"
           :is-lock="isLock"
           :header-type="headerType"
+          :back="back"
         />
       </template>
-      <div class="page_container">
+      <div
+        class="page_container"
+        :class="containerClass"
+      >
         <slot />
       </div>
-      <kb-page-foot v-if="!isMainLayer && !noFooter" />
+      <kb-page-foot ref="footer" v-if="!isMainLayer && !noFooter && !isAPI && !isAPP" />
       <div
+        v-if="!isAPI"
         class="floating_btn"
         :class="{top_on: isBtnTopOn}"
         :style="{bottom: `${isFloaingBottom+20}px`,marginBottom: `${isFloaingMargin}px`}"
@@ -70,13 +88,18 @@ export default {
   props: {
     pageTitle: { type: [String, Number], default: null },
     headerType: { type: String, default: null },
+    containerClass: { type: [String, Object], default: null },
     noHeader: { type: Boolean, default: false },
     noFooter: { type: Boolean, default: false },
     noBtntop: { type: Boolean, default: false },
     noHeaderBack: { type: Boolean, default: false },
+    grayBg: { type: Boolean, default: false },
+    back: { type: [String, Function], default: null },
   },
   data() {
     return {
+      isAPI: false,
+      isAPP: false,
       lockSclTop: 0,
       isLock: false,
       isMainLayer: false,
@@ -88,8 +111,14 @@ export default {
       layoutFixedShow: true,
       lastScrollY: 0,
       isTopTouch: false,
+      isPullTouch: false,
+      isPullShow: false,
+      isPageRefresh: false,
       touchStartX: 0,
+      touchStartY: 0,
       touchDistance: 0,
+      pullDistance: 0,
+      pullRefreshTop: 150,
     };
   },
   computed: {
@@ -99,6 +128,11 @@ export default {
       }
       return this.$listeners;
     },
+  },
+  created() {
+    if (this.$route.path.indexOf('/API/') >= 0) this.isAPI = true;
+    const $agent = navigator.userAgent;
+    this.isAPP = ($agent.match(/KBSecMyDataApp/i) != null);
   },
   mounted() {
     if (this.$el.closest('.main_layer_view') !== null) this.isMainLayer = true;
@@ -113,6 +147,10 @@ export default {
     }
     uiEventBus.$on('lock-wrap', this.wrapLock);
     uiEventBus.$on('unlock-wrap', this.wrapUnlock);
+    this.$el.addEventListener('scroll', this.wrapScrollEvt);
+  },
+  beforeDestroy() {
+    this.$el.removeEventListener('scroll', this.wrapScrollEvt);
   },
   destroyed() {
     document.title = this.docTitle;
@@ -164,9 +202,9 @@ export default {
       // this.layoutFixedShow = sclTop < this.lastScrollY;
       // this.lastScrollY = sclTop;
 
-      const $footer = $target.querySelector('.page_foot');
-      if ($footer !== null) {
-        const footTop = this.$getOffset($footer).top;
+      const $footer = this.$refs.footer;
+      if ($footer !== undefined && !this.isMainLayer) {
+        const footTop = this.$getOffset($footer.$el).top;
         const floatinMargin = (sclTop + elHeight) - footTop;
         if (floatinMargin > 0) {
           this.isFloaingMargin = floatinMargin;
@@ -175,6 +213,14 @@ export default {
           this.isFloaingMargin = 0;
           this.isFloaingBottom = this.spaceHeight;
         }
+      } else {
+        this.isFloaingMargin = 0;
+        this.isFloaingBottom = this.spaceHeight;
+      }
+
+      // for pageScroll event
+      if (Math.abs((e.target.scrollHeight - e.target.offsetHeight) - e.target.scrollTop) < 1) {
+        uiEventBus.$emit('pageScroll');
       }
     },
     fixedSpace() {
@@ -228,6 +274,90 @@ export default {
         this.isBtnTopOn = true;
       }
       el.removeAttribute('style');
+    },
+    represhPullStart(e) {
+      if (e.type !== 'touchstart' || this.isPageRefresh) return;
+      if (this.$el.scrollTop === 0) {
+        this.isPullTouch = true;
+        this.isPullShow = true;
+        this.pullDistance = 0;
+        this.touchStartY = e.touches[0].clientY;
+      }
+    },
+    represhPullMoving(e) {
+      if (e.type !== 'touchmove') return;
+      if (this.isPullTouch && !this.isPageRefresh) {
+        const move = e.touches[0].clientY - this.touchStartY;
+        this.pullDistance = Math.max(0, move);
+
+        const $wrap = this.$refs.refreshWrap;
+        const $ratio = this.pullDistance / this.pullRefreshTop;
+        this.$anime({
+          targets: $wrap.querySelector('.ico'),
+          opacity: Math.min(1, $ratio),
+          scale: Math.min(1, $ratio),
+          rotate: ($ratio * 360),
+          easing: 'linear',
+          duration: 10,
+        });
+      }
+    },
+    represhPullEnd() {
+      const $wrap = this.$refs.refreshWrap;
+      this.isPullTouch = false;
+      if (!this.isPullShow || this.isPageRefresh) return;
+      if (this.pullDistance > this.pullRefreshTop) {
+        // console.log('새로고침!!');
+        this.$anime({
+          targets: $wrap.querySelector('.ico_in'),
+          rotate: 360,
+          easing: 'linear',
+          loop: true,
+        });
+        this.$anime({
+          targets: $wrap,
+          top: (this.pullRefreshTop / 2),
+        });
+        this.pageRefresh();
+      } else {
+        // console.log('새로고침 안함~');
+        this.represhReset();
+      }
+    },
+    represhReset() {
+      if (!this.isPullShow) return;
+      const $wrap = this.$refs.refreshWrap;
+      this.$anime({
+        targets: $wrap.querySelector('.ico'),
+        opacity: 0,
+        scale: 0,
+        rotate: 0,
+        easing: 'linear',
+      });
+      this.$anime({
+        targets: $wrap.querySelector('.ico_in'),
+        rotate: 0,
+        easing: 'linear',
+      });
+      this.$anime({
+        targets: $wrap,
+        top: 0,
+        complete: (() => {
+          this.isPullShow = false;
+          this.isPageRefresh = false;
+        }),
+      });
+    },
+    pageRefresh() {
+      this.isPageRefresh = true;
+      // window.location.reload();
+      console.log('데이타 불러오는 중');
+
+      // 임시로 setTimeout 설정
+      setTimeout(() => {
+        console.log('데이타 불러오기 완료');
+        this.represhReset();
+      }, 5000);
     },
   },
 };

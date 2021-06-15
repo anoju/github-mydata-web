@@ -79,7 +79,7 @@
           <!-- 데이터 있음 -->
           <div v-if="true">
             <div class="chart">
-              <img src="@/assets/images/temp/chart_donut1.png" alt="" class="wp_100">
+              <img src="@/assets/images/temp/chart_donut1.png" alt="">
             </div>
             <div class="t_right">
               <kb-button v-if="openAll" not class="fz_12 fc_666" @click="OpenAllEvt">전체접기</kb-button>
@@ -1019,9 +1019,10 @@
               <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
               <kb-button
                 like
-                :class="{checked:true}"
+                :class="{checked:isLike1}"
                 role="checkbox"
-                :aria-checked="true?'true':'false'"
+                :aria-checked="isLike1?'true':'false'"
+                @click="isLike1 = !isLike1"
               >즐겨찾기</kb-button>
             </div>
             <div class="return">
@@ -1038,9 +1039,10 @@
               <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
               <kb-button
                 like
-                :class="{checked:false}"
+                :class="{checked:isLike2}"
                 role="checkbox"
-                :aria-checked="false?'true':'false'"
+                :aria-checked="isLike2?'true':'false'"
+                @click="isLike2 = !isLike2"
               >즐겨찾기</kb-button>
             </div>
             <div class="return">
@@ -1068,6 +1070,8 @@ export default {
       userInvestDate: '20/10/19',
       openAll: false,
       userInvestPoint: '70',
+      isLike1: false,
+      isLike2: false,
     };
   },
   methods: {

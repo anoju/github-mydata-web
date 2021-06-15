@@ -41,10 +41,7 @@
           not
           class="accordion_dl"
         >
-          <kb-folding>
-            <template slot="title">
-              이용안내
-            </template>
+          <kb-folding title="이용안내">
             <ul class="txt_list">
               <li class="dot">생년월일, 휴대폰번호, 연속된 숫자, 연속적으로 반복된 숫자는 사용하실수 없습니다.</li>
             </ul>
@@ -55,6 +52,7 @@
   </kb-page>
 </template>
 <script>
+/* 2021-05-24 스크립트 확인 */
 export default {
   name: 'UT02C001',
   data() {
@@ -62,6 +60,7 @@ export default {
       isRePassword: false,
       passwordVal: '',
       errorMsg: '',
+      errorCount: 0,
     };
   },
   methods: {
@@ -70,7 +69,8 @@ export default {
         if (!this.isRePassword) {
           this.isRePassword = true;
         } else {
-          this.errorMsg = '입력하신 비밀번호와 다릅니다.';
+          this.errorCount += 1;
+          this.errorMsg = `입력하신 비밀번호와 다릅니다. (${this.errorCount}/4)`;
         }
         this.passwordVal = '';
       }

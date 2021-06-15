@@ -20,13 +20,16 @@
     v-on="listeners"
     @focus="isFocus = true"
     @blur="isFocus = false"
-    @click="clickEffect"
+    @click="clickEvt"
   >
+    <template v-if="filter">
+      <i class="line" /><i class="line" /><i class="line" />
+    </template>
     <slot />
     <i
       v-if="isClick"
       :style="{width:`${btnInW}px`,height:`${btnInH}px`,left:`${btnInX}px`,top:`${btnInY}px`}"
-      class="btn_click_in animate"
+      class="ui-bt-click-in animate"
     />
   </a>
   <button
@@ -39,13 +42,16 @@
     v-on="listeners"
     @focus="isFocus = true"
     @blur="isFocus = false"
-    @click="clickEffect"
+    @click="clickEvt"
   >
+    <template v-if="filter">
+      <i class="line" /><i class="line" /><i class="line" />
+    </template>
     <slot />
     <i
       v-if="isClick"
       :style="{width:`${btnInW}px`,height:`${btnInH}px`,left:`${btnInX}px`,top:`${btnInY}px`}"
-      class="btn_click_in animate"
+      class="ui-bt-click-in animate"
     />
   </button>
 </template>
@@ -57,6 +63,7 @@ export default {
     type: { type: String, default: 'button' },
     title: { type: String, default: null },
     disabled: { type: Boolean, default: false },
+    noEffect: { type: Boolean, default: false },
 
     // 링크이동
     to: { type: String, default: null },
@@ -72,7 +79,10 @@ export default {
     shadow: { type: Boolean, default: false },
 
     like: { type: Boolean, default: false },
+    like2: { type: Boolean, default: false },
     star: { type: Boolean, default: false },
+    bookmark: { type: Boolean, default: false },
+    filter: { type: Boolean, default: false },
 
     // 색상
     color: { type: String, default: null },
@@ -161,7 +171,10 @@ export default {
           shadow: this.shadow,
           disabled: this.disabled,
           like: this.like,
+          like2: this.like2,
           star: this.star,
+          bookmark: this.bookmark,
+          filter: this.filter,
         },
         'bt_' + this.$color,
         this.$size,
@@ -198,49 +211,35 @@ export default {
     // }
   },
   methods: {
-    clickEffect(e) {
+    clickEvt(e) {
+      let isChecked = false;
       if (this.aTag) e.preventDefault();
       if (!this.isClick && !this.disabled) {
-        this.isClick = true;
+        if (this.$el.classList.contains('checked'))isChecked = true;
         const { $el } = this;
         this.btnTxt = $el.textContent;
         setTimeout(() => {
+          if ((this.like || this.like2 || this.star || this.bookmark) && this.$el.classList.contains('checked') && !isChecked) {
+            if (this.like) this.$like('heart');
+            if (this.like2) this.$like('hands');
+            if (this.star) this.$like('star');
+            if (this.bookmark) this.$like('bookmark');
+          }
           if (this.btnTxt !== $el.textContent) return;
           const $btnMax = Math.max($el.offsetWidth, $el.offsetHeight);
           this.btnInW = $btnMax;
           this.btnInH = $btnMax;
           this.btnInX = e.clientX - ($el.getBoundingClientRect().left) - ($btnMax / 2);
           this.btnInY = e.clientY - ($el.getBoundingClientRect().top) - ($btnMax / 2);
-          setTimeout(() => {
-            this.isClick = false;
-          }, 650);
-          if ((this.like || this.star) && this.$el.classList.contains('checked')) {
-            // 좋아요
-            // '<div id="layerLike" class="layer_like" aria-hidden="true"></div>'
-            /*
-            let likeHtml = document.getElementById('layerLike');
-            if (!likeHtml) {
-              likeHtml = document.createElement('div');
-              likeHtml.id = 'layerLike';
-              likeHtml.classList.add('layer_like');
-              likeHtml.setAttribute('aria-hidden', 'true');
-              likeHtml.innerHTML = '<div></div>';
-              document.body.appendChild(likeHtml);
-            }
-            if (!likeHtml.classList.contains('show')) {
-              setTimeout(() => {
-                likeHtml.classList.add('show');
-                setTimeout(() => {
-                  likeHtml.classList.remove('show');
-                }, 2000);
-              }, 10);
-            }
-            */
-            if (this.like) this.$like('heart');
-            if (this.star) this.$like('star');
-          }
+          if (!this.noEffect) this.appendEffect();
         }, 10);
       }
+    },
+    appendEffect() {
+      this.isClick = true;
+      setTimeout(() => {
+        this.isClick = false;
+      }, 650);
     },
   },
 };

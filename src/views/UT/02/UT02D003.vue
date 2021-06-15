@@ -4,7 +4,8 @@
       <div class="util_wrap">
         <div class="text_box">
           <i class="ico_big_check" aria-hidden="true" />
-          <p class="pop_tit">지문인증 등록이 <br>완료되었습니다.</p>
+          <!-- 2021-05-24 -->
+          <p class="pop_tit">생체인증 등록이 <br>완료되었습니다.</p>
         </div>
       </div>
 

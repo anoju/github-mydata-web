@@ -33,10 +33,7 @@
           not
           class="accordion_dl mg_b25"
         >
-          <kb-folding>
-            <template slot="title">
-              이용안내
-            </template>
+          <kb-folding title="이용안내">
             <ul class="txt_list">
               <li class="dot">멀티로그인 허용을 하시면 여러 대의 기기에서 동시 로그인/사용이 가능합니다.</li>
               <li class="dot">멀티로그인 허용을 꺼두시면 다른 기기에서 로그인 시 기존에 로그인되었던 기기에서는 자동로그아웃 처리되어 안심하고 이용하실 수 있습니다.</li>

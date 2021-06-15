@@ -16,8 +16,9 @@
         <kb-title-bar h4 center tit-class="firecracker" class="mg_t12" title="축하합니다!" />
 
         <div class="fz_14 fc_666 t_center mg_t8">
-          가상 투자 진행을 위한 자금을 획득하셨어요!<br>
-          본격적인 투자를 위해 포트폴리오를 골라볼까요?
+          가상 투자 진행을 위한 자금을 획득하셨어요!<br />
+          이제 본격적인 투자를 위해 포트폴리오를 골라볼까요?<br />
+          투자성향을 선택하여 가상투자를 시작해보세요
         </div>
         <hr class="hr_line mg_t24" aria-hidden="true">
         <!--
@@ -34,17 +35,15 @@
           <swiper-slide>
             <div class="in_chart_item">
               <div class="tit">
-                <div class="name">김스타님은</div>
-                <div>고수익을 최우선으로 추구하는
-                  <strong class="line">포스아거</strong>
-                  와 유사한 성향을 가지고 있어요!
+                <div>
+                  <strong class="line">롤로라무</strong>는 관심 분야에 투자하여 자산을 키우는 타입입니다.
                 </div>
               </div>
-              <div class="summary">망설임없이 적극적으로 투자에 집중하는 공격투자형 상품을 준비해봤어요.</div>
+              <div class="summary">관심 분야에 투자하여 자산을 키우는 안정추구형 상품을 준비해봤어요.</div>
               <div class="chart_wrap ">
                 <div class="character type1"></div>
                 <div class="chart">
-                  <img src="@/assets/images/temp/chart_donut1.png" alt="" class="wp_100">
+                  <img src="@/assets/images/temp/chart_donut1.png" alt="">
                 </div>
               </div>
               <div class="chart_legend">
@@ -115,7 +114,7 @@
               <div class="chart_wrap ">
                 <div class="character type2"></div>
                 <div class="chart">
-                  <img src="@/assets/images/temp/chart_donut1.png" alt="" class="wp_100">
+                  <img src="@/assets/images/temp/chart_donut1.png" alt="">
                 </div>
               </div>
               <div class="chart_legend">
@@ -186,7 +185,7 @@
               <div class="chart_wrap ">
                 <div class="character type3"></div>
                 <div class="chart">
-                  <img src="@/assets/images/temp/chart_donut1.png" alt="" class="wp_100">
+                  <img src="@/assets/images/temp/chart_donut1.png" alt="">
                 </div>
               </div>
               <div class="chart_legend">
@@ -257,7 +256,7 @@
               <div class="chart_wrap ">
                 <div class="character type4"></div>
                 <div class="chart">
-                  <img src="@/assets/images/temp/chart_donut1.png" alt="" class="wp_100">
+                  <img src="@/assets/images/temp/chart_donut1.png" alt="">
                 </div>
               </div>
               <div class="chart_legend">
@@ -328,7 +327,7 @@
               <div class="chart_wrap ">
                 <div class="character type5"></div>
                 <div class="chart">
-                  <img src="@/assets/images/temp/chart_donut1.png" alt="" class="wp_100">
+                  <img src="@/assets/images/temp/chart_donut1.png" alt="">
                 </div>
               </div>
               <div class="chart_legend">

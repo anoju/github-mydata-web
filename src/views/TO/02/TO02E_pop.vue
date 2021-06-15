@@ -10,10 +10,10 @@
       <kb-button not class="tit_next" @click="nextStep" aria-label="다음">다음</kb-button>
     </template>
     <kb-pop-body>
-      <TO02E002 v-if="titleTxt === '주식손익' || titleTxt === '주식 손익'" />
-      <TO02E003 v-if="titleTxt === '펀드손익' || titleTxt === '펀드 손익'" />
-      <TO02E005 v-if="titleTxt === 'Wrap손익' || titleTxt === 'Wrap 손익'" />
-      <TO02E004 v-if="titleTxt === '입출금내역' || titleTxt === '입출금 내역'" :selVal="selVal" />
+      <TO02E002 v-if="titleTxt === '주식손익' || titleTxt === '채권손익' || titleTxt === '파생손익' || titleTxt === '신탁손익' || titleTxt === '현금손익' || titleTxt === 'IRP손익' || titleTxt === '단기손익' || titleTxt === '기타손익'" />
+      <TO02E003 v-if="titleTxt === '펀드손익'" />
+      <TO02E005 v-if="titleTxt === 'Wrap손익'" />
+      <TO02E004 v-if="titleTxt === '입출금내역'" :selVal="selVal" />
     </kb-pop-body>
   </kb-pop>
 </template>

@@ -5,7 +5,7 @@
   >
     <div
       class="tabmenu"
-      :class="{scrollable: this.isScrollable}"
+      :class="tabmenuClass"
       :style="fixedStyle"
     >
       <div
@@ -19,6 +19,31 @@
           :style="{width:`${lineWrapWidth}px`,left:`${lineWrapLeft}px`}"
         >
           <i :style="{width:`${lineWidth}px`,left:`${lineLeft}px`}" />
+        </div>
+        <div
+          v-for="(tab, i) in tabs"
+          :key="i"
+          class="tab"
+          :class="{disabled:tab.disabled}"
+          role="presentation"
+        >
+          <a
+            v-if="tab.disabled || disabled"
+            :class="{'router-link-exact-active':$route.path.indexOf(tab.to) >= 0}"
+            role="tab"
+            href="#"
+            aria-disabled="true"
+            @click="$event.preventDefault()"
+          >
+            <span>{{ tab.text }}</span>
+          </a>
+          <router-link
+            v-else
+            :to="tab.to"
+            role="tab"
+          >
+            <span>{{ tab.text }}</span>
+          </router-link>
         </div>
         <slot />
       </div>
@@ -40,7 +65,10 @@ export default {
   name: 'kbTabsLink',
   props: {
     fixed: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
     tabsClass: { type: String, default: null },
+    contentClass: { type: String, default: null },
+    tabs: { type: Array, default: null },
   },
   data() {
     return {
@@ -63,6 +91,10 @@ export default {
       return [
         'tabmenu',
         this.tabsClass,
+        {
+          disabled: this.disabled,
+          scrollable: this.isScrollable,
+        },
       ];
     },
   },

@@ -146,6 +146,22 @@
               </tr>
               <tr>
                 <td>
+                  <a
+                    href="#"
+                    @click="showLoading3('불러오는중')"
+                    style="position:relative;z-index:9999;"
+                  >
+                    UT15B004
+                  </a>
+                </td>
+                <td>Loaing</td>
+                <td class="t_left">공통 / 새로고침로딩</td>
+                <td>2020-05-11</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
                   <a href="#" @click="showAlert1">UT15C003</a>
                 </td>
                 <td>Alert</td>
@@ -280,6 +296,9 @@ export default {
     },
     showLoading2(txt) {
       this.$loading(true, txt, 'B');
+    },
+    showLoading3(txt) {
+      this.$loading(true, txt, 'C');
     },
     hideLoading() {
       this.$loading(false);

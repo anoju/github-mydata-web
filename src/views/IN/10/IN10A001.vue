@@ -121,6 +121,20 @@
         </div>
         <!-- //기타 -->
 
+        <!-- 기타 -->
+        <div class="invest_info_box">
+          <div class="top">
+            <p class="tit">평균 보유 개수</p>
+
+            <!-- 상황에 따라 전일기준 텍스트는 비노출 -->
+            <p class="right_text">전일기준</p>
+          </div>
+          <div class="cont">
+            <p class="text">4개</p>
+          </div>
+        </div>
+        <!-- //기타 -->
+
         <!-- 테이블이 있는 경우 -->
         <kb-table-scroll class="mg_b20 table_fixed">
           <kb-table

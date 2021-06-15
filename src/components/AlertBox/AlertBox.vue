@@ -2,6 +2,7 @@
   <div
     v-if="show"
     class="popup modal alert"
+    :class="message.addClass"
     role="dialog"
   >
     <kb-pop :title="message.title" no-close>
@@ -66,6 +67,7 @@ export default {
         const {
           text,
           title,
+          addClass,
           confirmTxt,
           cancelTxt,
           isConfirm,
@@ -74,8 +76,9 @@ export default {
         } = this.queue[0];
 
         this.message = {
-          text: text || '',
-          title: title || '',
+          text: text || null,
+          title: title || null,
+          addClass: addClass || null,
           confirmTxt: confirmTxt || '확인',
           cancelTxt: cancelTxt || '취소',
           isConfirm,
@@ -105,7 +108,7 @@ export default {
         this.$el.classList.add('show');
       }, 50);
       setTimeout(() => {
-        if (this.message.title === '') {
+        if (this.message.title === '' || this.message.title === null) {
           this.$refs.message.focus();
         } else {
           this.$el.querySelector('.pop_head h1').focus();
@@ -120,7 +123,7 @@ export default {
         this.queue.splice(0, 1);
         this.isOpen = false;
         if (document.querySelectorAll('.popup').length === 1) uiEventBus.$emit('unlock-wrap');
-        if (focusEl !== undefined)focusEl.focus();
+        if (focusEl !== null && focusEl !== undefined)focusEl.focus();
       }, 600);
     },
   },

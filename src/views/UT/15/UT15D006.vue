@@ -37,10 +37,7 @@
         not
         class="accordion_dl section"
       >
-        <kb-folding class="pd_b25">
-          <template slot="title">
-            유의사항
-          </template>
+        <kb-folding class="pd_b25" title="유의사항">
           <ul class="txt_list">
             <li class="dot">거래 신청 즉시 결과를 확인 할 수 있습니다.
               <ul>

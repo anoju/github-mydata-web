@@ -1,5 +1,5 @@
 <template>
-  <kb-page page-title="월 관리 추천 목록">
+  <kb-page page-title="월 지출 추천 목록">
     <kb-page-body>
       <div class="section">
         <kb-tabs
@@ -95,6 +95,12 @@
                 </li>
               </ul>
             </div>
+
+            <!-- 데이터 없을때 -->
+            <div class="no_list_txt">
+              <strong class="tit">새롭게 추천해 드릴 정보가 없네요 :)</strong>
+            </div>
+            <!-- //데이터 없을때 -->
           </kb-tab>
           <kb-tab
             title="등록완료"
@@ -151,6 +157,12 @@
                 </li>
               </ul>
             </div>
+
+            <!-- 데이터 없을때 -->
+            <div class="no_list_txt">
+              <strong class="tit">아직 등록된 정보가 없으세요.</strong>
+            </div>
+            <!-- //데이터 없을때 -->
           </kb-tab>
           <kb-tab
             title="제외목록"
@@ -183,6 +195,12 @@
                 </li>
               </ul>
             </div>
+
+            <!-- 데이터 없을때 -->
+            <div class="no_list_txt">
+              <strong class="tit">아직 제외된 정보가 없으세요.</strong>
+            </div>
+            <!-- //데이터 없을때 -->
           </kb-tab>
         </kb-tabs>
       </div>

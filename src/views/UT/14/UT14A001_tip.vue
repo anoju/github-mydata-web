@@ -3,10 +3,11 @@
     tooltip
   >
     <kb-pop-body>
-      <div class="section breakall">
+      <div class="section">
         <dl>
           <dt><strong class="fz_16">한번에 연동</strong></dt>
-          <dd class="mg_t5">마이데이터 통합인증으로 공통의 인증수단을 이용하여 1회 인증만으로 여러개의 기관 및 자산의 정보요구/연동을 합니다.</dd>
+          <!-- 2021-05-24 -->
+          <dd class="mg_t5">마이데이터 통합인증으로 공통의 인증수단을 이용하여 한번에 여러개의 기관 및 자산의 정보요구/연동을 합니다.</dd>
         </dl>
         <dl class="mg_t30">
           <dt><strong class="fz_16">하나씩 연동</strong></dt>
