@@ -15,12 +15,14 @@
           :move="onMove"
           @start="isDragging=true"
           @end="isDragging=false"
+          handle=".ico_drag"
         >
           <transition-group tag="ul" type="transition" name="drag-list">
             <li class="item" v-for="(element,i) in list" :key="i">
               <div class="tit">
                 <strong>{{element.name}}</strong>
               </div>
+              <i class="ico_drag"></i>
             </li>
           </transition-group>
           <!-- <div
@@ -42,12 +44,14 @@
           :move="onMove"
           @start="isDragging=true"
           @end="isDragging=false"
+          handle=".ico_drag"
         >
           <transition-group tag="ul" type="transition" name="drag-list">
             <li class="item" v-for="(element,i) in list2" :key="i">
               <div class="tit">
                 <strong>{{element.name}}</strong>
               </div>
+              <i class="ico_drag"></i>
             </li>
           </transition-group>
           <!-- <div

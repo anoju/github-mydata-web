@@ -17,7 +17,7 @@ export default {
         { to: 'IN12A001', text: '공격투자형' },
         { to: 'IN12A002', text: '적극투자형' },
         { to: 'IN12A003', text: '위험중립형' },
-        { to: 'IN12A004', text: '안전추구형' },
+        { to: 'IN12A004', text: '안정추구형' },
         { to: 'IN12A005', text: '안전형' },
       ],
     };

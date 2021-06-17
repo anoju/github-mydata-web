@@ -22,18 +22,24 @@
         </div>
 
         <div class="mypage_list">
-          <dl class="type1">
-            <dt>금융정보</dt>
-            <dd>256</dd>
-          </dl>
-          <dl class="type2">
-            <dt>찜 상품</dt>
-            <dd>256</dd>
-          </dl>
-          <dl class="type3">
-            <dt>내 서랍</dt>
-            <dd>256</dd>
-          </dl>
+          <kb-button not>
+            <dl class="type1">
+              <dt>금융정보</dt>
+              <dd>256</dd>
+            </dl>
+          </kb-button>
+          <kb-button not>
+            <dl class="type2">
+              <dt>찜 상품</dt>
+              <dd>256</dd>
+            </dl>
+          </kb-button>
+          <kb-button not>
+            <dl class="type3">
+              <dt>내 서랍</dt>
+              <dd>256</dd>
+            </dl>
+          </kb-button>
         </div>
 
         <hr aria-hidden="true" class="hr_line">
@@ -60,7 +66,7 @@
           <kb-button
             class="item_list"
           >
-            퍼소나 관리
+            투자프렌즈 설정
             <span class="mg_r8 mg_la fc_blue fz_14 fw_bold">롤로라무</span>
             <i class="ico_arrow_type1" aria-hidden="true" />
           </kb-button>

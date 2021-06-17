@@ -65,6 +65,8 @@ export default [
           render(c) { return c('router-view'); },
         },
         children: [
+          // { path: 'IN06A001', redirect: 'IN06A001/0' },
+          // { path: 'IN06A001/:tab', component: () => import('@/views/IN/06/IN06A001.vue') }, // 투자/고수의Pick
           { path: 'IN06A001', component: () => import('@/views/IN/06/IN06A001.vue') }, // 투자/고수의Pick
           { path: 'IN06A002', component: () => import('@/views/IN/06/IN06A002.vue') }, // 고수의 pick 상세
         ],

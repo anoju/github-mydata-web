@@ -161,6 +161,7 @@
         <div
           class="calendar_detail_wrap"
           :class="{expend:isFoldingCalendar}"
+          @scroll="scrollList"
         >
           <div class="no_list_txt icon">
             <strong class="tit">거래내역이 없습니다.</strong>
@@ -479,6 +480,15 @@ export default {
     },
     swipeDownEvt() {
       if (this.isFoldingCalendar && this.scrollTop === 0) this.toggleCalendar();
+    },
+    scrollList(e) {
+      const $target = e.target;
+      const $sclTop = $target.scrollTop;
+      const $sclH = $target.scrollHeight;
+      const $H = $target.offsetHeight;
+      if ($sclTop >= ($sclH - $H)) {
+        console.log('sclLast');
+      }
     },
   },
 };

@@ -237,7 +237,7 @@ export default [
     pageID: 'IN12A003', type: 'page', depth1: '투자생활', depth2: '모델포트폴리오', depth3: '위험중립형', depth4: null, etc: '', complete: '2021-04-30', change: null,
   },
   {
-    pageID: 'IN12A004', type: 'page', depth1: '투자생활', depth2: '모델포트폴리오', depth3: '안전추구형', depth4: null, etc: '', complete: '2021-04-30', change: null,
+    pageID: 'IN12A004', type: 'page', depth1: '투자생활', depth2: '모델포트폴리오', depth3: '안정추구형', depth4: null, etc: '', complete: '2021-04-30', change: null,
   },
   {
     pageID: 'IN12A005', type: 'page', depth1: '투자생활', depth2: '모델포트폴리오', depth3: '안정형', depth4: null, etc: '', complete: '2021-04-30', change: null,
@@ -615,7 +615,7 @@ export default [
     pageID: 'MY06A005', type: 'page', depth1: '마이페이지', depth2: '나의관심정보', depth3: '내자산', depth4: null, etc: null, complete: '2021-05-11', change: null,
   },
   {
-    pageID: 'MY06A001', type: 'page', depth1: '마이페이지', depth2: '나의관심정보', depth3: '찜상품', depth4: null, etc: null, complete: '2021-05-11', change: null,
+    pageID: 'MY06A001', type: 'page', depth1: '마이페이지', depth2: '나의관심정보', depth3: '찜상품', depth4: null, etc: null, complete: '2021-05-11', change: '2021-06-16',
   },
   {
     pageID: 'MY06A007', type: 'pop', depth1: '마이페이지', depth2: '나의관심정보', depth3: '찜상품', depth4: '순서편집', etc: null, complete: '2021-05-11', change: null,

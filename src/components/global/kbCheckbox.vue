@@ -23,6 +23,7 @@
       @focus="isFocus = true"
       @blur="isFocus = false"
       v-on="listeners"
+      :name="name"
     ><i aria-hidden="true" />
     <label
       v-if="!right && !!$slots.default"
@@ -65,12 +66,13 @@ export default {
     switch: { type: Boolean, default: false },
     box: { type: Boolean, default: false },
     button: { type: Boolean, default: false },
-    value: { type: [String, Number], default: null },
+    value: { type: [String, Number, Object], default: null },
     modelValue: { type: [String, Number, Boolean, Array, Object], default: null },
     trueValue: { type: [String, Number, Boolean], default: true },
     falseValue: { type: [String, Number, Boolean], default: false },
     lblClass: { type: String, default: null },
     lblStyle: { type: String, default: null },
+    name: { type: String, default: null },
   },
   data() {
     return {

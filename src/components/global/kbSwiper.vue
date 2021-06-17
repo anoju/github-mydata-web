@@ -13,6 +13,7 @@
       @transitionStart="swiperSlideChange"
       @observerUpdate="swiperAppendSlide"
       @slideChange="swiperChange"
+      @reachEnd="swiperEnd"
       :dir="dir"
     >
       <div class="swiper-wrapper">
@@ -70,6 +71,7 @@ export default {
     autoHeight: { type: Boolean, default: false },
     loop: { type: Boolean, default: false },
     autoplay: { type: Boolean, default: false },
+    delay: { type: Number, default: 3000 },
     index: { type: String, default: '0' },
     dir: { type: String, default: null },
   },
@@ -91,7 +93,7 @@ export default {
       let autoHeightOpt = false;
       if (this.autoplay) {
         autoplayOpt = {
-          delay: 2500,
+          delay: this.delay,
           // disableOnInteraction: false
         };
       }
@@ -115,13 +117,12 @@ export default {
   mounted() {
     if (this.autoplay) {
       this.isAutoplay = true;
+      // this.mySwiper.slideTo(this.index, 0, false);
+      // this.mySwiper.autoplay.start();
     }
 
     uiEventBus.$on('kbSwiperUpdate', this.swiperUpdate);
     // if (this.index > 0) {
-    //     this.mySwiper.slideTo(this.index, 0, false)
-    // }
-    // if (this.autoplay) {
     //     this.mySwiper.slideTo(this.index, 0, false)
     // }
   },
@@ -223,6 +224,11 @@ export default {
 
     swiperChange() {
       this.$emit('swiperChange', this.mySwiper.snapIndex);
+    },
+
+    swiperEnd() {
+      // console.log('end??')
+      // this.$emit('swEnd')
     },
   },
 };

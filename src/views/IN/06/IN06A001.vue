@@ -5,6 +5,7 @@
         <kb-tabs
           fixed
           content-class="mg_t0"
+          v-model="tabIdx"
         >
           <kb-tab title="나의 북마크">
             <div class="pick_top my">
@@ -494,7 +495,11 @@ export default {
   data() {
     return {
       isBookmark: true,
+      tabIdx: 0,
     };
+  },
+  mounted() {
+    // if (this.$route.params.tab !== this.tabIdx) this.tabIdx = Number(this.$route.params.tab);
   },
   methods: {
   },

@@ -122,10 +122,10 @@
               <a href="#" class="gnb_dep1_link" @click="gnbDep1Open"><span>오늘</span></a>
             </li>
             <li class="gnb_dep1_li">
-              <a href="#" class="gnb_dep1_link" @click="gnbDep1Open"><span>금융생활</span></a>
+              <a href="#" class="gnb_dep1_link" @click="gnbDep1Open"><span>투자생활</span></a>
             </li>
             <li class="gnb_dep1_li">
-              <a href="#" class="gnb_dep1_link" @click="gnbDep1Open"><span>투자생활</span></a>
+              <a href="#" class="gnb_dep1_link" @click="gnbDep1Open"><span>금융생활</span></a>
             </li>
             <li class="gnb_dep1_li">
               <a href="#" class="gnb_dep1_link" @click="gnbDep1Open"><span>내서랍</span></a>
@@ -169,14 +169,18 @@
                 >
                   총자산
                 </router-link>
-              </li>
-              <li>
-                <router-link
-                  to="/TO/02/TO02C001"
-                  @click.native="gnbClose"
-                >
-                  월 지출
-                </router-link>
+                <div class="gnb_dep3">
+                  <ul>
+                    <li>
+                      <router-link
+                        to="/TO/02/TO02A003"
+                        @click.native="gnbClose"
+                      >
+                        자산변동추이
+                      </router-link>
+                    </li>
+                  </ul>
+                </div>
               </li>
               <li>
                 <router-link
@@ -185,6 +189,66 @@
                 >
                   타임라인
                 </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/TO/02/TO02C001"
+                  @click.native="gnbClose"
+                >
+                  월 지출
+                </router-link>
+                <div class="gnb_dep3">
+                  <ul>
+                    <li>
+                      <router-link
+                        to="/TO/02/TO02C002"
+                        @click.native="gnbClose"
+                      >
+                        월 예상 잔고 체크
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        to="/TO/02/TO02C003"
+                        @click.native="gnbClose"
+                      >
+                        현금 잔고 지난 달 비교
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        to="/TO/02/TO02C004"
+                        @click.native="gnbClose"
+                      >
+                        투자 입출금 지난 달 비교
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        to="/TO/02/TO02C005"
+                        @click.native="gnbClose"
+                      >
+                        보험&amp;연금 납입 지난 달 비교
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        to="/TO/02/TO02C006"
+                        @click.native="gnbClose"
+                      >
+                        부채&amp;기타 납입 지난 달 비교
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        to="/TO/02/TO02C007"
+                        @click.native="gnbClose"
+                      >
+                        월 지출 추천 목록
+                      </router-link>
+                    </li>
+                  </ul>
+                </div>
               </li>
               <li>
                 <router-link
@@ -202,12 +266,72 @@
                   Insight 알람
                 </router-link>
               </li>
+            </ul>
+          </li>
+          <!-- //오늘 -->
+
+          <!-- 투자생활 -->
+          <li class="gnb_dep2">
+            <div class="gnb_dep2_tit"><strong>투자생활</strong></div>
+            <ul>
               <li>
                 <router-link
-                  to="/TO/01/TO01D002"
+                  to="/IN/02/IN02A001"
                   @click.native="gnbClose"
                 >
-                  내자산 QnA
+                  금융상품 검색
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/IN/05/IN05A001"
+                  @click.native="gnbClose"
+                >
+                  투자 종합자산
+                </router-link>
+                <div class="gnb_dep3">
+                  <ul>
+                    <li>
+                      <router-link
+                        to="/IN/01/IN01A001"
+                        @click.native="gnbClose"
+                      >
+                        투자자산통계
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        to="/IN/01/IN01A003"
+                        @click.native="gnbClose"
+                      >
+                        보유상품
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        to="/IN/01/IN01A005"
+                        @click.native="gnbClose"
+                      >
+                        투자자산변동
+                      </router-link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <router-link
+                  to="/IN/03/IN03A001"
+                  @click.native="gnbClose"
+                >
+                  포트폴리오 진단
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/IN/04/IN04A001"
+                  @click.native="gnbClose"
+                >
+                  주식종목 진단
                 </router-link>
               </li>
               <li>
@@ -215,12 +339,104 @@
                   to="#"
                   @click.native="gnbClose"
                 >
-                  게이미피케이션
+                  고수의 Pick
                 </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/IN/07/IN07A001"
+                  @click.native="gnbClose"
+                >
+                  가상투자
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/IN/05/IN05A001"
+                  @click.native="gnbClose"
+                >
+                  투자 습관 진단
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/IN/10/IN10A001"
+                  @click.native="gnbClose"
+                >
+                  투자상상퀴즈
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/IN/11/IN11A001"
+                  @click.native="gnbClose"
+                >
+                  추천테마
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/IN/09/IN09A001"
+                  @click.native="gnbClose"
+                >
+                  은퇴준비진단
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/IN/12/IN12A001"
+                  @click.native="gnbClose"
+                >
+                  모델 포트폴리오
+                </router-link>
+                <div class="gnb_dep3">
+                  <ul>
+                    <li>
+                      <router-link
+                        to="/IN/12/IN12A001"
+                        @click.native="gnbClose"
+                      >
+                        공격투자형
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        to="/IN/12/IN12A002"
+                        @click.native="gnbClose"
+                      >
+                        적극투자형
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        to="/IN/12/IN12A003"
+                        @click.native="gnbClose"
+                      >
+                        위험중립형
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        to="/IN/12/IN12A004"
+                        @click.native="gnbClose"
+                      >
+                        안전추구형
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        to="/IN/12/IN12A005"
+                        @click.native="gnbClose"
+                      >
+                        안정형
+                      </router-link>
+                    </li>
+                  </ul>
+                </div>
               </li>
             </ul>
           </li>
-          <!-- //오늘 -->
+          <!-- //투자생활 -->
 
           <!-- 금융생활 -->
           <li class="gnb_dep2">
@@ -337,146 +553,6 @@
             </ul>
           </li>
           <!-- //금융생활 -->
-
-          <!-- 투자생활 -->
-          <li class="gnb_dep2">
-            <div class="gnb_dep2_tit"><strong>투자생활</strong></div>
-            <ul>
-              <li>
-                <router-link
-                  to="/IN/05/IN05A001"
-                  @click.native="gnbClose"
-                >
-                  투자 진단
-                </router-link>
-                <div class="gnb_dep3">
-                  <ul>
-                    <li>
-                      <router-link
-                        to="/IN/05/IN05A001"
-                        @click.native="gnbClose"
-                      >
-                        투자습관 진단
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="/IN/04/IN04A001"
-                        @click.native="gnbClose"
-                      >
-                        주식종목 진단
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="/IN/03/IN03A001"
-                        @click.native="gnbClose"
-                      >
-                        포트폴리오 진단
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="/IN/12/IN12A001"
-                        @click.native="gnbClose"
-                      >
-                        모델 포트폴리오
-                      </router-link>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <router-link
-                  to="/IN/06/IN06A001"
-                  @click.native="gnbClose"
-                >
-                  투자정보
-                </router-link>
-                <div class="gnb_dep3">
-                  <ul>
-                    <li>
-                      <router-link
-                        to="/IN/06/IN06A001"
-                        @click.native="gnbClose"
-                      >
-                        고수의 투자정보
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="/IN/02/IN02A002"
-                        @click.native="gnbClose"
-                      >
-                        금융상품 검색
-                      </router-link>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <router-link
-                  to="#"
-                  @click.native="gnbClose"
-                >
-                  투자자산
-                </router-link>
-                <div class="gnb_dep3">
-                  <ul>
-                    <li>
-                      <router-link
-                        to="#"
-                        @click.native="gnbClose"
-                      >
-                        보유상품
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="#"
-                        @click.native="gnbClose"
-                      >
-                        투자자산 통계
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="#"
-                        @click.native="gnbClose"
-                      >
-                        투자자산 변동
-                      </router-link>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <router-link
-                  to="/IN/07/IN07A001"
-                  @click.native="gnbClose"
-                >
-                  가상투자
-                </router-link>
-              </li>
-              <li>
-                <router-link
-                  to="/IN/09/IN09A001"
-                  @click.native="gnbClose"
-                >
-                  은퇴설계
-                </router-link>
-              </li>
-              <li>
-                <router-link
-                  to="#"
-                  @click.native="gnbClose"
-                >
-                  로보 어드바이저
-                </router-link>
-              </li>
-            </ul>
-          </li>
-          <!-- //투자생활 -->
 
           <!-- 내서랍 -->
           <li class="gnb_dep2">
@@ -736,22 +812,30 @@ export default {
     gnbActive() {
       // 메뉴 active
       const $path = this.$route.path;
-      const $pathLast = $path.split('/').pop();
+      const $pathSplit = $path.split('/');
+      const $pathLast = $pathSplit.length > 4 ? $pathSplit[3] : $pathSplit.pop();
+      const $title = document.querySelector('.page_head h1').innerText;
       const $wrap = this.$el.querySelector('.gnb_dep2_wrap');
       const $li = $wrap.querySelectorAll('li');
       const $link = $wrap.querySelectorAll('a');
+      const addClass = ((element) => {
+        const $parents = this.$getParents(element, 'li');
+        $parents.forEach((li) => {
+          li.classList.add('active');
+        });
+      });
       $li.forEach((el) => {
         el.classList.remove('active');
       });
       $link.forEach((el) => {
         const $href = el.getAttribute('href');
-        const $hrefLast = $href.split('/').pop();
-        // if ($href === $path) {
-        if (($hrefLast.indexOf('#') < 0) && ($hrefLast.substr(0, 5) === $pathLast.substr(0, 5))) {
-          const $parents = this.$getParents(el, 'li');
-          $parents.forEach((li) => {
-            li.classList.add('active');
-          });
+        const $text = el.innerText;
+        const $hrefSplit = $href.split('/');
+        const $hrefLast = $hrefSplit.length > 4 ? $hrefSplit[3] : $hrefSplit.pop();
+        if ($hrefLast === $pathLast) {
+          addClass(el);
+        } else if ($title === $text) {
+          addClass(el);
         }
       });
     },

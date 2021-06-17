@@ -2,6 +2,16 @@
   <kb-page page-title="추천테마">
     <kb-page-body>
       <div class="section theme_wrap">
+
+        <!-- <kb-tabs
+          v-model="tabIdx"
+          class="theme_tab"
+        >
+          <template v-for="(data, i) in dataTest">
+            <kb-tab :title="data.name" :tab-style="`background:${data.color}`" :key="i" />
+          </template>
+        </kb-tabs> -->
+
         <!-- <kb-tabs
           v-model="tabIdx"
           class="theme_tab"
@@ -35,6 +45,7 @@
               button
               value="1"
               lbl-style="background:#3bae6c"
+              name="radioName"
             >
               바이오
             </kb-radio>
@@ -43,6 +54,7 @@
               button
               value="2"
               lbl-style="background:#3e61ba"
+              name="radioName"
             >
               스마트폰
             </kb-radio>
@@ -51,6 +63,7 @@
               button
               value="3"
               lbl-style="background:#74cacc"
+              name="radioName"
             >
               디스플레이
             </kb-radio>
@@ -59,6 +72,7 @@
               button
               value="4"
               lbl-style="background:#7040b1"
+              name="radioName"
             >
               전기차
             </kb-radio>
@@ -67,6 +81,7 @@
               button
               value="5"
               lbl-style="background:#3bae6c"
+              name="radioName"
             >
               패션
             </kb-radio>
@@ -183,6 +198,14 @@ export default {
       isLike2: false,
       toggleVal1: '1',
       toggleVal2: '1',
+
+      dataTest: [
+        { name: '바이오', color: '#3bae6c' },
+        { name: '스마트폰', color: '#3e61ba' },
+        { name: '디스플레이', color: '#74cacc' },
+        { name: '전기차', color: '#7040b1' },
+        { name: '패션', color: '#3bae6c' },
+      ],
     };
   },
   methods: {

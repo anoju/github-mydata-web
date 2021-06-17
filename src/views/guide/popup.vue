@@ -75,9 +75,15 @@
       <kb-button-wrap>
         <kb-button
           line
+          @click="showToast('토스트팝업 메세지', null, true)"
+        >
+          토스트 다중팝업열기
+        </kb-button>
+        <kb-button
+          line
           @click="showToast('토스트팝업 메세지')"
         >
-          토스트 팝업열기
+          토스트 단일팝업열기
         </kb-button>
         <kb-button
           line
@@ -269,9 +275,14 @@ export default {
         }
       });
     },
-    showToast(msg, link = null) {
+    showToast(msg, link = null, multiple = false) {
       // console.log(msg);
-      this.$toast(msg + this.idx, link);
+      if (multiple) {
+        this.$toast(msg + this.idx, link);// 다중 토스트
+      } else {
+        this.$toastOnce(msg + this.idx, link); // 단일 토스트
+      }
+
       this.idx += 1;
     },
     showAlarm(msg, link = null) {

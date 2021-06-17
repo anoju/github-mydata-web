@@ -6,7 +6,7 @@
           <kb-title-bar
             h2
             tit-tag="h1"
-            title="오늘과 지난 달 2일의<br>잔고를 비교하면?"
+            title="오늘과 지난 달의<br>잔고를 비교하면?"
           />
 
           <!-- chart -->

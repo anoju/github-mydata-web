@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import uiEventBus from '../uiEventBus.vue';
+
 export default {
   name: 'kbPopBody',
   data() {
@@ -87,6 +89,9 @@ export default {
             $nextEl.classList.remove('shadow');
           }
         }
+      }
+      if (Math.abs((bodySclH - bodyH) - sclTop) < 1) {
+        uiEventBus.$emit('popScroll');
       }
     },
   },

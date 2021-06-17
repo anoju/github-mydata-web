@@ -2,7 +2,7 @@
   <div class="section">
     <div class="in_chart_item mg_t40">
       <div class="tit">
-        <div class="name"><strong class="line">안전추구형</strong></div>
+        <div class="name"><strong class="line">안정추구형</strong></div>
         <div class="fz_16">투자원금의 손실 위험을 최소화하고, 안정적인 투자를 목표로 하는 성향입니다.</div>
       </div>
       <div class="summary">따라서, 당사 금융투자상품별 위험도 분류 기준상 저위험에 해당하는 상품을 권해드립니다.</div>

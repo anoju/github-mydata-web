@@ -1,6 +1,6 @@
 <template>
   <div class="main_to_wrap">
-    <kb-swiper class="main_to_swiper" loop autoplay>
+    <kb-swiper class="main_to_swiper" autoplay :delay="3500">
       <swiper-slide>
         <div class="item">
           <div class="inner">

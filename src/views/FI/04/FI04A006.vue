@@ -10,6 +10,9 @@
     <kb-pop-body>
       <div class="financial_memo">
         <p class="tit">카테고리 선택</p>
+        <!-- 2021-06-16 카테고리 소분류 추가 -->
+        <p class="mg_t12 mg_b8 fz_12 fc_666">입금</p>
+        <!-- //2021-06-16 카테고리 소분류 추가 -->
         <ul class="memo_list" ref="memoList" :class="{editDelete:this.isDelete}">
           <!-- 내가 직접 입력한 항목만 클래스 self 추가 -->
           <li class="self">
@@ -60,6 +63,57 @@
             <a href="#" @click="memoClick($event,'self')">
               <i class="ico0"></i>
               <p class="text">+직접입력</p>
+            </a>
+          </li>
+        </ul>
+
+        <!-- 2021-06-16 카테고리 소분류 추가 -->
+        <p class="mg_t24 mg_b8 fz_12 fc_666">출금</p>
+        <!-- //2021-06-16 카테고리 소분류 추가 -->
+        <ul class="memo_list" ref="memoList" :class="{editDelete:this.isDelete}">
+          <!-- 내가 직접 입력한 항목만 클래스 self 추가 -->
+          <li class="self">
+            <a href="#" @click="memoClick($event)">
+              <i class="ico1"></i>
+              <p class="text">직접입력함
+                최대10자</p>
+            </a>
+          </li>
+          <li class="self">
+            <a href="#" @click="memoClick($event)">
+              <i class="ico2"></i>
+              <p class="text">카테고리</p>
+            </a>
+          </li>
+          <li class="self">
+            <a href="#" @click="memoClick($event)">
+              <i class="ico3"></i>
+              <p class="text">카테고리</p>
+            </a>
+          </li>
+          <li>
+            <a href="#" @click="memoClick($event)">
+              <i class="ico4"></i>
+              <p class="text">카테고리</p>
+            </a>
+          </li>
+          <li>
+            <a href="#" @click="memoClick($event)">
+              <i class="ico1"></i>
+              <p class="text">직접입력함
+                최대10자</p>
+            </a>
+          </li>
+          <li>
+            <a href="#" @click="memoClick($event)">
+              <i class="ico2"></i>
+              <p class="text">카테고리</p>
+            </a>
+          </li>
+          <li>
+            <a href="#" @click="memoClick($event)">
+              <i class="ico4"></i>
+              <p class="text">카테고리</p>
             </a>
           </li>
         </ul>

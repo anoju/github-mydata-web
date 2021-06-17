@@ -106,10 +106,12 @@ export default {
     this.$toastBoxInstance = null;
   },
   methods: {
-    addToast(text, link, type) {
+    addToast(text, link, type, multiple = false) {
       // if (!this.isToastOpen) return;
       // this.isToastOpen = true;
       const index = this.toastIdx;
+      if (multiple) this.toastAry = [];
+      this.toastIdx += 1;
       this.toastAry.push({
         idx: index,
         text,
@@ -118,7 +120,6 @@ export default {
         show: false,
         noEf: false,
       });
-      this.toastIdx += 1;
 
       // 열림
       this.onToastOpen();
@@ -139,6 +140,7 @@ export default {
     onToastClose(index) {
       const idx = Number(index);
       const aryIdx = this.toastAry.findIndex((item) => item.idx === idx);
+      if (aryIdx === -1) return;
       this.toastAry[aryIdx].noEf = false;
       this.toastAry[aryIdx].show = false;
       setTimeout(() => {

@@ -213,7 +213,7 @@ export default {
   methods: {
     clickEvt(e) {
       let isChecked = false;
-      if (this.aTag) e.preventDefault();
+      if (this.aTag && this.href === '#') e.preventDefault();
       if (!this.isClick && !this.disabled) {
         if (this.$el.classList.contains('checked'))isChecked = true;
         const { $el } = this;

@@ -1444,7 +1444,7 @@ span.gd__box{
 	}
 	.item{
 		position:relative;display:flex;height:64px;justify-content:space-between;align-items:center;padding-right:24px;
-		&:after{content:'';display:block;width:24px;height:24px;position:absolute;right:0;top:50%;margin-top:-12px;
+		.ico_drag{display:block;width:24px;height:100%;position:absolute;right:0;top:0;
 			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cpath d='M0 0H24V24H0z' transform='translate(-316 -100) translate(20 80) translate(296 20)'/%3E%3Cpath fill='%23DDD' d='M4 7H20V8.5H4zM4 11.5H20V13H4zM4 16H20V17.5H4z' transform='translate(-316 -100) translate(20 80) translate(296 20)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A") no-repeat center center / contain;
 		}
 		+.item{border-top:1px solid #ddd;}

@@ -15,7 +15,7 @@
             <i class="line"></i>
             <kb-button aTag not>맨아래</kb-button>
           </div>
-          <draggable class="list_group" tag="div" v-model="list" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false">
+          <draggable class="list_group" tag="div" v-model="list" v-bind="dragOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false" handle=".ico_drag">
             <transition-group tag="ul" type="transition" :name="'drag-list'">
               <li class="list_group_item" v-for="element in list" :key="element.order">
                 <kb-checkbox

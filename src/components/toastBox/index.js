@@ -13,6 +13,7 @@ function ToastBox() {
 
       this.installed = true;
       Vue.prototype.$toast = this.toast;
+      Vue.prototype.$toastOnce = this.toastOnce;
       Vue.prototype.$alarm = this.alarm;
 
       Object.defineProperty(Vue.prototype, '$toastBoxInstance', {
@@ -27,6 +28,9 @@ function ToastBox() {
 
     toast(text, link, type) {
       toastBox.instance.addToast(text, link, type);
+    },
+    toastOnce(text, link, type) {
+      toastBox.instance.addToast(text, link, type, true);
     },
     alarm(text, link) {
       toastBox.instance.addAlarm(text, link);

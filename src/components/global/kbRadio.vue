@@ -23,6 +23,7 @@
       @focus="isFocus = true"
       @blur="isFocus = false"
       v-on="listeners"
+      :name="name"
     ><i aria-hidden="true" />
     <label
       v-if="!right && !!$slots.default"
@@ -70,6 +71,7 @@ export default {
     falseValue: { type: Boolean, default: false },
     lblClass: { type: String, default: null },
     lblStyle: { type: String, default: null },
+    name: { type: String, default: null },
   },
   data() {
     return {

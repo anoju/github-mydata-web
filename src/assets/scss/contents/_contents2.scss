@@ -1814,19 +1814,21 @@
 }
 
 .mypage_list { display:flex; margin:32px -20px;
-  dl {flex:1 1 auto; width:33.333%; text-align:center;
-    dt { margin-bottom:8px; font-size:14px; color:#666; line-height:1.43;}
-    dd { font-size:20px; font-weight:bold;
-      &:before { display:none; content:''; width:24px; height:24px; margin-top:-4px; vertical-align: middle;}
-    }
+  .button {flex:1 1 auto; width:33.333%;
+    dl { text-align:center;
+      dt { margin-bottom:8px; font-size:14px; color:#666; line-height:1.43;}
+      dd { font-size:20px; font-weight:bold;
+        &:before { display:none; content:''; width:24px; height:24px; margin-top:-4px; vertical-align: middle;}
+      }
 
-    & + dl { border-left:1px solid #eee;}
-  }
-  .type1 {
-    dd:before { display:inline-block; background:url('~@/assets/images/common/btn_star_on.png') no-repeat center center /100%;}
-  }
-  .type2 {
-    dd:before { display:inline-block; background:url('~@/assets/images/common/btn_like_on.png') no-repeat center center /100%;}
+    }
+    .type1 {
+      dd:before { display:inline-block; background:url('~@/assets/images/common/btn_star_on.png') no-repeat center center /100%;}
+    }
+    .type2 {
+      dd:before { display:inline-block; background:url('~@/assets/images/common/btn_like_on.png') no-repeat center center /100%;}
+    }
+    & + .button { border-left:1px solid #eee;}
   }
 }
 
@@ -1835,11 +1837,11 @@
     .checkbox.no_style { min-width:16px; min-height:16px;
       >input { width:16px; height:16px;}
       i { width:16px; height:16px;
-        &:before { transform: scale(1); background:url('~@/assets/images/common/ico_checkbox_off.png') no-repeat center center / 100%}
+        &:after {width:100%;height:100%;left:0;top:0;border:0 none;transform: scale(1); background:url('~@/assets/images/common/ico_checkbox_off.png') no-repeat center center / 100%;}
       }
       > .lbl { margin-left:20px; padding-left:0; line-height:1.5; font-size:12px; color:#666;}
       input:checked + i {
-        &:before { background:url('~@/assets/images/common/ico_checkbox.png') no-repeat center center / 100%}
+        &:after { background:url('~@/assets/images/common/ico_checkbox.png') no-repeat center center / 100%}
       }
     }
 
@@ -1850,10 +1852,11 @@
   }
   ul { border-top:1px solid #eeeeee; margin-top:15px;
     &.bd_t0 { border-top:0;}
-    li { display:flex; padding:20px 0; border-bottom:1px solid #eeeeee; align-items: center;
-      .checkbox { flex:1 1 auto; display:flex; margin-right:0;
-        > i { top:50%; transform: translateY(-50%);}
-        .lbl { display:flex; flex:1 1 auto; align-items: center;}
+    li { display:flex; padding:20px 0; border-bottom:1px solid #eeeeee; align-items: center;overflow:hidden;
+      .checkbox {flex: 0 0 22px;margin:0 12px 0 1px;}
+      .text_box_wrap{
+        flex:1 1 auto; display:flex; margin-right:0;align-items: center;
+        &.button{flex:1 1 auto;width:100%;height:auto;overflow:visible;margin-left:0;}
       }
       .text_box { overflow:hidden;
         .kind { margin-bottom:3px;

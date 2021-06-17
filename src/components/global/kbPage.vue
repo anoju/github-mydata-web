@@ -276,41 +276,46 @@ export default {
       el.removeAttribute('style');
     },
     represhPullStart(e) {
-      if (e.type !== 'touchstart' || this.isPageRefresh) return;
+      if (e.type !== 'touchstart' || this.isPageRefresh || this.isMainLayer || document.querySelector('.lock') !== null) return;
       if (this.$el.scrollTop === 0) {
+        this.touchStartY = e.touches[0].clientY;
+        const $header = this.$refs.header;
+        const $headerH = $header.$el.offsetHeight;
+        if (this.touchStartY > $headerH) return;
         this.isPullTouch = true;
         this.isPullShow = true;
         this.pullDistance = 0;
-        this.touchStartY = e.touches[0].clientY;
       }
     },
     represhPullMoving(e) {
-      if (e.type !== 'touchmove') return;
-      if (this.isPullTouch && !this.isPageRefresh) {
+      if (e.type !== 'touchmove' || this.isMainLayer || document.querySelector('.lock') !== null) return;
+      if (this.isPullShow && !this.isPageRefresh) {
         const move = e.touches[0].clientY - this.touchStartY;
         this.pullDistance = Math.max(0, move);
 
         const $wrap = this.$refs.refreshWrap;
         const $ratio = this.pullDistance / this.pullRefreshTop;
+        // if ($wrap.querySelector('.ico') !== null) {
         this.$anime({
           targets: $wrap.querySelector('.ico'),
           opacity: Math.min(1, $ratio),
           scale: Math.min(1, $ratio),
-          rotate: ($ratio * 360),
+          rotate: -($ratio * 360),
           easing: 'linear',
           duration: 10,
         });
+        // }
       }
     },
     represhPullEnd() {
       const $wrap = this.$refs.refreshWrap;
       this.isPullTouch = false;
-      if (!this.isPullShow || this.isPageRefresh) return;
+      if (!this.isPullShow || this.isPageRefresh || this.isMainLayer || document.querySelector('.lock') !== null) return;
       if (this.pullDistance > this.pullRefreshTop) {
         // console.log('새로고침!!');
         this.$anime({
           targets: $wrap.querySelector('.ico_in'),
-          rotate: 360,
+          rotate: -360,
           easing: 'linear',
           loop: true,
         });
@@ -351,12 +356,13 @@ export default {
     pageRefresh() {
       this.isPageRefresh = true;
       // window.location.reload();
-      console.log('데이타 불러오는 중');
+      this.represhReset();
+      this.$loading(true, '업데이트 중이에요', 'C');
 
-      // 임시로 setTimeout 설정
+      // 데이터 불러오는곳 삽입: 임시로 setTimeout 설정
       setTimeout(() => {
         console.log('데이타 불러오기 완료');
-        this.represhReset();
+        this.$loading(false);
       }, 5000);
     },
   },
