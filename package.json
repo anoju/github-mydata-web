@@ -1,12 +1,10 @@
 {
   "name": "kbstock-mydata-web",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "doc": "jsdoc -c jsdoc-conf.json"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "animejs": "^3.2.1",
