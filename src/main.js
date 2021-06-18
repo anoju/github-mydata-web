@@ -70,11 +70,12 @@ Vue.prototype.$anime = anime;
        * 데이터로딩 등 필요한 정보 세팅후
        * 문제가 없으면 app mount한다
        */
-      (async () => {
-        await processUtil.await(null, 1); // 테스트 await
-        console.error('main.js : lifecycle : created');
-        this.$mount('#app');
-      })();
+      // (async () => {
+      //   await processUtil.await(null, 1); // 테스트 await
+      //   console.error('main.js : lifecycle : created');
+      //   this.$mount('#app');
+      // })();
+      this.$mount('#app');
     },
     beforeMount() {
       console.error('main.js : lifecycle : before mount');
