@@ -1,54 +1,54 @@
 {
-  "name": "kbstock-mydata-web",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "vue-cli-service serve --mode development",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "doc": "jsdoc -c jsdoc-conf.json"
-  },
-  "dependencies": {
-    "animejs": "^3.2.1",
-    "axios": "^0.21.1",
-    "chart.js": "^2.9.4",
-    "core-js": "^3.6.5",
-    "immer": "^8.0.1",
-    "jquery": "^3.6.0",
-    "lodash": "^4.17.20",
-    "swiper": "5.x",
-    "vue": "^2.6.11",
-    "vue-awesome-swiper": "^4.1.1",
-    "vue-click-outside": "^1.1.0",
-    "vue-json-tree-view": "^2.1.6",
-    "vue-lodash": "^2.1.2",
-    "vue-router": "^3.4.9",
-    "vue-slider-component": "^3.2.11",
-    "vue2-touch-events": "^3.1.1",
-    "vuedraggable": "^2.24.3",
-    "vuelidate": "^0.7.6",
-    "vuex": "^3.6.0",
-    "vuex-pathify": "^1.4.5"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "^4.5.10",
-    "@vue/eslint-config-airbnb": "^5.0.2",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-vue": "^6.2.2",
-    "jsdoc": "^3.6.6",
-    "json-server": "^0.16.3",
-    "sass": "^1.19.0",
-    "sass-loader": "^8.0.0",
-    "tui-jsdoc-template": "^1.2.2",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+    "name": "vue-nhcard",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "vue-cli-service serve --mode development",
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint",
+        "doc": "jsdoc -c jsdoc-conf.json"
+    },
+    "dependencies": {
+        "animejs": "^3.2.1",
+        "axios": "^0.21.1",
+        "chart.js": "^2.9.4",
+        "core-js": "^3.6.5",
+        "immer": "^8.0.1",
+        "jquery": "^3.6.0",
+        "lodash": "^4.17.20",
+        "swiper": "5.x",
+        "vue": "^2.6.11",
+        "vue-awesome-swiper": "^4.1.1",
+        "vue-click-outside": "^1.1.0",
+        "vue-json-tree-view": "^2.1.6",
+        "vue-lodash": "^2.1.2",
+        "vue-router": "^3.4.9",
+        "vue-slider-component": "^3.2.11",
+        "vue2-touch-events": "^3.1.1",
+        "vuedraggable": "^2.24.3",
+        "vuelidate": "^0.7.6",
+        "vuex": "^3.6.0",
+        "vuex-pathify": "^1.4.5"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "~4.5.0",
+        "@vue/cli-plugin-eslint": "~4.5.0",
+        "@vue/cli-service": "^4.5.10",
+        "@vue/eslint-config-airbnb": "^5.0.2",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^6.8.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-vue": "^6.2.2",
+        "jsdoc": "^3.6.6",
+        "json-server": "^0.16.3",
+        "sass": "^1.19.0",
+        "sass-loader": "^8.0.0",
+        "tui-jsdoc-template": "^1.2.2",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ]
 }

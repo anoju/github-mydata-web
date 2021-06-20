@@ -1,5 +1,7 @@
-const isDev = (process.env.NODE_ENV !== 'production');
+const isDev = process.env.VUE_APP_BUILD === 'development';
+
 module.exports = {
+  // publicPath: '/vue-NHCard/',
   css: {
     sourceMap: isDev,
     loaderOptions: {
@@ -8,20 +10,4 @@ module.exports = {
       },
     },
   },
-  // devServer: {
-  //   proxy: {
-  //     '/api': {
-  //       target: 'http://localhost:8080',
-  //       pathRewrite: { '^/api': '' },
-  //     },
-  //     '/kings': {
-  //       target: 'http://14.35.234.7:8081',
-  //       changeOrigin: true,
-  //       pathRewrite: {
-  //         '^/kings': '',
-  //       },
-  //     },
-  //   },
-  //   port: 8082,
-  // },
 };

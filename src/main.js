@@ -5,12 +5,12 @@ import VueAwesomeSwiper from 'vue-awesome-swiper';
 
 import produce from 'immer';
 
-import processUtil from '@/utils/processUtil';
+// import processUtil from '@/utils/processUtil';
 
 // import router from '@/router';
 import Vue2TouchEvents from 'vue2-touch-events';
 import anime from 'animejs/lib/anime.es';
-import customRouter from './plugins/router';
+import router from '@/router';
 import App from './App.vue';
 import store from './store';
 
@@ -52,44 +52,50 @@ Vue.use(commonUI);
 
 Vue.prototype.$anime = anime;
 
-(async () => {
-  const router = await customRouter.createRouter(); // 라우터생성
-  console.error('main.js : router created');
+new Vue({
+  router,
+  store,
+  render: (h) => h(App),
+}).$mount('#app');
 
-  const app = new Vue({
-    router,
-    store,
-    data: {
-      mounted: false,
-    },
-    beforeCreate() {
-      console.error('main.js : lifecycle : beforeCreate');
-    },
-    created() {
-      /**
-       * 데이터로딩 등 필요한 정보 세팅후
-       * 문제가 없으면 app mount한다
-       */
-      (async () => {
-        await processUtil.await(null, 1); // 테스트 await
-        console.error('main.js : lifecycle : created');
-        this.$mount('#app');
-      })();
-    },
-    beforeMount() {
-      console.error('main.js : lifecycle : before mount');
-    },
-    mounted() {
-      console.error('main.js : lifecycle : mounted');
-      this.mounted = true;
-    },
-    render: (h) => h(App),
-  });
+// (async () => {
+//   const router = await customRouter.createRouter(); // 라우터생성
+//   console.error('main.js : router created');
 
-  // 디버깅을 위한 설정
-  if (process.env.NODE_ENV === 'development') {
-    console.log('process.env.NODE_ENV', process.env.NODE_ENV);
-    window.store = store;
-    window.app = app;
-  }
-})();
+//   const app = new Vue({
+//     router,
+//     store,
+//     data: {
+//       mounted: false,
+//     },
+//     beforeCreate() {
+//       console.error('main.js : lifecycle : beforeCreate');
+//     },
+//     created() {
+//       /**
+//        * 데이터로딩 등 필요한 정보 세팅후
+//        * 문제가 없으면 app mount한다
+//        */
+//       (async () => {
+//         await processUtil.await(null, 1); // 테스트 await
+//         console.error('main.js : lifecycle : created');
+//         this.$mount('#app');
+//       })();
+//     },
+//     beforeMount() {
+//       console.error('main.js : lifecycle : before mount');
+//     },
+//     mounted() {
+//       console.error('main.js : lifecycle : mounted');
+//       this.mounted = true;
+//     },
+//     render: (h) => h(App),
+//   });
+
+//   // 디버깅을 위한 설정
+//   if (process.env.NODE_ENV === 'development') {
+//     console.log('process.env.NODE_ENV', process.env.NODE_ENV);
+//     window.store = store;
+//     window.app = app;
+//   }
+// })();
