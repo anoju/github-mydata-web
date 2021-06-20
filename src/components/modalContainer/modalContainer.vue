@@ -133,10 +133,13 @@ export default {
       wrap.classList.remove('show');
       if (idx > 0)wrap.previousSibling.setAttribute('aria-hidden', false);
       if (idx === 0) uiEventBus.$emit('unlock-wrap');
-      const focusEl = modal.returnFocus;
+      let focusEl = modal.returnFocus;
       setTimeout(() => {
         this.modals.splice(idx, 1);
-        if (focusEl !== undefined && typeof focusEl !== 'object')focusEl.focus();
+        if (focusEl !== undefined) {
+          if (focusEl.closest('.button') !== null) focusEl = focusEl.closest('.button');
+          focusEl.focus();
+        }
         this.isClosing = false;
       }, 600);
     },

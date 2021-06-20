@@ -1,5 +1,5 @@
 <template>
-  <kb-page page-title="거래내역">
+  <kb-page page-title="주문체결내역">
     <kb-page-body>
       <div class="section">
         <kb-tabs
@@ -7,8 +7,7 @@
           content-class="mg_t0"
         >
           <kb-tab
-            title="주문 내역"
-            active
+            title="체결내역"
           >
             <!-- 내용없음 -->
             <div class="assets_none_box" v-if="dataNone">
@@ -80,7 +79,7 @@
 
           </kb-tab>
           <kb-tab
-            title="완료 내역"
+            title="체결예정내역"
           >
             <!-- 2021-05-12 기획 변경에 따른 내용변경 -->
             <div class="transactional_info" v-if="!dataNone">

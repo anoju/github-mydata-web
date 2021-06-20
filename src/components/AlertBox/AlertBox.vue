@@ -117,13 +117,16 @@ export default {
     },
     onClose(result) {
       this.$el.classList.remove('show');
-      const focusEl = this.message.returnFocus;
+      let focusEl = this.message.returnFocus;
       this.message.resolve(result);
       setTimeout(() => {
         this.queue.splice(0, 1);
         this.isOpen = false;
         if (document.querySelectorAll('.popup').length === 1) uiEventBus.$emit('unlock-wrap');
-        if (focusEl !== null && focusEl !== undefined)focusEl.focus();
+        if (focusEl !== undefined) {
+          if (focusEl.closest('.button') !== null) focusEl = focusEl.closest('.button');
+          focusEl.focus();
+        }
       }, 600);
     },
   },

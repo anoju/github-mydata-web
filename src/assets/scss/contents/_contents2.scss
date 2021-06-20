@@ -1802,7 +1802,7 @@
 
 /* 마이페이지 */
 .mypage_user { display:flex; margin-top:24px;
-  .user_img { overflow:visible; position:relative; width:44px; height:44px; margin-right:16px; border-radius:50%; background:#eeeeee;
+  .user_img {position:relative; width:44px; height:44px; margin-right:16px;
     &:after { content:''; display:block; position:absolute; right:-1px; bottom:-1px; width:16px; height:16px; background:url('~@/assets/images/MY/ico_edit.png') no-repeat center center / 100%;}
   }
   .text_box {
@@ -2180,7 +2180,7 @@
       .text { position:absolute; top:50%; right:12px; font-size:10px; transform:translateY(-50%)}
     }
 
-    .img { overflow:visible; display:block; position:absolute; top:36px; right:24px; width:44px; height:44px; border-radius:50%; font-size:0; background:skyblue no-repeat center center /100%;
+    .img { display:block; position:absolute; top:36px; right:24px; width:44px; height:44px;font-size:0;
       &:after { content:''; display:block; position:absolute; bottom:0; right:0; width:16px; height:16px; background:url('~@/assets/images/TO/01/ico_edit.png') no-repeat center center / 100%}
     }
   }

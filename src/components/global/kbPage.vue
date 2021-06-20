@@ -276,7 +276,7 @@ export default {
       el.removeAttribute('style');
     },
     represhPullStart(e) {
-      if (e.type !== 'touchstart' || this.isPageRefresh || this.isMainLayer || document.querySelector('.lock') !== null) return;
+      if (e.type !== 'touchstart' || this.isPageRefresh || this.isMainLayer || this.noHeader || this.isAPI || document.querySelector('.lock') !== null) return;
       if (this.$el.scrollTop === 0) {
         this.touchStartY = e.touches[0].clientY;
         const $header = this.$refs.header;
@@ -288,7 +288,7 @@ export default {
       }
     },
     represhPullMoving(e) {
-      if (e.type !== 'touchmove' || this.isMainLayer || document.querySelector('.lock') !== null) return;
+      if (e.type !== 'touchmove' || this.isMainLayer || this.noHeader || this.isAPI || document.querySelector('.lock') !== null) return;
       if (this.isPullShow && !this.isPageRefresh) {
         const move = e.touches[0].clientY - this.touchStartY;
         this.pullDistance = Math.max(0, move);
@@ -310,7 +310,7 @@ export default {
     represhPullEnd() {
       const $wrap = this.$refs.refreshWrap;
       this.isPullTouch = false;
-      if (!this.isPullShow || this.isPageRefresh || this.isMainLayer || document.querySelector('.lock') !== null) return;
+      if (!this.isPullShow || this.isPageRefresh || this.isMainLayer || this.noHeader || this.isAPI || document.querySelector('.lock') !== null) return;
       if (this.pullDistance > this.pullRefreshTop) {
         // console.log('새로고침!!');
         this.$anime({

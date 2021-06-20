@@ -67,6 +67,7 @@
           :style="LayerStyle"
         >
           <router-view />
+          <div class="mask" v-if="!isLayerFull && !isLayerTouch"></div>
           <div
             class="ui-touch"
             aria-hidden="true"

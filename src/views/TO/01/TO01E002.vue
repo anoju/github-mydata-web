@@ -95,6 +95,7 @@ export default {
     return {
       radioVal1: '1',
       radioVal2: '1',
+      fmVal1: '',
     };
   },
   methods: {

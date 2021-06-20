@@ -544,11 +544,11 @@ export default [
   },
   // 거래내역 조회
   {
-    pageID: 'MY04A014', type: 'page', depth1: 'MY PAGE', depth2: '거래내역 조회', depth3: '', depth4: '', etc: null, complete: '2020-04-19', change: null,
+    pageID: 'MY04A014', type: 'page', depth1: 'MY PAGE', depth2: '체결내역,체결예정내역', depth3: '', depth4: '', etc: null, complete: '2020-04-19', change: null,
   },
-  {
-    pageID: 'MY04A019', type: 'pop', depth1: 'MY PAGE', depth2: '거래내역', depth3: '상세주문내역', depth4: '', etc: null, complete: '2020-04-16', change: null,
-  },
+  // {
+  //   pageID: 'MY04A019', type: 'pop', depth1: 'MY PAGE', depth2: '거래내역', depth3: '상세주문내역', depth4: '', etc: null, complete: '2020-04-16', change: null,
+  // },
   // {
   //   pageID: 'UT15D011', type: 'pop', depth1: 'MY PAGE', depth2: '거래내역', depth3: '상세주문내역', depth4: '', etc: null, complete: '2020-04-16', change: null,
   // },

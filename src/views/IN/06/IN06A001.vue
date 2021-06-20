@@ -250,7 +250,7 @@
           <kb-tab title="자본포스">
             <div class="pick_top ico3">
               <p class="stit">끼리끼리 놀아요~</p>
-              <strong>동레벨 고수의 Pick</strong>
+              <strong>자본렙 비슷한 고수의 Pick</strong>
               <p class="tip_tit">#네가 사는 그 종목</p>
               <p class="tip_tit">#조금 벌어요, 많이 벌어요, 무지 벌어요</p>
               <i class="ico"></i>
@@ -291,8 +291,8 @@
 
           <kb-tab title="운빨충만">
             <div class="pick_top ico4">
-              <p class="stit">운빨도 실력</p>
-              <strong>운빨 최고 고수의 Pick</strong>
+              <p class="stit">가진 건 운 밖에~</p>
+              <strong>최고조 운빨력 고수의 Pick</strong>
               <p class="tip_tit">#뒤로 넘어져도 고수익</p>
               <p class="tip_tit">#사면 오르go, 팔면 오르go, 사면 빠지go</p>
               <i class="ico"></i>

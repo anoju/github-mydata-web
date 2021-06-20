@@ -45,7 +45,7 @@
 
         <hr aria-hidden="true" class="hr_line mg_t24">
 
-        <template v-if="false">
+        <template v-if="true">
           <kb-title-bar
             h3
             class="mg_t32"

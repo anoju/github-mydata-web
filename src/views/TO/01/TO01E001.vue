@@ -20,7 +20,7 @@
                 <kb-button link class="fz_12 fc_666">나의 레벨 지도 보기 <i aria-hidden="true" class="bt_ic_arr"></i></kb-button>
               </div>
 
-              <kb-button not aTag class="img ico1">
+              <kb-button not aTag class="img">
                 <!--
                   케릭터 이미지 별 클래스 정의
                   루나키키 : ico1
@@ -30,15 +30,14 @@
                   멜랑콜리 : ico5
                   의문의 낯선자 : ico6
                 -->
-                <i class="character_ico"></i>
+                <i class="character_ico ico1"></i>
               </kb-button>
             </div>
           </div>
 
-          <kb-tabs type2 class="mg_t40">
+          <kb-tabs type2 class="mg_t40" v-model="tabIdx">
             <kb-tab
               title="오늘의 퀘스트"
-              active
             >
               <!-- 오늘의 퀘스트 -->
               <p class="quest_count">1/200</p>
@@ -262,12 +261,16 @@ export default {
   name: 'TO01E001',
   data() {
     return {
+      tabIdx: 0,
       noData: false,
       userInfo: { level: 'level1', point: 30, total: 50 },
       levelText: '무엇이든 살 수 있는 <br />재력가 버프',
       point: '10',
       swipeBtn: 1,
     };
+  },
+  mounted() {
+    if (this.$route.params.tab !== this.tabIdx) this.tabIdx = Number(this.$route.params.tab);
   },
   methods: {
     pointUp() {

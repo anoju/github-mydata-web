@@ -1,5 +1,5 @@
 <template>
-  <kb-page page-title="주식투자습관진단">
+  <kb-page page-title="투자습관진단">
     <kb-page-body class="pd_b0">
       <kb-tabs
         fixed

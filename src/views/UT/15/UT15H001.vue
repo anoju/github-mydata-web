@@ -88,15 +88,23 @@
       </div>
       <kb-button-wrap bottom-fixed>
         <kb-button
+          v-if="isStart"
           yellow
           to="/UT/02/UT02A005"
         >
-          등록
+          시작하기
+        </kb-button>
+        <kb-button
+          v-else
+          yellow
+          to="/TO/00"
+        >
+          닫기
         </kb-button>
       </kb-button-wrap>
     </div>
 
-    <a href="#" class="btn_skip" @click="btnSkip">건너띄기</a>
+    <kb-button a-tag class="btn_skip" @click="btnSkip">건너띄기</kb-button>
   </div>
 </template>
 <script>
@@ -105,17 +113,25 @@ export default {
   data() {
     return {
       skip: false,
+      prevRoute: null,
+      isStart: false,
     };
+  },
+  beforeRouteEnter(to, from, next) {
+    next((vm) => {
+      vm.prevRoute = from;
+    });
   },
   mounted() {
     this.section01();
+    if (this.prevRoute.path === '/UT/02/UT02A004') this.isStart = true;
+    console.log(this.prevRoute.path, this.isStart);
   },
   methods: {
     btnSkip() {
       this.skip = true;
       document.querySelector('.coach_animation_Wrap .sec08').classList.add('active');
     },
-
     section01() {
       const $this = this;
       const ani = $this.$anime.timeline({
@@ -503,7 +519,10 @@ export default {
 </script>
 <style scoped lang="scss">
   .coach_animation_Wrap { overflow:hidden; position:absolute; top:0; left:0; bottom:0; width:100%;
-    .btn_skip { position:fixed; bottom:5.56vw; right:5.56vw; width:28.33vw; height:12.22vw; ;font-size:0; background:url('~@/assets/images/UT/15/btn_skip.png') no-repeat center center / 100%; animation: fadeIn .6s ease 1.5s both;}
+    .btn_skip {
+      position:fixed; bottom:5.56vw; right:5.56vw; width:28.33vw; height:12.22vw; ;font-size:0; animation: fadeIn .6s ease 1.5s both;padding:0;border-radius:0;line-height:inherit;
+      background:url('~@/assets/images/UT/15/btn_skip.png') no-repeat center center / 100%;
+    }
     & > div {  visibility: hidden; position:absolute; top:0; left:0; bottom:0; width:100%; transition:all .3s ease; opacity:0;
       // overflow:hidden;
     }

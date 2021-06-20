@@ -76,14 +76,23 @@ html.ios{
 
 	//main
 	.main_to_wrap{
-		min-height:calc(100vh - 214px - constant(safe-area-inset-top));
-		min-height:calc((var(--vh, 1vh) * 100) - 214px - constant(safe-area-inset-top));
-		min-height:calc(100vh - 214px - env(safe-area-inset-top));
-		min-height:calc((var(--vh, 1vh) * 100) - 214px - env(safe-area-inset-top));
+		min-height:calc(100vh - 214px - constant(safe-area-inset-top) - constant(safe-area-inset-bottom));
+		min-height:calc((var(--vh, 1vh) * 100) - 214px - constant(safe-area-inset-top) - constant(safe-area-inset-bottom));
+		min-height:calc(100vh - 214px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+		min-height:calc((var(--vh, 1vh) * 100) - 214px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
 	}
 	.main_layer_view{
 		padding-top: calc(56px + constant(safe-area-inset-top));
 		padding-top: calc(56px + env(safe-area-inset-top));
+		> .inner{
+			height: calc(118px + constant(safe-area-inset-bottom));
+			height: calc(118px + env(safe-area-inset-bottom));
+		}
+		&.downsize > .inner{
+			height: calc(64px + constant(safe-area-inset-bottom));
+			height: calc(64px + env(safe-area-inset-bottom));
+			> .mask{top:64px;}
+		}
 		&.full > .inner{
 			height: calc(100% - 56px - constant(safe-area-inset-top));
 			height: calc(100% - 56px - env(safe-area-inset-top));

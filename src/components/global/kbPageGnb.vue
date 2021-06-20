@@ -35,7 +35,7 @@
                 not
                 a-tag
                 class="inner"
-                to="#"
+                to="/MY/04/MY04A003"
                 @click.native="gnbClose"
               >
                 <div class="img">
@@ -93,7 +93,6 @@
               aria-label="메인화면으로 이동"
               @click.native="gnbClose"
             >메인으로</kb-button>
-
           </div>
         </div>
         <kb-button
@@ -103,15 +102,14 @@
           aria-label="전체메뉴 닫기"
           @click="btnGnbClose"
         >전체메뉴 닫기</kb-button>
-
         <div
           ref="headLink"
           class="gnb_head_link"
         >
           <ul>
-            <li><kb-button not><i class="gnb_link_ico_1" />즉시이체</kb-button></li>
-            <li><kb-button not><i class="gnb_link_ico_2" />계좌개설</kb-button></li>
-            <li><kb-button not><i class="gnb_link_ico_3" />거래내역</kb-button></li>
+            <li><kb-button not to="/TR/03/TR03A001" @click.native="gnbClose"><i class="gnb_link_ico_1" />즉시이체</kb-button></li>
+            <li><kb-button not a-tag href="//star.kbsec.com/go.able" target="_blank" @click.native="gnbClose"><i class="gnb_link_ico_2" />계좌개설</kb-button></li>
+            <li><kb-button not to="/MY/04/MY04A014" @click.native="gnbClose"><i class="gnb_link_ico_3" />체결내역</kb-button></li>
           </ul>
         </div>
       </div>
@@ -128,7 +126,7 @@
               <a href="#" class="gnb_dep1_link" @click="gnbDep1Open"><span>금융생활</span></a>
             </li>
             <li class="gnb_dep1_li">
-              <a href="#" class="gnb_dep1_link" @click="gnbDep1Open"><span>내서랍</span></a>
+              <a href="#" class="gnb_dep1_link" @click="gnbDep1Open"><span>내 자산 비타민</span></a>
             </li>
             <li class="gnb_dep1_li">
               <a href="#" class="gnb_dep1_link" @click="gnbDep1Open"><span>고객센터</span></a>
@@ -142,9 +140,9 @@
           </ul>
           <div class="gnb_dep1_etc">
             <div class="call">
-              <kb-button not a-tag class="dl" href="tel:1588-6611">
+              <kb-button not a-tag class="dl" @click="popOpen('/SC/01/SC01A004')">
                 <div class="dt">고객센터</div>
-                <div class="dd">1588-6611</div>
+                <div class="dd"><i>1</i><i>5</i><i>8</i><i>8</i><i>-</i><i>6</i><i>6</i><i>1</i><i>1</i></div>
               </kb-button>
             </div>
             <kb-button line h40>
@@ -169,18 +167,14 @@
                 >
                   총자산
                 </router-link>
-                <div class="gnb_dep3">
-                  <ul>
-                    <li>
-                      <router-link
-                        to="/TO/02/TO02A003"
-                        @click.native="gnbClose"
-                      >
-                        자산변동추이
-                      </router-link>
-                    </li>
-                  </ul>
-                </div>
+              </li>
+              <li>
+                <router-link
+                  to="/TO/02/TO02A003"
+                  @click.native="gnbClose"
+                >
+                  자산변동추이
+                </router-link>
               </li>
               <li>
                 <router-link
@@ -266,6 +260,22 @@
                   Insight 알람
                 </router-link>
               </li>
+              <li>
+                <router-link
+                  to="/TO/01/TO01D002"
+                  @click.native="gnbClose"
+                >
+                  내자산 Qna
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/MY/02/MY02A001"
+                  @click.native="gnbClose"
+                >
+                  내 서랍
+                </router-link>
+              </li>
             </ul>
           </li>
           <!-- //오늘 -->
@@ -276,7 +286,7 @@
             <ul>
               <li>
                 <router-link
-                  to="/IN/02/IN02A001"
+                  to="/IN/02/IN02A002"
                   @click.native="gnbClose"
                 >
                   금융상품 검색
@@ -284,7 +294,7 @@
               </li>
               <li>
                 <router-link
-                  to="/IN/05/IN05A001"
+                  to="/IN/01/IN01A001"
                   @click.native="gnbClose"
                 >
                   투자 종합자산
@@ -336,7 +346,7 @@
               </li>
               <li>
                 <router-link
-                  to="#"
+                  to="/IN/06/IN06A001"
                   @click.native="gnbClose"
                 >
                   고수의 Pick
@@ -344,7 +354,7 @@
               </li>
               <li>
                 <router-link
-                  to="/IN/07/IN07A001"
+                  to="/IN/07/IN07A000"
                   @click.native="gnbClose"
                 >
                   가상투자
@@ -358,14 +368,14 @@
                   투자 습관 진단
                 </router-link>
               </li>
-              <li>
+              <!-- <li>
                 <router-link
                   to="/IN/10/IN10A001"
                   @click.native="gnbClose"
                 >
                   투자상상퀴즈
                 </router-link>
-              </li>
+              </li> -->
               <li>
                 <router-link
                   to="/IN/11/IN11A001"
@@ -389,50 +399,6 @@
                 >
                   모델 포트폴리오
                 </router-link>
-                <div class="gnb_dep3">
-                  <ul>
-                    <li>
-                      <router-link
-                        to="/IN/12/IN12A001"
-                        @click.native="gnbClose"
-                      >
-                        공격투자형
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="/IN/12/IN12A002"
-                        @click.native="gnbClose"
-                      >
-                        적극투자형
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="/IN/12/IN12A003"
-                        @click.native="gnbClose"
-                      >
-                        위험중립형
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="/IN/12/IN12A004"
-                        @click.native="gnbClose"
-                      >
-                        안전추구형
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="/IN/12/IN12A005"
-                        @click.native="gnbClose"
-                      >
-                        안정형
-                      </router-link>
-                    </li>
-                  </ul>
-                </div>
               </li>
             </ul>
           </li>
@@ -449,6 +415,18 @@
                 >
                   은행
                 </router-link>
+                <div class="gnb_dep3">
+                  <ul>
+                    <li>
+                      <router-link
+                        to="/FI/04/FI04A002"
+                        @click.native="gnbClose"
+                      >
+                        입출금내역
+                      </router-link>
+                    </li>
+                  </ul>
+                </div>
               </li>
               <li>
                 <router-link
@@ -461,39 +439,15 @@
                   <ul>
                     <li>
                       <router-link
-                        to="/FI/02/FI02A001"
+                        to="/FI/02/FI02A002"
                         @click.native="gnbClose"
                       >
-                        보유현황
+                        신용카드 청구서 관리
                       </router-link>
                     </li>
                     <li>
                       <router-link
-                        to="/FI/02/FI02A005.vue"
-                        @click.native="gnbClose"
-                      >
-                        승인내역
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="/FI/02/FI02A006.vue"
-                        @click.native="gnbClose"
-                      >
-                        소비달력
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="/FI/02/FI02A007.vue"
-                        @click.native="gnbClose"
-                      >
-                        포인트 목록
-                      </router-link>
-                    </li>
-                    <li>
-                      <router-link
-                        to="/FI/02/FI02A008.vue"
+                        to="/FI/02/FI02A008"
                         @click.native="gnbClose"
                       >
                         할부관리
@@ -501,10 +455,26 @@
                     </li>
                     <li>
                       <router-link
-                        to="#"
+                        to="/FI/02/FI02A005"
                         @click.native="gnbClose"
                       >
-                        대출내역??
+                        월별승인금액
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        to="/FI/02/FI02A006"
+                        @click.native="gnbClose"
+                      >
+                        소비달력
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        to="/FI/02/FI02A007"
+                        @click.native="gnbClose"
+                      >
+                        포인트 목록
                       </router-link>
                     </li>
                   </ul>
@@ -512,7 +482,7 @@
               </li>
               <li>
                 <router-link
-                  to="/FI/03/FI03A001.vue"
+                  to="/FI/03/FI03A001"
                   @click.native="gnbClose"
                 >
                   보험
@@ -520,63 +490,83 @@
               </li>
               <li>
                 <router-link
-                  to="/FI/10/FI10A001.vue"
+                  to="/FI/08/FI08A001"
+                  @click.native="gnbClose"
+                >
+                  보증보험
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/FI/08/FI08A003"
+                  @click.native="gnbClose"
+                >
+                  통신
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/FI/09/FI09A001"
+                  @click.native="gnbClose"
+                >
+                  Pay
+                </router-link>
+                <div class="gnb_dep3">
+                  <ul>
+                    <li>
+                      <router-link
+                        to="/FI/09/FI09A002"
+                        @click.native="gnbClose"
+                      >
+                        충전관리
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link
+                        to="/FI/09/FI09A004"
+                        @click.native="gnbClose"
+                      >
+                        결제내역
+                      </router-link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <router-link
+                  to="/FI/10/FI10A001"
                   @click.native="gnbClose"
                 >
                   할부금융
-                </router-link>
-              </li>
-              <li>
-                <router-link
-                  to="/FI/09/FI09A001.vue"
-                  @click.native="gnbClose"
-                >
-                  PAY(전자금융)
-                </router-link>
-              </li>
-              <li>
-                <router-link
-                  to="#"
-                  @click.native="gnbClose"
-                >
-                  통신/보증보험??
-                </router-link>
-              </li>
-              <li>
-                <router-link
-                  to="#"
-                  @click.native="gnbClose"
-                >
-                  자동차/부동산??
                 </router-link>
               </li>
             </ul>
           </li>
           <!-- //금융생활 -->
 
-          <!-- 내서랍 -->
+          <!-- 내 자산 비타민 -->
           <li class="gnb_dep2">
-            <div class="gnb_dep2_tit"><strong>내 서랍</strong></div>
+            <div class="gnb_dep2_tit"><strong>내 자산 비타민</strong></div>
             <ul>
               <li>
                 <router-link
-                  to="#"
+                  to="/TO/01/TO01E001/0"
                   @click.native="gnbClose"
                 >
-                  내 서랍
+                  오늘의 퀘스트
                 </router-link>
               </li>
               <li>
                 <router-link
-                  to="#"
+                  to="/TO/01/TO01E001/1"
                   @click.native="gnbClose"
                 >
-                  메모 등록
+                  소비줄이기
                 </router-link>
               </li>
             </ul>
           </li>
-          <!-- //내서랍 -->
+          <!-- //내 자산 비타민 -->
 
           <!-- 고객센터 -->
           <li class="gnb_dep2">
@@ -612,6 +602,14 @@
                   @click.native="gnbClose"
                 >
                   이벤트
+                </router-link>
+              </li>
+              <li>
+                <router-link
+                  to="/UT/15/UT15H001"
+                  @click.native="gnbClose"
+                >
+                  초보자가이드
                 </router-link>
               </li>
             </ul>
@@ -924,6 +922,12 @@ export default {
 
       // up
       if (this.touchDistance < -10) this.wrapUpEvt();
+    },
+    popOpen(src, el) {
+      this.$modal({
+        component: () => import('@/views' + src),
+        returnFocus: el,
+      });
     },
   },
 };

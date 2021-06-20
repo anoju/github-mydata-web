@@ -3,7 +3,7 @@
     <kb-page-body>
       <div class="section">
         <div class="mypage_user">
-          <kb-button aTag not class="user_img">
+          <kb-button aTag not class="user_img" @click="popOpen('/TO/01/TO01E002',$event.target)">
             <!--
               케릭터 이미지 별 클래스 정의
               루나키키 : ico1
@@ -47,7 +47,7 @@
         <div class="option_list">
           <kb-button
             class="item_list"
-            @click="showFullPopup($event.target)"
+            to="/MY/04/MY04A010"
           >
             개인정보 관리<i class="ico_arrow_type1" aria-hidden="true" />
           </kb-button>
@@ -85,9 +85,9 @@ export default {
   mounted() {
   },
   methods: {
-    showFullPopup(el) {
+    popOpen(src, el) {
       this.$modal({
-        component: () => import('@/views/MY/04/MY04A010.vue'),
+        component: () => import('@/views' + src),
         returnFocus: el,
       });
     },
