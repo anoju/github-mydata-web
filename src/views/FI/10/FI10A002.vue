@@ -202,9 +202,10 @@
                         </ul>
                         <kb-foldings
                           not
+                          not-toggle
                           class="info_txt_folding"
                         >
-                          <kb-folding>
+                          <kb-folding :active.sync="isFolding1" @click="isFolding2 = false">
                             <template slot="title">
                               <div class="th">거래금액 중 이자</div>
                               <div class="td fc_666"><strong>123,000,000원</strong></div>
@@ -264,9 +265,10 @@
                         </ul>
                         <kb-foldings
                           not
+                          not-toggle
                           class="info_txt_folding"
                         >
-                          <kb-folding>
+                          <kb-folding :active.sync="isFolding2" @click="isFolding1 = false">
                             <template slot="title">
                               <div class="th">거래금액 중 이자</div>
                               <div class="td fc_666"><strong>123,000,000원</strong></div>
@@ -365,6 +367,8 @@ export default {
       searchTxt4: '전체',
       filterOpen: false,
       isStar: false,
+      isFolding1: false,
+      isFolding2: false,
     };
   },
   mounted() {

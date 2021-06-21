@@ -13,75 +13,13 @@
             <div class="assets_none_box" v-if="dataNone">
               <div class="none_box pd_t136">
                 <i></i>
-                거래 주문 중인 상품이 없습니다. <br />
-                상품을 구매해보세요
-                <kb-button line blue>종목 검색<i aria-hidden="true" class="bt_ic_arr"></i></kb-button>
+                체결 내역이 없습니다.
+                <kb-button line blue>금융상품 검색<i aria-hidden="true" class="bt_ic_arr"></i></kb-button>
               </div>
             </div>
             <!-- //내용없음 -->
 
-            <!-- 2021-05-12 기획 변경에 따른 내용변경 -->
-            <div class="transactional_info" v-if="!dataNone">
-              <kb-button aTag not class="list_box">
-                <div class="left">
-                  <p class="kind">
-                    <span>주식</span>
-                    <span>1233242</span>
-                  </p>
-                  <p class="tit"> LG디스플레이 LG디스플레이</p>
-                </div>
-                <div class="right">
-                  <p class="kind">오늘</p>
-                  <p class="date">12일 / 13:20</p>
-                </div>
-              </kb-button>
-              <kb-button aTag not class="list_box">
-                <div class="left">
-                  <p class="kind">
-                    <span>주식</span>
-                    <span>1233242</span>
-                  </p>
-                  <p class="tit"> LG디스플레이 LG디스플레이</p>
-                </div>
-                <div class="right">
-                  <p class="kind">오늘</p>
-                  <p class="date">12일 / 13:20</p>
-                </div>
-              </kb-button>
-              <kb-button aTag not class="list_box">
-                <div class="left">
-                  <p class="kind">
-                    <span>주식</span>
-                    <span>1233242</span>
-                  </p>
-                  <p class="tit"> LG디스플레이 LG디스플레이</p>
-                </div>
-                <div class="right">
-                  <p class="kind">오늘</p>
-                  <p class="date">12일 / 13:20</p>
-                </div>
-              </kb-button>
-              <kb-button aTag not class="list_box">
-                <div class="left">
-                  <p class="kind">
-                    <span>주식</span>
-                    <span>1233242</span>
-                  </p>
-                  <p class="tit"> LG디스플레이 LG디스플레이</p>
-                </div>
-                <div class="right">
-                  <p class="kind">오늘</p>
-                  <p class="date">12일 / 13:20</p>
-                </div>
-              </kb-button>
-            </div>
-            <!-- //2021-05-12 기획 변경에 따른 내용변경 -->
-
-          </kb-tab>
-          <kb-tab
-            title="체결예정내역"
-          >
-            <!-- 2021-05-12 기획 변경에 따른 내용변경 -->
+            <!-- 2021-06-17 기획 변경에 따른 내용변경 -->
             <div class="transactional_info" v-if="!dataNone">
               <div class="day_box">
                 <p class="day">04/01</p>
@@ -93,13 +31,136 @@
                     </p>
                     <p class="tit"> LG디스플레이 LG디스플레이</p>
                   </div>
-                  <div class="right">
-                    <p class="kind">오늘</p>
-                    <!--
-                      fc_blue : 구매완료
-                      defult : 구매실패
-                     -->
-                    <p class="date fc_blue"><strong>구매완료</strong></p>
+                  <div class="box">
+                    <dl>
+                      <dt>계좌번호</dt>
+                      <dd>123-123-123-01</dd>
+                    </dl>
+                    <dl>
+                      <dt>체결금액(단가/수량)</dt>
+                      <dd>
+                        346,500,000원<br />
+                        (100.000/1,000)
+                      </dd>
+                    </dl>
+                  </div>
+                </kb-button>
+                <kb-button aTag not class="list_box">
+                  <div class="left">
+                    <p class="kind">
+                      <span>주식</span>
+                      <span>매우높은위험</span>
+                      <span>원금부분지급형</span>
+                    </p>
+                    <p class="tit"> LG디스플레이 LG디스플레이</p>
+                  </div>
+                  <div class="box">
+                    <dl>
+                      <dt>계좌번호</dt>
+                      <dd>123-123-123-01</dd>
+                    </dl>
+                    <dl>
+                      <dt>체결금액</dt>
+                      <dd>
+                        346,500,000원
+                      </dd>
+                    </dl>
+                  </div>
+                </kb-button>
+              </div>
+              <div class="day_box">
+                <p class="day">04/01</p>
+                <kb-button aTag not class="list_box">
+                  <div class="left">
+                    <p class="kind">
+                      <span>주식</span>
+                      <span>1233242</span>
+                    </p>
+                    <p class="tit"> LG디스플레이 LG디스플레이</p>
+                  </div>
+                  <div class="box">
+                    <dl>
+                      <dt>계좌번호</dt>
+                      <dd>123-123-123-01</dd>
+                    </dl>
+                    <dl>
+                      <dt>체결금액(단가/수량)</dt>
+                      <dd>
+                        346,500,000원<br />
+                        (100.000/1,000)
+                      </dd>
+                    </dl>
+                  </div>
+                </kb-button>
+                <kb-button aTag not class="list_box">
+                  <div class="left">
+                    <p class="kind">
+                      <span>주식</span>
+                      <span>매우높은위험</span>
+                      <span>원금부분지급형</span>
+                    </p>
+                    <p class="tit"> LG디스플레이 LG디스플레이</p>
+                  </div>
+                  <div class="box">
+                    <dl>
+                      <dt>계좌번호</dt>
+                      <dd>123-123-123-01</dd>
+                    </dl>
+                    <dl>
+                      <dt>체결금액</dt>
+                      <dd>
+                        346,500,000원
+                      </dd>
+                    </dl>
+                  </div>
+                </kb-button>
+              </div>
+
+            </div>
+            <!-- //2021-06-17 기획 변경에 따른 내용변경 -->
+
+          </kb-tab>
+          <kb-tab
+            title="체결예정내역"
+          >
+
+            <!-- 내용없음 -->
+            <div class="assets_none_box" v-if="dataNone">
+              <div class="none_box pd_t136">
+                <i></i>
+                체결 내역이 없습니다.
+                <kb-button line blue>금융상품 검색<i aria-hidden="true" class="bt_ic_arr"></i></kb-button>
+              </div>
+            </div>
+            <!-- //내용없음 -->
+
+            <!-- 2021-06-17 기획 변경에 따른 내용변경 -->
+            <div class="transactional_info" v-if="!dataNone">
+              <div class="day_box">
+                <p class="day">04/01</p>
+                <kb-button aTag not class="list_box">
+                  <div class="left">
+                    <p class="kind">
+                      <span>주식</span>
+                      <span>1233242</span>
+                    </p>
+                    <p class="tit"> LG디스플레이 LG디스플레이</p>
+                  </div>
+                  <div class="box">
+                    <dl>
+                      <dt>계좌번호</dt>
+                      <dd>123-123-123-01</dd>
+                    </dl>
+                    <dl>
+                      <dt>체결금액</dt>
+                      <dd>
+                        346,500,000원
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>결제예정일</dt>
+                      <dd>2021/06/21</dd>
+                    </dl>
                   </div>
                 </kb-button>
                 <kb-button aTag not class="list_box">
@@ -110,19 +171,27 @@
                     </p>
                     <p class="tit"> LG디스플레이 LG디스플레이</p>
                   </div>
-                  <div class="right">
-                    <p class="kind">오늘</p>
-                    <!--
-                      fc_blue : 구매완료
-                      defult : 구매실패
-                     -->
-                    <p class="date"><strong>구매실패</strong></p>
+                  <div class="box">
+                    <dl>
+                      <dt>계좌번호</dt>
+                      <dd>123-123-123-01</dd>
+                    </dl>
+                    <dl>
+                      <dt>체결금액</dt>
+                      <dd>
+                        346,500,000원
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>결제예정일</dt>
+                      <dd>2021/06/21</dd>
+                    </dl>
                   </div>
                 </kb-button>
               </div>
 
               <div class="day_box">
-                <p class="day">03/30</p>
+                <p class="day">04/01</p>
                 <kb-button aTag not class="list_box">
                   <div class="left">
                     <p class="kind">
@@ -131,13 +200,21 @@
                     </p>
                     <p class="tit"> LG디스플레이 LG디스플레이</p>
                   </div>
-                  <div class="right">
-                    <p class="kind">오늘</p>
-                    <!--
-                      fc_blue : 구매완료
-                      defult : 구매실패
-                     -->
-                    <p class="date fc_blue"><strong>구매완료</strong></p>
+                  <div class="box">
+                    <dl>
+                      <dt>계좌번호</dt>
+                      <dd>123-123-123-01</dd>
+                    </dl>
+                    <dl>
+                      <dt>체결금액</dt>
+                      <dd>
+                        346,500,000원
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>결제예정일</dt>
+                      <dd>2021/06/21</dd>
+                    </dl>
                   </div>
                 </kb-button>
                 <kb-button aTag not class="list_box">
@@ -148,18 +225,27 @@
                     </p>
                     <p class="tit"> LG디스플레이 LG디스플레이</p>
                   </div>
-                  <div class="right">
-                    <p class="kind">오늘</p>
-                    <!--
-                      fc_blue : 구매완료
-                      defult : 구매실패
-                     -->
-                    <p class="date"><strong>구매실패</strong></p>
+                  <div class="box">
+                    <dl>
+                      <dt>계좌번호</dt>
+                      <dd>123-123-123-01</dd>
+                    </dl>
+                    <dl>
+                      <dt>체결금액</dt>
+                      <dd>
+                        346,500,000원
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>결제예정일</dt>
+                      <dd>2021/06/21</dd>
+                    </dl>
                   </div>
                 </kb-button>
               </div>
+
             </div>
-            <!-- //2021-05-12 기획 변경에 따른 내용변경 -->
+            <!-- //2021-06-17 기획 변경에 따른 내용변경 -->
 
           </kb-tab>
         </kb-tabs>

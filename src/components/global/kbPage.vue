@@ -1,6 +1,6 @@
 <template>
   <div
-    class="page_wrap"
+    class="page_wrap scl__body"
     :class="{lock : isLock, fixed_hide: !layoutFixedShow, gray: grayBg, apiPage:isAPI, scl__body:isMainLayer}"
     :aria-hidden="isLock"
     v-on="listeners"

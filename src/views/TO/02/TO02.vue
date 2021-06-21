@@ -4,8 +4,12 @@
       <div class="section">
         <div class="assets_header">
           <p class="tit">오늘 순자산</p>
+          <!-- <kb-button aTag not class="btn_linkage">내 자산 연동하기</kb-button> -->
           <kb-button aTag not class="btn_linkage">추가연동</kb-button>
-          <p class="money"><span v-scroll-number="{to:userAsset, comma:true}">{{userAsset}}</span>원</p>
+          <p class="money">
+            <!-- <span class="txt">고객님의 <span class="bg_line">자산을 연동</span>해주세요.</span> -->
+            <span v-scroll-number="{to:userAsset, comma:true}">{{userAsset}}</span>원
+          </p>
 
           <div class="info_box">
             <kb-button button class="refresh">09:00:03</kb-button>

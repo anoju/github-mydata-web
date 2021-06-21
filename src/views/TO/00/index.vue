@@ -3,7 +3,6 @@
     class="main"
     :class="{lock:isLayerFull}"
     no-header-back
-    @scroll="onScroll"
     page-title="메인"
   >
     <template slot="header">
@@ -67,7 +66,7 @@
           :style="LayerStyle"
         >
           <router-view />
-          <div class="mask" v-if="!isLayerFull && !isLayerTouch"></div>
+          <div class="mask" v-if="!isLayerFull && !isLayerTouch && !isLayerFulling"></div>
           <div
             class="ui-touch"
             aria-hidden="true"
@@ -105,6 +104,7 @@ export default {
       LayerShow: true,
       LayerDownsize: false,
       isLayerFull: false,
+      isLayerFulling: false,
       LayerHeight: 0,
       LayerStyle: null,
       LayerBgStyle: null,
@@ -176,6 +176,15 @@ export default {
     this.$nextTick(() => {
       this.$refs.layerContainer.querySelector('.scl__body').addEventListener('scroll', this.scrollEvt);
     });
+
+    let sclBody = this.$parent.$el;
+    if (!sclBody.classList.contains('scl__body'))sclBody = window;
+    sclBody.addEventListener('scroll', this.onScroll);
+  },
+  beforeDestroy() {
+    let sclBody = this.$parent.$el;
+    if (!sclBody.classList.contains('scl__body'))sclBody = window;
+    sclBody.removeEventListener('scroll', this.onScroll);
   },
   destroyed() {
     window.removeEventListener('resize', this.resizeChk);
@@ -243,6 +252,7 @@ export default {
       }
     },
     touchEnd() {
+      this.isLayerFulling = true;
       this.isRoute = true;
       this.isLayerTouch = false;
       clearInterval(this.touchInterval);
@@ -268,6 +278,7 @@ export default {
       this.LayerStyle = this.layerSetStyle(isFull, this.LayerDuration);
       this.LayerBgStyle = this.layerBgSetStyle(isFull, this.LayerDuration);
       setTimeout(() => {
+        this.isLayerFulling = false;
         if (isFull) {
           this.isLayerFull = true;
           this.$refs.layerBg.focus();
@@ -330,8 +341,15 @@ export default {
         }, 10);
       }, this.LayerDuration);
     },
-    onScroll(e) {
-      const sclTop = e.target.scrollTop;
+    onScroll() {
+      let sclBody = this.$parent.$el;
+      let sclTop = 0;
+      if (!sclBody.classList.contains('scl__body')) {
+        sclBody = window;
+        sclTop = window.scrollY;
+      } else {
+        sclTop = sclBody.scrollTop;
+      }
       if (sclTop < 0) {
         return;
       }

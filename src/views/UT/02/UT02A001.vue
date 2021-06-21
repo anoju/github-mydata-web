@@ -218,7 +218,7 @@
 
         <kb-button-wrap bottom-fixed>
           <kb-button yellow v-if="step === 0" :disabled="agreeChecked" @click="agreeClick">다음</kb-button>
-          <!-- <kb-button yellow v-if="step === 1 && phoneChecked">확인</kb-button> -->
+          <kb-button yellow v-if="step === 1" :disabled="phoneVal2.length < 10" @click="isValChk5">다음</kb-button>
           <kb-button line v-if="step === 2">인증번호 재전송</kb-button>
         </kb-button-wrap>
       </div>
@@ -333,10 +333,12 @@ export default {
       }, 300);
     },
     isValChk5() {
-      this.toStep(2);
-      setTimeout(() => {
-        this.$refs.input5.focus();
-      }, 300);
+      if (this.phoneVal2.length >= 10) {
+        this.toStep(2);
+        setTimeout(() => {
+          this.$refs.input5.focus();
+        }, 300);
+      }
     },
     isValChk6() {
       if (this.phoneVal3.length === 6) {

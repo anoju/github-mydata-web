@@ -159,9 +159,15 @@ export default {
     linePosition() {
       const sclWidth = this.$el.querySelector('.tablist').scrollWidth;
       this.lineWrapWidth = sclWidth;
-      const active = this.$el.querySelector('.router-link-exact-active');
+      let active = this.$el.querySelector('.router-link-exact-active');
+      let activeParent = null;
+      if (active === null) {
+        active = this.$el.querySelector('.active');
+        activeParent = active;
+      } else {
+        activeParent = active.parentNode;
+      }
       if (active === null) return;
-      const activeParent = active.parentNode;
       this.lineWidth = activeParent.offsetWidth;
       this.lineLeft = activeParent.offsetLeft;
 

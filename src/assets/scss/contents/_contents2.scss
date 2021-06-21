@@ -6,7 +6,10 @@
   .btn_linkage { position:absolute; top:0; right:0; height:24px; padding-left:26px; font-size:14px; color:#5177bc; line-height:normal; font-weight:bold; line-height:24px;
     &:before { content:''; display:block; position:absolute; top:0; left:0; width:24px; height:24px; background:url('~@/assets/images/common/ico_linkage.png') no-repeat; background-size:100%;}
   }
-  .money { margin-top:4px; font-size:26px; line-height:1.38; font-weight:bold;}
+  .money { 
+    margin-top:4px; font-size:26px; line-height:1.38; font-weight:bold;
+    .txt{font-size:20px;}
+  }
   
   .info_box { display:flex; margin:24px 0; flex-wrap: wrap;
     // .btn_refresh { display:flex; flex:0 0 auto; width:72px; height:24px; border:1px solid #eee; border-radius:12px; font-size:10px; font-weight:bold; align-items: center;
@@ -1109,9 +1112,9 @@
     span { color:#5177bc;}
   }
   .right { margin-left:auto;}
-  .button{
+  .button{ padding-top:1px;
     &.setting { font-size:12px; }
-    .ico_setting { display:inline-block; width:16px; height:16px; vertical-align: middle; background:url('~@/assets/images/MY/09/ico_setting.png') no-repeat center center /100%;}
+    .ico_setting { display:inline-block; width:16px; height:16px; margin-right:4px; margin-top:-1px; vertical-align: middle; background:url('~@/assets/images/MY/09/ico_setting.png') no-repeat center center /100%;}
   }
   .checkbox_all {
     i { border-color: transparent !important; background: none !important;}
@@ -1132,7 +1135,7 @@
 
 /* 거래내역 - 마이페이지 */
 .transactional_info { position:relative;
-  .list_box { display:flex; padding:24px 0; border-bottom:1px solid #eee;
+  .list_box { display:block; padding:24px 0;
     .left { overflow:hidden; flex:1 1 auto; margin-right:10px;
       .kind { margin-bottom:4px; font-size:0;
         span { display:inline-block; font-size:12px; color:#666; font-weight:bold;}
@@ -1144,6 +1147,16 @@
       .kind { margin-bottom:6px; font-size:12px; color:#666;}
       .date { font-size:14px; color:#666;}
     }
+    .box { margin-top:8px; padding:18px 16px; border-radius:8px; background:#f8f8f8;
+      dl { display:flex;
+        dt { flex:1 1 auto; font-size:14px; color:#666;}
+        dd { flex: 0 0 auto;; margin-left:auto; font-size:14px; color:#666; font-weight:bold; text-align:right}
+
+        & + dl { margin-top:8px;}
+      }
+    }
+
+    & + .list_box { border-top:1px solid #eee;}
   }
 
   .day_box { margin-top:24px;

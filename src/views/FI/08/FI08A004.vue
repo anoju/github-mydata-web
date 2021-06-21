@@ -40,7 +40,7 @@
                   <div class="item">
                     <kb-button aTag not class="inner">
                       <div class="flex_wrap space_between align_center">
-                        <div class="fz_12 fc_666">2021/01/01(13:50:23)</div>
+                        <div class="fz_12 fc_666">2021/01/01</div>
                       </div>
                       <div class="flex_wrap space_between mg_t8">
                         <p class="fz_12 fc_666">자동납부</p>
@@ -55,7 +55,7 @@
                   <div class="item">
                     <kb-button aTag not class="inner">
                       <div class="flex_wrap space_between align_center">
-                        <div class="fz_12 fc_666">2021/01/01(13:50:23)</div>
+                        <div class="fz_12 fc_666">2021/01/01</div>
                       </div>
                       <div class="flex_wrap space_between mg_t8">
                         <p class="fz_12 fc_666">자동납부</p>
@@ -77,7 +77,7 @@
                   <div class="item">
                     <kb-button aTag not class="inner">
                       <div class="flex_wrap space_between align_center">
-                        <div class="fz_12 fc_666">2021/01/01(13:50:23)</div>
+                        <div class="fz_12 fc_666">2021/01/01</div>
                       </div>
                       <div class="flex_wrap space_between mg_t8">
                         <p class="fz_12 fc_666">자동납부</p>

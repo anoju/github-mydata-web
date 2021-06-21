@@ -16,6 +16,7 @@
         :aria-controls="panelId"
         :class="{open:visible}"
         :disabled="disabled"
+        v-on="listeners"
         @click="slide($event)"
       >
         {{ title }}
@@ -64,13 +65,21 @@ export default {
   },
   watch: {
     active() {
-      if (this.active !== null) this.slideAll(this.active);
+      if (this.active !== null) {
+        this.slideToggle(this.active);
+      }
     },
     isActive() {
       this.$emit('isActive');
     },
   },
   computed: {
+    listeners() {
+      if (this.disabled) {
+        return null;
+      }
+      return this.$listeners;
+    },
     visible() {
       if (this.notToggle) {
         return this.isActive;
@@ -121,11 +130,11 @@ export default {
         uiEventBus.$emit('kbSwiperUpdate', 'update');
       }
     },
-    slideAll(type) {
+    slideToggle(val) {
       if (this.isAnimate) return;
       this.isAnimate = true;
       this.isScroll = false;
-      if (type) {
+      if (val) {
         this.isActive = true;
       } else {
         this.isActive = false;

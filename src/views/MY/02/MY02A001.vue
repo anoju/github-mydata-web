@@ -7,7 +7,7 @@
       <kb-tabs class="mg_b0" v-model="mainTab">
         <kb-tab title="종목 메모" />
         <kb-tab title="미종목 메모" />
-        <kb-tab title="이벤트" />
+        <kb-tab title="공개 이벤트" />
       </kb-tabs>
 
       <div class="section">
@@ -398,9 +398,39 @@
             <kb-title-bar h4 class="mg_t24">
               <template slot="left">
                 <h4 class="tit">
-                  응모목록
+                  내 응모
                   <!-- 검색목록 -->
-                  <strong class="fc_blue mg_l4">13</strong>
+                  <strong class="fc_blue mg_l4">01</strong>
+                </h4>
+              </template>
+            </kb-title-bar>
+            <div class="memo_line_list mg_t12">
+              <li>
+                <kb-button
+                  like2
+                  :class="{checked:isLike1}"
+                  role="checkbox"
+                  :aria-checked="isLike1?'true':'false'"
+                  @click="isLike1 = !isLike1"
+                >12</kb-button>
+                <kb-button not a-tag class="memo_inner">
+                  <div class="memo_info">
+                    <div class="memo_tit text_line_1"><strong>저탄소 업종 메모 첫줄 출력저탄소 업종 메모 첫줄 출력저탄소 업종 메모 첫줄 출력</strong></div>
+                    <div class="memo_sub text_line_1">메모내용출력 메모내용출력 메모내용출력 메모내용출력 메모내용출력 메모내용출력 메모내용출력</div>
+                  </div>
+                  <div class="memo_img">
+                    <img src="~@/assets/images/temp/news_img1.png" alt="" />
+                  </div>
+                </kb-button>
+              </li>
+            </div>
+
+            <kb-title-bar h4 class="mg_t26">
+              <template slot="left">
+                <h4 class="tit">
+                  전체 목록
+                  <!-- 검색목록 -->
+                  <strong class="fc_blue mg_l4">99</strong>
                 </h4>
               </template>
               <kb-select

@@ -1462,7 +1462,7 @@ span.gd__box{
 .memo_item_wrap{
 	.memo_item{
 		background:#fff;border-radius:8px;box-shadow:0 10px 20px 0 rgba(0, 0, 0, 0.08);margin-top:16px;
-		.inner{padding:32px 20px;overflow:hidden;max-height:calc(100vh - 110px);max-height:calc((var(--vh, 100vh) * 100) - 110px);}
+		.inner{padding:32px 20px;overflow:hidden;max-height:calc(100vh - 110px);max-height:calc((var(--vh, 1vh) * 100) - 110px);}
 		.memo_item_util{top:32px;right:20px;}
 		.tit{padding-right:72px;}
 	}

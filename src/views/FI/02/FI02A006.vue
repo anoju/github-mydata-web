@@ -1,7 +1,6 @@
 <template>
   <kb-page
     page-title="소비달력"
-    @scroll="scrollChk"
     :class="{scl_lock:isSclLock}"
   >
     <kb-page-body
@@ -451,9 +450,6 @@ export default {
           });
         }
       });
-    },
-    scrollChk() {
-      // this.scrollTop = e.target.scrollTop;
     },
     touchStartEvt(e) {
       e.preventDefault();
