@@ -152,14 +152,13 @@ export default {
         this.linePosition();
       }, 100);
       if (this.fixed) {
-        const sclBody = this.$el.closest('.scl__body');
-        if (sclBody !== null) {
-          sclBody.addEventListener('scroll', this.tabFixed);
-          this.tabFixed();
-          this.$once('hook:beforeDestroy', () => {
-            sclBody.removeEventListener('scroll', this.tabFixed);
-          });
-        }
+        let sclBody = this.$el.closest('.scl__body');
+        if (sclBody === null)sclBody = window;
+        sclBody.addEventListener('scroll', this.tabFixed);
+        this.tabFixed();
+        this.$once('hook:beforeDestroy', () => {
+          sclBody.removeEventListener('scroll', this.tabFixed);
+        });
       }
     });
     this.$el.querySelector('.tablist').addEventListener('scroll', this.lineWrapLeftPosition);
@@ -211,8 +210,8 @@ export default {
         let margin = 56;
         if (this.type2)margin = 97;
         const sclY = this.$getOffset(this.$el).top - margin;
-        let wrap = window;
-        if (this.$el.closest('.scl__body') !== null) wrap = this.$el.closest('.scl__body');
+        let wrap = this.$el.closest('.scl__body');
+        if (wrap === null)wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
         this.$scrollTo(wrap, { top: sclY }, 300);
       }
     },
@@ -267,7 +266,7 @@ export default {
     tabFixed() {
       let wrap = this.$el.closest('.scl__body');
       if (wrap === null) wrap = window;
-      if (!wrap.classList.contains('lock') || wrap.classList.contains('pop_body')) {
+      if (!this.$el.closest('.page_wrap').classList.contains('lock') || wrap.classList.contains('pop_body')) {
         const elWrap = (wrap === window) ? document : wrap;
         const fixedEls = elWrap.querySelectorAll('.fixed');
         let fixedTop = 0;

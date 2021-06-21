@@ -6,8 +6,6 @@
   >
     <kb-page-body
       class="pd_b0"
-      v-touch:start="touchStartEvt"
-      v-touch:end="touchEndEvt"
     >
       <div class="section">
         <div class="flex_wrap space_between align_center">
@@ -84,7 +82,11 @@
           </kb-btn-toggle-row>
         </kb-btn-toggle>
 
-        <div class="calendar_table mg_t24">
+        <div
+          class="calendar_table mg_t24"
+          v-touch:start.disablePassive="touchStartEvt"
+          v-touch:end.disablePassive="touchEndEvt"
+        >
           <div class="thead">
             <div class="th first">
               일
@@ -450,14 +452,16 @@ export default {
         }
       });
     },
-    scrollChk(e) {
-      this.scrollTop = e.target.scrollTop;
+    scrollChk() {
+      // this.scrollTop = e.target.scrollTop;
     },
     touchStartEvt(e) {
+      e.preventDefault();
       if (this.scrollTop === 0 && !this.isFoldingCalendar) this.isSclLock = true;
       this.touchStartY = (e.type === 'touchstart') ? e.touches[0].clientY : e.clientY;
     },
     touchEndEvt(e) {
+      e.preventDefault();
       this.isSclLock = false;
       const move = (e.type === 'touchend') ? e.changedTouches[0].clientY : e.clientY;
       this.touchDistance = move - this.touchStartY;
@@ -471,11 +475,18 @@ export default {
     swipeUpEvt() {
       if (!this.isFoldingCalendar) {
         this.toggleCalendar();
-        const wrap = this.$el.closest('.scl__body');
-        setTimeout(() => {
-          console.log(this.scrollTop);
-          if (this.scrollTop !== 0) this.$scrollTo(wrap, { top: 0 }, 10);
-        }, 50);
+        // let wrap = this.$el.closest('.scl__body');
+        // let sclTop = 0;
+        // setTimeout(() => {
+        //   if (wrap === null) {
+        //     wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
+        //     sclTop = window.scrollY;
+        //   } else {
+        //     sclTop = window.scrollTop;
+        //   }
+        //   console.log(sclTop);
+        //   if (sclTop !== 0) this.$scrollTo(wrap, { top: 0 }, 10);
+        // }, 100);
       }
     },
     swipeDownEvt() {

@@ -101,20 +101,20 @@ export default {
   watch: {
     $route(to, from) {
       if (to.path !== from.path) {
-        let wrap = window;
-        if (this.$el.closest('.scl__body') !== null) wrap = this.$el.closest('.scl__body');
-        const head = wrap.querySelector('.scl__head');
+        let wrap = this.$el.closest('.scl__body');
+        let head = null;
+        let wrapSclTop = 0;
+        if (wrap === null) {
+          wrap = window;
+          wrapSclTop = window.scrollY;
+          head = document.querySelector('.scl__head');
+        } else {
+          wrapSclTop = wrap.scrollTop;
+          head = wrap.querySelector('.scl__head');
+        }
         const headH = (head !== null) ? head.offsetHeight : parseInt(this.$getStyle(wrap, 'padding-top'), 10);
         const sclTop = this.$getOffset(this.$el).top - headH;
-        if (wrap.scrollTop > sclTop) {
-          // try {
-          //   wrap.scrollTo({
-          //     top: sclTop,
-          //     behavior: 'smooth',
-          //   });
-          // } catch (error) {
-          //   wrap.scrollTo(0, sclTop);
-          // }
+        if (wrapSclTop > sclTop) {
           wrap.scrollTo(0, sclTop);
           wrap.dispatchEvent(new Event('scroll'));
         }
@@ -132,14 +132,13 @@ export default {
       window.dispatchEvent(new Event('resize'));
       this.$el.querySelector('.tablist').addEventListener('scroll', this.lineWrapLeftPosition);
       if (this.fixed) {
-        const sclBody = this.$el.closest('.scl__body');
-        if (sclBody !== null) {
-          sclBody.addEventListener('scroll', this.tabFixed);
-          this.tabFixed();
-          this.$once('hook:beforeDestroy', () => {
-            sclBody.removeEventListener('scroll', this.tabFixed);
-          });
-        }
+        let sclBody = this.$el.closest('.scl__body');
+        if (sclBody === null)sclBody = window;
+        sclBody.addEventListener('scroll', this.tabFixed);
+        this.tabFixed();
+        this.$once('hook:beforeDestroy', () => {
+          sclBody.removeEventListener('scroll', this.tabFixed);
+        });
       }
       setTimeout(() => {
         this.linePosition();
@@ -217,7 +216,7 @@ export default {
     tabFixed() {
       let wrap = this.$el.closest('.scl__body');
       if (wrap === null) wrap = window;
-      if (!wrap.classList.contains('lock') || wrap.classList.contains('pop_body')) {
+      if (!this.$el.closest('.page_wrap').classList.contains('lock') || wrap.classList.contains('pop_body')) {
         const elWrap = (wrap === window) ? document : wrap;
         const fixedEls = elWrap.querySelectorAll('.fixed');
         let fixedTop = 0;

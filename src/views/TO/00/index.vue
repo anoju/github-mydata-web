@@ -209,7 +209,8 @@ export default {
         this.LayerDownsize = false;
       }
       const elY = this.$el.offsetTop;
-      const wrap = this.$el.closest('.scl__body');
+      let wrap = this.$el.closest('.scl__body');
+      if (wrap === null) wrap = window;
       wrap.scrollTo(0, elY);
     },
     mainUpdate() {

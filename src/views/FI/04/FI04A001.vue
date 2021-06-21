@@ -27,6 +27,12 @@
           </div>
         </div>
 
+        <!--2021-06-21  전체 내역이 없을때 -->
+        <div v-if="false" class="no_list_txt icon h_full">
+          <strong class="tit">내역이 없습니다.</strong>
+        </div>
+        <!-- //2021-06-21 전체 내역이 없을때 -->
+
         <div class="financial_bank_top">
           <h2>예적금 현황</h2>
 

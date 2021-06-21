@@ -75,10 +75,14 @@ export default {
   },
   mounted() {
     this.headerFixed();
-    this.$parent.$el.addEventListener('scroll', this.headerFixed);
+    let sclBody = this.$parent.$el;
+    if (!sclBody.classList.contains('scl__body'))sclBody = window;
+    sclBody.addEventListener('scroll', this.headerFixed);
   },
   beforeDestroy() {
-    this.$parent.$el.removeEventListener('scroll', this.headerFixed);
+    let sclBody = this.$parent.$el;
+    if (!sclBody.classList.contains('scl__body'))sclBody = window;
+    sclBody.removeEventListener('scroll', this.headerFixed);
   },
   methods: {
     btnGnbOpen(e) {
@@ -97,7 +101,9 @@ export default {
     },
     headerFixed() {
       if (!this.isLock) {
-        const sclTop = this.$parent.$el.scrollTop;
+        let sclBody = this.$parent.$el;
+        if (!sclBody.classList.contains('scl__body'))sclBody = window;
+        const sclTop = sclBody === window ? sclBody.scrollY : sclBody.scrollTop;
         const elTop = this.$el.offsetTop;
         if (elTop < sclTop) {
           this.isFixed = true;

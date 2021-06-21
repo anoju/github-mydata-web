@@ -825,15 +825,23 @@ export default {
       $li.forEach((el) => {
         el.classList.remove('active');
       });
+      let isActive = false;
       $link.forEach((el) => {
         const $href = el.getAttribute('href');
         const $text = el.innerText;
         const $hrefSplit = $href.split('/');
         const $hrefLast = $hrefSplit.length > 4 ? $hrefSplit[3] : $hrefSplit.pop();
-        if ($hrefLast === $pathLast) {
-          addClass(el);
-        } else if ($title === $text) {
-          addClass(el);
+        if (!isActive) {
+          if ($href === $path) {
+            addClass(el);
+            isActive = true;
+          } else if ($hrefLast === $pathLast) {
+            addClass(el);
+            isActive = true;
+          } else if ($title === $text) {
+            addClass(el);
+            isActive = true;
+          }
         }
       });
     },

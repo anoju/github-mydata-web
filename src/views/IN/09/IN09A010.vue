@@ -40,7 +40,8 @@ export default {
   watch: {
     $route(from) {
       this.step = from.meta.page;
-      const wrap = (this.$el.closest('.scl__body') !== null) ? this.$el.closest('.scl__body') : window;
+      let wrap = this.$el.closest('.scl__body');
+      if (wrap === null) wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
       this.$scrollTo(wrap, { top: 0 }, 100);
     },
   },

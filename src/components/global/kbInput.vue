@@ -158,7 +158,7 @@ export default {
       if (!this.keypad) this.isFocus = true;
       if (this.datepicker || this.monthpicker || this.yearpicker) this.popCalendar(e.target);
       setTimeout(() => {
-        // this.focusScroll();
+        this.focusScroll();
       }, 300);
     },
     focusScroll() {
@@ -169,11 +169,18 @@ export default {
         const $offset = this.$getOffset($el);
         const thisH = $el.offsetHeight;
         let wrap = $el.closest('.scl__body');
+        let sclTop = 0;
+        // let head = null;
         // let headH = 0;
-        if (wrap === null)wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
-        // const head = wrap.querySelector('.scl__head');
+        if (wrap === null) {
+          wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
+          sclTop = window.scrollY;
+          // head = document.querySelector('.scl__head');
+        } else {
+          sclTop = wrap.scrollTop;
+          // head = wrap.querySelector('.scl__head');
+        }
         // if (head === null)headH = head.offsetHeight;
-        const sclTop = wrap.scrollTop;
         const positionTop = $offset.top - sclTop;
         const winCenter = (window.innerHeight / 2);
         const move = $offset.top - (winCenter / 2) - (thisH / 2);

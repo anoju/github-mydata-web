@@ -247,8 +247,13 @@ export default {
     const position = this.$getOffset($el);
     let wrap = $el.closest('.scl__body');
     let headH = 0;
-    if (wrap === null) wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
-    const head = wrap.querySelector('.scl__head');
+    let head = null;
+    if (wrap === null) {
+      wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
+      head = document.querySelector('.scl__head');
+    } else {
+      head = wrap.querySelector('.scl__head');
+    }
     if (head === null)headH = head.offsetHeight;
     this.$scrollTo(wrap, { top: (position.top - headH) }, 200);
   },

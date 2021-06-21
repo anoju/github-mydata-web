@@ -27,6 +27,12 @@
           </div>
         </div>
 
+        <!--2021-06-21  전체 내역이 없을때 -->
+        <div v-if="false" class="no_list_txt icon h_full">
+          <strong class="tit">내역이 없습니다.</strong>
+        </div>
+        <!-- //2021-06-21 전체 내역이 없을때 -->
+
         <div class="financial_bank_top">
           <h2>PAY 현황 <strong class="fc_blue">3</strong></h2>
 
@@ -225,6 +231,13 @@
             전체보기<i class="bt_ic_arr" aria-hidden="true" />
           </kb-button>
         </kb-title-bar>
+
+        <!--2021-06-21  내역이 없을때 -->
+        <div v-if="false" class="no_list_txt icon mg_y50">
+          <strong class="tit">내역이 없습니다.</strong>
+        </div>
+        <!-- //2021-06-21 내역이 없을때 -->
+
         <div class="line_list_ty2 border_none">
           <ul>
             <li>

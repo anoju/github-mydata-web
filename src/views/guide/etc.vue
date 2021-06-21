@@ -305,7 +305,8 @@ export default {
       });
     },
     scrollToEvt() {
-      const wrap = this.$el.closest('.scl__body');
+      let wrap = this.$el.closest('.scl__body');
+      if (wrap === null) wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
       this.$scrollTo(wrap, { top: 0 }, 300, () => {
         console.log('scroll End');
       });

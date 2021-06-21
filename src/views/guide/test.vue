@@ -1,11 +1,5 @@
 <template>
   <div class="section">
-    <kb-input
-      type="tel"
-      v-model="inpNumber"
-      comma
-      placeholder="숫자입력"
-    />
     <div class="character_face_wrap">
       <div ref="character" id="character" class="character_face">
         <div class="body"></div>

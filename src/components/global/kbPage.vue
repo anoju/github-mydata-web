@@ -1,7 +1,7 @@
 <template>
   <div
-    class="page_wrap scl__body"
-    :class="{lock : isLock, fixed_hide: !layoutFixedShow, gray: grayBg, apiPage:isAPI}"
+    class="page_wrap"
+    :class="{lock : isLock, fixed_hide: !layoutFixedShow, gray: grayBg, apiPage:isAPI, scl__body:isMainLayer}"
     :aria-hidden="isLock"
     v-on="listeners"
     v-touch:start="represhPullStart"
@@ -147,10 +147,15 @@ export default {
     }
     uiEventBus.$on('lock-wrap', this.wrapLock);
     uiEventBus.$on('unlock-wrap', this.wrapUnlock);
-    this.$el.addEventListener('scroll', this.wrapScrollEvt);
+
+    let sclBody = this.$el;
+    if (!sclBody.classList.contains('scl__body'))sclBody = window;
+    sclBody.addEventListener('scroll', this.wrapScrollEvt);
   },
   beforeDestroy() {
-    this.$el.removeEventListener('scroll', this.wrapScrollEvt);
+    let sclBody = this.$el;
+    if (!sclBody.classList.contains('scl__body'))sclBody = window;
+    sclBody.removeEventListener('scroll', this.wrapScrollEvt);
   },
   destroyed() {
     document.title = this.docTitle;
@@ -182,10 +187,12 @@ export default {
       this.btnTopOn();
 
       const $target = e.target;
-      const sclTop = $target.scrollTop;
-      const sclHeight = $target.scrollHeight;
-      const elHeight = $target.offsetHeight;
-      const bottomFixed = $target.querySelector('.bottom_fixed');
+      const sclWrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
+      const sclTop = $target === document ? window.scrollY : $target.scrollTop;
+      const sclHeight = $target === document ? sclWrap.scrollHeight : $target.scrollHeight;
+      const elHeight = $target === document ? window.innerHeight : $target.offsetHeight;
+      // console.log(sclTop, sclHeight, elHeight);
+      const bottomFixed = this.$el.querySelector('.bottom_fixed');
       if (bottomFixed !== null) {
         if ((sclTop + elHeight) === sclHeight) {
           bottomFixed.classList.add('end');
@@ -219,7 +226,7 @@ export default {
       }
 
       // for pageScroll event
-      if (Math.abs((e.target.scrollHeight - e.target.offsetHeight) - e.target.scrollTop) < 1) {
+      if (Math.abs((sclHeight - elHeight) - sclTop) < 1) {
         uiEventBus.$emit('pageScroll');
       }
     },
@@ -236,21 +243,15 @@ export default {
       // this.isFloaingBottom = $maxHeight;
     },
     btnTopOn() {
-      const sclTop = this.$el.scrollTop;
+      const wrap = this.$el;
+      let sclTop = wrap.scrollTop;
+      if (!wrap.classList.contains('scl__body')) sclTop = window.scrollY;
       if (sclTop > 100) this.isBtnTopOn = true;
       else this.isBtnTopOn = false;
     },
-    btnTopClick(e) {
-      e.preventDefault();
-      // try {
-      //   this.$el.scrollTo({
-      //     top: 0,
-      //     behavior: 'smooth',
-      //   });
-      // } catch (error) {
-      //   this.$el.scrollTo(0, 0);
-      // }
-      const wrap = this.$el.closest('.scl__body');
+    btnTopClick() {
+      let wrap = this.$el;
+      if (!wrap.classList.contains('scl__body'))wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
       this.$scrollTo(wrap, { top: 0 }, 300);
     },
     topTouchStart(e) {

@@ -39,17 +39,18 @@ export default {
   },
   methods: {
     sclHideInit() {
-      const sclBody = this.$el.closest('.scl__body');
-      if (sclBody !== null) {
-        sclBody.addEventListener('scroll', this.sclHideEvt);
-        this.$once('hook:beforeDestroy', () => {
-          sclBody.removeEventListener('scroll', this.sclHideEvt);
-        });
-      }
+      let sclBody = this.$el.closest('.scl__body');
+      if (sclBody === null)sclBody = window;
+      // if (sclBody !== null) {
+      sclBody.addEventListener('scroll', this.sclHideEvt);
+      this.$once('hook:beforeDestroy', () => {
+        sclBody.removeEventListener('scroll', this.sclHideEvt);
+      });
+      // }
     },
     sclHideEvt(e) {
       const $target = e.target;
-      const sclTop = $target.scrollTop;
+      const sclTop = e.target === document ? window.scrollY : $target.scrollTop;
       if (this.lastScrollY < sclTop) {
         this.isSclHide = true;
       } else {

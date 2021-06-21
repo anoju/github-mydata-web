@@ -72,8 +72,9 @@ export default {
     },
     foldingCallback() {
       const el = this.$el.parentNode;
-      const wrap = el.closest('.scl__body');
-      const wrapH = wrap.offsetHeight;
+      let wrap = el.closest('.scl__body');
+      if (wrap === null)wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
+      const wrapH = wrap.offsetHeight === undefined ? wrap.innerHeight : wrap.offsetHeight;
       const wrapSclTop = wrap.scrollTop;
       const wrapEnd = wrapSclTop + wrapH;
       const elTop = this.$getOffset(el).top;
@@ -89,10 +90,11 @@ export default {
       const space = wrap.querySelector('.fixed_space');
       if (space != null)bottomGap += (space.offsetHeight);
       const startY = elTop - topGap;
-      const endY = elEnd - wrapH + bottomGap;
+      const endY = elEnd - wrapH + bottomGap + 10;
       const sclMove = Math.min(startY, endY);
       if (this.isScroll) {
         if (elTop < wrapStart) {
+          console.log(startY);
           this.$scrollTo(wrap, { top: startY }, 300);
         } else if (wrapEnd < elEnd) {
           this.$scrollTo(wrap, { top: sclMove }, 300);
