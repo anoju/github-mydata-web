@@ -40,6 +40,9 @@ const routes = [
       { path: 'test', component: () => import('@/views/guide/test.vue'), meta: { page: 12 } },
     ],
   },
+  { path: '/guide/full', component: () => import('@/views/guide/pop/full.vue') },
+  { path: '/guide/modal', component: () => import('@/views/guide/pop/modal.vue') },
+  { path: '/guide/bottom', component: () => import('@/views/guide/pop/bottom.vue') },
   {
     path: '/pub',
     name: 'pubList',

@@ -30,6 +30,14 @@
           하단팝업
         </kb-button>
       </kb-button-wrap>
+      <kb-button-wrap>
+        <kb-button
+          yellow
+          to="/guide/full"
+        >
+          팝업을페이지로
+        </kb-button>
+      </kb-button-wrap>
     </div>
     <h2 class="gd__h1">툴팁</h2>
     <div>

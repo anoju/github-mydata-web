@@ -266,7 +266,9 @@ export default {
     tabFixed() {
       let wrap = this.$el.closest('.scl__body');
       if (wrap === null) wrap = window;
-      if (!this.$el.closest('.page_wrap').classList.contains('lock') || wrap.classList.contains('pop_body')) {
+      // console.log(this.$el.closest('.page_wrap'))
+      if ((this.$el.closest('.page_wrap') !== null && !this.$el.closest('.page_wrap').classList.contains('lock')) || wrap.classList.contains('pop_body')) {
+      // if (!this.$el.closest('.page_wrap').classList.contains('lock') || wrap.classList.contains('pop_body')) {
         const elWrap = (wrap === window) ? document : wrap;
         const fixedEls = elWrap.querySelectorAll('.fixed');
         let fixedTop = 0;

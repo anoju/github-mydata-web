@@ -6,6 +6,7 @@
     > -->
   <article
     class="pop_wrap"
+    :class="{page: !isLayer}"
   >
     <div
       v-if="!noHead"
@@ -73,6 +74,7 @@ export default {
   },
   data() {
     return {
+      isLayer: true,
       defaultType: 'modal',
       modalTitle: null,
       isShow: false,
@@ -104,6 +106,7 @@ export default {
     if (this.modal || this.bottom) window.removeEventListener('resize', this.maxHeight);
   },
   mounted() {
+    this.isLayerChk();
     this.addClassChk();
     this.idx = this.$el.dataset.idx;
     if (this.idx)uiEventBus.$emit('pop-open', [this.idx, this.modalType, this.addClass]);
@@ -115,6 +118,9 @@ export default {
     // console.log(this.propsData)
   },
   methods: {
+    isLayerChk() {
+      this.isLayer = this.$el.parentNode.classList.contains('popup');
+    },
     addClassChk() {
       if (this.tooltip) this.addClass.push('tooltip');
     },
@@ -138,7 +144,11 @@ export default {
       this.$el.querySelector('.pop_body').style.maxHeight = `${rtnVal}px`;
     },
     popClose() {
-      uiEventBus.$emit('pop-close', this.idx);
+      if (this.isLayer) {
+        uiEventBus.$emit('pop-close', this.idx);
+      } else {
+        window.history.back();
+      }
     },
   },
 };

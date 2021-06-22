@@ -34,7 +34,8 @@ html.ios{
 
 	//contents
 	.btn_wrap.bottom_fixed:not(.pop_foot) > div, 
-	.popup:not(.modal) .btn_wrap.pop_foot > div{
+	.popup:not(.modal) .btn_wrap.pop_foot > div,
+	.pop_wrap.page .btn_wrap.pop_foot > div{
 		padding-bottom:calc(16px + constant(safe-area-inset-bottom));
 		padding-bottom:calc(16px + env(safe-area-inset-bottom));
 	}
@@ -183,6 +184,24 @@ html.ios{
 			}
 		}
 		&.full{
+			.pop_head{
+				>div{
+				padding-top:calc(16px + constant(safe-area-inset-top));
+				padding-top:calc(16px + env(safe-area-inset-top));
+				}
+				&:not(.no_title)+.pop_body{
+					padding-top:calc(56px + constant(safe-area-inset-top));
+					padding-top:calc(56px + env(safe-area-inset-top));
+				}
+				.pop_close{
+					top:calc(13px + constant(safe-area-inset-top));
+					top:calc(13px + env(safe-area-inset-top));
+				}
+			}
+		}
+	}
+	.pop_wrap{
+		&.page{
 			.pop_head{
 				>div{
 				padding-top:calc(16px + constant(safe-area-inset-top));
