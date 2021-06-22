@@ -10,6 +10,7 @@
       <div
         ref="tablist"
         class="tablist"
+        :class="{tab__fixed:fixed}"
         role="tablist"
       >
         <div
@@ -225,25 +226,25 @@ export default {
       this.$scrollTo($tablist, { left: sclLeft }, 300);
     },
     lineWrapLeftPosition() {
-      const tablist = this.$el.querySelector('.tablist');
+      const { tablist } = this.$refs;
       const tablistLeft = tablist.scrollLeft;
       this.lineWrapLeft = -tablistLeft;
       this.isScrollableChk();
     },
     linePosition() {
-      const sclWidth = this.$el.querySelector('.tablist').scrollWidth;
+      const sclWidth = this.$refs.tablist.scrollWidth;
       this.lineWrapWidth = sclWidth;
-      const active = this.$el.querySelector('.tab.active');
+      const active = this.$refs.tablist.querySelector('.tab.active');
       if (active !== null) {
         this.lineWidth = active.querySelector('a').offsetWidth;
         this.lineLeft = active.offsetLeft + active.querySelector('a').offsetLeft;
-        const tablistLeft = this.$el.querySelector('.tablist').scrollLeft;
+        const tablistLeft = this.$refs.tablist.scrollLeft;
         this.lineWrapLeft = -tablistLeft;
         this.isScrollableChk();
       }
     },
     isScrollableChk() {
-      const tablist = this.$el.querySelector('.tablist');
+      const { tablist } = this.$refs;
       const tablistLeft = tablist.scrollLeft;
       const sclWidth = tablist.scrollWidth;
       if (tablist.offsetWidth < sclWidth) {

@@ -95,6 +95,16 @@ export default {
     noHeaderBack: { type: Boolean, default: false },
     grayBg: { type: Boolean, default: false },
     back: { type: [String, Function], default: null },
+    lock: { type: Boolean, default: false },
+  },
+  watch: {
+    lock() {
+      if (this.lock) {
+        this.wrapLock();
+      } else {
+        this.wrapUnlock();
+      }
+    },
   },
   data() {
     return {

@@ -29,8 +29,7 @@
             purple
             @click.native="onToastClose(toast.idx)"
           >
-            <template v-if="toast.type == 'mission'">보상받기</template>
-            <template v-else>바로가기</template>
+            {{toast.type == 'mission' ? '보상받기' : '바로가기'}}
           </kb-button>
         </div>
       </div>

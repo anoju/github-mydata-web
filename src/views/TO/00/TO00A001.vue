@@ -259,29 +259,70 @@
       </swiper-slide>
     </kb-swiper>
     <div class="main_to_quick">
+      <!-- 아이콘 구분: 자주가는 메뉴 편집목록 1뎁스 기준
+        ico_1: 오늘
+        ico_2: 투자생활
+        ico_3: 금융생활
+        ico_4: 마이페이지
+        ico_5: 환경설정
+        ico_6: 내 서랍
+        ico_7: 내 자산 비타민
+        ico_8: 내 자산 QnA
+        ico_9: 고객센터
+      -->
       <kb-swiper class="main_quick_swiper">
         <swiper-slide>
           <kb-button not a-tag class="quick_item">
             <div class="quick_ico ico_1"></div>
-            <div class="txt">자산변동 추이</div>
+            <div class="txt">오늘</div>
           </kb-button>
         </swiper-slide>
         <swiper-slide>
           <kb-button not a-tag class="quick_item">
             <div class="quick_ico ico_2"></div>
-            <div class="txt">월 지출</div>
+            <div class="txt">투자생활</div>
           </kb-button>
         </swiper-slide>
         <swiper-slide>
           <kb-button not a-tag class="quick_item">
             <div class="quick_ico ico_3"></div>
-            <div class="txt">투자 입출금 지난달 비교</div>
+            <div class="txt">금융생활</div>
           </kb-button>
         </swiper-slide>
         <swiper-slide>
           <kb-button not a-tag class="quick_item">
             <div class="quick_ico ico_4"></div>
-            <div class="txt">내 자료실</div>
+            <div class="txt">마이페이지</div>
+          </kb-button>
+        </swiper-slide>
+        <swiper-slide>
+          <kb-button not a-tag class="quick_item">
+            <div class="quick_ico ico_5"></div>
+            <div class="txt">환경설정</div>
+          </kb-button>
+        </swiper-slide>
+        <swiper-slide>
+          <kb-button not a-tag class="quick_item">
+            <div class="quick_ico ico_6"></div>
+            <div class="txt">내 서랍</div>
+          </kb-button>
+        </swiper-slide>
+        <swiper-slide>
+          <kb-button not a-tag class="quick_item">
+            <div class="quick_ico ico_7"></div>
+            <div class="txt">내 자산 비타민</div>
+          </kb-button>
+        </swiper-slide>
+        <swiper-slide>
+          <kb-button not a-tag class="quick_item">
+            <div class="quick_ico ico_8"></div>
+            <div class="txt">내 자산 QnA</div>
+          </kb-button>
+        </swiper-slide>
+        <swiper-slide>
+          <kb-button not a-tag class="quick_item">
+            <div class="quick_ico ico_8"></div>
+            <div class="txt">고객센터</div>
           </kb-button>
         </swiper-slide>
         <swiper-slide>

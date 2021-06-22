@@ -8,10 +8,16 @@
 export default {
   name: 'kbFoldings',
   provide() {
-    return { items: this.items, notToggle: this.notToggle, firstOpen: this.firstOpen };
+    return {
+      items: this.items,
+      notToggle: this.notToggle,
+      notSlide: this.notSlide,
+      firstOpen: this.firstOpen,
+    };
   },
   props: {
     notToggle: { type: Boolean, default: false },
+    notSlide: { type: Boolean, default: false },
     firstOpen: { type: Boolean, default: false },
     not: { type: Boolean, default: false },
     type1: { type: Boolean, default: false },

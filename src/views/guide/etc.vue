@@ -9,12 +9,7 @@
           large
           @change="checkedAll"
         >
-          <template v-if="allCheckedVal">
-            전체해제
-          </template>
-          <template v-else>
-            전체선택
-          </template>
+          {{allCheckedVal ? '전체해제' : '전체선택'}}
           : {{ allCheckedVal }}
         </kb-checkbox>
         <hr>

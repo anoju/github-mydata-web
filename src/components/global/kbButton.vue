@@ -232,7 +232,7 @@ export default {
           this.btnInX = e.clientX - ($el.getBoundingClientRect().left) - ($btnMax / 2);
           this.btnInY = e.clientY - ($el.getBoundingClientRect().top) - ($btnMax / 2);
           if (!this.noEffect) this.appendEffect();
-        }, 10);
+        }, 200);
       }
     },
     appendEffect() {

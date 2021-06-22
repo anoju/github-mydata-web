@@ -23,7 +23,10 @@ const scrollBehavior = function (to, from, savedPosition) {
 
     // bypass #1number check
     if (/^#\d/.test(to.hash) || document.querySelector(to.hash)) {
-      Vue.prototype.$hashScroll(to.hash);
+      Vue.nextTick(() => {
+        Vue.prototype.$hashScroll(to.hash);
+      });
+
       // console.log('return', position);
       return position;
     }

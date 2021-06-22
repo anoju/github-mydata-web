@@ -235,6 +235,22 @@ html.ios{
 		min-height:calc(100vh - 214px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
 		min-height:calc((var(--vh, 1vh) * 100) - 214px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
 	}
+	&.is_app{
+		.main_to_wrap{
+			min-height:calc(100vh - 113px - constant(safe-area-inset-top) - constant(safe-area-inset-bottom));
+			min-height:calc((var(--vh, 1vh) * 100) - 113px - constant(safe-area-inset-top) - constant(safe-area-inset-bottom));
+			min-height:calc(100vh - 113px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+			min-height:calc((var(--vh, 1vh) * 100) - 113px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+		}
+	}
+	.main_swiper{
+		.section{
+			min-height:calc(100vh - 114px - constant(safe-area-inset-bottom));
+			min-height:calc((var(--vh, 1vh) * 100) - 114px - constant(safe-area-inset-bottom));
+			min-height:calc(100vh - 114px - env(safe-area-inset-bottom));
+			min-height:calc((var(--vh, 1vh) * 100) - 114px - env(safe-area-inset-bottom));
+		}
+	}
 	.main_layer_view{
 		padding-top:calc(56px + constant(safe-area-inset-top));
 		padding-top:calc(56px + env(safe-area-inset-top));

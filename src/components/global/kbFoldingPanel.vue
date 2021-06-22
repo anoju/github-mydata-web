@@ -22,6 +22,7 @@ export default {
     tag: { type: String, default: 'div' },
     duration: { type: Number, default: 300 },
     endScroll: { type: Boolean, default: true },
+    scrolling: { type: Boolean, default: null },
   },
   data() {
     return {
@@ -37,6 +38,9 @@ export default {
     active() {
       this.folding();
     },
+    scrolling() {
+      if (this.scrolling) this.foldingCallback();
+    },
   },
   created() {
     if (!this.active) {
@@ -51,7 +55,7 @@ export default {
       if (this.active) {
         this.isAnimation = true;
         this.$slideDown(this.$el, this.duration, () => {
-          this.foldingCallback();
+          if (this.isScroll) this.foldingCallback();
           this.isAnimation = false;
         });
       } else {
@@ -83,8 +87,13 @@ export default {
       let topGap = 0;
       const header = wrap.querySelector('.scl__head');
       if (header != null)topGap += (header.offsetHeight);
-      const fixedTab = wrap.querySelector('.tab_wrap.fixed');
-      if (fixedTab != null)topGap += (fixedTab.querySelector('.tabmenu').offsetHeight);
+      // const fixedTab = wrap.querySelector('.tab_wrap.fixed');
+      // if (fixedTab != null)topGap += (fixedTab.querySelector('.tabmenu').offsetHeight);
+      const tabAll = wrap.querySelectorAll('.tab__fixed');
+      tabAll.forEach((item) => {
+        const height = item.offsetHeight;
+        topGap += height;
+      });
       const wrapStart = wrapSclTop + topGap;
       let bottomGap = 0;
       const space = wrap.querySelector('.fixed_space');
@@ -92,13 +101,10 @@ export default {
       const startY = elTop - topGap;
       const endY = elEnd - wrapH + bottomGap + 10;
       const sclMove = Math.min(startY, endY);
-      if (this.isScroll) {
-        if (elTop < wrapStart) {
-          console.log(startY);
-          this.$scrollTo(wrap, { top: startY }, 300);
-        } else if (wrapEnd < elEnd) {
-          this.$scrollTo(wrap, { top: sclMove }, 300);
-        }
+      if (elTop < wrapStart) {
+        this.$scrollTo(wrap, { top: startY }, 300);
+      } else if (wrapEnd < elEnd) {
+        this.$scrollTo(wrap, { top: sclMove }, 300);
       }
     },
   },

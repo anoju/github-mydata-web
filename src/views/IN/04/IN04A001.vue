@@ -159,8 +159,7 @@
             <!-- 키워드는 5개 까지 노출 이후 더보기 버튼 노출 -->
             <kb-button not v-for="(index, key) in keyword()" :key="key">{{index}}</kb-button>
             <kb-button not class="add" v-if="this.keywords.length > 5" @click="keywordShow">
-              <template v-if="!this.keywordShowCheck">더보기</template>
-              <template v-else>접기</template>
+              {{!this.keywordShowCheck ? '더보기' : '접기'}}
             </kb-button>
           </div>
         </div>

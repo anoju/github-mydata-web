@@ -38,8 +38,7 @@
         <div class="quick_bg" @click="quickOpen = false" />
         <kb-button not class="btn btn_quick" @click="quickOpen = !quickOpen" >
           퀵메뉴
-          <template v-if="quickOpen">닫기</template>
-          <template v-else>열기</template>
+          {{quickOpen ? '닫기' : '열기'}}
         </kb-button>
         <div class="quick_list">
           <ul>

@@ -10,14 +10,14 @@
         />
         <p class="tit mg_b8">동안 투자 자산이 어떻게 변했지?</p>
         <div class="txt_list2">
-          <div class="dot">조회기간은 KB 오늘 앱<strong>가입일</strong>부터 조회됩니다.</div>
+          <div class="dot">조회기간은 KB 오늘 앱 <strong>연동일</strong>부터 조회됩니다.</div>
         </div>
         <div class="t_center mg_t24">
           <kb-button line blue class="w_200">투자자산 조회</kb-button>
         </div>
       </div>
       <hr class="hr_line mg_t32" aria-hidden="true" />
-      <p class="fz_14 fc_666 mg_t32">조회기간 : 2010/2/01(가입일) - 2021/12/23</p>
+      <p class="fz_14 fc_666 mg_t32">조회기간 : 2010/2/01(연동일) - 2021/12/23</p>
 
       <kb-btn-toggle small inline class="mg_t10">
         <kb-btn-toggle-row>

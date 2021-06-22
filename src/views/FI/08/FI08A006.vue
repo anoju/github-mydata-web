@@ -32,6 +32,7 @@
                         <span>휴대폰</span>
                         <p class="acc_num">123-124234-12 02</p>
                       </div>
+                      <p class="fz_12 fc_blue align_slef_center">고객정지</p>
                     </kb-button>
                   </li>
                 </ul>

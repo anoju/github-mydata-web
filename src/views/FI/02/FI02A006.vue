@@ -1,7 +1,7 @@
 <template>
   <kb-page
     page-title="소비달력"
-    :class="{scl_lock:isSclLock}"
+    :lock="isSclLock"
   >
     <kb-page-body
       class="pd_b0"
@@ -452,12 +452,12 @@ export default {
       });
     },
     touchStartEvt(e) {
-      e.preventDefault();
-      if (this.scrollTop === 0 && !this.isFoldingCalendar) this.isSclLock = true;
+      // e.preventDefault();
+      this.isSclLock = true;
       this.touchStartY = (e.type === 'touchstart') ? e.touches[0].clientY : e.clientY;
     },
     touchEndEvt(e) {
-      e.preventDefault();
+      // e.preventDefault();
       this.isSclLock = false;
       const move = (e.type === 'touchend') ? e.changedTouches[0].clientY : e.clientY;
       this.touchDistance = move - this.touchStartY;
@@ -469,24 +469,10 @@ export default {
       if (this.touchDistance < -10) this.swipeUpEvt();
     },
     swipeUpEvt() {
-      if (!this.isFoldingCalendar) {
-        this.toggleCalendar();
-        // let wrap = this.$el.closest('.scl__body');
-        // let sclTop = 0;
-        // setTimeout(() => {
-        //   if (wrap === null) {
-        //     wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
-        //     sclTop = window.scrollY;
-        //   } else {
-        //     sclTop = window.scrollTop;
-        //   }
-        //   console.log(sclTop);
-        //   if (sclTop !== 0) this.$scrollTo(wrap, { top: 0 }, 10);
-        // }, 100);
-      }
+      if (!this.isFoldingCalendar) this.toggleCalendar();
     },
     swipeDownEvt() {
-      if (this.isFoldingCalendar && this.scrollTop === 0) this.toggleCalendar();
+      if (this.isFoldingCalendar) this.toggleCalendar();
     },
     scrollList(e) {
       const $target = e.target;

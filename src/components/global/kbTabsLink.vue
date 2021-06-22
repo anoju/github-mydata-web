@@ -11,6 +11,7 @@
       <div
         ref="tablist"
         class="tablist"
+        :class="{tab__fixed:fixed}"
         role="tablist"
       >
         <div
@@ -142,7 +143,7 @@ export default {
       }
       setTimeout(() => {
         this.linePosition();
-      }, 100);
+      }, 200);
     });
   },
   destroyed() {
@@ -151,18 +152,18 @@ export default {
   },
   methods: {
     lineWrapLeftPosition() {
-      const tablist = this.$el.querySelector('.tablist');
+      const { tablist } = this.$refs;
       const tablistLeft = tablist.scrollLeft;
       this.lineWrapLeft = -tablistLeft;
       this.isScrollableChk();
     },
     linePosition() {
-      const sclWidth = this.$el.querySelector('.tablist').scrollWidth;
+      const sclWidth = this.$refs.tablist.scrollWidth;
       this.lineWrapWidth = sclWidth;
-      let active = this.$el.querySelector('.router-link-exact-active');
+      let active = this.$refs.tablist.querySelector('.router-link-active');
       let activeParent = null;
       if (active === null) {
-        active = this.$el.querySelector('.active');
+        active = this.$refs.tablist.querySelector('.active');
         activeParent = active;
       } else {
         activeParent = active.parentNode;
@@ -199,7 +200,7 @@ export default {
       this.isScrollableChk();
     },
     isScrollableChk() {
-      const tablist = this.$el.querySelector('.tablist');
+      const { tablist } = this.$refs;
       const tablistLeft = tablist.scrollLeft;
       const sclWidth = tablist.scrollWidth;
       if (this.$el.offsetWidth < sclWidth) {

@@ -52,14 +52,13 @@
     </div>
     <!-- //총 자산 -->
     <div class="assets_type_box">
-      <kb-tabs type3>
+      <kb-tabs type3 v-model="tabIdx">
         <kb-tab
           title="자산유형별"
-          active
         >
-          <kb-foldings type1 not-toggle class="ty3">
+          <kb-foldings type1 not-toggle not-slide class="ty3">
             <!-- 현금 -->
-            <kb-folding>
+            <kb-folding :slide.sync="slideVal1" @click="slideEvt1" :active.sync="isAllOpen">
               <template slot="title">
                 <div class="accodion_header">
                   <p class="title">
@@ -175,7 +174,7 @@
             </kb-folding>
             <!-- //현금 -->
             <!-- 투자 -->
-            <kb-folding>
+            <kb-folding :active.sync="isAllOpen">
               <template slot="title">
                 <div class="accodion_header">
                   <p class="title">
@@ -243,7 +242,7 @@
             <!-- //투자 -->
 
             <!-- 카드 -->
-            <kb-folding>
+            <kb-folding :active.sync="isAllOpen">
               <template slot="title">
                 <div class="accodion_header">
                   <p class="title">
@@ -362,7 +361,7 @@
             <!-- //카드 -->
 
             <!-- 대출 -->
-            <kb-folding>
+            <kb-folding :active.sync="isAllOpen">
               <template slot="title">
                 <div class="accodion_header">
                   <p class="title">
@@ -469,7 +468,7 @@
             <!-- //대출 -->
 
             <!-- 보험 -->
-            <kb-folding>
+            <kb-folding :active.sync="isAllOpen">
               <template slot="title">
                 <div class="accodion_header">
                   <p class="title">
@@ -536,7 +535,7 @@
             <!-- //보험 -->
 
             <!-- 연금 -->
-            <kb-folding>
+            <kb-folding :active.sync="isAllOpen">
               <template slot="title">
                 <div class="accodion_header">
                   <p class="title">
@@ -643,7 +642,7 @@
             <!-- //연금 -->
 
             <!-- 실물 -->
-            <kb-folding>
+            <kb-folding :active.sync="isAllOpen">
               <template slot="title">
                 <div class="accodion_header">
                   <p class="title">
@@ -746,7 +745,7 @@
         >
           <kb-foldings type1 not-toggle class="ty3">
             <!-- 금융사별 항목1 -->
-            <kb-folding>
+            <kb-folding :active.sync="isAllOpen2">
               <template slot="title">
                 <div class="accodion_header">
                   <p class="title"><i style="background:skyblue;"></i>KB국민은행<span>예금총액</span></p>
@@ -786,7 +785,7 @@
             <!-- //금융사별 항목1 -->
 
             <!-- 금융사별 항목2 -->
-            <kb-folding>
+            <kb-folding :active.sync="isAllOpen2">
               <template slot="title">
                 <div class="accodion_header">
                   <p class="title"><i style="background:skyblue;"></i>KB국민은행<span>예금총액</span></p>
@@ -826,7 +825,7 @@
             <!-- //금융사별 항목2 -->
 
             <!-- 실물 -->
-            <kb-folding>
+            <kb-folding :active.sync="isAllOpen2">
               <template slot="title">
                 <div class="accodion_header">
                   <p class="title">실물</p>
@@ -884,7 +883,7 @@
             <!-- //실물 -->
 
             <!-- 기타 -->
-            <kb-folding>
+            <kb-folding :active.sync="isAllOpen2">
               <template slot="title">
                 <div class="accodion_header">
                   <p class="title">기타</p>
@@ -921,8 +920,8 @@
           </kb-foldings>
         </kb-tab>
       </kb-tabs>
-      <kb-button class="all_open_close">
-        전체펼치기<!-- 전체닫기 -->
+      <kb-button class="all_open_close" @click="allOpenEVt">
+        {{ (tabIdx == 0 && isAllOpen) || (tabIdx == 1 && isAllOpen2) ? '전체닫기' : '전체펼치기'}}
       </kb-button>
 
     </div>
@@ -957,9 +956,29 @@ export default {
   name: 'TO02A002',
   data() {
     return {
+      tabIdx: 0,
+      isAllOpen: false,
+      isAllOpen2: false,
+      slideVal1: false,
     };
   },
   methods: {
+    allOpenEVt() {
+      if (this.tabIdx === 0) {
+        this.isAllOpen = !this.isAllOpen;
+      } else if (this.tabIdx === 1) {
+        this.isAllOpen2 = !this.isAllOpen2;
+      }
+    },
+    slideEvt1() {
+      if (!this.slideVal1) {
+        setTimeout(() => {
+          this.slideVal1 = true;
+        }, 1000);
+      } else {
+        this.slideVal1 = false;
+      }
+    },
     openAssetListEditorPop(el) {
       this.$modal({
         component: () => import('./TO02A006.vue'),

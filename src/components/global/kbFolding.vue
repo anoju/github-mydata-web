@@ -17,7 +17,7 @@
         :class="{open:visible}"
         :disabled="disabled"
         v-on="listeners"
-        @click="slide($event)"
+        @click="clickEvt($event)"
       >
         {{ title }}
         <template v-if="visible">{{openTitle}}</template>
@@ -34,6 +34,7 @@
       class="panel"
       :duration="duration"
       :end-scroll="isScroll"
+      :scrolling="slide"
     >
       <slot />
     </kb-folding-panel>
@@ -46,13 +47,14 @@ import uiEventBus from '../uiEventBus.vue';
 let uuid = 0;
 export default {
   name: 'kbFolding',
-  inject: ['items', 'notToggle', 'firstOpen'],
+  inject: ['items', 'notToggle', 'notSlide', 'firstOpen'],
   props: {
     title: { type: String, default: null },
     closeTitle: { type: String, default: null },
     openTitle: { type: String, default: null },
     disabled: { type: Boolean, default: false },
     active: { type: Boolean, default: false },
+    slide: { type: Boolean, default: null },
   },
   data() {
     return {
@@ -108,11 +110,15 @@ export default {
     }
   },
   methods: {
-    slide(e) {
+    clickEvt(e) {
       if (e) e.preventDefault();
       if (this.isAnimate) return;
       this.isAnimate = true;
-      this.isScroll = true;
+      if (this.notSlide) {
+        this.isScroll = false;
+      } else {
+        this.isScroll = true;
+      }
       this.$emit('update:active', null);
       if (this.notToggle) {
         this.isActive = !this.isActive;

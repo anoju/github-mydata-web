@@ -758,7 +758,7 @@ span.gd__box{
 	}
 }
 
-.chart_legend_list{
+.chart_legend_list{ padding:0 8px;
 	li+li{margin-top:24px;}
 	.flex{
 		justify-content:space-between;line-height:22px;align-items:center;

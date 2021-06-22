@@ -92,11 +92,11 @@
             >툴팁창 닫기</kb-button>
           </div>
         </transition>
-        <img src="@/assets/images/TO/02/chart_timeline.png" style="width:100%;" alt="차트 이미지">
+        <img src="@/assets/images/TO/02/chart_timeline.png" style="width:100%;" alt="차트 이미지" @click="scrollAction()">
       </div>
       <!-- //chart -->
 
-      <div class="timeline_box">
+      <div class="timeline_box" ref="timeline">
         <div class="top_head">
           <span class="minus">자산감소</span>
           <p class="tit">거래변동</p>
@@ -273,6 +273,21 @@ export default {
     };
   },
   methods: {
+    // 2021-06-22 타임라인 클릭시 스크롤 액션 추가
+    scrollAction() {
+      let wrap = this.$el.closest('.scl__body');
+      if (wrap === null)wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
+      const { scrollTop } = wrap;
+      const fixed = document.querySelectorAll('.fixed');
+      let fixedHeight = 0;
+
+      fixed.forEach((i) => {
+        fixedHeight += i.firstChild.offsetHeight;
+      });
+      const top = scrollTop + this.$refs.timeline.getBoundingClientRect().top - fixedHeight;
+
+      this.$scrollTo(wrap, { top }, 500);
+    },
   },
 };
 </script>

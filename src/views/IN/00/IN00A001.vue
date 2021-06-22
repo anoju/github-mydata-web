@@ -1,8 +1,9 @@
 <template>
   <div class="section portfolio_wrap">
-    <!-- 투자 프렌즈 없는경우 -->
+    <!-- 2021-06-22 데이터가 없는 경우 -->
     <template v-if="noData">
       <kb-swiper class="mg_t0 portfolio_box pd_t0">
+        <!-- 투자 프렌즈가 없는 경우 -->
         <swiper-slide>
           <kb-button not aTag class="none_box block">
             <i class="ico"></i>
@@ -10,9 +11,29 @@
             <p class="text">어떤 투자 성향이세요?<br />나의 투자 프렌즈를 만나보세요</p>
           </kb-button>
         </swiper-slide>
+        <!-- //투자 프렌즈가 없는 경우 -->
+
+        <!-- 투자금이 없는 경우 -->
+        <swiper-slide>
+          <kb-button not aTag class="none_box type2 block">
+            <p class="tit2">김스타님 투자 평가금액을 <br />투자해서 잠금해제하세요.</p>
+            <p class="text mg_t12"><i class="ico_medal"></i> 전설의 시작</p>
+          </kb-button>
+        </swiper-slide>
+        <!-- //투자금이 없는 경우 -->
+
+        <!-- 투자금이 없는 경우 -->
+        <swiper-slide>
+          <kb-button not aTag class="block none_box2 type2">
+            <p class="text mg_t44">할까 말까 망설여질 땐 <br />가볍게 가상 투자 Go!</p>
+            <p class="tit">투자의 세계에 입문하세요.</p>
+            <i class="ico ico0"></i>
+          </kb-button>
+        </swiper-slide>
+        <!-- //투자금이 없는 경우 -->
       </kb-swiper>
     </template>
-    <!-- //투자 프렌즈 없는경우 -->
+    <!-- // 2021-06-22 데이터가 없는 경우 -->
 
     <template v-if="!noData">
       <kb-swiper class="mg_t0 portfolio_box pd_t0">
@@ -74,6 +95,36 @@
             <kb-button aTag not class="btn_friends">프렌즈 다시 찾기</kb-button>
           </div>
         </swiper-slide>
+
+        <!-- 2021-06-22 투자금이 있는 경우 -->
+        <swiper-slide>
+          <kb-button not aTag class="none_box type2 block">
+            <p class="tit2">김스타님 투자 평가금액을 <br />투자해서 잠금해제하세요.</p>
+            <p class="text mg_t12">
+              <!--
+                ico0 : 전설의 시작
+                ico1 : 초심자의 행운
+                ico2 : 질풍노도의 투자
+                ico3 : 혜안의 투자 버프
+                ico4 : 투자계의 붉은 전설
+              -->
+              <i class="ico_medal ico1"></i> 초심자의 행운 버프
+            </p>
+          </kb-button>
+        </swiper-slide>
+        <!-- //투자금이 있는 경우 -->
+
+        <!-- 2021-06-22 가상투자가 있는 경우 -->
+        <swiper-slide>
+          <kb-button not aTag class="none_box type2 block">
+            <p class="tit2">김스타님 가상투자자산이 <br />523,456,000원 증가했어요.</p>
+            <div class="flex_wrap align_center mg_t24">
+              <p class="fz_14 fc_666">평가금액</p>
+              <p class="mg_la fz_16 fw_bold">300,000,000원</p>
+            </div>
+          </kb-button>
+        </swiper-slide>
+        <!-- //가상투자가 있는 경우 -->
       </kb-swiper>
     </template>
 

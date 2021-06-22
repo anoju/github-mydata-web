@@ -17,12 +17,7 @@
                 @change="chkAllEvt"
                 class="full"
               >
-                <template v-if="chkAll">
-                  선택해제
-                </template>
-                <template v-else>
-                  전체선택
-                </template>
+                {{chkAll ? '선택해제' : '전체선택'}}
               </kb-checkbox>
             </div>
             <kb-foldings type1 not-toggle class="acc_info_list" first-open>
