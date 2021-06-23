@@ -8,6 +8,10 @@
     <div class="fc_yellow">fc_yellow:#ffdc00</div>
     <div class="fc_red">fc_red:#F46600</div>
     <div class="fc_gray">fc_gray:#6f7a94</div>
+    <div class="fc_purple">fc_purple:#7040b1</div>
+    <div class="fc_yellow">fc_yellow:#ffdc00</div>
+    <div class="fc_up">fc_up:#de092f (상승)</div>
+    <div class="fc_down">fc_down:#2859d1 (하락)</div>
     <br>
     <div class="fc_000">fc_000:#000</div>
     <div class="fc_222">fc_222:#222</div>

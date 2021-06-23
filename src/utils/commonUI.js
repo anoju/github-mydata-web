@@ -242,20 +242,20 @@ export default {
       }),
     });
   },
-  hashScroll(el) {
+  hashScroll(el, fn) {
     const $el = document.querySelector(el);
     const position = this.$getOffset($el);
     let wrap = $el.closest('.scl__body');
-    let headH = 0;
-    let head = null;
-    if (wrap === null) {
-      wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
-      head = document.querySelector('.scl__head');
-    } else {
-      head = wrap.querySelector('.scl__head');
-    }
-    if (head === null)headH = head.offsetHeight;
-    this.$scrollTo(wrap, { top: (position.top - headH) }, 200);
+    let topMargin = 0;
+    if (wrap === null) wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
+    const head = wrap.querySelector('.scl__head');
+    if (head !== null)topMargin += head.offsetHeight;
+    const tabAll = wrap.querySelectorAll('.tab__fixed');
+    tabAll.forEach((item) => {
+      const height = item.offsetHeight;
+      topMargin += height;
+    });
+    this.$scrollTo(wrap, { top: (position.top - topMargin) }, 200, fn);
   },
   addComma(val) {
     if (val === null || val === undefined) return '';

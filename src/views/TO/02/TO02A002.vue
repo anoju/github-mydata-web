@@ -974,7 +974,7 @@ export default {
       if (!this.slideVal1) {
         setTimeout(() => {
           this.slideVal1 = true;
-        }, 1000);
+        }, 3000);
       } else {
         this.slideVal1 = false;
       }

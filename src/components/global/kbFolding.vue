@@ -62,6 +62,7 @@ export default {
       isActive: false,
       duration: 300,
       isAnimate: false,
+      isNotSlide: true,
       isScroll: true,
     };
   },
@@ -73,6 +74,9 @@ export default {
     },
     isActive() {
       this.$emit('isActive');
+    },
+    isNotSlide() {
+      this.isScroll = !this.isNotSlide;
     },
   },
   computed: {
@@ -104,21 +108,23 @@ export default {
     this.uuid = uuid.toString();
     uuid += 1;
   },
+  beforeMount() {
+    if (this.active) this.isActive = this.active;
+    if (this.notSlide) this.isNotSlide = true;
+  },
   mounted() {
-    if (this.active) {
-      this.isActive = this.active;
-    }
   },
   methods: {
     clickEvt(e) {
       if (e) e.preventDefault();
+      if (this.isNotSlide) this.isNotSlide = this.$parent.$options.propsData.notSlide;
       if (this.isAnimate) return;
       this.isAnimate = true;
-      if (this.notSlide) {
-        this.isScroll = false;
-      } else {
-        this.isScroll = true;
-      }
+      // if (this.notSlide) {
+      //   this.isScroll = false;
+      // } else {
+      //   this.isScroll = true;
+      // }
       this.$emit('update:active', null);
       if (this.notToggle) {
         this.isActive = !this.isActive;
@@ -139,7 +145,11 @@ export default {
     slideToggle(val) {
       if (this.isAnimate) return;
       this.isAnimate = true;
-      this.isScroll = false;
+      // if (this.notSlide) {
+      //   this.isScroll = false;
+      // } else {
+      //   this.isScroll = true;
+      // }
       if (val) {
         this.isActive = true;
       } else {

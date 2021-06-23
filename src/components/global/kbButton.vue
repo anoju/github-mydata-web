@@ -219,12 +219,6 @@ export default {
         const { $el } = this;
         this.btnTxt = $el.textContent;
         setTimeout(() => {
-          if ((this.like || this.like2 || this.star || this.bookmark) && this.$el.classList.contains('checked') && !isChecked) {
-            if (this.like) this.$like('heart');
-            if (this.like2) this.$like('hands');
-            if (this.star) this.$like('star');
-            if (this.bookmark) this.$like('bookmark');
-          }
           if (this.btnTxt !== $el.textContent) return;
           const $btnMax = Math.max($el.offsetWidth, $el.offsetHeight);
           this.btnInW = $btnMax;
@@ -232,7 +226,21 @@ export default {
           this.btnInX = e.clientX - ($el.getBoundingClientRect().left) - ($btnMax / 2);
           this.btnInY = e.clientY - ($el.getBoundingClientRect().top) - ($btnMax / 2);
           if (!this.noEffect) this.appendEffect();
-        }, 200);
+        }, 10);
+        if ((this.like || this.like2 || this.star || this.bookmark) && !isChecked) {
+          let checkedTimerNum = 0;
+          const checkedTimer = setInterval(() => {
+            if (this.$el.classList.contains('checked')) {
+              if (this.like) this.$like('heart');
+              if (this.like2) this.$like('hands');
+              if (this.star) this.$like('star');
+              if (this.bookmark) this.$like('bookmark');
+              clearInterval(checkedTimer);
+            }
+            checkedTimerNum += 1;
+            if (checkedTimerNum > 30)clearInterval(checkedTimer);
+          }, 100);
+        }
       }
     },
     appendEffect() {

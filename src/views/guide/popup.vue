@@ -77,6 +77,29 @@
           버튼 custom
         </kb-button>
       </kb-button-wrap>
+      <h2 class="gd__h1">alert 안 컨텐츠 가이드</h2>
+      <kb-button-wrap>
+        <kb-button
+          yellow
+          @click="showAlert2('기본 텍스트 입니다.<br><strong>굵은 텍스트</strong> 입니다.', $event.target)"
+        >
+          기본+bold
+        </kb-button>
+        <kb-button
+          yellow
+          @click="showAlert2(`<span class='fc_red'>빨간색</span><br><strong class='fc_blue'>파란색</strong><br><strong class='fc_up'>상승</strong><br><strong class='fc_down'>하락</strong>`, $event.target)"
+        >
+          글자색상
+        </kb-button>
+        <kb-button
+          yellow
+          @click="showAlert2(`<strong class='fz_16'>큰글자:16px</strong><br>기본글자:15px<br><span class='fz_12'>작은 글자:12px</span>`, $event.target)"
+        >
+          글자크기
+        </kb-button>
+      </kb-button-wrap>
+      <br>
+      <kb-button link line to="/guide/txt">글자 색상 참조</kb-button>
     </div>
     <h2 class="gd__h1">toast</h2>
     <div>
@@ -257,6 +280,11 @@ export default {
         });
       }
       this.isAlertTitle = !this.isAlertTitle;
+    },
+    showAlert2(msg, el) {
+      this.$alert(msg, el).then(() => {
+        console.log('확인');
+      });
     },
     showConfirm(el) {
       if (this.isAlertTitle) {

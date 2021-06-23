@@ -12,10 +12,24 @@ chart
 		.ico{margin-left:10px;}
 		+dt{margin-top:10px;}
 	}
-	.ico{width:30px;height:30px;background:#ddd;border-radius:50%;}
+	.ico{width:30px;height:30px;background: no-repeat center center / 100%;border-radius:50%;
+		&.type1 { background-image:url('~@/assets/images/IN/03/diagnosis_result_icon1.png');}
+		&.type2 { background-image:url('~@/assets/images/IN/03/diagnosis_result_icon2.png');}
+		&.type3 { background-image:url('~@/assets/images/IN/03/diagnosis_result_icon3.png');}
+		&.type4 { background-image:url('~@/assets/images/IN/03/diagnosis_result_icon4.png');}
+		&.type5 { background-image:url('~@/assets/images/IN/03/diagnosis_result_icon5.png');}
+	}
 	+.chart_tooltip{margin-top:10px;}
 }
 
+.chart_char {
+	.ico { display:block; width:74px; height:110px; background: no-repeat center center / 100%;}
+	&.type1 { background-image:url('~@/assets/images/IN/char_ty1.png');}
+	&.type2 { background-image:url('~@/assets/images/IN/char_ty2.png');}
+	&.type3 { background-image:url('~@/assets/images/IN/char_ty3.png');}
+	&.type4 { background-image:url('~@/assets/images/IN/char_ty4.png');}
+	&.type5 { background-image:url('~@/assets/images/IN/char_ty5.png');}
+}
 
 /* ==========================================================================
 component
@@ -2581,7 +2595,9 @@ html:not(.ios):not(.safari) .form_item .fm_lb>.tooltip_btn{vertical-align:-3px;}
 				.td{font-size:10px;margin-top:4px;text-align:center;color:#666;}
 			}
 		}
-		.button.like{width:24px;height:24px;position:absolute;top:16px;right:16px;}
+		.button.like{
+			width:24px;height:24px;position:absolute;top:14px;right:16px;
+		}
 		.d_day{display:inline-block;padding:7px 12px;color:#5177bc;white-space:nowrap;border:1px solid #ebebeb;background:#fff;border-radius:18px;font-size:14px;line-height:20px;}
 		.tbl_list{
 			>li{

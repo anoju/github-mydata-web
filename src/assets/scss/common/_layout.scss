@@ -276,7 +276,7 @@ html.mobile .gnb_dep1::-webkit-scrollbar{display:none;}
 .page_container{position:relative;
 	min-height:calc(100vh - 56px);min-height: calc((var(--vh, 1vh) * 100) - 56px);
 }
-.page_body{padding-bottom:60px;}
+.page_body{padding-bottom:80px;}
 .section{
 	padding:0 20px;
 	&.pd_bottom{padding-bottom:30px;}
