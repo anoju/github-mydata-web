@@ -265,7 +265,7 @@
                   to="/TO/01/TO01D002"
                   @click.native="gnbClose"
                 >
-                  내자산 Qna
+                  내자산 QnA
                 </router-link>
               </li>
               <li>
@@ -381,7 +381,7 @@
                   to="/IN/11/IN11A001"
                   @click.native="gnbClose"
                 >
-                  추천테마
+                  주식테마 큐레이션
                 </router-link>
               </li>
               <li>

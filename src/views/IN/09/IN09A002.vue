@@ -25,7 +25,7 @@
       :max="maxVal"
       :marks="false"
     />
-    <div class="t_center mg_t24">
+    <div class="t_center mg_t24 flex_wrap align_center justify_center">
       <kb-input class="w_80" input-class="t_center" not-del type="tel" title="은퇴시기 입력" v-model="sliderVal" />
       <strong class="mg_l8">세</strong>
     </div>

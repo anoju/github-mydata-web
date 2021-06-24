@@ -77,8 +77,14 @@
 
 
 /*좋아요*/
+.layer_like_wrap{
+	// .layer_like.show{
+	// 	opacity:0.8;
+	// 	&:last-child{opacity:1;}
+	// }
+}
 .layer_like{
-	position:fixed;top:5000%;left:50%;width:80px;height:80px;margin:-30px 0 0 -45px;border-radius:50%;background:#ffdc00;opacity:0;z-index:250;transition:top 0s 1s, margin 0.3s ease, opacity 0.3s ease;pointer-events:none;
+	position:fixed;top:50%;left:50%;width:80px;height:80px;border-radius:50%;background:#ffdc00;opacity:0;z-index:250;transition:transform 0.3s ease, opacity 0.3s ease;pointer-events:none;box-shadow: 0 0 10px 5px #fff;transform:translate(-50%,0%);
 	>div{width:50px;height:50px;margin:15px auto 0;background-repeat:no-repeat;background-position:center center;background-size:contain;
 		&.heart{
 			margin-top:18px;
@@ -99,7 +105,7 @@
 		}
 	}
 	&.show{
-		top:50%;margin-top:-45px;opacity:1;transition-delay:0s;
+		transform:translate(-50%,-50%);opacity:1;
 		>div{animation:bounceIn 1.6s;}
 	}
 }

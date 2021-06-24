@@ -17,7 +17,7 @@
             <li class="dash">포트폴리오 진단</li>
             <li class="dash">인퇴 진단 및 제안</li>
             <li class="dash">투자습관 진단</li>
-            <li class="dash">추천 테마</li>
+            <li class="dash">주식테마 큐레이션</li>
             <li class="dash">금융생활 서비스</li>
             <li class="dash">상품매매(KB증권 연동해지)</li>
           </ul>

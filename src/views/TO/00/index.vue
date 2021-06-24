@@ -58,7 +58,7 @@
           ref="layerBg"
           :style="LayerBgStyle"
           aria-label="닫기"
-          @click="layerHide"
+          @click="layerHide(300, $event)"
         >닫기</a>
         <div
           class="inner"
@@ -126,15 +126,18 @@ export default {
     };
   },
   watch: {
-    $route(to) {
+    $route(to, from) {
       if (this.isRoute) {
-        if (to.path !== '/TO/00' && to.path !== '/TO/00/') {
-          this.LayerStyle = this.layerSetStyle(true, 100);
-          this.LayerBgStyle = this.layerBgSetStyle(true, 100);
-        } else {
-          this.LayerStyle = this.layerSetStyle(false, 100);
-          this.LayerBgStyle = this.layerBgSetStyle(false, 100);
+        if (from.path === '/TO/00' && to.path !== '/TO/00') {
+          this.layerOpen(100);
+        } else if (from.path !== '/TO/00' && to.path === '/TO/00') {
+          this.lastPath = from.path;
+          this.layerHide(100);
         }
+      }
+      if (to.path === '/TO/00') {
+        const idx = to.query.tabIndex;
+        this.swiperslideTo(idx);
       }
     },
   },
@@ -174,7 +177,9 @@ export default {
     }
 
     this.$nextTick(() => {
-      this.$refs.layerContainer.querySelector('.scl__body').addEventListener('scroll', this.scrollEvt);
+      if (!!this.$refs.layerContainer && !!this.$refs.layerContainer.querySelector('.scl__body')) {
+        this.$refs.layerContainer.querySelector('.scl__body').addEventListener('scroll', this.scrollEvt);
+      }
     });
 
     let sclBody = this.$parent.$el;
@@ -285,7 +290,7 @@ export default {
         } else {
           this.isLayerFull = false;
           this.isRoute = false;
-          this.lastPath = this.$route.path;
+          if (this.$route.path !== '/TO/00') this.lastPath = this.$route.path;
           this.$router.push('/TO/00');
           setTimeout(() => {
             this.isRoute = true;
@@ -325,21 +330,36 @@ export default {
         },
       ];
     },
-    layerHide(e) {
-      e.preventDefault();
-      this.LayerStyle = this.layerSetStyle(false, this.LayerDuration);
-      this.LayerBgStyle = this.layerBgSetStyle(false, this.LayerDuration);
+    layerOpen(speed = this.LayerDuration) {
+      this.LayerStyle = this.layerSetStyle(true, 100);
+      this.LayerBgStyle = this.layerBgSetStyle(true, 100);
+      setTimeout(() => {
+        this.isLayerFull = true;
+        this.LayerStyle = null;
+        this.LayerBgStyle = null;
+        this.isRoute = false;
+        setTimeout(() => {
+          this.isRoute = true;
+        }, 10);
+      }, speed);
+    },
+    layerHide(speed = this.LayerDuration, e) {
+      if (e !== undefined) e.preventDefault();
+      this.LayerStyle = this.layerSetStyle(false, speed);
+      this.LayerBgStyle = this.layerBgSetStyle(false, speed);
       setTimeout(() => {
         this.isLayerFull = false;
         this.LayerStyle = null;
         this.LayerBgStyle = null;
+        if (e !== undefined) {
+          if (this.$route.path !== '/TO/00') this.lastPath = this.$route.path;
+          this.$router.push('/TO/00');
+        }
         this.isRoute = false;
-        this.lastPath = this.$route.path;
-        this.$router.push('/TO/00');
         setTimeout(() => {
           this.isRoute = true;
         }, 10);
-      }, this.LayerDuration);
+      }, speed);
     },
     onScroll() {
       let sclBody = this.$parent.$el;

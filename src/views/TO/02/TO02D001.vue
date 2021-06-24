@@ -278,12 +278,13 @@ export default {
       let wrap = this.$el.closest('.scl__body');
       if (wrap === null)wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
       const { scrollTop } = wrap;
-      const fixed = document.querySelectorAll('.fixed');
+      const header = document.querySelector('.scl__head');
+      const tabmenu = document.querySelector('.tabmenu');
       let fixedHeight = 0;
 
-      fixed.forEach((i) => {
-        fixedHeight += i.firstChild.offsetHeight;
-      });
+      fixedHeight += header.firstChild.offsetHeight;
+      fixedHeight += tabmenu.firstChild.offsetHeight;
+
       const top = scrollTop + this.$refs.timeline.getBoundingClientRect().top - fixedHeight;
 
       this.$scrollTo(wrap, { top }, 500);

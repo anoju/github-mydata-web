@@ -1,5 +1,5 @@
 <template>
-  <kb-page page-title="추천테마">
+  <kb-page page-title="주식테마 큐레이션">
     <kb-page-body>
       <div class="section theme_wrap">
 

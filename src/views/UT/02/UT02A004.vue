@@ -20,7 +20,7 @@
               <span>포트폴리오 진단</span>
               <span class="bg">내 자산 Q &amp; A</span>
               <span>오늘의 투자생활</span>
-              <span class="bg">추천테마</span>
+              <span class="bg">주식테마 큐레이션</span>
             </div>
             <div style="margin-left:0px">
               <span>포트폴리오 진단</span>

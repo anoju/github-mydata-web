@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="modals.length || isLike"
+    v-if="modals.length || likes.length"
     class="modal_container"
   >
     <kb-pop-wrap
@@ -20,14 +20,16 @@
     </kb-pop-wrap>
 
     <!-- like -->
-    <div
-      v-if="isLike"
-      id="layerLike"
-      class="layer_like"
-      :class="{show:isLikeShow}"
-      aria-hidden="true"
-    >
-      <div :class="likeClass"></div>
+    <div class="layer_like_wrap" v-if="likes.length">
+      <div
+        v-for="(like, j) in likes"
+        :key="j"
+        class="layer_like"
+        :class="{show:like.show}"
+        aria-hidden="true"
+      >
+        <div :class="like.class"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -43,12 +45,23 @@ export default {
   data() {
     return {
       modals: [],
+      likeIdx: 0,
+      likes: [],
       isLike: false,
       isLikeShow: false,
       isLikeIng: false,
       likeClass: null,
       isClosing: false,
     };
+  },
+  watch: {
+    $route(to, from) {
+      if (to.path !== from.path) {
+        this.likeIdx = 0;
+        this.likes = [];
+      // this.modals = [];
+      }
+    },
   },
   created() {
     this.$modalInstance = this;
@@ -129,7 +142,6 @@ export default {
       const idx = Number(index);
       const wrap = this.$el.childNodes[idx];
       const modal = this.modals[idx];
-      modal.resolve({ payload });
       wrap.classList.remove('show');
       if (idx > 0)wrap.previousSibling.setAttribute('aria-hidden', false);
       if (idx === 0) uiEventBus.$emit('unlock-wrap');
@@ -141,24 +153,23 @@ export default {
           focusEl.focus();
         }
         this.isClosing = false;
+        modal.resolve({ payload });
       }, 600);
     },
     like(addClass) {
-      if (!this.isLikeIng) {
-        this.likeClass = addClass;
-        this.isLikeIng = true;
-        this.isLike = true;
+      const idx = this.likeIdx;
+      this.likes.push({
+        idx,
+        class: addClass,
+        show: false,
+      });
+      this.likeIdx += 1;
+      setTimeout(() => {
+        this.likes[idx].show = true;
         setTimeout(() => {
-          this.isLikeShow = true;
-          setTimeout(() => {
-            this.isLikeShow = false;
-            setTimeout(() => {
-              this.isLike = false;
-              this.isLikeIng = false;
-            }, 300);
-          }, 2000);
-        }, 10);
-      }
+          this.likes[idx].show = false;
+        }, 2000);
+      }, 50);
     },
   },
 };

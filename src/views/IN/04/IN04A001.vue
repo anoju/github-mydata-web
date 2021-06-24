@@ -588,17 +588,21 @@
               <strong class="line">높습니다.</strong>
             </p>
             <ul class="img_box type4">
-              <!-- 클래스 정의
+              <!-- 클래스 정의 2021-06-24
                 디폴트 : 기본
+                낮은경우 (좌 : 부정) : ico1
+                낮은경우 (좌 : 긍정) : ico2
+                높은경우 (좌 : 부정) : ico3
+                높은경우 (좌 : 긍정) : ico4
                 큰이미지 : big
                 없음 : none
               -->
-              <li>
+              <li class="ico3">
                 <i></i>
                 <span class="top fc_blue">10%</span>
                 <p class="text">종목명</p>
               </li>
-              <li class="big">
+              <li>
                 <i></i>
                 <span class="top">13%</span>
                 <p class="text">동일업종명</p>
@@ -622,8 +626,12 @@
                     <strong class="line">보통입니다.</strong>
                   </p>
                   <ul class="img_box type4">
-                    <!-- 클래스 정의
+                    <!-- 클래스 정의 2021-06-24
                       디폴트 : 기본
+                      낮은경우 (좌 : 부정) : ico1
+                      낮은경우 (좌 : 긍정) : ico2
+                      높은경우 (좌 : 부정) : ico3
+                      높은경우 (좌 : 긍정) : ico4
                       큰이미지 : big
                       없음 : none
                     -->
@@ -632,7 +640,7 @@
                       <span class="top fc_blue">10%</span>
                       <p class="text">종목명</p>
                     </li>
-                    <li class="big">
+                    <li>
                       <i></i>
                       <span class="top">13%</span>
                       <p class="text">동일업종명</p>
@@ -646,12 +654,16 @@
                     <strong class="line">낮습니다.</strong>
                   </p>
                   <ul class="img_box type4">
-                    <!-- 클래스 정의
+                    <!-- 클래스 정의 2021-06-24
                       디폴트 : 기본
+                      낮은경우 (좌 : 부정) : ico1
+                      낮은경우 (좌 : 긍정) : ico2
+                      높은경우 (좌 : 부정) : ico3
+                      높은경우 (좌 : 긍정) : ico4
                       큰이미지 : big
                       없음 : none
                     -->
-                    <li>
+                    <li class="ico1">
                       <i></i>
                       <span class="top fc_blue">10%</span>
                       <p class="text">종목명</p>

@@ -81,9 +81,11 @@
             <div class="chart">
               <img src="@/assets/images/temp/chart_donut1.png" alt="">
             </div>
-            <div class="t_right">
-              <kb-button v-if="openAll" not class="fz_12 fc_666" @click="OpenAllEvt">전체접기</kb-button>
-              <kb-button v-else not class="fz_12 fc_666" @click="OpenAllEvt">전체펼치기</kb-button>
+
+            <div class="flex_wrap">
+              <p class="fz_12 fc_blue_gray mg_ra pd_r10">* 보유비율은 소수점 이하 2자리까지 절사되어 표기되었습니다.</p>
+              <kb-button v-if="openAll" not class="fz_12 fc_666 flex00" @click="OpenAllEvt">전체접기</kb-button>
+              <kb-button v-else not class="fz_12 fc_666 flex00" @click="OpenAllEvt">전체펼치기</kb-button>
             </div>
             <kb-foldings type1 not-toggle class="chart_list">
               <kb-folding :active.sync="openAll">
@@ -788,7 +790,7 @@
                     <swiper-slide class="type3">
                       <div class="model_box bg">
                         <h3>
-                          <span>위험 더하기 안정은 투자의 정석!</span>
+                          <span>위험 더하기 안전은 투자의 정석!</span>
                           위험중립형
                         </h3>
                         <div class="img type3"></div>
@@ -866,7 +868,7 @@
               <swiper-slide class="type3">
                 <div class="model_box bg">
                   <h3>
-                    <span>위험 더하기 안정은 투자의 정석!</span>
+                    <span>위험 더하기 안전은 투자의 정석!</span>
                     위험중립형
                   </h3>
                   <div class="img type3"></div>

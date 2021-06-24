@@ -226,27 +226,35 @@
         <kb-checkbox
           v-model="checkVal2"
         >
-          체크상태: {{ checkVal2 }}
+          선택 값: {{ checkVal2 }}
         </kb-checkbox>
         <kb-checkbox
           v-model="checkVal3"
           disabled
         >
-          disabled 체크상태: {{ checkVal3 }}
+          disabled 선택 값: {{ checkVal3 }}
         </kb-checkbox>
         <kb-checkbox
           v-model="checkVal4"
           disabled
         >
-          disabled 체크상태: {{ checkVal4 }}
+          disabled 선택 값: {{ checkVal4 }}
+        </kb-checkbox>
+        <h4 class="gd__h3">true-value, false-value</h4>
+        <kb-checkbox
+          v-model="checkVal5"
+          true-value="1"
+          false-value="0"
+        >
+          true-value(1), false-value(0) - 선택 값: {{ checkVal5 }}
         </kb-checkbox>
 
         <h4 class="gd__h3">동그란 스타일 업는 체크박스</h4>
         <kb-checkbox
-          v-model="checkVal4"
+          v-model="checkVal6"
           class="no_style"
         >
-          disabled 체크상태: {{ checkVal4 }}
+          체크상태: {{ checkVal6 }}
         </kb-checkbox>
 
         <h4 class="gd__h3">종류</h4>
@@ -1151,6 +1159,8 @@ export default {
       checkVal2: true,
       checkVal3: false,
       checkVal4: true,
+      checkVal5: '1',
+      checkVal6: true,
       radioVal1: '4',
       radioVal2: '',
       radioVal3: '1',
