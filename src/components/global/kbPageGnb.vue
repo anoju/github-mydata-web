@@ -550,7 +550,7 @@
             <ul>
               <li>
                 <router-link
-                  to="/TO/01/TO01E001/0"
+                  to="/TO/01/TO01E001"
                   @click.native="gnbClose"
                 >
                   오늘의 퀘스트
@@ -558,7 +558,7 @@
               </li>
               <li>
                 <router-link
-                  to="/TO/01/TO01E001/1"
+                  to="/TO/01/TO01E001?tab=1"
                   @click.native="gnbClose"
                 >
                   소비줄이기
@@ -809,7 +809,8 @@ export default {
     },
     gnbActive() {
       // 메뉴 active
-      const $path = this.$route.path;
+      // const $path = this.$route.path;
+      const $path = window.location.href.substring(window.location.origin.length);
       const $pathSplit = $path.split('/');
       const $pathLast = $pathSplit.length > 4 ? $pathSplit[3] : $pathSplit.pop();
       const $title = document.querySelector('.page_head h1').innerText;

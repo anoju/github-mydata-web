@@ -1,7 +1,8 @@
 <template>
+  <!-- :class="{lock : isLock, fixed_hide: !layoutFixedShow, gray: grayBg, apiPage:isAPI, scl__body:isMainLayer}" -->
   <div
     class="page_wrap scl__body"
-    :class="{lock : isLock, fixed_hide: !layoutFixedShow, gray: grayBg, apiPage:isAPI, scl__body:isMainLayer}"
+    :class="{lock : isLock, fixed_hide: !layoutFixedShow, gray: grayBg, apiPage:isAPI}"
     :aria-hidden="isLock"
     v-on="listeners"
     v-touch:start="represhPullStart"

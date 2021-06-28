@@ -50,6 +50,7 @@
         :autocomplete="autocomplete"
         v-on="listeners"
         @focus="focusEvt"
+        @click="clickEvt"
         @blur="isFocus = false"
       >
       <input
@@ -154,12 +155,14 @@ export default {
     focus() {
       this.$refs.input.focus();
     },
-    focusEvt(e) {
+    focusEvt() {
       if (!this.keypad) this.isFocus = true;
-      if (this.datepicker || this.monthpicker || this.yearpicker) this.popCalendar(e.target);
       setTimeout(() => {
         this.focusScroll();
       }, 300);
+    },
+    clickEvt(e) {
+      if (this.datepicker || this.monthpicker || this.yearpicker) this.popCalendar(e.target);
     },
     focusScroll() {
       const isApp = document.querySelector('html').classList.contains('is_app');

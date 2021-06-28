@@ -1649,10 +1649,12 @@ span.gd__box{
 .mission_cont_wrap{
 	position:relative;padding:22px 20px 0;min-height:100%;
 	&.success:after,
-	&.fail:after { content:''; display:block; position:absolute; top:0; left:0; width:100%; height:100%; background-color:rgba(255,255,255,0.7);background-repeat:no-repeat;background-position:center center;
+	&.fail:after,
+	&.wating:after { content:''; display:block; position:absolute; top:0; left:0; width:100%; height:100%; background-color:rgba(255,255,255,0.7);background-repeat:no-repeat;background-position:center center;
 	background-size:200px 200px;}
 	&.success:after { background-image:url('~@/assets/images/TO/01/ico_success.png');}
 	&.fail:after { background-image:url('~@/assets/images/TO/01/ico_fail.png');}
+	&.wating:after { background-image:url('~@/assets/images/TO/01/ico_wating.png');}
 	.ico_txt_wrap{
 		text-align:center;
 		.ico_txt{margin:2px;}

@@ -6,7 +6,7 @@
     <kb-pop-body>
       <div
         class="mission_cont_wrap"
-        :class="{success: isSeccess, fail: isFail,}"
+        :class="{success: isSeccess, fail: isFail, wating: isWating}"
       >
         <div class="ico_txt_wrap">
           <ico-txt blue>진행중</ico-txt>
@@ -54,7 +54,7 @@
       </div>
     </kb-pop-body>
     <kb-pop-foot>
-      <kb-button line v-if="!isFail && !isSeccess">종료하기</kb-button>
+      <kb-button line v-if="!isFail && !isSeccess && !isWating">종료하기</kb-button>
       <kb-button yellow @click="stateChange">목표 다시 세우기</kb-button>
     </kb-pop-foot>
   </kb-pop>
@@ -64,20 +64,31 @@ export default {
   name: 'TO01E011',
   data() {
     return {
+      idx: 0,
       isFail: false,
       isSeccess: false,
+      isWating: false,
     };
   },
   methods: {
     stateChange() {
-      if (!this.isSeccess && !this.isFail) {
+      if (this.idx === 0) {
         this.isSeccess = true;
-      } else if (!this.isFail) {
+      }
+      if (this.idx === 1) {
         this.isSeccess = false;
         this.isFail = true;
-      } else {
-        this.isFail = false;
       }
+      if (this.idx === 2) {
+        this.isFail = false;
+        this.isWating = true;
+      }
+      if (this.idx === 3) {
+        this.isWating = false;
+        this.idx = -1;
+      }
+
+      this.idx += 1;
     },
     popClose() {
       this.$emit('close');

@@ -26,38 +26,40 @@ function MessageBox() {
             msgBox.instance = instance;
           }
         },
-        get() {
-          return msgBox.instance;
-        },
+        // get() {
+        //   return msgBox.instance;
+        // },
       });
     },
 
     alert(text, returnFocus, title, options = {}) {
       return new Promise((resolve) => {
-        msgBox.instance.addMessage({
+        msgBox.instance.addMessage(
+          resolve,
+          false,
           text,
           title,
-          isConfirm: false,
-          addClass: options.addClass,
-          confirmTxt: options.confirmTxt,
+          options,
+          // addClass: options.addClass || null,
+          // confirmTxt: options.confirmTxt || '확인',
           returnFocus,
-          resolve,
-        });
+        );
       });
     },
 
     confirm(text, returnFocus, title, options = {}) {
       return new Promise((resolve) => {
-        msgBox.instance.addMessage({
+        msgBox.instance.addMessage(
+          resolve,
+          true,
           text,
           title,
-          isConfirm: true,
-          addClass: options.addClass,
-          confirmTxt: options.confirmTxt,
-          cancelTxt: options.cancelTxt,
+          options,
+          // addClass: options.addClass || null,
+          // confirmTxt: options.confirmTxt || '확인',
+          // cancelTxt: options.cancelTxt || '취소',
           returnFocus,
-          resolve,
-        });
+        );
       });
     },
   };

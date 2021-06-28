@@ -53,13 +53,14 @@
         :class="{full:isLayerFull, off: !LayerShow, downsize: LayerDownsize && !isLayerFull && !isLayerTouch}"
       >
         <a
+          href="#"
           role="button"
           class="bg"
           ref="layerBg"
           :style="LayerBgStyle"
-          aria-label="닫기"
+          aria-label="메인 레이어 닫기"
           @click="layerHide(300, $event)"
-        >닫기</a>
+        >메인 레이어 닫기</a>
         <div
           class="inner"
           ref="layerContainer"
@@ -135,8 +136,8 @@ export default {
           this.layerHide(100);
         }
       }
-      if (to.path === '/TO/00') {
-        const idx = to.query.tabIndex;
+      if (to.path === '/TO/00' && to.query.tab !== undefined) {
+        const idx = parseInt(to.query.tab, 10);
         this.swiperslideTo(idx);
       }
     },
@@ -180,6 +181,10 @@ export default {
       if (!!this.$refs.layerContainer && !!this.$refs.layerContainer.querySelector('.scl__body')) {
         this.$refs.layerContainer.querySelector('.scl__body').addEventListener('scroll', this.scrollEvt);
       }
+      if (this.$route.query.tab !== undefined) {
+        const idx = parseInt(this.$route.query.tab, 10);
+        this.swiperslideTo(idx);
+      }
     });
 
     let sclBody = this.$parent.$el;
@@ -199,6 +204,9 @@ export default {
     }
   },
   methods: {
+    swiperslideTo(idx) {
+      if (idx !== undefined) this.mainSwiper.slideTo(idx, 0, false);
+    },
     resizeChk() {
       this.LayerMaxHeight = this.$refs.layerWrap.offsetHeight - parseInt(this.$getStyle(this.$refs.layerWrap, 'padding-top'), 10);
     },
@@ -330,9 +338,12 @@ export default {
         },
       ];
     },
-    layerOpen(speed = this.LayerDuration) {
-      this.LayerStyle = this.layerSetStyle(true, 100);
-      this.LayerBgStyle = this.layerBgSetStyle(true, 100);
+    layerOpen(speed = this.LayerDuration, e) {
+      if (e !== undefined) {
+        e.preventDefault();
+      }
+      this.LayerStyle = this.layerSetStyle(true, speed);
+      this.LayerBgStyle = this.layerBgSetStyle(true, speed);
       setTimeout(() => {
         this.isLayerFull = true;
         this.LayerStyle = null;
@@ -344,7 +355,9 @@ export default {
       }, speed);
     },
     layerHide(speed = this.LayerDuration, e) {
-      if (e !== undefined) e.preventDefault();
+      if (e !== undefined) {
+        e.preventDefault();
+      }
       this.LayerStyle = this.layerSetStyle(false, speed);
       this.LayerBgStyle = this.layerBgSetStyle(false, speed);
       setTimeout(() => {

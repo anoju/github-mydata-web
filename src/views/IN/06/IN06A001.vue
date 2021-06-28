@@ -496,11 +496,24 @@ export default {
   data() {
     return {
       isBookmark: true,
-      tabIdx: 0,
+      tabIdx: 1,
     };
   },
+  watch: {
+    '$route.query.tab': {
+      handler(tab) {
+        if (this.$route.query.tab === undefined) {
+          this.tabIdx = 0;
+        } else {
+          this.tabIdx = Number(tab);
+        }
+      },
+      deep: true,
+      immediate: true,
+    },
+  },
   mounted() {
-    // if (this.$route.params.tab !== this.tabIdx) this.tabIdx = Number(this.$route.params.tab);
+    if (this.$route.query.tab !== undefined) this.tabIdx = Number(this.$route.query.tab);
   },
   methods: {
   },

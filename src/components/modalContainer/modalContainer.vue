@@ -6,7 +6,11 @@
     <kb-pop-wrap
       v-for="(modal, i) in modals"
       :key="i"
-      v-bind="modal.modalProps"
+      :class="[
+        modal.type,
+        modal.addClass,
+        modal.show ? 'show' : ''
+      ]"
       @close="onClose(i)"
     >
       <component
@@ -14,7 +18,6 @@
         ref="modals"
         v-bind="modal.componentProps"
         :data-idx="i"
-        @mounted="onMounted(i)"
         @close="onClose(i,$event)"
       />
     </kb-pop-wrap>
@@ -95,6 +98,9 @@ export default {
 
       // 이미 열린 팝업 처리
       if (this.isDuplicated(componentName)) {
+        const modalObj = this.modals.filter((modal) => modal.componentName === componentName);
+        const modalIdx = this.modals.findIndex((modal) => modal.componentName === componentName);
+        if (modalIdx > -1) this.onOpen(modalIdx, modalObj.type, modalObj.addClass);
         // resolve({ flag: false })
         return;
       }
@@ -105,12 +111,12 @@ export default {
         componentName,
         modalProps,
         resolve,
+        show: false,
+        type: null,
+        addClass: null,
         // return: { flag: false },
         returnFocus,
       });
-    },
-    onMounted(index) {
-      this.modals[index].initialized = true;
     },
     onOpen(index, type, addClass) {
       if (this.isClosing) return;
@@ -118,12 +124,15 @@ export default {
       const idx = Number(index);
       const modal = this.$children[idx].$el;
       const wrap = this.$el.childNodes[idx];
-      wrap.classList.remove('full', 'modal', 'bottom');
-      wrap.classList.add(type);
-      wrap.classList.add(...addClass);
+      // wrap.classList.remove('full', 'modal', 'bottom');
+      // wrap.classList.add(type);
+      // wrap.classList.add(...addClass);
+      this.modals[idx].type = type;
+      this.modals[idx].addClass = addClass;
       if (idx === 0 && document.querySelector('.lock') === null) uiEventBus.$emit('lock-wrap');
       setTimeout(() => {
-        wrap.classList.add('show');
+        // wrap.classList.add('show');
+        this.modals[idx].show = true;
         wrap.setAttribute('aria-hidden', false);
         if (idx > 0)wrap.previousSibling.setAttribute('aria-hidden', true);
       }, 50);
@@ -142,7 +151,9 @@ export default {
       const idx = Number(index);
       const wrap = this.$el.childNodes[idx];
       const modal = this.modals[idx];
-      wrap.classList.remove('show');
+      modal.resolve({ payload });
+      // wrap.classList.remove('show');
+      this.modals[idx].show = false;
       if (idx > 0)wrap.previousSibling.setAttribute('aria-hidden', false);
       if (idx === 0) uiEventBus.$emit('unlock-wrap');
       let focusEl = modal.returnFocus;
@@ -153,7 +164,6 @@ export default {
           focusEl.focus();
         }
         this.isClosing = false;
-        modal.resolve({ payload });
       }, 600);
     },
     like(addClass) {

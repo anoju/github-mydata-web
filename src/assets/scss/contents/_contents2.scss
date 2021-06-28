@@ -1578,7 +1578,7 @@
   }
 }
 
-.financial_list_none { margin-top:12px; padding:24px 0 20px; border-radius:6px; background:#f8f8f8; text-align:center;
+.financial_list_none { margin-top:12px; margin-bottom:20px; padding:24px 0 20px; border-radius:6px; background:#f8f8f8; text-align:center;
   .tit { font-size:16px; line-height:1.5;}
   .add { height:24px; margin-top:14px; padding-left:26px; font-size:14px; color:#5177bc; line-height:normal; font-weight:bold; line-height:24px;
     &:before { content:''; display:block; position:absolute; top:0; left:0; width:24px; height:24px; background:url('~@/assets/images/common/ico_linkage.png') no-repeat; background-size:100%;}
@@ -2308,7 +2308,7 @@
 .level_map { overflow:hidden; padding:48px 20px 30px; text-align:center;
   > .tit { font-size:20px; font-weight:bold;}
   > .sub_text { margin-top:8px; font-size:16px; color:#666;}
-  .level_box { display:flex; min-width:288px; margin:33px auto 0; flex-wrap: wrap;
+  .level_box { display:flex; width:288px; margin:33px auto 0; flex-wrap: wrap;
     .box { width:33.333%; margin-bottom:12px;
       > div,
       > a { overflow: visible; position:relative; display:flex; width:88px; height:88px; margin:0 auto; border-radius:12px; text-align:center;flex-flow: column; justify-content: center; background:#f8f8f8; align-items: center;
@@ -2357,6 +2357,8 @@
           &:after { display:block; animation:levelSuccessIcon .3s ease-in 1.2s both;}
         }
       }
+
+      &:last-child { width:100%;}
     }
   }
 }
@@ -2501,7 +2503,7 @@
     .sec03 {
       .imgbg { background:url('~@/assets/images/UT/15/bg_ani.png') no-repeat 50% 0 / 500%;}
       .item1 { display:block; position:absolute; top:15.56vw; width:100%; height:16.11vw; background:url('~@/assets/images/UT/15/img_ani3_1.png') no-repeat 0 0 / 100%; opacity:0;}
-      .item2 { display:block; position:absolute; top:8.33vw; right:12.5vw; z-index:1; width:30.56vw; height:30.56vw; background:url('~@/assets/images/UT/15/img_ani3_2.png') no-repeat center center / 100%; opacity:0;}
+      .item2 { display:block; position:absolute; top:8.33vw; right:12.5vw; width:30.56vw; height:30.56vw; background:url('~@/assets/images/UT/15/img_ani3_2.png') no-repeat center center / 100%; opacity:0;}
       .arrow { display:block; position:absolute; top:32.5vw; right:15.83vw; width:10.28vw; height:8.61vw; background:url('~@/assets/images/UT/15/img_ani3_3.png') no-repeat center center / 100%; opacity:0;}
       .text { display:block; position:absolute; top:46.39vw; right:5.56vw; width:auto; opacity:0;}
     }

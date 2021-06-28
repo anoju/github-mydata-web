@@ -73,11 +73,14 @@ export default {
     lblClass: { type: String, default: null },
     lblStyle: { type: String, default: null },
     name: { type: String, default: null },
+    dblclick: { type: Function, default: null },
   },
   data() {
     return {
       isFocus: false,
       checkedState: false,
+      isDblclick: false,
+      dblclickTime: null,
     };
   },
   beforeCreate() {
@@ -192,6 +195,20 @@ export default {
       this.$refs.checkbox.focus();
     },
     clickEvt() {
+      if (!this.disabled) {
+        if (this.dblclick !== null) {
+          if (this.isDblclick) {
+            clearTimeout(this.dblclickTime);
+            this.isDblclick = false;
+            this.dblclick();
+          } else {
+            this.isDblclick = true;
+            this.dblclickTime = setTimeout(() => {
+              this.isDblclick = false;
+            }, 300);
+          }
+        }
+      }
       if (this.button && this.$el.closest('.btn_toggle_row') !== null) {
         const wrap = this.$el.closest('.btn_toggle_row');
         const sclWidth = wrap.scrollWidth;

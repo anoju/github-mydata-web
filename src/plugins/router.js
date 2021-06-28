@@ -161,7 +161,7 @@ export default {
     });
     if (requireAuth !== undefined) {
       const { app } = router;
-      console.error('router.js : beforeEnter');
+      console.log('router.js : beforeEnter');
       (async () => {
         await processUtil.await(() => app.mounted, 5000)
           .then(() => {
@@ -186,7 +186,7 @@ export default {
               });
           })
           .catch((error) => {
-            console.error('router.js : app.mounted 체크 실패', error);
+            console.log('router.js : app.mounted 체크 실패', error);
             next(false);
           });
       })();

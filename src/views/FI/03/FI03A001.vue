@@ -96,6 +96,14 @@
               <p class="tag">자동차보험 보험</p>
             </div>
 
+            <!-- 만약 아이콘이 없다면, mg_l40 은 삭제 -->
+            <div class="ico_wrap mg_t4 mg_l40">
+              <div>
+                <span class="mg_r4 ico_txt pink">변액</span>
+                <span class="mg_r4 ico_txt blue">유니버셜</span>
+              </div>
+            </div>
+
             <div class="money_info mg_l40">
               <p class="progress">10% 납입</p>
               <p class="money">
@@ -147,99 +155,58 @@
               </p>
             </div>
           </kb-button>
-        </div>
-
-        <hr aria-hidden="true" class="hr_line">
-
-        <div class="financial_bank_box mg_b0">
-          <kb-button not aTag>
-            <p class="tit">보험계약대출</p>
-            <ul class="info_text">
-              <li><span>보험사</span>2개</li>
-            </ul>
-
-            <dl class="money_box">
-              <dt>총 대출잔액</dt>
-              <dd class="money">1,123,400,000원</dd>
-            </dl>
-          </kb-button>
-
-          <!-- 대출내역 리스트 -->
-          <div class="list_box">
-            <div class="info">
-              <p class="bank">
-                <strong>국민은행</strong>
-                12345678900000
-              </p>
-              <p class="loan"><span>대출 이율</span>3.12%</p>
+          <!-- 2021-06-28 대출 타입 추가 -->
+          <kb-button aTag not>
+            <div class="cont">
+              <!-- 이슈 발생시 issue 클래스 적용  -->
+              <i class="ico"><span style="background: skyblue;"></span></i>
+              <div class="name">
+                <p>IRP 퇴직연금</p>
+                <span>삼성생명 12345678901234567890</span>
+              </div>
             </div>
-            <div class="money_info">
-              <p class="progress">10% 상환</p>
+
+            <div class="money_info mg_l40">
               <p class="money">
-                <span>남은 대출 원금</span>
+                <span>계좌평가금액</span>
+                123,456,000원
+              </p>
+              <p class="money small">
+                <span>적립금액</span>
                 123,456,000원
               </p>
             </div>
-            <div class="progress_bar">
-              <span style="width:10%"></span>
-            </div>
-          </div>
+          </kb-button>
 
-          <div class="list_box pd_b20">
-            <div class="info">
-              <p class="bank">
-                <strong>KB카드 리볼빙</strong>
+          <kb-button aTag not>
+            <div class="cont">
+              <!-- 이슈 발생시 issue 클래스 적용  -->
+              <i class="ico"><span style="background: skyblue;"></span></i>
+              <div class="name">
+                <p>IRP 퇴직연금</p>
+                <span>삼성생명 12345678901234567890</span>
+                <span>거치식 만기지정상환 - 원금균등분할상환</span>
+              </div>
+              <p class="tag">보증보험</p>
+            </div>
+
+            <div class="money_info mg_l40">
+              <p class="money">
+                <span>대출잔액</span>
+                123,456,000원
+              </p>
+              <p class="money small">
+                <span>다음 이자 상환일</span>
+                2021/12/31
+              </p>
+              <p class="money small">
+                <span>만기일</span>
+                2021/12/31
               </p>
             </div>
-            <ul class="info_list">
-              <li class="black">
-                <strong>신청일</strong>
-                2019/01/01
-              </li>
-              <li class="black">
-                <strong>리볼빙 이월잔액</strong>
-                30,000,000,000원
-              </li>
-              <li>
-                <strong>최소 결제비율</strong>
-                10%
-              </li>
-              <li>
-                <strong>최소 결제금액</strong>
-                123,000원
-              </li>
-              <li>
-                <strong>약정 결제비율</strong>
-                10%
-              </li>
-            </ul>
-          </div>
-
-          <div class="list_box pd_b20">
-            <div class="info">
-              <p class="bank">
-                <strong>KB카드 단기대출</strong>
-              </p>
-              <p class="loan"><span>대출 이율</span>3.12%</p>
-            </div>
-            <ul class="info_list">
-              <li class="black">
-                <strong>신청일</strong>
-                2019/01/01
-              </li>
-              <li class="black">
-                <strong>이용금액</strong>
-                30,000,000,000원
-              </li>
-              <li>
-                <strong>이용일시</strong>
-                2019/01/01
-              </li>
-            </ul>
-          </div>
-          <!-- //대출내역 리스트 -->
+          </kb-button>
+          <!-- //2021-06-28 대출 타입 추가 -->
         </div>
-
       </div>
     </kb-page-body>
   </kb-page>

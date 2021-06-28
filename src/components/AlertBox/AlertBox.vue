@@ -1,132 +1,145 @@
 <template>
   <div
-    v-if="show"
-    class="popup modal alert"
-    :class="message.addClass"
-    role="dialog"
+    v-if="messages.length"
+    class="modal_container"
   >
-    <kb-pop :title="message.title" no-close>
-      <kb-pop-body>
-        <div class="section">
-          <div
-            ref="message"
-            class="message"
-            tabindex="-1"
-          >
-            <div
-              role="alert"
-              aria-live="assertive"
-              v-html="message.text"
-            />
-          </div>
-        </div>
-      </kb-pop-body>
-      <kb-pop-foot>
-        <kb-button
-          v-if="message.isConfirm"
-          line
-          @click="onClose(false)"
-        >
-          {{ message.cancelTxt }}
-        </kb-button>
-        <kb-button
-          yellow
-          @click="onClose(true)"
-        >
-          {{ message.confirmTxt }}
-        </kb-button>
-      </kb-pop-foot>
-    </kb-pop>
+    <template v-for="(msg, i) in messages">
+      <kb-pop-wrap
+        ref="alert"
+        :key="i"
+        class="modal alert"
+        :class="[
+          msg.addClass,
+          msg.show ? 'show' : ''
+        ]"
+        v-if="!msg.empty"
+        role="dialog"
+      >
+        <kb-pop :title="msg.title" no-close>
+          <kb-pop-body>
+            <div class="section">
+              <div
+                ref="message"
+                class="message"
+                tabindex="-1"
+              >
+                <div
+                  role="alert"
+                  aria-live="assertive"
+                  v-html="msg.text"
+                />
+              </div>
+            </div>
+          </kb-pop-body>
+          <kb-pop-foot>
+            <kb-button
+              v-if="msg.isConfirm"
+              line
+              @click="onClose(msg.idx, false)"
+            >
+              {{ msg.cancelTxt }}
+            </kb-button>
+            <kb-button
+              yellow
+              @click="onClose(msg.idx, true)"
+            >
+              {{ msg.confirmTxt }}
+            </kb-button>
+          </kb-pop-foot>
+        </kb-pop>
+      </kb-pop-wrap>
+    </template>
   </div>
 </template>
 
 <script>
 import uiEventBus from '../uiEventBus.vue';
 
-// const DELAY_MS = 100
-
 export default {
   name: 'MessageBox',
   data() {
     return {
-      isOpen: false,
-      delay: false,
-      queue: [],
-      message: null,
+      messages: [],
+      index: 0,
     };
   },
-  computed: {
-    show() {
-      // return !this.delay && this.queue.length > 0
-      return this.queue.length > 0;
-    },
-  },
   watch: {
-    show(newValue) {
-      if (newValue) {
-        const {
-          text,
-          title,
-          addClass,
-          confirmTxt,
-          cancelTxt,
-          isConfirm,
-          returnFocus,
-          resolve,
-        } = this.queue[0];
-
-        this.message = {
-          text: text || null,
-          title: title || null,
-          addClass: addClass || null,
-          confirmTxt: confirmTxt || '확인',
-          cancelTxt: cancelTxt || '취소',
-          isConfirm,
-          returnFocus,
-          resolve,
-        };
-
-        this.$nextTick(() => {
-          this.onOpen();
-        });
+    $route(to, from) {
+      if (to.path !== from.path) {
+        this.messages = [];
+        this.index = 0;
       }
     },
   },
   created() {
     this.$msgBoxInstance = this;
   },
+  beforeDestroy() {
+    this.$msgBoxInstance = null;
+  },
   methods: {
-    addMessage(message) {
-      if (!this.isOpen) {
-        this.isOpen = true;
-        this.queue.push(message);
+    async addMessage(resolve, isConfirm, text, title, options, returnFocus) {
+      const addClass = (options !== undefined && options.addClass !== undefined) ? options.addClass : null;
+      const confirmTxt = (options !== undefined && options.confirmTxt !== undefined) ? options.confirmTxt : '확인';
+      const cancelTxt = (options !== undefined && options.cancelTxt !== undefined) ? options.cancelTxt : '취소';
+      let isOpend = false;
+      if (this.messages.length) {
+        this.messages.forEach((msg) => {
+          if (msg.text === text && msg.title === title && msg.isConfirm === isConfirm && msg.addClass === addClass && msg.confirmTxt === confirmTxt && msg.cancelTxt === cancelTxt) {
+            isOpend = true;
+            if (msg.empty) {
+              msg.empty = false;
+              this.onOpen(msg.idx);
+            }
+          }
+        });
       }
+      if (isOpend) return;
+      this.messages.push({
+        idx: this.index,
+        text,
+        title,
+        addClass,
+        confirmTxt,
+        cancelTxt,
+        isConfirm,
+        returnFocus,
+        show: false,
+        empty: false,
+        resolve,
+      });
+
+      this.onOpen(this.index);
+      this.index += 1;
     },
-    onOpen() {
-      if (document.querySelector('.lock') === null) uiEventBus.$emit('lock-wrap');
+    onOpen(index) {
+      if (!document.querySelectorAll('.alert.show').length && document.querySelector('.lock') === null) uiEventBus.$emit('lock-wrap');
+      const $message = this.messages[index];
       setTimeout(() => {
-        this.$el.classList.add('show');
-      }, 50);
+        $message.show = true;
+      }, 10);
       setTimeout(() => {
-        if (this.message.title === '' || this.message.title === null) {
-          this.$refs.message.focus();
+        const $length = document.querySelectorAll('.alert.show').length;
+        const $last = this.$refs.alert[$length - 1].$el;
+        if ($message.title === '' || $message.title === null || $message.title === undefined) {
+          $last.querySelector('.message').focus();
         } else {
-          this.$el.querySelector('.pop_head h1').focus();
+          $last.querySelector('.pop_head h1').focus();
         }
       }, 650);
     },
-    onClose(result) {
-      this.$el.classList.remove('show');
-      let focusEl = this.message.returnFocus;
+    onClose(index, result) {
+      const $message = this.messages[index];
+      $message.show = false;
+      $message.resolve(result);
+      let focusEl = $message.returnFocus;
       setTimeout(() => {
-        this.queue.splice(0, 1);
-        this.isOpen = false;
-        if (document.querySelectorAll('.popup').length === 1) uiEventBus.$emit('unlock-wrap');
+        $message.empty = true;
+        if (!document.querySelectorAll('.alert.show').length) uiEventBus.$emit('unlock-wrap');
         if (focusEl !== undefined) {
           if (focusEl.closest('.button') !== null) focusEl = focusEl.closest('.button');
           focusEl.focus();
         }
-        this.message.resolve(result);
       }, 600);
     },
   },
