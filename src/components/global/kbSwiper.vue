@@ -23,6 +23,11 @@
         ref="paginationWrap"
         class="swiper-pagination-wrap"
       >
+        <div
+          slot="pagination"
+          ref="pagination"
+          class="swiper-pagination"
+        />
         <button
           v-if="autoplay"
           type="button"
@@ -30,11 +35,6 @@
           :class="{play:!isAutoplay}"
           :aria-label="autoplayText"
           @click="autoplaybutton"
-        />
-        <div
-          slot="pagination"
-          ref="pagination"
-          class="swiper-pagination"
         />
       </div>
       <button
@@ -74,6 +74,7 @@ export default {
     delay: { type: Number, default: 3000 },
     index: { type: String, default: '0' },
     dir: { type: String, default: null },
+    pagingType: { type: String, default: 'bullets' },
   },
   data() {
     return {
@@ -106,6 +107,7 @@ export default {
         initialSlide: this.index,
         pagination: {
           el: '.swiper-pagination',
+          type: this.pagingType,
           clickable: true,
           renderBullet(index, className) {
             return `<button type="button" class="${className}">${index + 1}번째 슬라이드</button>`;
@@ -170,7 +172,8 @@ export default {
     },
     swiperCheck(tar) {
       // console.log(tar.activeIndex, tar.realIndex, tar.snapIndex)
-      const $length = tar.pagination.bullets.length;
+      // const $length = tar.pagination.bullets.length;
+      const $length = tar.slides.length;
       // const $index = tar.realIndex
       const $index = tar.snapIndex;
       const btnPrev = this.$refs.buttonPrev;

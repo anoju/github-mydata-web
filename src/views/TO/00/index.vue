@@ -65,18 +65,19 @@
           class="inner"
           ref="layerContainer"
           :style="LayerStyle"
+          v-touch:start.disablePassive="touchStart"
+          v-touch:moving.disablePassive="touchMoving"
+          v-touch:end="touchEnd"
         >
           <router-view />
           <div class="mask" v-if="!isLayerFull && !isLayerTouch && !isLayerFulling"></div>
           <div
+            role="button"
             class="ui-touch"
-            aria-hidden="true"
-            v-touch:start.disablePassive="touchStart"
-            v-touch:moving.disablePassive="touchMoving"
-            v-touch:end="touchEnd"
-            v-touch-class="'active'"
+            @click="isLayerFull ? layerHide(300, $event) : layerOpen(300, $event)"
             :style="{top:`-${touchPadTop}px`}"
-          />
+            :aria-label="`메인 레이어 ${isLayerFull ? '닫기': '열기'}`"
+          >메인 레이어 {{isLayerFull ? '닫기': '열기'}}</div>
         </div>
       </div>
     </kb-page-body>
@@ -124,6 +125,8 @@ export default {
       touchPoint: null,
       isRoute: true,
       touchPadTop: 0,
+      notTouch: false,
+      clickLayer: false,
     };
   },
   watch: {
@@ -171,7 +174,7 @@ export default {
     window.addEventListener('resize', this.resizeChk);
     uiEventBus.$on('main-update', this.mainUpdate);
 
-    if (this.$route.path !== '/TO/00' && this.$route.path !== '/TO/00/') {
+    if (this.$route.path !== '/TO/00') {
       // this.LayerStyle = this.layerSetStyle(true, 10);
       // this.LayerBgStyle = this.layerBgSetStyle(true, 10);
       this.isLayerFull = true;
@@ -239,9 +242,16 @@ export default {
       this.mainSwiper.update();
     },
     touchStart(e) {
-      if (this.$route.path === '/TO/00' || this.$route.path === '/TO/00/') {
-        this.isRoute = false;
-        this.$router.push(this.lastPath);
+      // console.log(this.clickLayer, e.target.tagName, e.target.closest('a'));
+      if (
+        e.target.tagName === 'A' || e.target.closest('a') !== null
+        || e.target.tagName === 'BUTTON' || e.target.closest('button') !== null
+        || e.target.tagName === 'SVG' || e.target.closest('svg') !== null
+        || e.target.tagName === 'SELECT'
+        || e.target.tagName === 'INPUT'
+      ) {
+        this.notTouch = true;
+        return;
       }
       this.isLayerTouch = true;
       const intervalTime = 10;
@@ -253,66 +263,79 @@ export default {
       }, intervalTime);
     },
     touchMoving(e) {
-      if (this.isLayerTouch === true) {
+      if (this.notTouch) return;
+      if (this.isLayerTouch === true && !this.clickLayer) {
         this.touchDistance = this.touchStartY - ((e.type === 'touchmove') ? e.touches[0].clientY : e.clientY);
         const el = this.$refs.layerContainer;
-        const elH = Math.min(this.LayerMaxHeight, Math.max(this.LayerMinHeight, (this.LayerHeight + this.touchDistance)));
-        el.style.height = `${elH}px`;
+        const sclBody = el.querySelector('.scl__body');
+        if (this.touchDistance < 0 && sclBody.scrollTop > 0) this.notTouch = true;
+        if (!this.notTouch) {
+          if (!this.isLayerFull && this.touchDistance > 40 && this.$route.path === '/TO/00') {
+            this.isRoute = false;
+            this.$router.push(this.lastPath);
+          }
+          const elH = Math.min(this.LayerMaxHeight, Math.max(this.LayerMinHeight, (this.LayerHeight + this.touchDistance)));
+          el.style.height = `${elH}px`;
 
-        const bg = this.$refs.layerBg;
-        const bgVal = ((elH - this.LayerMinHeight) / (this.LayerMaxHeight - this.LayerMinHeight)) * 0.6;
-        bg.style.opacity = bgVal.toFixed(2);
+          const bg = this.$refs.layerBg;
+          const bgVal = ((elH - this.LayerMinHeight) / (this.LayerMaxHeight - this.LayerMinHeight)) * 0.6;
+          bg.style.opacity = bgVal.toFixed(2);
+        }
       }
     },
     touchEnd() {
-      this.isLayerFulling = true;
-      this.isRoute = true;
-      this.isLayerTouch = false;
       clearInterval(this.touchInterval);
-      const el = this.$refs.layerContainer;
-      const elH = el.offsetHeight;
-      let isFull = false;
-
-      if ((this.touchTime <= 100) && (Math.abs(this.touchDistance) < 20)) {
-        // 탭
-        if (this.isLayerFull) { isFull = false; } else { isFull = true; }
-      } else if ((this.touchTime <= 200) && (Math.abs(this.touchDistance) >= 60)) {
+      if (!this.notTouch) {
+        this.isLayerFulling = true;
+        this.isRoute = true;
+        this.isLayerTouch = false;
+        const el = this.$refs.layerContainer;
+        const elH = el.offsetHeight;
+        let isFull = false;
+        // console.log(this.touchTime, this.touchDistance);
+        // if ((this.touchTime <= 100) && (Math.abs(this.touchDistance) < 20)) {
+        // // 탭
+        //   if (this.isLayerFull) { isFull = false; } else { isFull = true; }
+        // } else
+        if ((this.touchTime <= 200) && (Math.abs(this.touchDistance) >= 40)) {
         // 빠르고 짧은 swipe
-        if (this.touchDistance > 0) isFull = true;
-        if (this.touchDistance < 0) isFull = false;
-      } else {
-        // 느린 swipe
-        let num = 1;
-        if (this.touchDistance < 0)num = 2;
-        const standard = (((this.LayerMaxHeight - this.LayerMinHeight) / 3) * num) + this.LayerMinHeight;
-        if (elH >= standard)isFull = true;
-      }
-
-      this.LayerStyle = this.layerSetStyle(isFull, this.LayerDuration);
-      this.LayerBgStyle = this.layerBgSetStyle(isFull, this.LayerDuration);
-      setTimeout(() => {
-        this.isLayerFulling = false;
-        if (isFull) {
-          this.isLayerFull = true;
-          this.$refs.layerBg.focus();
+          if (this.touchDistance > 0) isFull = true;
+          if (this.touchDistance < 0) isFull = false;
         } else {
-          this.isLayerFull = false;
-          this.isRoute = false;
-          if (this.$route.path !== '/TO/00') this.lastPath = this.$route.path;
-          this.$router.push('/TO/00');
-          setTimeout(() => {
-            this.isRoute = true;
-          }, 100);
+        // 느린 swipe
+          let num = 1;
+          if (this.touchDistance < 0)num = 2;
+          const standard = (((this.LayerMaxHeight - this.LayerMinHeight) / 3) * num) + this.LayerMinHeight;
+          if (elH >= standard)isFull = true;
         }
-        this.LayerStyle = null;
-        this.LayerBgStyle = null;
-        this.touchTime = 0;
-        this.touchDistance = 0;
-      }, this.LayerDuration);
 
-      // document.addEventListener('touchstart', this.touchStartHandler, {
-      //   passive: true,
-      // });
+        this.LayerStyle = this.layerSetStyle(isFull, this.LayerDuration);
+        this.LayerBgStyle = this.layerBgSetStyle(isFull, this.LayerDuration);
+        setTimeout(() => {
+          if (this.clickLayer) return;
+          this.isLayerFulling = false;
+          if (isFull) {
+            this.isLayerFull = true;
+            this.$refs.layerBg.focus();
+          } else {
+            this.isLayerFull = false;
+            this.isRoute = false;
+            if (this.$route.path !== '/TO/00') {
+              this.lastPath = this.$route.path;
+              this.$router.push('/TO/00');
+            }
+            setTimeout(() => {
+              this.isRoute = true;
+            }, 100);
+          }
+          this.LayerStyle = null;
+          this.LayerBgStyle = null;
+          this.touchTime = 0;
+          this.touchDistance = 0;
+        }, this.LayerDuration);
+      } else {
+        this.notTouch = false;
+      }
     },
     layerSetStyle(val, speed) {
       const height = val ? this.LayerMaxHeight : this.LayerMinHeight;
@@ -341,6 +364,7 @@ export default {
     layerOpen(speed = this.LayerDuration, e) {
       if (e !== undefined) {
         e.preventDefault();
+        this.clickLayer = true;
       }
       this.LayerStyle = this.layerSetStyle(true, speed);
       this.LayerBgStyle = this.layerBgSetStyle(true, speed);
@@ -349,14 +373,21 @@ export default {
         this.LayerStyle = null;
         this.LayerBgStyle = null;
         this.isRoute = false;
+        if (e !== undefined) {
+          if (this.$route.path === '/TO/00') {
+            this.$router.push(this.lastPath);
+          }
+        }
         setTimeout(() => {
           this.isRoute = true;
+          this.clickLayer = false;
         }, 10);
       }, speed);
     },
     layerHide(speed = this.LayerDuration, e) {
       if (e !== undefined) {
         e.preventDefault();
+        this.clickLayer = true;
       }
       this.LayerStyle = this.layerSetStyle(false, speed);
       this.LayerBgStyle = this.layerBgSetStyle(false, speed);
@@ -364,13 +395,16 @@ export default {
         this.isLayerFull = false;
         this.LayerStyle = null;
         this.LayerBgStyle = null;
-        if (e !== undefined) {
-          if (this.$route.path !== '/TO/00') this.lastPath = this.$route.path;
-          this.$router.push('/TO/00');
-        }
         this.isRoute = false;
+        if (e !== undefined) {
+          if (this.$route.path !== '/TO/00') {
+            this.lastPath = this.$route.path;
+            this.$router.push('/TO/00');
+          }
+        }
         setTimeout(() => {
           this.isRoute = true;
+          this.clickLayer = false;
         }, 10);
       }, speed);
     },

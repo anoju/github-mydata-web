@@ -1,5 +1,5 @@
 <template>
-  <kb-page page-title="간편인증 비밀번호" no-btntop>
+  <kb-page page-title="간편인증 비밀번호" no-btntop no-footer>
     <kb-page-body class="pd_b0">
       <div class="keypad_wrap number"><!-- 쿼티 일때는 number 대신 qwerty -->
         <div class="full_height_wrap t_center">

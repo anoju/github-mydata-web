@@ -38,6 +38,20 @@
           팝업을페이지로
         </kb-button>
       </kb-button-wrap>
+      <kb-button-wrap>
+        <kb-button
+          yellow
+          @click="showPopup('/guide/pdf.vue')"
+        >
+          약관(팝업)
+        </kb-button>
+        <kb-button
+          yellow
+          to="/guide/pdf"
+        >
+          약관(페이지)
+        </kb-button>
+      </kb-button-wrap>
     </div>
     <h2 class="gd__h1">툴팁</h2>
     <div>
@@ -253,6 +267,14 @@ export default {
     },
     hideLoading() {
       this.$loading(false);
+    },
+    showPopup(url, el) {
+      this.$modal({
+        component: () => import('@/views' + url),
+        returnFocus: el,
+      }).then((result) => {
+        if (result.payload === 'change') this.showModalPopup(el);
+      });
     },
     showFullPopup(el) {
       this.$modal({

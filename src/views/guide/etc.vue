@@ -1,5 +1,6 @@
 <template>
   <div class="section pd_bottom">
+    <kb-input date v-model="testVal2" />
     <h2 class="gd__h1">더블클릭</h2>
     <div>@dblclick을 안쓰고(모바일에서 안됨)<br> :dblclick 사용<br>kb-button, kb-radio, kb-checkbox 만 작동</div>
     <kb-radio
@@ -229,6 +230,7 @@ export default {
   data() {
     return {
       testVal: '',
+      testVal2: '',
       allCheckedVal: false,
       checkList: [
         { label: '체크박스1', value: 'chk1' },

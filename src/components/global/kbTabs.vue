@@ -232,7 +232,9 @@ export default {
       this.isScrollableChk();
     },
     linePosition() {
-      const sclWidth = this.$refs.tablist.scrollWidth;
+      const $tablist = this.$refs.tablist;
+      if ($tablist === undefined) return;
+      const sclWidth = $tablist.scrollWidth;
       this.lineWrapWidth = sclWidth;
       const active = this.$refs.tablist.querySelector('.tab.active');
       if (active !== null) {

@@ -88,13 +88,13 @@
   //쿼티 키패드
   &.qwerty{
     .full_height_wrap{padding-bottom:270px;}
-    .input {
+    input.input {
+      display:block;
       text-align:center;
-      border:2px solid #dfdfdf; border-radius: 8px;
-      width: 300px;
-      height: 50px;
-      font-size: 25px;
-      margin:40px auto;
+      width: 280px;
+      height: 46px;
+      font-size: 32px;
+      margin:32px auto 0;
     }
     #currentKeyField{
       background-color : #628BD5;
@@ -114,6 +114,8 @@
       width:100%;
       height:270px;
       background:#fff;
+      border:1px solid #eee;
+      border-width:10px 5px;
       .keypad {
         width:100%;
         table-layout:fixed;

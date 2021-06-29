@@ -1,6 +1,6 @@
 <template>
   <div class="main_to_wrap">
-    <kb-swiper class="main_to_swiper" autoplay :delay="5000">
+    <kb-swiper class="main_to_swiper" autoplay :delay="5000" pagingType="fraction" index="2">
       <swiper-slide>
         <div class="item">
           <div class="inner">
