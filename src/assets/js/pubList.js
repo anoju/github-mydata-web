@@ -1,13 +1,13 @@
 export default [
   // 메인
   {
-    pageID: 'TO00A001', type: 'main', depth1: '메인', depth2: '', depth3: null, depth4: null, etc: null, complete: null, change: null,
+    pageID: 'TO00A001', type: 'main', depth1: '메인', depth2: '', depth3: null, depth4: null, etc: null, complete: '2021-05-18', change: null,
   },
   {
-    pageID: 'TO01C001', type: 'pop', depth1: '메인', depth2: '오늘', depth3: '자주가는편집', depth4: null, etc: null, complete: null, change: null,
+    pageID: 'TO01C001', type: 'pop', depth1: '메인', depth2: '오늘', depth3: '자주가는편집', depth4: null, etc: null, complete: '2021-05-18', change: null,
   },
   {
-    pageID: 'IN00A002', type: 'pop', depth1: '메인', depth2: '투자생활', depth3: '홈화면편집', depth4: null, etc: null, complete: null, change: null,
+    pageID: 'IN00A002', type: 'pop', depth1: '메인', depth2: '투자생활', depth3: '홈화면편집', depth4: null, etc: null, complete: '2021-05-18', change: null,
   },
   {
     type: 'line',
@@ -124,7 +124,7 @@ export default [
     pageID: 'IN02A006', type: 'page', depth1: '투자생활', depth2: '금융상품검색', depth3: '채권', depth4: null, etc: '', complete: '2021-05-11', change: '',
   },
   {
-    pageID: 'IN02A007', type: 'pop', depth1: '투자생활', depth2: '금융상품검색', depth3: '채권', depth4: '상세검색', etc: 'SB 업뎃필요', complete: '', change: '',
+    pageID: 'IN02A007', type: 'pop', depth1: '투자생활', depth2: '금융상품검색', depth3: '채권', depth4: '상세검색', etc: '', complete: '2021-06-24', change: '',
   },
   {
     pageID: 'IN02A008', type: 'page', depth1: '투자생활', depth2: '금융상품검색', depth3: 'ELS/DLS', depth4: null, etc: '', complete: '2021-05-11', change: '',
@@ -139,7 +139,7 @@ export default [
     pageID: 'IN02A011', type: 'page', depth1: '투자생활', depth2: '금융상품검색', depth3: '발행어음', depth4: null, etc: '', complete: '2021-05-11', change: '',
   },
   {
-    pageID: 'IN02A012', type: 'page', depth1: '투자생활', depth2: '금융상품검색', depth3: 'CMA', depth4: null, etc: '디자인없음', complete: '', change: '',
+    pageID: 'IN02A012', type: 'page', depth1: '투자생활', depth2: '금융상품검색', depth3: 'CMA', depth4: null, etc: null, complete: '2021-06-15', change: '',
   },
   {
     pageID: 'IN02A013', type: 'page', depth1: '투자생활', depth2: '금융상품검색', depth3: '공모주', depth4: null, etc: '', complete: '2021-05-11', change: '',
@@ -214,7 +214,7 @@ export default [
   },
   // 투자 상상튀즈
   {
-    pageID: 'IN10A000', type: 'page', depth1: '투자생활', depth2: '투자상상퀴즈', depth3: '미완(정책적으로 확인필요 - 기획)', depth4: null, etc: '정답, 오답 포함', complete: '', change: null,
+    pageID: 'IN10A000', type: 'page', depth1: '투자생활', depth2: '투자상상퀴즈', depth3: '', depth4: null, etc: '정답, 오답 포함', complete: '2021-05-20', change: null,
   },
   {
     pageID: 'IN10A001', type: 'page', depth1: '투자생활', depth2: '투자상상퀴즈', depth3: '상세정보', depth4: null, etc: '샘플', complete: '2021-03-24', change: null,
@@ -297,7 +297,7 @@ export default [
     pageID: 'UT02A004', type: 'page', depth1: '시작하기', depth2: null, depth3: null, depth4: null, etc: '추후 비주얼 업데이트 예정', complete: '2021-03-17', change: null,
   },
   {
-    pageID: 'UT15H001', type: 'page', depth1: '서비스체험', depth2: null, depth3: null, depth4: null, etc: '디자인 진행중', complete: '', change: null,
+    pageID: 'UT15H001', type: 'page', depth1: '서비스체험', depth2: null, depth3: null, depth4: null, etc: '', complete: '2021-06-10', change: null,
   },
   {
     pageID: 'UT02A005', type: 'page', depth1: '회원가입', depth2: '본인확인 선택', depth3: null, depth4: null, etc: null, complete: '2021-03-15', change: '2021-05-24',
@@ -855,12 +855,5 @@ export default [
   },
   {
     pageID: 'PE02A001', type: 'pop', depth1: '투자생활', depth2: '투자프렌즈 선택', depth3: '', depth4: '', etc: null, complete: '2021-06-09', change: null,
-  },
-
-  {
-    type: 'line',
-  },
-  {
-    pageID: 'UT15H001', type: 'page', depth1: '코치 애니메이션', depth2: '', depth3: '', depth4: '', etc: null, complete: '', change: null,
   },
 ];
