@@ -1,0 +1,22 @@
+{
+	"btn":{
+		"top":"4%",
+		"right":"50%",
+		"position":"absolute",
+		"display":"block"
+		},
+		  
+	"close":{
+		"top":"4%",
+		"right":"8%",
+		"position":"absolute",
+		"display":"block"
+		},
+				
+	"label":{
+		"top":"4%",
+		"right":"72%",
+		"position":"absolute",
+		"display":"block"
+		}
+}

@@ -1382,6 +1382,12 @@ ul.checkbox_list_wrap{
 			&.right{right:0;background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) 66%);}
 		}
 	}
+	&.hide_tab{
+		&.fixed:before{display:none;}
+		.tabmenu,
+		.tabmenu2,
+		.tabmenu3{display:none;}
+	}
 }
 // .page_wrap.fixed_hide .tab_wrap.fixed>.tabmenu{top:0;}
 .tab_panel{

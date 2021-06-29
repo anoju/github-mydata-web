@@ -2,6 +2,7 @@
   <kb-page
     class="main"
     :class="{lock:isLayerFull}"
+    :lock="isLayerTouch"
     no-header-back
     page-title="메인"
   >

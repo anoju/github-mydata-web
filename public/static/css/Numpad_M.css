@@ -1,0 +1,306 @@
+@charset "utf-8";
+
+html, body {overflow:hidden}
+
+#Numpad_M {height:100%; width:100%; position:fixed; overflow:hidden; margin:0; padding:0;}
+
+
+@charset "utf-8";
+
+html, body {height:100%; width:100%; position:fixed;  overflow:hidden;  margin:0; padding:0;}
+a, ul, li, ol, dl, dd, dt, div, p, span, img, h2, h3, h4, table, tr, td {margin:0; padding:0; border:0; font-weight:normal, text-decoration:none;}
+ul, li, ol, dl, dd, dt {list-style:none;}
+
+/*아래부터  Mobile css */
+@media only screen and (max-device-width:767px){
+
+
+#wrap {
+     height:100%;
+	 width:100%;
+	 position:relative;
+	 overflow:hidden;
+}
+#wrap #top {
+    height:48px;
+	background:#fff;
+	positoin:relative;
+	overflow:hidden;
+	border-bottom:2px solid #214d8b;
+}
+#wrap #top .logo {
+    position:relative;
+	top:10px;
+	left:12px;
+}
+#wrap #top .close {
+    position:absolute;
+	top:0; 
+	right:10px;
+	width:28px;
+	height:28px;
+	display:inline-block;
+	text-align:center;
+	padding-top:12px;
+}
+
+
+#wrap #contents {
+    height:220px;
+    display:none;
+}
+
+#wrap #contents .secret_field {
+    margin-top:160px;
+	text-align:center;
+	
+}
+
+#wrap #contents .secret_field span {
+    width:40px;
+	height:40px;
+	display:inline-block;
+    background:url(../images/frame/secret_input.png) no-repeat; 
+	margin:0 1px;
+}
+
+#wrap #contents .secret_field span.empty {
+    background-position:-1px -1px;
+}
+
+#wrap #contents .secret_field span.non_empty {
+    background-position:-1px -46px;
+}
+
+#wrap #contents .secret_field span.secret {
+    background-position:-1px -46px;
+}
+
+#wrap #currentKeyField
+{
+	
+	border-top : 1px solid #5B86D4;
+	/* border-bottom : 1px solid #214d8b; */
+	bottom : 181px;
+	height : 49px;
+	width:100%;
+	position : absolute;
+	background :#5B86D4;
+	margin: 0px auto;
+ 	text-align: center;
+	
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+#wrap #currentKey
+{
+	height:100%;
+	
+	/* background :#214d8b; */
+}
+
+/*아래부터 키패드 영역*/
+#wrap #keypad {
+    position:absolute;
+	left:0;
+	bottom:0;
+	width:100%;
+	height:180px;
+	background:#fff;
+	border-top:1px solid #EEEEEE;
+	
+}
+#wrap #keypad .keypad {
+    width:100%;
+	table-layout:fixed;
+	text-align:center;
+	border-collapse: collapse;
+	/*키패드 영역 배경색상 설정 가능*/
+}
+
+#wrap #keypad .number {
+    width:100%;
+	overflow:hidden;
+	box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+	border-right:1px solid #EEEEEE;
+}
+
+#wrap #keypad .number li {
+    float:left;
+	width:25%;
+	height:45px;
+	border-left:1px solid #EEEEEE;
+	border-top:1px solid #EEEEEE;
+	box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+	background:#ffffff;
+	border-bottom:1px solid #EEEEEE;
+}
+
+#wrap #keypad .number li.func {
+    width:50%;
+    background:#ffffff;
+}
+#wrap #keypad .number li a {
+    display:table;
+	width:100%;
+	height:100%;	
+}
+#wrap #keypad .number li a span {
+    display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+}
+
+
+}
+/*아래부터  Tablet css */
+@media only screen and (min-device-width: 768px){
+
+
+#wrap #top {
+    height:110px;
+	background:#fff;
+	positoin:relative;
+	overflow:hidden;
+	border-bottom:2px solid #214d8b;
+}
+
+#top .logo img{
+	height:80%;
+}
+
+#wrap #top .logo{
+    position:relative;
+	top:10px;
+	left:12px;
+}
+
+
+#top .close img{
+	height:80%;
+}
+
+#wrap #top .close {
+    position:absolute;
+	top:10px; 
+	right:12px;
+	width:100px;
+	height:100px;
+	display:inline-block;
+	text-align:center;
+	padding-top:12px;
+}
+#wrap #contents {
+    height:30%;
+}
+
+#wrap #contents .secret_field {
+    margin-top:250px;
+	text-align:center;
+	
+}
+
+#wrap #contents .secret_field span {
+    width:100px;
+	height:100px;
+	display:inline-block;
+    background:url(../images/frame/secret_input.png) no-repeat;
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin:1px;
+}
+
+#wrap #contents .secret_field span.empty {
+    background-position:-1px -1px;
+}
+
+#wrap #contents .secret_field span.non_empty {
+    background-position:-1px -108px;
+}
+
+#wrap #contents .secret_field span.secret {
+    background-position:-1px -108px;
+}
+
+#wrap #currentKeyField
+{
+	
+	border-top : 2px solid #5B86D4;
+	border-bottom : 2px solid #5B86D4;
+	bottom : 401px;
+	height : 100px;
+	width:100%;
+	position : absolute;
+	background :#5B86D4;
+	margin: 0px auto;
+ 	text-align: center;
+	
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+#wrap #currentKey
+{
+	
+	/* background :#214d8b; */
+}
+
+/* 아래부터 키패드 영역 */
+#wrap #keypad {
+    position:absolute;
+	left:0;
+	bottom:0;
+	width:100%;
+	height:400px;
+	background:#4375b3;
+	border-top:1px solid #EEEEEE;
+}
+
+#wrap #keypad .keypad {
+    width:100%;
+    border-top:2px solid #5B86D4;
+	/* overflow:hidden; */
+	box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+	border-right:2px solid #EEEEEE;
+	border-bottom:2px solid #EEEEEE;
+	/*키패드 영역 배경색상 설정 가능*/
+}
+
+#wrap #keypad .number {
+    width:100%;
+	overflow:hidden;
+	box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+	border-right:2px solid #EEEEEE;
+	border-bottom:2px solid #EEEEEE;
+}
+#wrap #keypad .number li {
+    float:left;
+	width:25%;
+	height:100px;
+	border-left:2px solid #EEEEEE;
+	border-top:2px solid #EEEEEE;
+	box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+	background:#ffffff;
+}
+#wrap #keypad .number li.func {
+    width:50%;
+    background:#ffffff;
+}
+#wrap #keypad .number li a {
+    display:inline-block;
+	width:100%;
+	height:100px;
+	cursor:pointer;
+	text-align:center;
+}
+
+}
+
+
+

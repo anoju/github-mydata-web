@@ -3,6 +3,7 @@
     <kb-page-body>
       <kb-tabs-link
         class="first"
+        :class="{hide_tab:isAPI}"
         :tabs="tabLink"
         fixed
       />
@@ -14,6 +15,7 @@ export default {
   name: 'IN02',
   data() {
     return {
+      isAPI: false,
       tabLink: [
         { to: 'IN02A002', text: '국내주식' },
         { to: 'IN02A003', text: '해외주식' },
@@ -26,6 +28,14 @@ export default {
         { to: 'IN02A013', text: '공모주' },
       ],
     };
+  },
+  created() {
+    if (this.$route.path.indexOf('/VAPI/') >= 0) {
+      this.isAPI = true;
+      this.tabLink = [
+        { to: 'IN02A002', text: '국내주식' },
+      ];
+    }
   },
 };
 </script>

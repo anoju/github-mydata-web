@@ -5,6 +5,7 @@
   >
     <kb-pop-body class="pd_b0">
       <iframe src="https://mozilla.github.io/pdf.js/web/viewer.html" frameborder="0" class="full_height_wrap pd_b0"></iframe>
+      <!-- <kb-pdf-viewer url="/pdf/test.pdf" /> -->
     </kb-pop-body>
   </kb-pop>
 </template>

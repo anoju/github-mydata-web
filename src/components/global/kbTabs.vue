@@ -36,7 +36,7 @@
             :aria-selected="tab.isActive? 'true': 'false'"
             :aria-disabled="tab.disabled || disabled"
             v-on="tab.listeners"
-            @click="selectTab(tab,$event)"
+            @click="selectTab(tab, $event, i)"
           >{{ tab.title }}</a>
         </div>
       </div>
@@ -74,6 +74,7 @@ export default {
   props: {
     value: { type: [String, Number], default: null },
     fixed: { type: Boolean, default: false },
+    query: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false },
     tabsClass: { type: String, default: null },
     contentClass: { type: String, default: null },
@@ -191,7 +192,7 @@ export default {
         if (tab.href !== '') this.isContents = true;
       });
     },
-    selectTab(selectTab, event) {
+    selectTab(selectTab, event, idx) {
       event.preventDefault();
       if (this.disabled || selectTab.disabled) return;
       this.childrens.forEach((tab, i) => {
@@ -214,6 +215,14 @@ export default {
         let wrap = this.$el.closest('.scl__body');
         if (wrap === null)wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
         this.$scrollTo(wrap, { top: sclY }, 300);
+      }
+      if (this.query) {
+        const $path = this.$route.path;
+        if (idx === 0) {
+          this.$router.replace($path);
+        } else {
+          this.$router.replace($path + '?tab=' + idx);
+        }
       }
     },
     sclCenter(el) {

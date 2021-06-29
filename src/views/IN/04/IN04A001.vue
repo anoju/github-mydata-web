@@ -1156,7 +1156,7 @@ export default {
     };
   },
   created() {
-    if (this.$route.path.indexOf('/API/') >= 0) this.isAPI = true;
+    if (this.$route.path.indexOf('/VAPI/') >= 0) this.isAPI = true;
   },
   methods: {
     keywordShow() {

@@ -1,5 +1,5 @@
 <template>
-  <div :class="{apiPage:isAPI, section:isAPI}">
+  <div :class="{pd_20:isAPI || !isMain}">
     <div class="invest_quiz_box" v-if="this.result == null">
       <h2 class="tit">투자상상 퀴즈</h2>
       <p class="quiz">10년 전, 삼성전자에 투자했다면 현재 수익률은 얼마나 될까요?</p>
@@ -52,11 +52,15 @@ export default {
   data() {
     return {
       isAPI: false,
+      isMain: false,
       result: null,
     };
   },
   created() {
-    if (this.$route.path.indexOf('/API/') >= 0) this.isAPI = true;
+    if (this.$route.path.indexOf('/VAPI/') >= 0) this.isAPI = true;
+  },
+  mounted() {
+    if (this.$el.closest('.page_wrap.main') !== null) this.isMain = true;
   },
   methods: {
     quizResult(result) {

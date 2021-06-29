@@ -12,7 +12,7 @@
             class="swiper_arr swiper_arr_y swiper_prev_y"
             :class="{disabled:(minDate !== null && Number(titYear) <= Number(minDate.substr(0,4)))}"
             :disabled="(minDate !== null && Number(titYear) <= Number(minDate.substr(0,4)))"
-            aria-hidden="이전년도 보기"
+            aria-label="이전년도 보기"
             @click="setCalYear('prev')"
           >이전년도 보기</kb-button>
           <kb-button
@@ -52,7 +52,7 @@
             class="swiper_arr swiper_arr_y swiper_next_y"
             :class="{disabled:(maxDate !== null && Number(maxDate.substr(0,4)) <= Number(titYear))}"
             :disabled="(maxDate !== null && Number(maxDate.substr(0,4)) <= Number(titYear))"
-            aria-hidden="다음년도 보기"
+            aria-label="다음년도 보기"
             @click="setCalYear('next')"
           >다음년도 보기</kb-button>
         </div>

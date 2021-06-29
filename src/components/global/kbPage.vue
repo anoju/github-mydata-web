@@ -1,8 +1,8 @@
 <template>
-  <!-- :class="{lock : isLock, fixed_hide: !layoutFixedShow, gray: grayBg, apiPage:isAPI, scl__body:isMainLayer}" -->
+  <!-- :class="{lock : isLock, fixed_hide: !layoutFixedShow, gray: grayBg, scl__body:isMainLayer}" -->
   <div
     class="page_wrap scl__body"
-    :class="{lock : isLock, fixed_hide: !layoutFixedShow, gray: grayBg, apiPage:isAPI}"
+    :class="{lock : isLock, fixed_hide: !layoutFixedShow, gray: grayBg}"
     :aria-hidden="isLock"
     v-on="listeners"
     v-touch:start="represhPullStart"
@@ -141,7 +141,7 @@ export default {
     },
   },
   created() {
-    if (this.$route.path.indexOf('/API/') >= 0) this.isAPI = true;
+    if (this.$route.path.indexOf('/VAPI/') >= 0) this.isAPI = true;
     const $agent = navigator.userAgent;
     this.isAPP = ($agent.match(/KBSecMyDataApp/i) != null);
   },
