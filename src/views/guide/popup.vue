@@ -38,6 +38,20 @@
           팝업을페이지로
         </kb-button>
       </kb-button-wrap>
+      <kb-button-wrap>
+        <kb-button
+          yellow
+          @click="showPopup('/guide/pdf.vue')"
+        >
+          약관(팝업)
+        </kb-button>
+        <kb-button
+          yellow
+          to="/guide/pdf"
+        >
+          약관(페이지)
+        </kb-button>
+      </kb-button-wrap>
     </div>
     <h2 class="gd__h1">툴팁</h2>
     <div>
@@ -77,7 +91,7 @@
           버튼 custom
         </kb-button>
       </kb-button-wrap>
-      <h2 class="gd__h1">alert 안 컨텐츠 가이드</h2>
+      <h3 class="gd__h2">alert 안 컨텐츠 가이드</h3>
       <kb-button-wrap>
         <kb-button
           yellow
@@ -100,6 +114,21 @@
       </kb-button-wrap>
       <br>
       <kb-button link line to="/guide/txt">글자 색상 참조</kb-button>
+      <h3 class="gd__h2">기타 상황</h3>
+      <kb-button-wrap>
+        <kb-button
+          yellow
+          @click="doubleAlert($event.target)"
+        >
+          중복 alert
+        </kb-button>
+        <kb-button
+          yellow
+          @click="confirmAfterAlert($event.target)"
+        >
+          confirm 후 alert
+        </kb-button>
+      </kb-button-wrap>
     </div>
     <h2 class="gd__h1">toast</h2>
     <div>
@@ -239,6 +268,14 @@ export default {
     hideLoading() {
       this.$loading(false);
     },
+    showPopup(url, el) {
+      this.$modal({
+        component: () => import('@/views' + url),
+        returnFocus: el,
+      }).then((result) => {
+        if (result.payload === 'change') this.showModalPopup(el);
+      });
+    },
     showFullPopup(el) {
       this.$modal({
         component: () => import('@/views/guide/pop/full.vue'),
@@ -284,6 +321,30 @@ export default {
     showAlert2(msg, el) {
       this.$alert(msg, el).then(() => {
         console.log('확인');
+      });
+    },
+    doubleAlert(el) {
+      this.$alert('중복얼럿1', el).then(() => {
+        console.log('중복얼럿 확인1');
+      });
+      this.$alert('중복얼럿2', el).then(() => {
+        console.log('중복얼럿 확인2');
+      });
+    },
+    confirmAfterAlert(el) {
+      this.$confirm('컨펌창입니다. 다음 얼럿호출', el, '제목', {
+        cancelTxt: '시렁',
+        confirmTxt: '차단해지',
+      }).then(() => {
+        this.$alert('알럿창', el);
+      });
+      this.$confirm('컨펌창입니다. 다음 얼럿호출', el, '제목', {
+        cancelTxt: '시렁',
+        confirmTxt: '차단해지',
+      });
+      this.$confirm('컨펌창입니다. 다음 얼럿호출', el, '제목', {
+        cancelTxt: '시렁',
+        confirmTxt: '차단해지',
       });
     },
     showConfirm(el) {

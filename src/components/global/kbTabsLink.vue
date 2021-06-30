@@ -103,21 +103,25 @@ export default {
     $route(to, from) {
       if (to.path !== from.path) {
         let wrap = this.$el.closest('.scl__body');
+        let wrapEl = wrap;
         let head = null;
         let wrapSclTop = 0;
         if (wrap === null) {
           wrap = window;
+          wrapEl = window.document.scrollingElement || window.document.body || window.document.documentElement;
           wrapSclTop = window.scrollY;
           head = document.querySelector('.scl__head');
         } else {
           wrapSclTop = wrap.scrollTop;
           head = wrap.querySelector('.scl__head');
         }
-        const headH = (head !== null) ? head.offsetHeight : parseInt(this.$getStyle(wrap, 'padding-top'), 10);
-        const sclTop = this.$getOffset(this.$el).top - headH;
+        const wrapTop = (wrap !== window) ? this.$getOffset(wrap).top : 0;
+        const headH = (head !== null) ? head.offsetHeight : 0;
+        const sclTop = this.$getOffset(this.$el).top - wrapTop - headH;
         if (wrapSclTop > sclTop) {
-          wrap.scrollTo(0, sclTop);
-          wrap.dispatchEvent(new Event('scroll'));
+          // wrap.scrollTo(0, sclTop);
+          // wrap.dispatchEvent(new Event('scroll'));
+          this.$scrollTo(wrapEl, { top: sclTop }, 300);
         }
         setTimeout(() => {
           this.linePosition();
@@ -158,7 +162,9 @@ export default {
       this.isScrollableChk();
     },
     linePosition() {
-      const sclWidth = this.$refs.tablist.scrollWidth;
+      const $tablist = this.$refs.tablist;
+      if ($tablist === undefined) return;
+      const sclWidth = $tablist.scrollWidth;
       this.lineWrapWidth = sclWidth;
       let active = this.$refs.tablist.querySelector('.router-link-active');
       let activeParent = null;
@@ -172,7 +178,6 @@ export default {
       this.lineWidth = activeParent.offsetWidth;
       this.lineLeft = activeParent.offsetLeft;
 
-      const $tablist = this.$refs.tablist;
       const tablistLeft = $tablist.scrollLeft;
       if (tablistLeft !== 0) this.lineWrapLeft = -tablistLeft;
 

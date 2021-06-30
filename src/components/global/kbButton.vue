@@ -64,6 +64,7 @@ export default {
     title: { type: String, default: null },
     disabled: { type: Boolean, default: false },
     noEffect: { type: Boolean, default: false },
+    dblclick: { type: Function, default: null },
 
     // 링크이동
     to: { type: String, default: null },
@@ -114,6 +115,8 @@ export default {
       btnInX: 0,
       btnInY: 0,
       btnTxt: null,
+      isDblclick: false,
+      dblclickTime: null,
     };
   },
   computed: {
@@ -214,6 +217,18 @@ export default {
     clickEvt(e) {
       if (this.aTag && this.href === '#') e.preventDefault();
       if (!this.disabled) {
+        if (this.dblclick !== null) {
+          if (this.isDblclick) {
+            clearTimeout(this.dblclickTime);
+            this.isDblclick = false;
+            this.dblclick();
+          } else {
+            this.isDblclick = true;
+            this.dblclickTime = setTimeout(() => {
+              this.isDblclick = false;
+            }, 300);
+          }
+        }
         if (this.$el.classList.contains('checked')) this.likeEffect();
         if (!this.noEffect && !this.isClick) this.clickEffect(e);
       }

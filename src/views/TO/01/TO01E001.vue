@@ -38,6 +38,7 @@
           <kb-tabs type2 class="mg_t40" v-model="tabIdx">
             <kb-tab
               title="오늘의 퀘스트"
+              to="/TO/01/TO01E001"
             >
               <!-- 오늘의 퀘스트 -->
               <p class="quest_count">1/200</p>
@@ -82,6 +83,7 @@
             </kb-tab>
             <kb-tab
               title="소비줄이기"
+              to="/TO/01/TO01E014"
             >
               <template v-if="noData">
                 <div class="no_list_txt icon">
@@ -269,8 +271,17 @@ export default {
       swipeBtn: 1,
     };
   },
+  watch: {
+    $route(to) {
+      if (to.path.indexOf('TO01E001') > 0) {
+        this.tabIdx = 0;
+      } else if (to.path.indexOf('TO01E014') > 0) {
+        this.tabIdx = 1;
+      }
+    },
+  },
   mounted() {
-    if (this.$route.params.tab !== this.tabIdx) this.tabIdx = Number(this.$route.params.tab);
+    if (this.$route.path.indexOf('TO01E014') > 0) this.tabIdx = 1;
   },
   methods: {
     pointUp() {

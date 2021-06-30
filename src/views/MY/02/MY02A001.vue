@@ -1,6 +1,6 @@
 <template>
   <kb-page
-    page-title="내서랍"
+    page-title="내메모"
     :container-class="{bg_gray2:mainTab != 2}"
   >
     <kb-page-body>

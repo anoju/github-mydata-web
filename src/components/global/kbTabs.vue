@@ -28,7 +28,17 @@
           role="presentation"
           :style="tab.tabStyle"
         >
+          <router-link
+            :id="tab.btnId"
+            v-if="tab.to !== null"
+            :to="tab.to"
+            role="tab"
+            :aria-controls="tab.href"
+            :aria-selected="tab.isActive? 'true': 'false'"
+            :aria-disabled="tab.disabled || disabled"
+          >{{ tab.title }}</router-link>
           <a
+            v-else
             :id="tab.btnId"
             :href="`#${tab.href}`"
             role="tab"
@@ -36,7 +46,7 @@
             :aria-selected="tab.isActive? 'true': 'false'"
             :aria-disabled="tab.disabled || disabled"
             v-on="tab.listeners"
-            @click="selectTab(tab,$event)"
+            @click="selectTab(tab, $event, i)"
           >{{ tab.title }}</a>
         </div>
       </div>
@@ -74,6 +84,7 @@ export default {
   props: {
     value: { type: [String, Number], default: null },
     fixed: { type: Boolean, default: false },
+    query: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false },
     tabsClass: { type: String, default: null },
     contentClass: { type: String, default: null },
@@ -191,7 +202,7 @@ export default {
         if (tab.href !== '') this.isContents = true;
       });
     },
-    selectTab(selectTab, event) {
+    selectTab(selectTab, event, idx) {
       event.preventDefault();
       if (this.disabled || selectTab.disabled) return;
       this.childrens.forEach((tab, i) => {
@@ -215,6 +226,14 @@ export default {
         if (wrap === null)wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
         this.$scrollTo(wrap, { top: sclY }, 300);
       }
+      if (this.query) {
+        const $path = this.$route.path;
+        if (idx === 0) {
+          this.$router.replace($path);
+        } else {
+          this.$router.replace($path + '?tab=' + idx);
+        }
+      }
     },
     sclCenter(el) {
       const elX = el.parentNode.offsetLeft + el.offsetLeft;
@@ -232,7 +251,9 @@ export default {
       this.isScrollableChk();
     },
     linePosition() {
-      const sclWidth = this.$refs.tablist.scrollWidth;
+      const $tablist = this.$refs.tablist;
+      if ($tablist === undefined) return;
+      const sclWidth = $tablist.scrollWidth;
       this.lineWrapWidth = sclWidth;
       const active = this.$refs.tablist.querySelector('.tab.active');
       if (active !== null) {

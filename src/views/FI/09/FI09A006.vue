@@ -29,13 +29,13 @@
                 @click="isStar = !isStar"
               >관심등록</kb-button>
             </div>
-            <div class="sub pd_y4">
+            <!-- <div class="sub pd_y4">
               KB국민카드 13493859239430
-            </div>
+            </div> -->
             <div class="ico_wrap">
               <div>
                 <ico-txt blue>월정액 자동충전중</ico-txt>
-                <ico-txt>비활동</ico-txt>
+                <!-- <ico-txt>비활동</ico-txt> -->
               </div>
             </div>
             <div class="point">
@@ -67,7 +67,7 @@
               </ul>
             </div>
           </div>
-          <kb-foldings
+          <!-- <kb-foldings
             not
             class="folding"
           >
@@ -89,7 +89,7 @@
                 </ul>
               </div>
             </kb-folding>
-          </kb-foldings>
+          </kb-foldings> -->
         </div>
         <!-- //선불O -->
         <!-- 선불X -->
@@ -151,7 +151,7 @@
           not-toggle
           class="accordion_bar_list"
         >
-          <kb-folding title="포인트조회">
+          <!-- <kb-folding title="포인트조회">
             <div class="info_txt_list">
               <ul class="list">
                 <li>
@@ -168,7 +168,7 @@
                 </li>
               </ul>
             </div>
-          </kb-folding>
+          </kb-folding> -->
           <kb-folding title="자동충전정보">
             <div class="info_txt_list">
               <ul class="list">

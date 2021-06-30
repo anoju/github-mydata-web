@@ -28,21 +28,21 @@
               button
               value="2"
             >
-              쿠페이
+              티머니
             </kb-radio>
             <kb-radio
               v-model="toggleVal"
               button
               value="3"
             >
-              네이버페이
+              뱅크샐러드
             </kb-radio>
             <kb-radio
               v-model="toggleVal"
               button
               value="4"
             >
-              PAYCO
+              카카오뱅크
             </kb-radio>
           </kb-btn-toggle-row>
         </kb-btn-toggle>
@@ -100,7 +100,7 @@
                   </div>
                   <div class="sub_info">
                     <ul>
-                      <li>네이버페이</li>
+                      <li>카카오뱅크</li>
                       <li>KB국민카드</li>
                       <li>할부(3)</li>
                     </ul>
@@ -129,7 +129,7 @@
                   </div>
                   <div class="sub_info">
                     <ul>
-                      <li>네이버페이</li>
+                      <li>뱅크샐러드</li>
                       <li>KB국민카드</li>
                       <li>할부(3)</li>
                     </ul>

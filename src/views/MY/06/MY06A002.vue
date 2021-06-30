@@ -18,7 +18,7 @@ export default {
       tabLink: [
         { to: 'MY06A005', text: '내 자산' },
         { to: 'MY06A001', text: '찜 상품' },
-        { to: 'MY06A004', text: '내 서랍' },
+        { to: 'MY06A004', text: '내메모' },
       ],
     };
   },

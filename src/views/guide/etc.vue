@@ -1,5 +1,26 @@
 <template>
   <div class="section pd_bottom">
+    <kb-input date v-model="testVal2" />
+    <h2 class="gd__h1">더블클릭</h2>
+    <div>@dblclick을 안쓰고(모바일에서 안됨)<br> :dblclick 사용<br>kb-button, kb-radio, kb-checkbox 만 작동</div>
+    <kb-radio
+      v-model="testVal"
+      :dblclick="dblClickEvt"
+      value="1"
+    >
+      라디오
+    </kb-radio>
+    <kb-checkbox
+      v-model="testVal"
+      :dblclick="dblClickEvt"
+      true-value="1"
+      false-value=""
+    >
+      checkbox
+    </kb-checkbox>
+    <kb-button yellow :dblclick="dblClickEvt">
+      버튼
+    </kb-button>
     <h2 class="gd__h1">전체선택</h2>
     <div>
       <h3 class="gd__h2">기본</h3>
@@ -208,6 +229,8 @@ export default {
   name: 'etc',
   data() {
     return {
+      testVal: '',
+      testVal2: '',
       allCheckedVal: false,
       checkList: [
         { label: '체크박스1', value: 'chk1' },
@@ -235,6 +258,9 @@ export default {
 
   },
   methods: {
+    dblClickEvt() {
+      console.log('dblClickEvt dblClickEvt dblClickEvt!!!');
+    },
     checkedAll() {
       this.checkedVal = [];
       if (this.allCheckedVal) {

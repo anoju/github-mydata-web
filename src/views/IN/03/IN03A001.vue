@@ -83,7 +83,7 @@
             </div>
 
             <div class="flex_wrap">
-              <p class="fz_12 fc_blue_gray mg_ra pd_r10">* 보유비율은 소수점 이하 2자리까지 절사되어 표기되었습니다.</p>
+              <p class="fz_12 fc_blue_gray mg_ra pd_r10">* 보유비율은 소수점 한자리까지 절사되어 표기하였습니다.</p>
               <kb-button v-if="openAll" not class="fz_12 fc_666 flex00" @click="OpenAllEvt">전체접기</kb-button>
               <kb-button v-else not class="fz_12 fc_666 flex00" @click="OpenAllEvt">전체펼치기</kb-button>
             </div>

@@ -1,67 +1,168 @@
 .keypad_wrap{
-  .full_height_wrap{position:relative;overflow:hidden;}
-  .secret_field {
-    margin-top:40px;text-align:center;
-    span {
-      width:40px;height:40px;display:inline-block;background:url('/images/static/images/frame/secret_input.png') no-repeat;margin:0 1px;
-      &.empty{background-position:-1px -1px;}
-      &.non_empty{background-position:-1px -46px;}
-      &.secret{background-position:-1px -46px;}
-    }
-  }
-  #currentKeyField{
-    bottom:180px;
-    height:50px;
-    width:100%;
-    position:absolute;
-    background:#72a3e0;
-    text-align:right;
-  }
+  overflow:hidden;
+  .full_height_wrap{position:relative;padding-left:20px;padding-right:20px;}
+  .dot_password_alert{margin-top:14px;}
+  .login_btm_btn{position:absolute;left:0;width:100%;bottom:180px;padding-bottom:24px;}
+  .accordion_dl{text-align:left;position:absolute;left:0;width:100%;bottom:180px;padding:0 20px 24px;background: #fff;}
 
-  #keypad {
-    position:absolute;
-    left:0;
-    bottom:0;
-    width:100%;
-    height:180px;
-    background:#fff;
-    border-top:1px solid #1c4174;
-    .keypad {
-      width:100%;
-      table-layout:fixed;
-      text-align:center;
-      border-collapse: collapse;
-      img{bottom:100% !important;margin-bottom:9px;width:auto !important;}
+  //숫자 키패드
+  &.number{
+    .full_height_wrap{padding-bottom:180px;}
+    .secret_field {
+      margin-top:32px;text-align:center;
+      span {
+        // width:40px;height:40px;display:inline-block;background:url('/static/images/frame/secret_input.png') no-repeat;margin:0 1px;
+        // &.empty{background-position:-1px -1px;}
+        // &.non_empty{background-position:-1px -46px;}
+        // &.secret{background-position:-1px -46px;}
+        position:relative;display:inline-block;width:16px;height:16px;margin:0 8px;border-radius:50%;overflow:hidden;background:#eee;vertical-align:top;
+        &:before{content:'';display:block;position:absolute;width:100%;height:100%;left:0;top:0;border-radius:50%;border-radius:50%;background:#ffdc00;opacity:0;transform:scale(0);transition:0.3s;}
+        &.non_empty:before,
+        &.secret:before{opacity:1;transform:scale(1);}
+        &.secret:before{background:#666;}
+      }
     }
-    .number {
+    #currentKeyField{
+      border-top : 1px solid #5B86D4;
+      /* border-bottom : 1px solid #214d8b; */
+      bottom : 181px;
+      height : 49px;
       width:100%;
-      overflow:hidden;
-      box-sizing:border-box;
-      border-right:1px solid #1c4174;
-      li {
-        float:left;
-        width:25%;
-        height:45px;
-        border-left:1px solid #1c4174;
-        border-top:1px solid #1c4174;
-        box-sizing:border-box;
-        background:#214d8b;
-        border-bottom:1px solid #1c4174;
-        &.func {
-          width:50%;
-          background:#1c4174;
+      position : absolute;
+      background :#5B86D4;
+      margin: 0px auto;
+      text-align: center;
+      
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    #keypad {
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:100%;
+      height:181px;
+      background:#fff;
+      .keypad {
+        width:100%;
+        table-layout:fixed;
+        text-align:center;
+        border-collapse: collapse;
+        img{
+          bottom:100% !important;margin-bottom:9px;width:auto !important;
         }
-        a {
-          display:table;
-          width:100%;
-          height:100%;
-          span {
-            display:table-cell;
-            text-align:center;
-            vertical-align:middle;
+      }
+      .number {
+        width:100%;
+        overflow:hidden;
+        box-sizing:border-box;
+        border-right:1px solid #eee;
+        border-bottom:1px solid #eee;
+        li {
+          float:left;
+          width:25%;
+          height:45px;
+          border-left:1px solid #eee;
+          border-top:1px solid #eee;
+          box-sizing:border-box;
+          background:#ffffff;
+          &.func {
+            width:50%;
+            background:#ffffff;
+          }
+          a {
+            display:table;
+            width:100%;
+            height:100%;
+            span {
+              display:table-cell;
+              text-align:center;
+              vertical-align:middle;
+            }
           }
         }
       }
     }
+  }
+
+  //쿼티 키패드
+  &.qwerty{
+    .full_height_wrap{padding-bottom:270px;}
+    input.input {
+      display:block;
+      text-align:center;
+      width: 280px;
+      height: 46px;
+      font-size: 32px;
+      margin:32px auto 0;
+    }
+    #currentKeyField{
+      background-color : #628BD5;
+      bottom : 270px;
+      height : 49px;
+      width:100%;
+      position : absolute;
+      margin: 0px auto;
+      text-align: center;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    #keypad {
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:100%;
+      height:270px;
+      background:#fff;
+      border:1px solid #eee;
+      border-width:10px 5px;
+      .keypad {
+        width:100%;
+        table-layout:fixed;
+        text-align:center;
+        border-collapse: collapse;
+      }
+      .keyTable {
+        width:100%;
+        table-layout:fixed;
+        text-align:center;
+        border-collapse: collapse;
+        /*키패드 영역 배경 색상 지정 가능*/
+        background:#eee;
+        tr + tr td {
+          border-top:5px solid #eee;
+        }
+        td {
+          height:50px;
+          + td  {
+            border-left:5px solid #eee;
+          }
+        }
+        td a,
+        td span,
+        td .blank,
+        td .funcKey {
+          border-radius: 5px;
+          width:100%;
+          height:100%;
+          display:table;
+        }
+        td a span {
+          display:table-cell;
+          text-align:center;
+          vertical-align:middle;
+        }
+        td a,
+        td .blank {
+          background:#FFFFFF;
+        }
+        td .funcKey {
+          background:#FFFF00;
+        }
+      }
+    }
+    .login_btm_btn,
+    .accordion_dl{bottom:270px;}
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="main_to_wrap">
-    <kb-swiper class="main_to_swiper" autoplay :delay="3500">
+    <kb-swiper class="main_to_swiper" autoplay :delay="5000" pagingType="fraction">
       <swiper-slide>
         <div class="item">
           <div class="inner">
@@ -192,7 +192,7 @@
                 <strong>관심있는 주식에 대한 뉴스자료를 수집해보세요.</strong>
               </div>
               <div class="info">
-                <div class="th">내서랍의 메모기능을 체험해보세요</div>
+                <div class="th">내메모의 메모기능을 체험해보세요</div>
               </div>
             </kb-button>
             <kb-button not class="edge">Insight</kb-button>
@@ -265,7 +265,7 @@
         ico_3: 금융생활
         ico_4: 마이페이지
         ico_5: 환경설정
-        ico_6: 내 서랍
+        ico_6: 내메모
         ico_7: 내 자산 비타민
         ico_8: 내 자산 QnA
         ico_9: 고객센터
@@ -304,7 +304,7 @@
         <swiper-slide>
           <kb-button not a-tag class="quick_item">
             <div class="quick_ico ico_6"></div>
-            <div class="txt">내 서랍</div>
+            <div class="txt">내메모</div>
           </kb-button>
         </swiper-slide>
         <swiper-slide>

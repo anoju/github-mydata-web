@@ -118,7 +118,7 @@
     </kb-swiper>
     <h3 class="gd__h2">index</h3>
     <kb-swiper
-      index="2"
+      :index="2"
     >
       <swiper-slide>
         <div class="dummy">
@@ -244,6 +244,32 @@
         빼기
       </kb-button>
     </kb-button-wrap>
+
+    <h3 class="gd__h2">v-model</h3>
+    <kb-swiper v-model="swiperVal">
+      <swiper-slide>
+        <div class="dummy">
+          임시박스1
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="dummy">
+          임시박스2
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="dummy">
+          임시박스3
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="dummy">
+          임시박스4
+        </div>
+      </swiper-slide>
+    </kb-swiper>
+    <kb-input v-model="swiperVal" />
+    {{swiperVal}}
   </div>
 </template>
 <script>
@@ -251,6 +277,7 @@ export default {
   name: 'Swipe',
   data() {
     return {
+      swiperVal: 2,
       swipers: [1, 2],
     };
   },

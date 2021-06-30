@@ -103,6 +103,38 @@
                   </ul>
                 </div>
               </kb-folding>
+              <kb-folding title="상세정보" active>
+                <div class="info_txt_list">
+                  <ul class="list pd_b20">
+                    <li>
+                      <div class="th">갱신여부</div>
+                      <div class="td fc_666"><strong>갱신형</strong></div>
+                    </li>
+                    <!-- case발생 시 노출 -->
+                    <li>
+                      <div class="th">연금개시일</div>
+                      <div class="td fc_666"><strong>2078/01/01</strong></div>
+                    </li>
+                    <li>
+                      <div class="th">연금수령주기</div>
+                      <div class="td fc_666"><strong>매월</strong></div>
+                    </li>
+                    <!-- //case발생 시 노출 -->
+                    <li>
+                      <div class="th">대출실행 가능 상품 여부</div>
+                      <div class="td fc_666"><strong>실행가능</strong></div>
+                    </li>
+                    <li>
+                      <div class="th">피보험자 1</div>
+                      <div class="td fc_666"><strong>김보험</strong></div>
+                    </li>
+                    <li>
+                      <div class="th">피보험자 2</div>
+                      <div class="td fc_666"><strong>김순번</strong></div>
+                    </li>
+                  </ul>
+                </div>
+              </kb-folding>
               <kb-folding title="특약정보" active>
                 <div class="info_txt_list">
                   <p class="mg_b12 fz_16 fw_bold">(무)의료보장특약</p>
@@ -141,38 +173,6 @@
                     <li>
                       <div class="th">특약 유형</div>
                       <div class="td fc_666"><strong>필수</strong></div>
-                    </li>
-                  </ul>
-                </div>
-              </kb-folding>
-              <kb-folding title="상세정보" active>
-                <div class="info_txt_list">
-                  <ul class="list pd_b20">
-                    <li>
-                      <div class="th">갱신여부</div>
-                      <div class="td fc_666"><strong>갱신형</strong></div>
-                    </li>
-                    <!-- case발생 시 노출 -->
-                    <li>
-                      <div class="th">연금개시일</div>
-                      <div class="td fc_666"><strong>2078/01/01</strong></div>
-                    </li>
-                    <li>
-                      <div class="th">연금수령주기</div>
-                      <div class="td fc_666"><strong>매월</strong></div>
-                    </li>
-                    <!-- //case발생 시 노출 -->
-                    <li>
-                      <div class="th">대출실행 가능 상품 여부</div>
-                      <div class="td fc_666"><strong>실행가능</strong></div>
-                    </li>
-                    <li>
-                      <div class="th">피보험자 1</div>
-                      <div class="td fc_666"><strong>김보험</strong></div>
-                    </li>
-                    <li>
-                      <div class="th">피보험자 2</div>
-                      <div class="td fc_666"><strong>김순번</strong></div>
                     </li>
                   </ul>
                 </div>

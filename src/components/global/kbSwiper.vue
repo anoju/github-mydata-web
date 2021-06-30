@@ -23,6 +23,11 @@
         ref="paginationWrap"
         class="swiper-pagination-wrap"
       >
+        <div
+          slot="pagination"
+          ref="pagination"
+          class="swiper-pagination"
+        />
         <button
           v-if="autoplay"
           type="button"
@@ -30,11 +35,6 @@
           :class="{play:!isAutoplay}"
           :aria-label="autoplayText"
           @click="autoplaybutton"
-        />
-        <div
-          slot="pagination"
-          ref="pagination"
-          class="swiper-pagination"
         />
       </div>
       <button
@@ -65,6 +65,7 @@ import uiEventBus from '../uiEventBus.vue';
 export default {
   name: 'kbSwiper',
   props: {
+    value: { type: [String, Number], default: null },
     navi: { type: Boolean, default: false },
     fullWidth: { type: Boolean, default: false },
     autoWidth: { type: Boolean, default: false },
@@ -72,13 +73,15 @@ export default {
     loop: { type: Boolean, default: false },
     autoplay: { type: Boolean, default: false },
     delay: { type: Number, default: 3000 },
-    index: { type: String, default: '0' },
+    index: { type: [String, Number], default: 0 },
     dir: { type: String, default: null },
+    pagingType: { type: String, default: 'bullets' },
   },
   data() {
     return {
       isAutoplay: false,
       isOnly: false,
+      isChagned: false,
       resizeUpadte: '',
     };
   },
@@ -103,15 +106,25 @@ export default {
         loop: !!this.loop,
         autoplay: autoplayOpt,
         autoHeight: autoHeightOpt,
-        initialSlide: this.index,
+        initialSlide: Number(this.index),
         pagination: {
           el: '.swiper-pagination',
+          type: this.pagingType,
           clickable: true,
           renderBullet(index, className) {
             return `<button type="button" class="${className}">${index + 1}번째 슬라이드</button>`;
           },
         },
       };
+    },
+  },
+  watch: {
+    value() {
+      if (this.value !== null && this.value !== '' && !Number.isNaN(this.value)) {
+        if (!this.isChagned) this.mySwiper.slideTo(Number(this.value), 100);
+        this.$emit('input', this.value);
+        this.isChagned = false;
+      }
     },
   },
   mounted() {
@@ -138,6 +151,7 @@ export default {
     swiperReady(swiper) {
       this.$nextTick(() => {
         this.swiperCheck(swiper);
+        if (this.value !== null && this.value !== '' && !Number.isNaN(this.value)) this.mySwiper.slideTo(Number(this.value), 0);
         if (this.autoWidth) {
           setTimeout(() => {
             this.mySwiper.update();
@@ -170,7 +184,8 @@ export default {
     },
     swiperCheck(tar) {
       // console.log(tar.activeIndex, tar.realIndex, tar.snapIndex)
-      const $length = tar.pagination.bullets.length;
+      // const $length = tar.pagination.bullets.length;
+      const $length = tar.slides.length;
       // const $index = tar.realIndex
       const $index = tar.snapIndex;
       const btnPrev = this.$refs.buttonPrev;
@@ -221,11 +236,13 @@ export default {
     swiperAppendSlide() {
       console.log('swiperAppendSlide');
     },
-
     swiperChange() {
+      if (this.value !== null) {
+        this.isChagned = true;
+        this.$emit('input', this.mySwiper.realIndex);
+      }
       this.$emit('swiperChange', this.mySwiper.snapIndex);
     },
-
     swiperEnd() {
       // console.log('end??')
       // this.$emit('swEnd')

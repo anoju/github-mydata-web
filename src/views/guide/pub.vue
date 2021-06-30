@@ -39,13 +39,18 @@
                     </router-link>
                     <router-link
                       v-if="item.type === 'page'"
-                      :to="`/${item.pageID.substr(0, 2)}/${item.pageID.substr(
-                        2,
-                        2
-                      )}/${item.pageID}`"
+                      :to="`/${item.pageID.substr(0, 2)}/${item.pageID.substr(2,2)}/${item.pageID}`"
                       target="_blank"
                     >
                       {{ item.pageID }}
+                    </router-link>
+                    <br v-if="item.api">
+                    <router-link
+                      v-if="item.api"
+                      :to="`/VAPI/${item.pageID.substr(0, 2)}/${item.pageID.substr(2,2)}/${item.pageID}`"
+                      target="_blank"
+                    >
+                      {{ item.pageID }} (API용 화면)
                     </router-link>
                     <a
                       v-if="item.type === 'pop'"

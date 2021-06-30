@@ -39,7 +39,7 @@
       </kb-button>
       <kb-button
         yellow
-        to="/IN/09/IN09A010/2"
+        :to="step2Action()"
       >
         다음
       </kb-button>
@@ -58,7 +58,20 @@ export default {
       sliderVal: 60,
     };
   },
+  created() {
+    if (localStorage.getItem('IN09A010')) {
+      this.sliderVal = JSON.parse(localStorage.getItem('IN09A010')).step1;
+    }
+  },
   methods: {
+    step2Action() {
+      const link = '/IN/09/IN09A010/2';
+      const obj = {};
+      obj.step1 = this.sliderVal;
+      obj.step2 = this.sliderVal;
+      localStorage.setItem('IN09A010', JSON.stringify(obj));
+      return link;
+    },
   },
 };
 </script>

@@ -1,17 +1,17 @@
 <template>
   <div>
-    <!-- 내서랍이 없는 경우 -->
+    <!-- 내메모이 없는 경우 -->
     <template v-if="noDate">
       <div class="assets_none_box">
         <div class="none_box">
           <i></i>
           등록 된 관심 메모가 없습니다.<br />
-          내 서랍에서 관심 메모를 등록해보세요 :)
-          <kb-button line blue class="more fz_16">내 서랍</kb-button>
+          내메모에서 관심 메모를 등록해보세요 :)
+          <kb-button line blue class="more fz_16">내메모</kb-button>
         </div>
       </div>
     </template>
-    <!-- //내서랍이 없는 경우 -->
+    <!-- //내메모이 없는 경우 -->
 
     <template v-if="!noDate">
       <div class="mypage_list2">

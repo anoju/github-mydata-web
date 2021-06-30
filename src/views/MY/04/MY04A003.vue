@@ -36,7 +36,7 @@
           </kb-button>
           <kb-button not>
             <dl class="type3">
-              <dt>내 서랍</dt>
+              <dt>내메모</dt>
               <dd>256</dd>
             </dl>
           </kb-button>

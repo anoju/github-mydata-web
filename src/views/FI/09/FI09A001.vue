@@ -180,41 +180,6 @@
         <!-- //관심 있는 경우 -->
 
         <hr aria-hidden="true" class="hr_line">
-        <div class="big_line_list">
-          <ul>
-            <li>
-              <div class="inner">
-                <div>
-                  <strong class="fz_18">네이버포인트</strong>
-                  <span class="fz_14 fc_666 mg_l8">abc***eee </span>
-                </div>
-                <div class="fz_12 fc_666 mg_t12">우리카드 222222****222 (외1)</div>
-                <div class="flex_wrap space_between align_center mg_t24">
-                  <div class="fz_14">
-                    보유금액
-                  </div>
-                  <div>
-                    <strong class="fz_20">1,123,400,000원</strong>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="inner">
-                <div>
-                  <strong class="fz_18">쿠팡페이(주)</strong>
-                  <ico-txt class="mg_l8">비활동</ico-txt>
-                </div>
-                <div class="fz_14 mg_t12">
-                  <strong class="fc_666">쿠팡캐시</strong>
-                  <strong class="mg_l8">김국민</strong>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <hr aria-hidden="true" class="hr_line">
 
         <kb-title-bar
           h3
@@ -283,6 +248,56 @@
                   <ul>
                     <li class="tag">#식품</li>
                   </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <hr aria-hidden="true" class="hr_line">
+        <div class="big_line_list">
+          <ul>
+            <li>
+              <div class="inner">
+                <div>
+                  <strong class="fz_18">네이버페이</strong>
+                  <span class="fz_14 fc_666 mg_l8">abc***</span>
+                </div>
+                <div class="flex_wrap space_between align_center mg_t24">
+                  <div class="fz_14">
+                    보유금액
+                  </div>
+                  <div>
+                    <strong class="fz_20">1,123,400,000원</strong>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="inner">
+                <div>
+                  <strong class="fz_18">카카오페이</strong>
+                  <span class="fz_14 fc_666 mg_l8">abc***</span>
+                </div>
+                <div class="flex_wrap space_between align_center mg_t24">
+                  <div class="fz_14">
+                    보유금액
+                  </div>
+                  <div>
+                    <strong class="fz_20">1,123,400,000원</strong>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="inner">
+                <div>
+                  <strong class="fz_18">쿠팡페이(주)</strong>
+                  <ico-txt class="mg_l8">비활동</ico-txt>
+                </div>
+                <div class="fz_14 mg_t12">
+                  <strong class="fc_666">쿠팡캐시</strong>
+                  <strong class="mg_l8">김국민</strong>
                 </div>
               </div>
             </li>

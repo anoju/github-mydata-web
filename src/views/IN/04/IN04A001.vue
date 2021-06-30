@@ -1068,7 +1068,7 @@
             <kb-title-bar h3>
               <template slot="left">
                 <h2 class="tit">
-                  내 서랍<!--2021-06-08 명칭변경 -->
+                  내메모<!--2021-06-08 명칭변경 -->
                 </h2>
               </template>
               <kb-button link not class="fz_12 fc_666">
@@ -1156,7 +1156,7 @@ export default {
     };
   },
   created() {
-    if (this.$route.path.indexOf('/API/') >= 0) this.isAPI = true;
+    if (this.$route.path.indexOf('/VAPI/') >= 0) this.isAPI = true;
   },
   methods: {
     keywordShow() {
