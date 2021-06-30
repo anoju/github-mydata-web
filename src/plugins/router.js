@@ -7,7 +7,7 @@ Vue.use(Router);
 // const viewBase = '@/views/'; // view 파일의 루트경로
 
 let router = null;
-
+// eslint-disable-next-line
 const scrollBehavior = function (to, from, savedPosition) {
   // console.log('scrollBehavior', to.hash);
   if (savedPosition) {

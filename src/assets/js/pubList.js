@@ -148,7 +148,7 @@ export default [
     pageID: 'IN03A001', type: 'page', api: false, depth1: '투자생활', depth2: '포트폴리오 진단', depth3: null, depth4: null, etc: '팝업 4개(자산설명, 전망, 모델포트폴리오,진단결과)', complete: '2021-03-12', change: '2021-04-06',
   },
   {
-    pageID: 'IN04A001', type: 'page', api: false, depth1: '투자생활', depth2: '주식종목 진단', depth3: null, depth4: null, etc: '', complete: '2021-04-09', change: '',
+    pageID: 'IN04A001', type: 'page', api: true, depth1: '투자생활', depth2: '주식종목 진단', depth3: null, depth4: null, etc: '', complete: '2021-04-09', change: '',
   },
   {
     pageID: 'IN05A001', type: 'page', api: false, depth1: '투자생활', depth2: '투자습관진단', depth3: '시작하기', depth4: null, etc: '', complete: '2020-05-06', change: '',
@@ -160,10 +160,10 @@ export default [
     pageID: 'IN05A004', type: 'pop', api: false, depth1: '투자생활', depth2: '투자습관진단', depth3: '투자나이 수정', depth4: null, etc: '', complete: '2020-05-06', change: '',
   },
   {
-    pageID: 'IN06A001', type: 'page', api: false, depth1: '투자생활', depth2: '고수의 PICK', depth3: '목록', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
+    pageID: 'IN06A001', type: 'page', api: true, depth1: '투자생활', depth2: '고수의 PICK', depth3: '목록', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
   },
   {
-    pageID: 'IN06A002', type: 'page', api: false, depth1: '투자생활', depth2: '고수의 PICK', depth3: '상세', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
+    pageID: 'IN06A002', type: 'page', api: true, depth1: '투자생활', depth2: '고수의 PICK', depth3: '상세', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
   },
   // 가상투자
   {
@@ -214,14 +214,14 @@ export default [
   },
   // 투자 상상튀즈
   {
-    pageID: 'IN10A000', type: 'page', api: false, depth1: '투자생활', depth2: '투자상상퀴즈', depth3: '', depth4: null, etc: '정답, 오답 포함', complete: '2021-05-20', change: null,
+    pageID: 'IN10A000', type: 'page', api: true, depth1: '투자생활', depth2: '투자상상퀴즈', depth3: '', depth4: null, etc: '정답, 오답 포함', complete: '2021-05-20', change: null,
   },
   {
-    pageID: 'IN10A001', type: 'page', api: false, depth1: '투자생활', depth2: '투자상상퀴즈', depth3: '상세정보', depth4: null, etc: '샘플', complete: '2021-03-24', change: null,
+    pageID: 'IN10A001', type: 'page', api: true, depth1: '투자생활', depth2: '투자상상퀴즈', depth3: '상세정보', depth4: null, etc: '샘플', complete: '2021-03-24', change: null,
   },
   // 주식테마 큐레이션
   {
-    pageID: 'IN11A001', type: 'page', api: false, depth1: '투자생활', depth2: '주식테마 큐레이션', depth3: '리스트', depth4: null, etc: '', complete: '2021-04-23', change: null,
+    pageID: 'IN11A001', type: 'page', api: true, depth1: '투자생활', depth2: '주식테마 큐레이션', depth3: '리스트', depth4: null, etc: '', complete: '2021-04-23', change: null,
   },
   {
     pageID: 'IN11A002', type: 'page', api: false, depth1: '투자생활', depth2: '주식테마 큐레이션', depth3: '상세', depth4: null, etc: '', complete: '2021-04-23', change: null,
@@ -414,7 +414,7 @@ export default [
     pageID: 'UT14C001', type: 'page', api: false, depth1: '마이데이터 연동', depth2: '개별인증', depth3: '기관/업체 검색 및 선택', depth4: null, etc: null, complete: '2021-03-24', change: null,
   },
   {
-    pageID: 'UT14C012', type: 'page', api: false, depth1: '마이데이터 인증', depth2: '개별인증', depth3: 'KB증권 인증', depth4: '계좌번호/비번입력', etc: null, complete: '2021-03-23', change: null,
+    pageID: 'UT14C012', type: 'page', api: true, depth1: '마이데이터 인증', depth2: '개별인증', depth3: 'KB증권 인증', depth4: '계좌번호/비번입력', etc: null, complete: '2021-03-23', change: null,
   },
   {
     pageID: 'UT14C013', type: 'page', api: false, depth1: '마이데이터 인증', depth2: '개별인증', depth3: 'KB증권 인증', depth4: '계좌 및 정보선택', etc: null, complete: '2021-03-22', change: null,

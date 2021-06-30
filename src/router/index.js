@@ -705,6 +705,81 @@ const routes = [
       },
     ],
   },
+  //
+  {
+    path: '/VAPI',
+    component: {
+      render(c) { return c('router-view'); },
+    },
+    children: [
+      {
+        path: 'UT',
+        component: { render(c) { return c('router-view'); } },
+        children: [
+          {
+            path: '14',
+            component: { render(c) { return c('router-view'); } },
+            children: [
+              { path: 'UT14C012', component: () => import('@/views/UT/14/UT14C012.vue') }, // 국내주식
+            ],
+          },
+        ],
+      },
+      {
+        path: 'IN',
+        component: { render(c) { return c('router-view'); } },
+        children: [
+          {
+            path: '02',
+            component: () => import('@/views/IN/02/IN02.vue'),
+            children: [
+              { path: 'IN02A002', component: () => import('@/views/IN/02/IN02A002.vue') }, // 국내주식
+            ],
+          },
+          {
+            path: '04',
+            component: {
+              render(c) { return c('router-view'); },
+            },
+            children: [
+              { path: 'IN04A001', component: () => import('@/views/IN/04/IN04A001.vue') }, // 주식종목 진단
+            ],
+          },
+          {
+            path: '06',
+            component: {
+              render(c) { return c('router-view'); },
+            },
+            children: [
+              { path: 'IN06A001', component: () => import('@/views/IN/06/IN06A001.vue') }, // 투자/고수의Pick
+              {
+                path: 'IN06A002', component: () => import('@/views/IN/06/IN06A002.vue'), name: 'VAPI/IN06A002', props: true,
+              }, // 고수의 pick 상세
+            ],
+          },
+          {
+            path: '10',
+            component: {
+              render(c) { return c('router-view'); },
+            },
+            children: [
+              { path: 'IN10A000', component: () => import('@/views/IN/10/IN10A000.vue') }, // 투자상상 퀴즈 (임시)
+              { path: 'IN10A001', component: () => import('@/views/IN/10/IN10A001.vue') }, // 투자상상 퀴즈 상세
+            ],
+          },
+          {
+            path: '11',
+            component: {
+              render(c) { return c('router-view'); },
+            },
+            children: [
+              { path: 'IN11A001', component: () => import('@/views/IN/11/IN11A001.vue') }, // 상품추천큐페이션
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 const router = new VueRouter({
