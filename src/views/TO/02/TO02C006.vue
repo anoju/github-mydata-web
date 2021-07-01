@@ -128,7 +128,7 @@
 
           <!-- 2021-06-16 추가 -->
           <ul class="list_tot history bottom_line mg_b0 mg_b16">
-            <li class="nothing">납입 정보가 없으세요.</li>
+            <li class="nothing">납입 정보가 없어요.</li>
           </ul>
           <!-- //2021-06-16 추가 -->
         </div>

@@ -35,13 +35,13 @@
             <kb-button
               v-if="msg.isConfirm"
               line
-              @click="onClose(msg.idx, false)"
+              @click="onClose(i, false)"
             >
               {{ msg.cancelTxt }}
             </kb-button>
             <kb-button
               yellow
-              @click="onClose(msg.idx, true)"
+              @click="onClose(i, true)"
             >
               {{ msg.confirmTxt }}
             </kb-button>
@@ -84,19 +84,15 @@ export default {
       const cancelTxt = (options !== undefined && options.cancelTxt !== undefined) ? options.cancelTxt : '취소';
       let isOpend = false;
       if (this.messages.length) {
-        this.messages.forEach((msg) => {
+        this.messages.forEach((msg, i) => {
           if (msg.text === text && msg.title === title && msg.isConfirm === isConfirm && msg.addClass === addClass && msg.confirmTxt === confirmTxt && msg.cancelTxt === cancelTxt) {
-            isOpend = true;
-            if (msg.empty) {
-              msg.empty = false;
-              this.onOpen(msg.idx);
-            }
+            if (msg.empty) this.messages.splice(i, 1);
+            if (msg.show) isOpend = true;
           }
         });
       }
       if (isOpend) return;
       this.messages.push({
-        idx: this.index,
         text,
         title,
         addClass,
@@ -108,9 +104,8 @@ export default {
         empty: false,
         resolve,
       });
-
-      this.onOpen(this.index);
-      this.index += 1;
+      const index = this.messages.length - 1;
+      this.onOpen(index);
     },
     onOpen(index) {
       if (!document.querySelectorAll('.alert.show').length && document.querySelector('.lock') === null) uiEventBus.$emit('lock-wrap');

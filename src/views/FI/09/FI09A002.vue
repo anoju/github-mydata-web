@@ -69,6 +69,48 @@
             >
               PAYCO
             </kb-radio>
+            <kb-radio
+              v-model="toggleVal"
+              button
+              value="5"
+            >
+              쿠페이
+            </kb-radio>
+            <kb-radio
+              v-model="toggleVal"
+              button
+              value="6"
+            >
+              네이버페이
+            </kb-radio>
+            <kb-radio
+              v-model="toggleVal"
+              button
+              value="7"
+            >
+              PAYCO
+            </kb-radio>
+            <kb-radio
+              v-model="toggleVal"
+              button
+              value="8"
+            >
+              쿠페이
+            </kb-radio>
+            <kb-radio
+              v-model="toggleVal"
+              button
+              value="9"
+            >
+              네이버페이
+            </kb-radio>
+            <kb-radio
+              v-model="toggleVal"
+              button
+              value="10"
+            >
+              PAYCO
+            </kb-radio>
           </kb-btn-toggle-row>
         </kb-btn-toggle>
         <kb-tabs

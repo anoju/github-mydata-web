@@ -160,7 +160,7 @@
 
             <!-- 데이터 없을때 -->
             <div class="no_list_txt">
-              <strong class="tit">아직 등록된 정보가 없으세요.</strong>
+              <strong class="tit">아직 등록된 정보가 없어요.</strong>
             </div>
             <!-- //데이터 없을때 -->
           </kb-tab>
@@ -198,7 +198,7 @@
 
             <!-- 데이터 없을때 -->
             <div class="no_list_txt">
-              <strong class="tit">아직 제외된 정보가 없으세요.</strong>
+              <strong class="tit">아직 제외된 정보가 없어요.</strong>
             </div>
             <!-- //데이터 없을때 -->
           </kb-tab>

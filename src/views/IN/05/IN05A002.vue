@@ -8,17 +8,20 @@
       >
         <kb-tab
           title="나의 투자습관"
+          to="/IN/05/IN05A002"
         >
           <IN05A003 />
         </kb-tab>
         <kb-tab
           title="투자 성적표"
+          to="/IN/05/IN05A005"
           :disabled="false"
         >
           <IN05A005 />
         </kb-tab>
         <kb-tab
           title="투자패턴 카드"
+          to="/IN/05/IN05A006"
           :disabled="false"
         >
           <IN05A006 />
@@ -44,7 +47,23 @@ export default {
     IN05A005,
     IN05A006,
   },
+  watch: {
+    $route(to) {
+      if (to.path.indexOf('IN05A005') > 0) {
+        this.tabIdx = 1;
+      } else if (to.path.indexOf('IN05A006') > 0) {
+        this.tabIdx = 2;
+      } else {
+        this.tabIdx = 0;
+      }
+    },
+  },
+  mounted() {
+    if (this.$route.path.indexOf('IN05A005') > 0) this.tabIdx = 1;
+    if (this.$route.path.indexOf('IN05A006') > 0) this.tabIdx = 2;
+  },
   methods: {
+
   },
 };
 </script>

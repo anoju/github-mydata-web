@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section pd_b60">
     <div class="in_chart_item mg_t40">
       <div class="tit">
         <div class="name"><strong class="line">위험중립형</strong></div>

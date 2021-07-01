@@ -216,6 +216,7 @@ export default {
   methods: {
     clickEvt(e) {
       if (this.aTag && this.href === '#') e.preventDefault();
+      const isChecked = this.$el.classList.contains('checked');
       if (!this.disabled) {
         if (this.dblclick !== null) {
           if (this.isDblclick) {
@@ -229,25 +230,23 @@ export default {
             }, 300);
           }
         }
-        if (this.$el.classList.contains('checked')) this.likeEffect();
         if (!this.noEffect && !this.isClick) this.clickEffect(e);
+        if (!isChecked && (this.like || this.like2 || this.star || this.bookmark)) this.likeEffect();
       }
     },
     likeEffect() {
-      if (this.like || this.like2 || this.star || this.bookmark) {
-        let checkedTimerNum = 0;
-        const checkedTimer = setInterval(() => {
-          if (this.$el.classList.contains('checked')) {
-            if (this.like) this.$like('heart');
-            if (this.like2) this.$like('hands');
-            if (this.star) this.$like('star');
-            if (this.bookmark) this.$like('bookmark');
-            clearInterval(checkedTimer);
-          }
-          checkedTimerNum += 1;
-          if (checkedTimerNum > 30)clearInterval(checkedTimer);
-        }, 100);
-      }
+      let checkedTimerNum = 0;
+      const checkedTimer = setInterval(() => {
+        if (this.$el.classList.contains('checked')) {
+          if (this.like) this.$like('heart');
+          if (this.like2) this.$like('hands');
+          if (this.star) this.$like('star');
+          if (this.bookmark) this.$like('bookmark');
+          clearInterval(checkedTimer);
+        }
+        checkedTimerNum += 1;
+        if (checkedTimerNum > 30)clearInterval(checkedTimer);
+      }, 100);
     },
     clickEffect(e) {
       this.isClick = true;

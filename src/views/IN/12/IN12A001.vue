@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section pd_b60">
     <div class="in_chart_item mg_t40">
       <div class="tit">
         <div class="name"><strong class="line">공격투자형</strong></div>

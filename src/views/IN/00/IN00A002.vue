@@ -47,9 +47,9 @@
           handle=".ico_drag"
         >
           <transition-group tag="ul" type="transition" name="drag-list">
-            <li class="item" v-for="(element,i) in list2" :key="i">
+            <li class="item" v-for="(element2,j) in list2" :key="j">
               <div class="tit">
-                <strong>{{element.name}}</strong>
+                <strong>{{element2.name}}</strong>
               </div>
               <i class="ico_drag"></i>
             </li>

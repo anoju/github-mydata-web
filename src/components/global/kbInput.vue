@@ -59,6 +59,9 @@
         @change="dateChange"
         @focus="focusEvt"
         @blur="isFocus = false"
+        :min="min"
+        :max="max?max:$dayjs().format('YYYY-MM-DD')"
+        :value="value?$dayjs(value).format('YYYY-MM-DD'):''"
       >
       <div
         v-if="unit != null"

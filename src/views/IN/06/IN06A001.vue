@@ -15,7 +15,11 @@
               <p class="tip_tit">#나만의 북마크로 관심Pick 만들기</p>
               <i class="ico"></i>
             </div>
-            <ul class="pick_list">
+            <div class="no_list_txt icon" v-if="false">
+              <strong class="tit">선택한 북마크가 없어요.</strong>
+              <div class="txt">관심있는 고수를 추가해 보세요.</div>
+            </div>
+            <ul class="pick_list" v-else>
               <li>
                 <kb-button not aTag class="btn_stock">
                   <strong>장기보유 고수가<br>1주일 동안 매수한 종목은?</strong>
@@ -503,7 +507,7 @@ export default {
     '$route.query.tab': {
       handler(tab) {
         if (this.$route.query.tab === undefined) {
-          this.tabIdx = 0;
+          this.tabIdx = 1;
         } else {
           this.tabIdx = Number(tab);
         }

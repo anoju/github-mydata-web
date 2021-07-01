@@ -30,7 +30,7 @@
         >
           <router-link
             :id="tab.btnId"
-            v-if="tab.to !== null"
+            v-if="tab.to !== null && !tab.disabled"
             :to="tab.to"
             role="tab"
             :aria-controls="tab.href"
@@ -159,10 +159,10 @@ export default {
           if (active === null) this.childrens[0].isActive = true;
         }, 5);
       }
+      this.linePosition();
       setTimeout(() => {
         window.dispatchEvent(new Event('resize'));
-        this.linePosition();
-      }, 100);
+      }, 1000);
       if (this.fixed) {
         let sclBody = this.$el.closest('.scl__body');
         if (sclBody === null)sclBody = window;

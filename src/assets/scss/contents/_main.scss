@@ -346,8 +346,12 @@
 		.ico { position:absolute; top:0; right:0; width:120px; height:100%;
 			&.ico1 { background:url('~@/assets/images/IN/00/ico_invest_1.png') no-repeat center center /100%;}
 			&.ico2 { background:url('~@/assets/images/IN/00/ico_invest_2.png') no-repeat center center /100%;}
+			&.ico3 { top:24px; right:20px; width:100px; height:100px; background:url('~@/assets/images/IN/00/ico_invest_3.png') no-repeat center center /100%;}
 		}
+
+		&.type2 { height:212px; padding:24px 20px 12px;}
 	}
+
 
 	.btn_setting { display:inline-block; font-size:14px; color:#666; font-weight:bold; line-height:1.43;
 		&:before { content:''; display:inline-block; width:24px; height:24px; margin-right:2px; vertical-align: middle; background:url('~@/assets/images/IN/00/ico_setting.png') no-repeat center center / 100%;}

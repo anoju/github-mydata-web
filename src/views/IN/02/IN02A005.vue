@@ -5,6 +5,25 @@
   >
     <kb-pop-body>
       <div class="section">
+        <div class="mg_b30">
+          <kb-input
+            v-model="searchVal"
+            class="search"
+            type="search"
+            placeholder="검색어를 입력하세요"
+            title="검색어 입력"
+            @keyup.enter="searchBtn"
+            :delete="inputDelEvt"
+          >
+            <kb-button
+              not
+              class="btn_search"
+              aria-label="검색하기"
+              @click="searchBtn"
+            >검색하기</kb-button>
+          </kb-input>
+        </div>
+
         <kb-form-item
           label="투자성향"
           label-class="fc_222"

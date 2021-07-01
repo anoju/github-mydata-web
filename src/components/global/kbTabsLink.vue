@@ -134,7 +134,6 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      window.dispatchEvent(new Event('resize'));
       this.$el.querySelector('.tablist').addEventListener('scroll', this.lineWrapLeftPosition);
       if (this.fixed) {
         let sclBody = this.$el.closest('.scl__body');
@@ -145,9 +144,10 @@ export default {
           sclBody.removeEventListener('scroll', this.tabFixed);
         });
       }
+      this.linePosition();
       setTimeout(() => {
-        this.linePosition();
-      }, 200);
+        window.dispatchEvent(new Event('resize'));
+      }, 1000);
     });
   },
   destroyed() {

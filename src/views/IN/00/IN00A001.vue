@@ -611,6 +611,28 @@
     </kb-button>
     <!-- //운명을 건 투자 발굴 -->
 
+    <!-- 2021-07-01 추가 -->
+    <!-- 좋은 건 함께해요 혜택 추천 -->
+    <kb-title-bar h3 class="mg_t32">
+      <template slot="left">
+        <p class="left fz_18 fw_bold">좋은 건 함께해요 혜택 추천</p>
+      </template>
+    </kb-title-bar>
+
+    <kb-button not aTag class="white_box invest_box type2 block">
+      <p class="tit mg_t0">
+        차곡차곡 EFT랩<br />
+        비대면 가입 이벤트
+      </p>
+      <p class="text mg_t4">적립식으로 차곡차곡 돈<br />모으자!</p>
+      <p class="text mg_t12">기간 04/19 ~ 06/30</p>
+      <p class="text mg_t24 fz_10">
+        KB증권 준법감시인 심사필 제2021-1041호(2021/05/25 2022/05/24)
+      </p>
+      <i class="ico ico3"></i>
+    </kb-button>
+    <!-- //좋은 건 함께해요 혜택 추천 -->
+
     <div class="mg_t34 t_center">
       <kb-button aTag not class="btn_setting" @click="showModalPopup($event)">투자생활 홈 편집하기</kb-button>
     </div>

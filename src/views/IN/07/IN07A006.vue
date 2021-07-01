@@ -1,5 +1,5 @@
 <template>
-  <kb-page page-title="가상투자">
+  <kb-page page-title="가상투자 페이퍼">
     <kb-page-body>
       <div class="section portfolio_wrap">
         <div class="gray_box2">
