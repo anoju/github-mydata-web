@@ -56,10 +56,16 @@ export default [
     pageID: 'TO02C006', type: 'page', api: false, depth1: '오늘', depth2: '월관리', depth3: '부채&청구납입전월비교', depth4: null, etc: null, complete: '2021-03-17', change: null,
   },
   {
-    pageID: 'TO02C007', type: 'page', api: false, depth1: '오늘', depth2: '월관리추천등록', depth3: null, depth4: null, etc: null, complete: '2021-04-13', change: null,
+    pageID: 'TO02C007', type: 'page', api: false, depth1: '오늘', depth2: '월관리추천등록', depth3: '추천목록', depth4: null, etc: null, complete: '2021-04-13', change: null,
   },
   {
     pageID: 'TO02C008', type: 'pop', api: false, depth1: '오늘', depth2: '월관리추천등록', depth3: '등록팝업', depth4: null, etc: null, complete: '2021-04-13', change: null,
+  },
+  {
+    pageID: 'TO02C010', type: 'page', api: false, depth1: '오늘', depth2: '월관리추천등록', depth3: '등록완료', depth4: null, etc: null, complete: '2021-04-13', change: null,
+  },
+  {
+    pageID: 'TO02C012', type: 'page', api: false, depth1: '오늘', depth2: '월관리추천등록', depth3: '제외목록', depth4: null, etc: null, complete: '2021-04-13', change: null,
   },
   {
     pageID: 'TO02D001', type: 'page', api: false, depth1: '오늘', depth2: '타임라인', depth3: null, depth4: null, etc: null, complete: '2021-03-12', change: null,
@@ -154,13 +160,37 @@ export default [
     pageID: 'IN05A001', type: 'page', api: false, depth1: '투자생활', depth2: '투자습관진단', depth3: '시작하기', depth4: null, etc: '', complete: '2020-05-06', change: '',
   },
   {
-    pageID: 'IN05A002', type: 'page', api: false, depth1: '투자생활', depth2: '투자습관진단', depth3: '', depth4: null, etc: '', complete: '2020-05-06', change: '',
+    pageID: 'IN05A002', type: 'page', api: false, depth1: '투자생활', depth2: '투자습관진단', depth3: '나의 투자습관', depth4: null, etc: '', complete: '2020-05-06', change: '',
+  },
+  {
+    pageID: 'IN05A005', type: 'page', api: false, depth1: '투자생활', depth2: '투자습관진단', depth3: '투자 성적표', depth4: null, etc: '', complete: '2020-05-06', change: '',
+  },
+  {
+    pageID: 'IN05A006', type: 'page', api: false, depth1: '투자생활', depth2: '투자습관진단', depth3: '투자패턴 카드', depth4: null, etc: '', complete: '2020-05-06', change: '',
   },
   {
     pageID: 'IN05A004', type: 'pop', api: false, depth1: '투자생활', depth2: '투자습관진단', depth3: '투자나이 수정', depth4: null, etc: '', complete: '2020-05-06', change: '',
   },
   {
-    pageID: 'IN06A001', type: 'page', api: true, depth1: '투자생활', depth2: '고수의 PICK', depth3: '목록', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
+    pageID: 'IN06A001', type: 'page', api: true, depth1: '투자생활', depth2: '고수의 PICK', depth3: '나의 북마크', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
+  },
+  {
+    pageID: 'IN06AZ07', type: 'page', api: true, depth1: '투자생활', depth2: '고수의 PICK', depth3: '전체', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
+  },
+  {
+    pageID: 'IN06AZ01', type: 'page', api: true, depth1: '투자생활', depth2: '고수의 PICK', depth3: '투자품격', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
+  },
+  {
+    pageID: 'IN06AZ02', type: 'page', api: true, depth1: '투자생활', depth2: '고수의 PICK', depth3: '보유멘탈', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
+  },
+  {
+    pageID: 'IN06AZ03', type: 'page', api: true, depth1: '투자생활', depth2: '고수의 PICK', depth3: '자본포스', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
+  },
+  {
+    pageID: 'IN06AZ04', type: 'page', api: true, depth1: '투자생활', depth2: '고수의 PICK', depth3: '운빨충만', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
+  },
+  {
+    pageID: 'IN06AZ05', type: 'page', api: true, depth1: '투자생활', depth2: '고수의 PICK', depth3: '찐찐고수', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
   },
   {
     pageID: 'IN06A002', type: 'page', api: true, depth1: '투자생활', depth2: '고수의 PICK', depth3: '상세', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
@@ -544,7 +574,10 @@ export default [
   },
   // 거래내역 조회
   {
-    pageID: 'MY04A014', type: 'page', api: false, depth1: 'MY PAGE', depth2: '체결내역,체결예정내역', depth3: '', depth4: '', etc: null, complete: '2020-04-19', change: null,
+    pageID: 'MY04A016', type: 'page', api: false, depth1: 'MY PAGE', depth2: '체결내역', depth3: '', depth4: '', etc: null, complete: '2020-04-19', change: null,
+  },
+  {
+    pageID: 'MY04A014', type: 'page', api: false, depth1: 'MY PAGE', depth2: '체결예정내역', depth3: '', depth4: '', etc: null, complete: '2020-04-19', change: null,
   },
   // {
   //   pageID: 'MY04A019', type: 'pop', api:false, depth1: 'MY PAGE', depth2: '거래내역', depth3: '상세주문내역', depth4: '', etc: null, complete: '2020-04-16', change: null,
@@ -554,11 +587,11 @@ export default [
   // },
   // 연동정보관리
   {
-    pageID: 'MY09A001', type: 'page', api: false, depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '업권별', depth4: '목록', etc: null, complete: '2020-04-09', change: null,
+    pageID: 'MY09A001', type: 'page', api: false, depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동정보 보기설정', depth4: '', etc: null, complete: '2020-04-09', change: null,
   },
 
   {
-    pageID: 'MY10A001', type: 'page', api: false, depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동기관 목록', depth4: '', etc: null, complete: '2020-04-09', change: null,
+    pageID: 'MY10A001', type: 'page', api: false, depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '연동정보 기관목록', depth4: '', etc: null, complete: '2020-04-09', change: null,
   },
   {
     pageID: 'MY10A002', type: 'page', api: false, depth1: 'MY PAGE', depth2: '연동정보관리', depth3: '기관 목록', depth4: '일괄 정보변경/해지', etc: null, complete: '2020-04-09', change: null,
@@ -790,7 +823,13 @@ export default [
     pageID: 'SC03A001', type: 'page', api: false, depth1: '고객센터', depth2: 'FAQ', depth3: '', depth4: '', etc: null, complete: '2021-05-17', change: null,
   },
   {
-    pageID: 'SC04A001', type: 'page', api: false, depth1: '고객센터', depth2: '이벤트', depth3: '', depth4: '', etc: null, complete: '2021-05-17', change: null,
+    pageID: 'SC04A001', type: 'page', api: false, depth1: '고객센터', depth2: '이벤트', depth3: '진행중', depth4: '', etc: null, complete: '2021-05-17', change: null,
+  },
+  {
+    pageID: 'SC04A003', type: 'page', api: false, depth1: '고객센터', depth2: '이벤트', depth3: '전체', depth4: '', etc: null, complete: '2021-05-17', change: null,
+  },
+  {
+    pageID: 'SC04A005', type: 'page', api: false, depth1: '고객센터', depth2: '이벤트', depth3: '당첨자발표', depth4: '', etc: null, complete: '2021-05-17', change: null,
   },
   {
     pageID: 'SC04A002', type: 'pop', api: false, depth1: '고객센터', depth2: '이벤트', depth3: '상세', depth4: '', etc: null, complete: '2021-05-17', change: null,
@@ -839,7 +878,7 @@ export default [
 
   /* 내자산비타민 */
   {
-    pageID: 'TO01E001', type: 'page', api: false, depth1: '내자산 비타민', depth2: '', depth3: '', depth4: '', etc: null, complete: '2021-06-03', change: null,
+    pageID: 'TO01E001', type: 'page', api: false, depth1: '내자산 비타민', depth2: '오늘의퀘스트', depth3: '', depth4: '', etc: null, complete: '2021-06-03', change: null,
   },
   {
     pageID: 'TO01E002', type: 'pop', api: false, depth1: '내자산 비타민', depth2: '정보설정(캐릭터, 퍼소나)', depth3: '', depth4: '', etc: null, complete: '2021-06-03', change: null,
@@ -855,6 +894,9 @@ export default [
   },
   {
     pageID: 'TO01E013', type: 'pop', api: false, depth1: '내자산 비타민', depth2: '나의 레벨 지도', depth3: '커피쿠폰수령', depth4: '', etc: null, complete: '2021-06-03', change: null,
+  },
+  {
+    pageID: 'TO01E014', type: 'page', api: false, depth1: '내자산 비타민', depth2: '소비줄이기', depth3: '', depth4: '', etc: null, complete: '2021-06-03', change: null,
   },
 
   {

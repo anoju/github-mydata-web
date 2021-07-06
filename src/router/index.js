@@ -19,6 +19,45 @@ const routes = [
     name: 'notFound',
     component: () => import('@/views/UT/12/UT12A009.vue'),
   },
+  // dev
+  {
+    path: '/validate',
+    // beforeEnter: notRequireAuth(),
+    component: () => import('@/views/validate/index.vue'),
+    children: [
+      { path: '', redirect: 'formSubmission' },
+      { path: 'basicForm', component: () => import('@/views/validate/basicForm.vue') },
+      { path: 'formSubmission', component: () => import('@/views/validate/formSubmission.vue') },
+      { path: 'withoutVm', component: () => import('@/views/validate/withoutVm.vue') },
+      { path: 'contextifiedValidators', component: () => import('@/views/validate/contextifiedValidators.vue') },
+      { path: 'dataNesting', component: () => import('@/views/validate/dataNesting.vue') },
+      { path: 'errorVsAnyError', component: () => import('@/views/validate/errorVsAnyError.vue') },
+      { path: 'validationGroups', component: () => import('@/views/validate/validationGroups.vue') },
+      { path: 'collectionsValidation', component: () => import('@/views/validate/collectionsValidation.vue') },
+      { path: 'asynchronousValidation', component: () => import('@/views/validate/asynchronousValidation.vue') },
+      { path: 'delayedValidationErrors', component: () => import('@/views/validate/delayedValidationErrors.vue') },
+      { path: 'accessingValidatorParameters', component: () => import('@/views/validate/accessingValidatorParameters.vue') },
+      { path: 'dynamicValidationSchema', component: () => import('@/views/validate/dynamicValidationSchema.vue') },
+      { path: 'dynamicParameters', component: () => import('@/views/validate/dynamicParameters.vue') },
+    ],
+  },
+  {
+    path: '/debounce',
+    name: 'debounce',
+    component: () => import('@/views/debounce/index.vue'),
+  },
+  {
+    path: '/dev',
+    name: 'dev',
+    component: () => import('@/views/dev/index.vue'),
+    children: [
+      { path: '', redirect: 'axios' },
+      { path: 'axios', component: () => import('@/views/dev/axios.vue') },
+      { path: 'await', component: () => import('@/views/dev/await.vue') },
+      { path: 'chart', component: () => import('@/views/dev/chart.vue') },
+      { path: 'highchart', component: () => import('@/views/dev/highchart.vue') },
+    ],
+  },
   // 코딩 가이드
   {
     path: '/guide',
@@ -40,6 +79,7 @@ const routes = [
       { path: 'test', component: () => import('@/views/guide/test.vue'), meta: { page: 12 } },
     ],
   },
+  { path: '/guide/pdf', component: () => import('@/views/guide/pdf.vue') },
   { path: '/guide/full', component: () => import('@/views/guide/pop/full.vue') },
   { path: '/guide/modal', component: () => import('@/views/guide/pop/modal.vue') },
   { path: '/guide/bottom', component: () => import('@/views/guide/pop/bottom.vue') },
@@ -234,6 +274,8 @@ const routes = [
         children: [
           { path: 'IN05A001', component: () => import('@/views/IN/05/IN05A001.vue') },
           { path: 'IN05A002', component: () => import('@/views/IN/05/IN05A002.vue') },
+          { path: 'IN05A005', component: () => import('@/views/IN/05/IN05A002.vue') },
+          { path: 'IN05A006', component: () => import('@/views/IN/05/IN05A002.vue') },
         ],
       },
       {
@@ -244,8 +286,15 @@ const routes = [
         children: [
           // { path: 'IN06A001', redirect: 'IN06A001/0' },
           // { path: 'IN06A001/:tab', component: () => import('@/views/IN/06/IN06A001.vue') }, // 투자/고수의Pick
-          { path: 'IN06A001', component: () => import('@/views/IN/06/IN06A001.vue') }, // 투자/고수의Pick
+          { path: 'IN06A001', component: () => import('@/views/IN/06/IN06A001.vue') }, // 고수의Pick(나의북마크)
           { path: 'IN06A002', component: () => import('@/views/IN/06/IN06A002.vue') }, // 고수의 pick 상세
+          { path: 'IN06AZ01', component: () => import('@/views/IN/06/IN06A001.vue') }, // 고수의Pick(투자품격)
+          { path: 'IN06AZ02', component: () => import('@/views/IN/06/IN06A001.vue') }, // 고수의Pick(보유멘탈)
+          { path: 'IN06AZ03', component: () => import('@/views/IN/06/IN06A001.vue') }, // 고수의Pick(자본포스)
+          { path: 'IN06AZ04', component: () => import('@/views/IN/06/IN06A001.vue') }, // 고수의Pick(운빨충만)
+          { path: 'IN06AZ05', component: () => import('@/views/IN/06/IN06A001.vue') }, // 고수의Pick(찐진고수)
+          { path: 'IN06AZ07', component: () => import('@/views/IN/06/IN06A001.vue') }, // 고수의Pick(전체)
+          { path: 'IN06AZ08', redirect: '/IN/06/IN06A002' },
         ],
       },
       {
@@ -300,8 +349,8 @@ const routes = [
           render(c) { return c('router-view'); },
         },
         children: [
-          { path: 'IN11A001', component: () => import('@/views/IN/11/IN11A001.vue') }, // 추천테마 리스트
-          { path: 'IN11A002', component: () => import('@/views/IN/11/IN11A002.vue') }, // 추천테마 상세
+          { path: 'IN11A001', component: () => import('@/views/IN/11/IN11A001.vue') }, // 주식테마 큐레이션 리스트
+          { path: 'IN11A002', component: () => import('@/views/IN/11/IN11A002.vue') }, // 주식테마 큐레이션 상세
         ],
       },
       {
@@ -317,32 +366,18 @@ const routes = [
       },
     ],
   },
-  // 유틸
+  // 마이페이지+유틸
   {
     path: '/MY',
     component: {
       render(c) { return c('router-view'); },
     },
     children: [
-      {
-        path: '02',
-        component: {
-          render(c) { return c('router-view'); },
-        },
-        children: [
-          { path: 'MY02A001', component: () => import('@/views/MY/02/MY02A001.vue') }, // 내서랍 메모리스트
-          { path: 'MY02A003', component: () => import('@/views/MY/02/MY02A003.vue') }, // 내서랍 메모상세
-        ],
-      },
-      {
-        path: '03',
-        component: {
-          render(c) { return c('router-view'); },
-        },
-        children: [
-          { path: 'MY03A004', component: () => import('@/views/MY/03/MY03A004.vue') }, // 내서랍 메모상세(이벤트)
-        ],
-      },
+      { path: '02/MY02A001', component: () => import('@/views/MY/02/MY02A001.vue') }, // 내메모 (종목메모)
+      { path: '02/MY02A002', component: () => import('@/views/MY/02/MY02A001.vue') }, // 내메모 (비종목메모)
+      { path: '02/MY02A003', component: () => import('@/views/MY/02/MY02A003.vue') }, // 내메모 메모상세
+      { path: '03/MY03A001', component: () => import('@/views/MY/02/MY02A001.vue') }, // 내메모 (이벤트)
+      { path: '03/MY03A004', component: () => import('@/views/MY/03/MY03A004.vue') }, // 내메모 메모상세(이벤트)
       {
         path: '04',
         component: {
@@ -353,8 +388,10 @@ const routes = [
           { path: 'MY04A010', component: () => import('@/views/MY/04/MY04A010.vue') }, // 개인정보 관리
           { path: 'MY04A017', component: () => import('@/views/MY/04/MY04A017.vue') }, // 개인정보 관리수정
           { path: 'MY04A012', component: () => import('@/views/MY/04/MY04A012.vue') }, // 회원탈퇴
-          { path: 'MY04A014', component: () => import('@/views/MY/04/MY04A014.vue') }, // 거래내역
+          { path: 'MY04A016', component: () => import('@/views/MY/04/MY04A014.vue') }, // 체결내역
+          { path: 'MY04A014', component: () => import('@/views/MY/04/MY04A014.vue') }, // 체결예정내역
           { path: 'MY04A018', component: () => import('@/views/MY/04/MY04A018.vue') }, // 탈퇴완료
+          { path: 'MY04A022', component: () => import('@/views/MY/04/MY04A022.vue') }, // 로그아웃
         ],
       },
 
@@ -370,48 +407,32 @@ const routes = [
             children: [
               { path: 'MY06A005', component: () => import('@/views/MY/06/MY06A005.vue') }, // 나의관심정보 - 내 자산
               { path: 'MY06A001', component: () => import('@/views/MY/06/MY06A001.vue') }, // 나의관심정보 - 찜상품
-              { path: 'MY06A004', component: () => import('@/views/MY/06/MY06A004.vue') }, // 나의관심정보 - 내서랍
+              { path: 'MY06A004', component: () => import('@/views/MY/06/MY06A004.vue') }, // 나의관심정보 - 내메모
             ],
           },
           { path: 'MY06A007', component: () => import('@/views/MY/06/MY06A007.vue') }, // 순서편집
         ],
       },
+      { path: '09/MY09A001', component: () => import('@/views/MY/10/MY10A001.vue') }, // 연동기관
+      { path: '10/MY10A001', component: () => import('@/views/MY/10/MY10A001.vue') }, // 연동기관 목록
+      { path: '10/MY10A002', component: () => import('@/views/MY/10/MY10A002.vue') }, // 일괄 정보변경/해지
+      { path: '10/MY10B001', component: () => import('@/views/MY/10/MY10B001.vue') }, // 연동정보관리 연동정보상세
+      { path: '10/MY10C001', component: () => import('@/views/MY/10/MY10C001.vue') }, // 연동정보관리 전송요구 변경완료
+      { path: '10/MY10D010', component: () => import('@/views/MY/10/MY10D010.vue') }, // 연동정보관리 연동해지 스텝1
       {
-        path: '09',
-        component: {
-          render(c) { return c('router-view'); },
-        },
+        path: '10/MY10D010',
+        component: () => import('@/views/MY/10/MY10D010.vue'),
+        redirect: '/IN/10/MY10D010/1',
         children: [
-          { path: 'MY09A001', component: () => import('@/views/MY/09/MY09A001.vue') }, // 연동기관
+          { path: '1', component: () => import('@/views/MY/10/MY10D001.vue'), meta: { page: 1 } }, // 연동정보관리 연동해지 (스텝1:1개일때)
+          { path: '2', component: () => import('@/views/MY/10/MY10D002.vue'), meta: { page: 2 } }, // 연동정보관리 연동해지 (스텝2:1개일때)
+          { path: '3', component: () => import('@/views/MY/10/MY10D003.vue'), meta: { page: 1 } }, // 연동정보관리 연동해지 (스텝1:여러개일때)
+          { path: '4', component: () => import('@/views/MY/10/MY10D004.vue'), meta: { page: 2 } }, // 연동정보관리 연동해지 (스텝2:여러개일때)
+          { path: '5', component: () => import('@/views/MY/10/MY10D005.vue'), meta: { page: 3 } }, // 연동정보관리 연동해지 (스텝3)
         ],
       },
-      {
-        path: '10',
-        component: {
-          render(c) { return c('router-view'); },
-        },
-        children: [
-          { path: 'MY10A001', component: () => import('@/views/MY/10/MY10A001.vue') }, // 연동기관 목록
-          { path: 'MY10A002', component: () => import('@/views/MY/10/MY10A002.vue') }, // 일괄 정보변경/해지
-          { path: 'MY10B001', component: () => import('@/views/MY/10/MY10B001.vue') }, // 연동정보관리 연동정보상세
-          { path: 'MY10C001', component: () => import('@/views/MY/10/MY10C001.vue') }, // 연동정보관리 전송요구 변경완료
-          { path: 'MY10D010', component: () => import('@/views/MY/10/MY10D010.vue') }, // 연동정보관리 연동해지 스텝1
-          {
-            path: 'MY10D010',
-            component: () => import('@/views/MY/10/MY10D010.vue'),
-            redirect: '/IN/09/MY10D010/1',
-            children: [
-              { path: '1', component: () => import('@/views/MY/10/MY10D001.vue'), meta: { page: 1 } }, // 연동정보관리 연동해지 (스텝1:1개일때)
-              { path: '2', component: () => import('@/views/MY/10/MY10D002.vue'), meta: { page: 2 } }, // 연동정보관리 연동해지 (스텝2:1개일때)
-              { path: '3', component: () => import('@/views/MY/10/MY10D003.vue'), meta: { page: 1 } }, // 연동정보관리 연동해지 (스텝1:여러개일때)
-              { path: '4', component: () => import('@/views/MY/10/MY10D004.vue'), meta: { page: 2 } }, // 연동정보관리 연동해지 (스텝2:여러개일때)
-              { path: '5', component: () => import('@/views/MY/10/MY10D005.vue'), meta: { page: 3 } }, // 연동정보관리 연동해지 (스텝3)
-            ],
-          },
-          { path: 'MY10D006', component: () => import('@/views/MY/10/MY10D006.vue') }, // 연동정보관리 연동해지 완료(1개일때)
-          { path: 'MY10D007', component: () => import('@/views/MY/10/MY10D007.vue') }, // 연동정보관리 연동해지 완료(여러개일때)
-        ],
-      },
+      { path: '10/MY10D006', component: () => import('@/views/MY/10/MY10D006.vue') }, // 연동정보관리 연동해지 완료(1개일때)
+      { path: '10/MY10D007', component: () => import('@/views/MY/10/MY10D007.vue') }, // 연동정보관리 연동해지 완료(여러개일때)
     ],
   },
   // 고객센터
@@ -456,12 +477,14 @@ const routes = [
           render(c) { return c('router-view'); },
         },
         children: [
-          { path: 'SC04A001', component: () => import('@/views/SC/04/SC04A001.vue') }, // 이벤트
+          { path: 'SC04A001', component: () => import('@/views/SC/04/SC04A001.vue') }, // 이벤트(진행중)
+          { path: 'SC04A003', component: () => import('@/views/SC/04/SC04A001.vue') }, // 이벤트(전체)
+          { path: 'SC04A005', component: () => import('@/views/SC/04/SC04A001.vue') }, // 이벤트(당첨자발표)
         ],
       },
     ],
   },
-  // 유틸
+  // 환경설정
   {
     path: '/SE',
     component: {
@@ -480,6 +503,9 @@ const routes = [
     ],
   },
   // 오늘
+  { path: '/FI/00/FI00A001', component: () => import('@/views/FI/00/index.vue') },
+  { path: '/IN/00/IN00A001', component: () => import('@/views/IN/00/index.vue') },
+  { path: '/TO/00/TO00A001', redirect: '/TO/00' },
   {
     path: '/TO',
     component: {
@@ -517,7 +543,8 @@ const routes = [
           { path: 'TO01D007', component: () => import('@/views/TO/01/TO01D007.vue') }, // 내잔 QnA
           { path: 'TO01D008', component: () => import('@/views/TO/01/TO01D008.vue') }, // 내잔 QnA
           { path: 'TO01D009', component: () => import('@/views/TO/01/TO01D009.vue') }, // 내잔 QnA
-          { path: 'TO01E001', component: () => import('@/views/TO/01/TO01E001.vue') }, // 내자산비타민
+          { path: 'TO01E001', component: () => import('@/views/TO/01/TO01E001.vue') }, // 내자산비타민(오늘의퀘스트)
+          { path: 'TO01E014', component: () => import('@/views/TO/01/TO01E001.vue') }, // 내자산비타민(소비줄이기)
         ],
       },
       {
@@ -544,12 +571,14 @@ const routes = [
           { path: 'TO02C006', component: () => import('@/views/TO/02/TO02C006.vue') }, // 부채청구납입 전월 비교
           {
             path: 'TO02C007', name: 'TO02C007', component: () => import('@/views/TO/02/TO02C007.vue'), props: true,
-          }, // 월관리 추천 목록
+          }, // 월관리 추천 목록(추천)
+          { path: 'TO02C010', component: () => import('@/views/TO/02/TO02C007.vue') }, // 월관리 추천 목록(등록)
+          { path: 'TO02C012', component: () => import('@/views/TO/02/TO02C007.vue') }, // 월관리 추천 목록(제외)
         ],
       },
     ],
   },
-  // 투자생활
+  // 즉시이체
   {
     path: '/TR',
     component: {
@@ -705,7 +734,7 @@ const routes = [
       },
     ],
   },
-  //
+  // VAPI
   {
     path: '/VAPI',
     component: {
