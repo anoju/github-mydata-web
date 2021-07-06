@@ -36,7 +36,7 @@ export default {
       }
     },
   },
-  created() {
+  beforeMount() {
     if (this.$route.path.indexOf('/VAPI/') >= 0) {
       this.isAPI = true;
       const $theme = (this.$route.query.theme);
