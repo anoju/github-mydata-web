@@ -72,6 +72,7 @@ export default {
       const bodyH = this.$el.offsetHeight;
       const bodySclH = this.$el.scrollHeight;
       const $prevEl = this.$el.previousElementSibling;
+      if (bodySclH <= bodyH) return;
       if ($prevEl !== null) {
         const $prevClassList = $prevEl.classList;
         if ($prevClassList.contains('pop_head')) {

@@ -1,5 +1,6 @@
 <template>
   <div class="section pd_bottom">
+    <kb-button line @click="event1(),event2()">더블 이벤트</kb-button>
     <kb-input date v-model="testVal2" />
     <h2 class="gd__h1">더블클릭</h2>
     <div>@dblclick을 안쓰고(모바일에서 안됨)<br> :dblclick 사용<br>kb-button, kb-radio, kb-checkbox 만 작동</div>
@@ -258,6 +259,12 @@ export default {
 
   },
   methods: {
+    event1() {
+      console.log('11111');
+    },
+    event2() {
+      console.log('22222');
+    },
     dblClickEvt() {
       console.log('dblClickEvt dblClickEvt dblClickEvt!!!');
     },

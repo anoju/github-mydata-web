@@ -258,7 +258,7 @@
 </template>
 <script>
 export default {
-  name: 'FI02A006',
+  name: 'MY04A016',
   data() {
     return {
       tabIdx: 0,
