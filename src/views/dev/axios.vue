@@ -68,6 +68,7 @@
 </template>
 <script>
 export default {
+  name: 'axios',
   methods: {
     /**
      * GET 요청

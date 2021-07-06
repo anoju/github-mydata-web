@@ -108,7 +108,7 @@
         >
           <ul>
             <li><kb-button not to="/TR/03/TR03A001" @click.native="gnbClose"><i class="gnb_link_ico_1" />즉시이체</kb-button></li>
-            <li><kb-button not a-tag href="//star.kbsec.com/go.able" target="_blank" @click.native="gnbClose"><i class="gnb_link_ico_2" />계좌개설</kb-button></li>
+            <li><kb-button not a-tag href="https://m.kbsec.com/" target="_blank" @click.native="gnbClose"><i class="gnb_link_ico_2" />계좌개설</kb-button></li>
             <li><kb-button not to="/MY/04/MY04A014" @click.native="gnbClose"><i class="gnb_link_ico_3" />체결내역</kb-button></li>
           </ul>
         </div>
@@ -346,7 +346,7 @@
               </li>
               <li>
                 <router-link
-                  to="/IN/06/IN06A001"
+                  to="/IN/06/IN06AZ07"
                   @click.native="gnbClose"
                 >
                   고수의 Pick

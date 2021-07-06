@@ -29,7 +29,7 @@ export default {
   watch: {
     $route(from) {
       const $path = from.path;
-      if ($path.indexOf('/API/') >= 0) {
+      if ($path.indexOf('/VAPI/') >= 0) {
         this.isAPI = true;
       } else {
         this.isAPI = false;
@@ -37,12 +37,28 @@ export default {
     },
   },
   created() {
-    if (this.$route.path.indexOf('/API/') >= 0) this.isAPI = true;
+    if (this.$route.path.indexOf('/VAPI/') >= 0) {
+      this.isAPI = true;
+      const $theme = (this.$route.query.theme);
+      if ($theme !== undefined) {
+        const $themeAry = $theme.split(',');
+        const regex = /^#(?:[0-9a-f]{3}){1,2}$/i;
+        if (regex.test('#' + $themeAry[0])) document.documentElement.style.setProperty('--kb-theme-color', `#${$themeAry[0]}`);
+        if (regex.test('#' + $themeAry[1])) document.documentElement.style.setProperty('--kb-theme-text', `#${$themeAry[1]}`);
+      }
+    }
     window.addEventListener('resize', this.vhChk);
   },
   mounted() {
     this.deviceChk();
-    this.vhChk();
+    this.$nextTick(() => {
+      let checkedTimerNum = 0;
+      const checkedTimer = setInterval(() => {
+        this.vhChk();
+        checkedTimerNum += 1;
+        if (checkedTimerNum > 10)clearInterval(checkedTimer);
+      }, 200);
+    });
   },
   destroyed() {
     window.removeEventListener('resize', this.vhChk);

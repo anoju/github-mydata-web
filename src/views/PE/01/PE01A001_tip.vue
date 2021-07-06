@@ -11,6 +11,6 @@
 </template>
 <script>
 export default {
-  name: 'tooltip',
+  name: 'PE01A001_tip',
 };
 </script>

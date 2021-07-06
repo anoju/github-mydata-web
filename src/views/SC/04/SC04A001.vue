@@ -4,8 +4,9 @@
       <div class="section">
         <kb-tabs
           class="mg_b0"
+          v-model="tabIdx"
         >
-          <kb-tab title="진행중">
+          <kb-tab title="진행중" to="/SC/04/SC04A001">
             <div class="t_right mg_b12">
               <kb-select
                 v-model="sortVal"
@@ -67,7 +68,7 @@
               <strong class="tit">조회 내역이 없습니다.</strong>
             </div>
           </kb-tab>
-          <kb-tab title="전체">
+          <kb-tab title="전체" to="/SC/04/SC04A003">
             <div class="t_right mg_b12">
               <kb-select
                 v-model="sortVal"
@@ -108,7 +109,7 @@
               <strong class="tit">조회 내역이 없습니다.</strong>
             </div>
           </kb-tab>
-          <kb-tab title="당첨자발표">
+          <kb-tab title="당첨자발표" to="/SC/04/SC04A005">
             <div class="t_right mg_b12">
               <kb-select
                 v-model="sortVal"
@@ -156,6 +157,7 @@ export default {
   name: 'SC04A001',
   data() {
     return {
+      tabIdx: 0,
       sortVal: '1',
       sortOpt: [
         { text: '전체', value: '1' },
@@ -166,6 +168,17 @@ export default {
         { text: '기타', value: '6' },
       ],
     };
+  },
+  watch: {
+    $route(to) {
+      if (to.path.indexOf('SC04A001') > 0) this.tabIdx = 0;
+      else if (to.path.indexOf('SC04A003') > 0) this.tabIdx = 1;
+      else if (to.path.indexOf('SC04A005') > 0) this.tabIdx = 2;
+    },
+  },
+  mounted() {
+    if (this.$route.path.indexOf('SC04A003') > 0) this.tabIdx = 1;
+    else if (this.$route.path.indexOf('SC04A005') > 0) this.tabIdx = 2;
   },
   methods: {
     showPopup(el) {

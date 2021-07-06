@@ -1,6 +1,6 @@
 <template>
   <router-link
-    v-if="!!to"
+    v-if="!!to && !(target === '_blank' && isApp)"
     ref="button"
     :to="to"
     :class="buttonClass"
@@ -17,6 +17,7 @@
     :href="href"
     :class="buttonClass"
     :title="title"
+    :target="target"
     v-on="listeners"
     @focus="isFocus = true"
     @blur="isFocus = false"
@@ -57,11 +58,14 @@
 </template>
 
 <script>
+import appUtil from '@/utils/appUtil';
+
 export default {
   name: 'KbButton',
   props: {
     type: { type: String, default: 'button' },
     title: { type: String, default: null },
+    target: { type: String, default: null },
     disabled: { type: Boolean, default: false },
     noEffect: { type: Boolean, default: false },
     dblclick: { type: Function, default: null },
@@ -106,6 +110,7 @@ export default {
   },
   data() {
     return {
+      isApp: false,
       colorType: ['yellow', 'blue', 'blue', 'red', 'green', 'purple', 'dark', 'up', 'down'],
       sizeType: ['h40', 'h32', 'h28', 'large', 'small'],
       isFocus: false,
@@ -213,11 +218,20 @@ export default {
     //     return btInStyle
     // }
   },
+  created() {
+    const $agent = navigator.userAgent;
+    this.isApp = ($agent.match(/KBSecMyDataApp/i) != null);
+  },
   methods: {
     clickEvt(e) {
       if (this.aTag && this.href === '#') e.preventDefault();
       const isChecked = this.$el.classList.contains('checked');
       if (!this.disabled) {
+        if (this.target === '_blank' && this.isApp && (!!this.to || !!this.href)) {
+          e.preventDefault();
+          const url = this.to !== null ? this.to : this.href;
+          this.linkTo(url);
+        }
         if (this.dblclick !== null) {
           if (this.isDblclick) {
             clearTimeout(this.dblclickTime);
@@ -263,6 +277,9 @@ export default {
       setTimeout(() => {
         this.isClick = false;
       }, 650);
+    },
+    linkTo(url) {
+      window.location.href = appUtil.linkBrowser(url);
     },
   },
 };

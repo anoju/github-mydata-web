@@ -5,9 +5,9 @@
   >
     <kb-page-body>
       <kb-tabs class="mg_b0" v-model="mainTab">
-        <kb-tab title="종목 메모" />
-        <kb-tab title="미종목 메모" />
-        <kb-tab title="공개 이벤트" />
+        <kb-tab title="종목 메모" to="/MY/02/MY02A001" />
+        <kb-tab title="미종목 메모" to="/MY/02/MY02A002" />
+        <kb-tab title="공개 이벤트" to="/MY/03/MY03A001" />
       </kb-tabs>
 
       <div class="section">
@@ -541,6 +541,17 @@ export default {
       isLike2: false,
       isLike3: false,
     };
+  },
+  watch: {
+    $route(to) {
+      if (to.path.indexOf('MY02A001') > 0) this.mainTab = 0;
+      else if (to.path.indexOf('MY02A002') > 0) this.mainTab = 1;
+      else if (to.path.indexOf('MY03A001') > 0) this.mainTab = 2;
+    },
+  },
+  mounted() {
+    if (this.$route.path.indexOf('MY02A002') > 0) this.mainTab = 1;
+    else if (this.$route.path.indexOf('MY03A001') > 0) this.mainTab = 2;
   },
   methods: {
     moreHide() {

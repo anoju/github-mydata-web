@@ -18,6 +18,9 @@ export default {
       isNextFoot: false,
     };
   },
+  props: {
+    endScrollChk: { type: [String, Number], default: 1 },
+  },
   updated() {
     // this.siblingsCheck()
   },
@@ -90,7 +93,15 @@ export default {
           }
         }
       }
-      if (Math.abs((bodySclH - bodyH) - sclTop) < 1) {
+
+      // for pageScroll event
+      let $lastScroll = 1;
+      if (typeof this.endScrollChk === 'number') $lastScroll = this.endScrollChk;
+      if (typeof this.endScrollChk === 'string') {
+        const $sclChkEl = this.$el.querySelector(this.endScrollChk);
+        if ($sclChkEl !== null) $lastScroll = bodySclH - this.$getOffset($sclChkEl).top - $sclChkEl.offsetHeight;
+      }
+      if (Math.abs((bodySclH - bodyH) - sclTop) < $lastScroll) {
         uiEventBus.$emit('popScroll');
       }
     },

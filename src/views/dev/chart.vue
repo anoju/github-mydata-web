@@ -60,6 +60,7 @@ import BarScrollChart from './chart/bar';
 import TooltipChart from './chart/bar';
 
 export default {
+  name: 'chart',
   components: {
     BarChart,
     Bar2Chart,

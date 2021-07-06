@@ -22,26 +22,32 @@
     <div class="page_inner">
       <template v-if="!!$slots.header">
         <kb-page-head
-          v-if="!noHeader && !isMainLayer && !isAPI"
+          v-if="!noHeader && !isMainLayer"
           ref="header"
           :title="pageTitle"
           :no-back="noHeaderBack"
+          :no-gnb="isAPI || noHeaderGnb"
+          :no-home="isAPI || noHeaderHome"
           :is-lock="isLock"
           :header-type="headerType"
           :back="back"
+          :close="close"
         >
           <slot name="header" />
         </kb-page-head>
       </template>
       <template v-else>
         <kb-page-head
-          v-if="!noHeader && !isMainLayer && !isAPI"
+          v-if="!noHeader && !isMainLayer"
           ref="header"
           :title="pageTitle"
           :no-back="noHeaderBack"
+          :no-gnb="isAPI || noHeaderGnb"
+          :no-home="isAPI || noHeaderHome"
           :is-lock="isLock"
           :header-type="headerType"
           :back="back"
+          :close="close"
         />
       </template>
       <div
@@ -49,8 +55,14 @@
         :class="containerClass"
       >
         <slot />
+        <div
+          v-if="noFooter || isAPI || isApp"
+          class="fixed_space"
+          aria-hidden="true"
+          :style="{height: `${spaceHeight}px`}"
+        />
       </div>
-      <kb-page-foot ref="footer" v-if="!isMainLayer && !noFooter && !isAPI && !isAPP" />
+      <kb-page-foot ref="footer" v-if="!isMainLayer && !noFooter && !isAPI && !isApp" />
       <div
         v-if="!isAPI"
         class="floating_btn"
@@ -73,7 +85,7 @@
         >컨텐츠 상단으로 이동</kb-button>
       </div>
       <div
-        v-if="!noFooter"
+        v-if="!isMainLayer && !noFooter && !isAPI && !isApp"
         class="fixed_space"
         aria-hidden="true"
         :style="{height: `${spaceHeight}px`}"
@@ -94,9 +106,13 @@ export default {
     noFooter: { type: Boolean, default: false },
     noBtntop: { type: Boolean, default: false },
     noHeaderBack: { type: Boolean, default: false },
+    noHeaderGnb: { type: Boolean, default: false },
+    noHeaderHome: { type: Boolean, default: false },
     grayBg: { type: Boolean, default: false },
     back: { type: [String, Function], default: null },
+    close: { type: [String, Function], default: null },
     lock: { type: Boolean, default: false },
+    endScrollChk: { type: [String, Number], default: 1 },
   },
   watch: {
     lock() {
@@ -110,7 +126,7 @@ export default {
   data() {
     return {
       isAPI: false,
-      isAPP: false,
+      isApp: false,
       lockSclTop: 0,
       isLock: false,
       isMainLayer: false,
@@ -147,7 +163,7 @@ export default {
       if (!$html.classList.contains('is_api')) $html.classList.add('is_api');
     } else if ($html.classList.contains('is_api')) $html.classList.remove('is_api');
     const $agent = navigator.userAgent;
-    this.isAPP = ($agent.match(/KBSecMyDataApp/i) != null);
+    this.isApp = ($agent.match(/KBSecMyDataApp/i) != null);
   },
   mounted() {
     if (this.$el.closest('.main_layer_view') !== null) this.isMainLayer = true;
@@ -241,7 +257,13 @@ export default {
       }
 
       // for pageScroll event
-      if (Math.abs((sclHeight - elHeight) - sclTop) < 1) {
+      let $lastScroll = 1;
+      if (typeof this.endScrollChk === 'number') $lastScroll = this.endScrollChk;
+      if (typeof this.endScrollChk === 'string') {
+        const $sclChkEl = $target.querySelector(this.endScrollChk);
+        if ($sclChkEl !== null) $lastScroll = sclHeight - this.$getOffset($sclChkEl).top - $sclChkEl.offsetHeight;
+      }
+      if (Math.abs((sclHeight - elHeight) - sclTop) < $lastScroll) {
         uiEventBus.$emit('pageScroll');
       }
     },

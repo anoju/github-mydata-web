@@ -1,5 +1,5 @@
 <template>
-  <kb-page header-type="close">
+  <kb-page header-type="close" close="/UT/02/UT02A004">
     <kb-page-body>
       <div class="util_wrap fixed_btn">
         <div class="top_box">
@@ -16,6 +16,7 @@
       <kb-button-wrap bottom-fixed>
         <kb-button
           yellow
+          to="/UT/02/UT02A004"
         >
           확인
         </kb-button>

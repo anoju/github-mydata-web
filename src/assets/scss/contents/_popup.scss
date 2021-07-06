@@ -139,6 +139,7 @@
 		display:inline-block;font-size:1.6rem;line-height:2.4rem;vertical-align:top;
 		//&.logo{height:50px;background:url('~@/assets/images/common/head_logo.png') no-repeat 20px center;background-size:auto 19px;vertical-align:middle;font-size:3px;color:transparent;}
 	}
+	h1:first-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;}
 	.pop_close{position:absolute;top:13px;right:13px;}
 	.tit_prev,
 	.tit_next{display:inline-block;width:24px;height:24px;background-repeat:no-repeat;background-position:center center;vertical-align:top;font-size:3px;color:transparent;overflow:hidden;}

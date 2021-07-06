@@ -273,11 +273,8 @@ export default {
   },
   watch: {
     $route(to) {
-      if (to.path.indexOf('TO01E001') > 0) {
-        this.tabIdx = 0;
-      } else if (to.path.indexOf('TO01E014') > 0) {
-        this.tabIdx = 1;
-      }
+      if (to.path.indexOf('TO01E001') > 0) this.tabIdx = 0;
+      else if (to.path.indexOf('TO01E014') > 0) this.tabIdx = 1;
     },
   },
   mounted() {

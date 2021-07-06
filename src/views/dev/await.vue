@@ -56,6 +56,7 @@
 import processUtil from '@/utils/processUtil';
 
 export default {
+  name: 'await',
   data() {
     return {
       tick: 50, // await 수행 루프 재시도 tick

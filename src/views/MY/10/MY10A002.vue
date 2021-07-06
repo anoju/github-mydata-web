@@ -129,7 +129,7 @@
 </template>
 <script>
 export default {
-  name: 'MY09A001_1',
+  name: 'MY10A002',
   data() {
     return {
       checkVal1: [],

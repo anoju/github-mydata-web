@@ -1,0 +1,31 @@
+html.is_api{
+
+	//헤더
+	.page_head .page_head_in{
+		padding-right:18px;
+		h1{text-align:center;}
+	}
+
+	// 포인트버튼
+	.button.bt_yellow{
+		background:var(--kb-theme-color);
+		color:var(--kb-theme-text);
+	}
+
+	//스텝
+	// .step_wrap .step_state li{
+	// 	border-color:var(--kb-theme-color);
+	// 	&.on ~ li{border-color:#f8f8f8;}
+	// }
+
+	// 체크박스, 라디오
+	.checkbox > input:checked + i, 
+	.radio > input:checked + i{
+		background:var(--kb-theme-color);
+		border-color:var(--kb-theme-color);
+		&:after{border-color:var(--kb-theme-text);}
+	}
+	.chk_list .chk_child > .inner > .checkbox input:checked + i{
+		&:after{border-color:var(--kb-theme-color);}
+	}
+}

@@ -349,9 +349,9 @@ export default {
             this.$router.push('/TO/00'); // 페이지 이동하거나
           });
         } else {
-          this.phoneChecked = true;
           // 틀리면 알럿 후 다시 포커스
           this.$alert('인증번호 틀림').then(() => {
+            this.phoneChecked = true;
             this.$refs.input5.focus();
           });
         }

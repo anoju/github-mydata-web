@@ -7,7 +7,7 @@
           content-class="mg_t0"
           v-model="tabIdx"
         >
-          <kb-tab title="나의 북마크">
+          <kb-tab title="나의 북마크" to="/IN/06/IN06A001">
             <div class="pick_top my">
               <p class="stit">투자 고수가 선택하고</p>
               <strong>내가 지켜보고 있는 Pick</strong>
@@ -111,7 +111,7 @@
             </ul>
           </kb-tab>
 
-          <kb-tab title="전체">
+          <kb-tab title="전체" to="/IN/06/IN06AZ07">
             <div class="pick_top ico0">
               <!--
                 전체 ico0
@@ -215,7 +215,7 @@
             </ul>
           </kb-tab>
 
-          <kb-tab title="투자품격">
+          <kb-tab title="투자품격" to="/IN/06/IN06AZ01">
             <div class="pick_top ico1">
               <p class="stit">왕년에? NO~ 지금도!</p>
               <strong>진행형인 고수의 Pick</strong>
@@ -257,7 +257,7 @@
             </ul>
           </kb-tab>
 
-          <kb-tab title="보유멘탈">
+          <kb-tab title="보유멘탈" to="/IN/06/IN06AZ02">
             <div class="pick_top ico2">
               <p class="stit">묻을까? 팔까?</p>
               <strong>햄릿 고수의 Pick</strong>
@@ -355,7 +355,7 @@
             </ul>
           </kb-tab>
 
-          <kb-tab title="자본포스">
+          <kb-tab title="자본포스" to="/IN/06/IN06AZ03">
             <div class="pick_top ico3">
               <p class="stit">끼리끼리 놀아요~</p>
               <strong>자본렙 비슷한 고수의 Pick</strong>
@@ -397,7 +397,7 @@
             </ul>
           </kb-tab>
 
-          <kb-tab title="운빨충만">
+          <kb-tab title="운빨충만" to="/IN/06/IN06AZ04">
             <div class="pick_top ico4">
               <p class="stit">가진 건 운 밖에~</p>
               <strong>최고조 운빨력 고수의 Pick</strong>
@@ -439,7 +439,7 @@
             </ul>
           </kb-tab>
 
-          <kb-tab title="찐찐고수">
+          <kb-tab title="찐찐고수" to="/IN/06/IN06AZ05">
             <div class="pick_top ico5">
               <!--
                 전체 ico0
@@ -500,24 +500,27 @@ export default {
   data() {
     return {
       isBookmark: true,
-      tabIdx: 1,
+      tabIdx: 0,
     };
   },
   watch: {
-    '$route.query.tab': {
-      handler(tab) {
-        if (this.$route.query.tab === undefined) {
-          this.tabIdx = 1;
-        } else {
-          this.tabIdx = Number(tab);
-        }
-      },
-      deep: true,
-      immediate: true,
+    $route(to) {
+      if (to.path.indexOf('IN06A001') > 0) this.tabIdx = 0;
+      else if (to.path.indexOf('IN06AZ07') > 0) this.tabIdx = 1;
+      else if (to.path.indexOf('IN06AZ01') > 0) this.tabIdx = 2;
+      else if (to.path.indexOf('IN06AZ02') > 0) this.tabIdx = 3;
+      else if (to.path.indexOf('IN06AZ03') > 0) this.tabIdx = 4;
+      else if (to.path.indexOf('IN06AZ04') > 0) this.tabIdx = 5;
+      else if (to.path.indexOf('IN06AZ05') > 0) this.tabIdx = 6;
     },
   },
   mounted() {
-    if (this.$route.query.tab !== undefined) this.tabIdx = Number(this.$route.query.tab);
+    if (this.$route.path.indexOf('IN06AZ07') > 0) this.tabIdx = 1;
+    else if (this.$route.path.indexOf('IN06AZ01') > 0) this.tabIdx = 2;
+    else if (this.$route.path.indexOf('IN06AZ02') > 0) this.tabIdx = 3;
+    else if (this.$route.path.indexOf('IN06AZ03') > 0) this.tabIdx = 4;
+    else if (this.$route.path.indexOf('IN06AZ04') > 0) this.tabIdx = 5;
+    else if (this.$route.path.indexOf('IN06AZ05') > 0) this.tabIdx = 6;
   },
   methods: {
   },

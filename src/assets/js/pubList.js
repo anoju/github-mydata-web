@@ -600,6 +600,9 @@ export default [
     pageID: 'MY04A003', type: 'page', api: false, depth1: '마이페이지', depth2: '', depth3: '', depth4: null, etc: null, complete: '2021-05-11', change: null,
   },
   {
+    pageID: 'MY04A004', type: 'pop', api: false, depth1: '마이페이지', depth2: 'KB증권 고객이 아닌 경우', depth3: '', depth4: null, etc: null, complete: '2021-07-05', change: null,
+  },
+  {
     pageID: 'MY04A010', type: 'page', api: false, depth1: '마이페이지', depth2: '개인정보 관리', depth3: '', depth4: null, etc: null, complete: '2021-05-12', change: null,
   },
   {
@@ -610,6 +613,9 @@ export default [
   },
   {
     pageID: 'MY04A018', type: 'page', api: false, depth1: '마이페이지', depth2: '회원탈퇴', depth3: '탈퇴완료', depth4: null, etc: null, complete: '2021-05-11', change: null,
+  },
+  {
+    pageID: 'MY04A022', type: 'page', api: false, depth1: '마이페이지', depth2: '로그아웃', depth3: '', depth4: null, etc: null, complete: '2021-07-02', change: null,
   },
   {
     pageID: 'MY06A005', type: 'page', api: false, depth1: '마이페이지', depth2: '나의관심정보', depth3: '내자산', depth4: null, etc: null, complete: '2021-05-11', change: null,
@@ -794,7 +800,13 @@ export default [
   },
   // 내메모
   {
-    pageID: 'MY02A001', type: 'page', api: false, depth1: '내메모', depth2: '메모리스트', depth3: '', depth4: '', etc: '종목,미종목,이벤트 리스트', complete: '2021-05-24', change: null,
+    pageID: 'MY02A001', type: 'page', api: false, depth1: '내메모', depth2: '메모리스트', depth3: '', depth4: '', etc: '종목', complete: '2021-05-24', change: null,
+  },
+  {
+    pageID: 'MY02A002', type: 'page', api: false, depth1: '내메모', depth2: '메모리스트', depth3: '', depth4: '', etc: '미종목', complete: '2021-05-24', change: null,
+  },
+  {
+    pageID: 'MY03A001', type: 'page', api: false, depth1: '내메모', depth2: '메모리스트', depth3: '', depth4: '', etc: '이벤트', complete: '2021-05-24', change: null,
   },
   {
     pageID: 'MY02A003', type: 'page', api: false, depth1: '내메모', depth2: '메모상세', depth3: '', depth4: '', etc: null, complete: '2021-05-24', change: null,
@@ -854,6 +866,9 @@ export default [
     pageID: 'PE01A001', type: 'pop', api: false, depth1: '투자생활', depth2: '투자프렌즈 선택', depth3: '', depth4: '', etc: null, complete: '2021-06-09', change: null,
   },
   {
-    pageID: 'PE02A001', type: 'pop', api: false, depth1: '투자생활', depth2: '투자프렌즈 선택', depth3: '', depth4: '', etc: null, complete: '2021-06-09', change: null,
+    pageID: 'PE02A001', type: 'pop', api: false, depth1: '투자생활', depth2: '투자프렌즈 선택', depth3: '설문', depth4: '', etc: null, complete: '2021-06-09', change: null,
+  },
+  {
+    pageID: 'PE03A001', type: 'pop', api: false, depth1: '투자생활', depth2: '투자프렌즈 선택', depth3: '결과', depth4: '', etc: 'PE04A001 포함', complete: '2021-06-09', change: null,
   },
 ];

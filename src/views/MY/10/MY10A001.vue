@@ -1,10 +1,10 @@
 <template>
   <kb-page page-title="연동정보관리">
     <kb-page-body>
-      <kb-tabs fixed>
+      <kb-tabs fixed v-model="tabIdx">
         <kb-tab
           title="연동정보 기관목록"
-          active
+          to="/MY/10/MY10A001"
         >
           <div class="section">
             <p class="mg_t12 fz_14 fc_666">개인신용정보 연동 자산 및 정보의 전송요철변경 및 연동해지를 하실 수 있습니다.</p>
@@ -124,6 +124,7 @@
         </kb-tab>
         <kb-tab
           title="연동정보 보기설정"
+          to="/MY/09/MY09A001"
         >
           <MY09A001 />
         </kb-tab>
@@ -135,16 +136,24 @@
 import MY09A001 from '@/views/MY/09/MY09A001.vue';
 
 export default {
-  name: 'MY09A001_1',
+  name: 'MY10A001',
   components: {
     MY09A001,
   },
   data() {
     return {
+      tabIdx: 0,
       slideCheck: false,
     };
   },
-  methods: {
+  watch: {
+    $route(to) {
+      if (to.path.indexOf('MY10A001') > 0) this.tabIdx = 0;
+      else if (to.path.indexOf('MY09A001') > 0) this.tabIdx = 1;
+    },
+  },
+  mounted() {
+    if (this.$route.path.indexOf('MY09A001') > 0) this.tabIdx = 1;
   },
 };
 </script>

@@ -109,7 +109,7 @@
                     <kb-button aTag not class="inner">
                       <div class="flex_wrap space_between align_center">
                         <div class="fz_12 fc_666">2021/01/01(13:50:23)</div>
-                        <div class="fz_14"><strong class="fc_blue_gray">002</strong></div>
+                        <div class="fz_14"><strong class="fc_gray">002</strong></div>
                       </div>
                       <div class="flex_wrap space_between mg_t4 align_end">
                         <div>
@@ -130,7 +130,7 @@
                     <kb-button aTag not class="inner">
                       <div class="flex_wrap space_between align_center">
                         <div class="fz_12 fc_666">2021/01/01(13:50:23)</div>
-                        <div class="fz_14"><strong class="fc_blue_gray">002</strong></div>
+                        <div class="fz_14"><strong class="fc_gray">002</strong></div>
                       </div>
                       <div class="flex_wrap space_between mg_t4 align_end">
                         <div>
@@ -158,7 +158,7 @@
                     <kb-button aTag not class="inner">
                       <div class="flex_wrap space_between align_center">
                         <div class="fz_12 fc_666">2021/01/01(13:50:23)</div>
-                        <div class="fz_14"><strong class="fc_blue_gray">002</strong></div>
+                        <div class="fz_14"><strong class="fc_gray">002</strong></div>
                       </div>
                       <div class="flex_wrap space_between mg_t4 align_end">
                         <div>
@@ -179,7 +179,7 @@
                     <kb-button aTag not class="inner">
                       <div class="flex_wrap space_between align_center">
                         <div class="fz_12 fc_666">2021/01/01(13:50:23)</div>
-                        <div class="fz_14"><strong class="fc_blue_gray">002</strong></div>
+                        <div class="fz_14"><strong class="fc_gray">002</strong></div>
                       </div>
                       <div class="flex_wrap space_between mg_t4 align_end">
                         <div>

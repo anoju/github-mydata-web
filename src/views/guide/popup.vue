@@ -327,6 +327,9 @@ export default {
       this.$alert('중복얼럿1', el).then(() => {
         console.log('중복얼럿 확인1');
       });
+      this.$alert('중복얼럿1', el).then(() => {
+        console.log('중복얼럿 확인1 (2)');
+      });
       this.$alert('중복얼럿2', el).then(() => {
         console.log('중복얼럿 확인2');
       });

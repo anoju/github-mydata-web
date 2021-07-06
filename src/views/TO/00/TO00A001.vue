@@ -5,7 +5,7 @@
         <div class="item">
           <div class="inner">
             <div class="img"><img src="@/assets/images/main/to_insight_1.png" alt=""></div><!-- 관리자등록이미지 -->
-            <kb-button a-tag not class="cont">
+            <kb-button a-tag not class="cont" to="/IN/06/IN06AZ05">
               <div class="tit">
                 <strong>메인문구~ 메인문구~ 메인문구~ 메인문구~ </strong>
               </div>

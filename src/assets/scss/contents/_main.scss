@@ -3,6 +3,7 @@
 		>.page_head{
 			>div{background:#f8f8f8;}
 			h1{display:none;}
+			& > div > .button.btn_gnb_home { display: none;}
 		} 
 		>.page_container{
 			min-height:auto;background:#f8f8f8;
@@ -272,7 +273,7 @@
       }
 		}
 		.theme_list { margin-top:12px;
-			.button { display:block; width:132px; height:120px; padding:16px; font-size:16px; font-weight:bold; text-align:left; color:#fff; line-height:1.5;}
+			.button { display:block; width:132px; height:120px; padding:16px; font-size:16px; font-weight:bold; text-align:left; color:#fff; line-height:1.5; word-break: break-all;}
 			.swiper-pagination-wrap { display:none;}
 		}
 	}
@@ -282,7 +283,9 @@
 		.swiper-slide { width:calc(100% - 10px); margin:0 5px; padding:0; background:#fff; box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.08); border-radius:8px;}
 		.type_box { position:relative; height:132px; padding:24px 20px;
 			.tit { font-size:16px; line-height:1.5; font-weight:bold;}
-			.btn_link { margin-top:16px;}
+			.btn_link { margin-top:16px;
+				.bt_ic_arr:before { border-color:#333;}
+			}
 
 			.img { position:absolute; top:0; right:0; width:120px; height:132px;
 				&.type1 { background:url('~@/assets/images/IN/00/ico_portfolio_type1.png') no-repeat center center /100%;}
@@ -314,7 +317,9 @@
 		.card_wrap { width:auto; height:auto;
 			.ui-swiper { padding-bottom:8px;}
 			.ui-swiper .swiper-slide,
-			.ui-swiper .swiper-slide.swiper-slide-active { width:calc(100% - 10px); height:360px; margin:0 5px; padding:0; background:#fff; box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.08); border-radius:8px;}
+			.ui-swiper .swiper-slide.swiper-slide-active { width:calc(100% - 10px); height:360px; margin:0 5px; padding:0; background:#fff; box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.08); border-radius:8px;
+				> a { height:100%;}
+			}
 			.card_list { width:auto; margin-bottom:0;
 				.in { padding:0;}
 				.tit { padding-top:68px;}
@@ -353,8 +358,8 @@
 	}
 
 
-	.btn_setting { display:inline-block; font-size:14px; color:#666; font-weight:bold; line-height:1.43;
-		&:before { content:''; display:inline-block; width:24px; height:24px; margin-right:2px; vertical-align: middle; background:url('~@/assets/images/IN/00/ico_setting.png') no-repeat center center / 100%;}
+	.btn_setting {overflow: visible; display:inline-block; font-size:12px; color:#6f7a94; font-weight:bold; line-height:1.43;
+		&:before { content:''; display:inline-block; width:16px; height:16px; margin-right:4px; margin-top:-2px; vertical-align: middle; background:url('~@/assets/images/MY/09/ico_setting.png') no-repeat center center / 100%;}
 	}
 
 	.none_box { overflow:hidden; position:relative; height:160px; padding-left:120px;

@@ -1,5 +1,5 @@
 <template>
-  <kb-page page-title="코딩리스트">
+  <kb-page page-title="코딩리스트" end-scroll-chk=".scl__wrap">
     <kb-page-body>
       <div class="section pd_bottom">
         <div class="code_status">
@@ -12,7 +12,7 @@
         </div>
         <br>
         <h3>코딩화면</h3>
-        <div class="code_list">
+        <div class="code_list scl__wrap">
           <table>
             <thead>
               <tr>

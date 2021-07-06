@@ -59,6 +59,8 @@ html.is_app{
 }
 
 :root {
+	--kb-theme-color:#ffdc00;
+	--kb-theme-text:#222;
   --swiper-theme-color:#ffdc00;
 }
 
@@ -101,7 +103,6 @@ common
 /*color*/
 .fc_blue{color:#5177bc !important;}
 .fc_blue2, .fc_down{color:#2859d1 !important;}
-.fc_blue_gray{color:#6f7a94 !important;}
 .fc_yellow{color:#ffdc00 !important;}
 .fc_red, .fc_up{color:#de092f !important;}
 .fc_gray{color:#6f7a94 !important;}

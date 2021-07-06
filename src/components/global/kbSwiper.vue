@@ -10,9 +10,9 @@
       @ready="swiperReady"
       @resize="swiperResize"
       @touchEnd="swiperTouchEnd"
-      @transitionStart="swiperSlideChange"
+      @transitionStart="swiperChangeStart"
       @observerUpdate="swiperAppendSlide"
-      @slideChange="swiperChange"
+      @slideChangeTransitionEnd="swiperChangeEvt"
       @reachEnd="swiperEnd"
       :dir="dir"
     >
@@ -34,7 +34,7 @@
           class="swiper-auto-ctl"
           :class="{play:!isAutoplay}"
           :aria-label="autoplayText"
-          @click="autoplaybutton"
+          @click="autoPlayButton"
         />
       </div>
       <button
@@ -177,7 +177,7 @@ export default {
         if (this.autoplay) this.isAutoplay = false;
       }
     },
-    swiperSlideChange() {
+    swiperChangeStart() {
       if (!this.loop && this.navi) {
         this.swiperCheck(this.mySwiper);
       }
@@ -224,7 +224,7 @@ export default {
     swiperNextEvt() {
       this.mySwiper.slideNext();
     },
-    autoplaybutton(e) {
+    autoPlayButton(e) {
       e.stopPropagation();
       this.isAutoplay = !this.isAutoplay;
       if (this.isAutoplay) {
@@ -236,10 +236,16 @@ export default {
     swiperAppendSlide() {
       console.log('swiperAppendSlide');
     },
-    swiperChange() {
-      if (this.value !== null) {
+    swiperChangeEvt() {
+      let timer = null;
+      if (this.value !== null && !this.isChagned) {
         this.isChagned = true;
-        this.$emit('input', this.mySwiper.realIndex);
+        clearTimeout(timer);
+        console.log(this.value, this.mySwiper.realIndex);
+        if (this.value !== this.mySwiper.realIndex) this.$emit('input', this.mySwiper.realIndex);
+        timer = setTimeout(() => {
+          this.isChagned = false;
+        }, 10);
       }
       this.$emit('swiperChange', this.mySwiper.snapIndex);
     },

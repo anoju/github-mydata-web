@@ -25,7 +25,11 @@
     </kb-page-body>
   </kb-page>
 </template>
-
+<script>
+export default {
+  name: 'dev',
+};
+</script>
 <style>
 .section dd + dt {
   margin-top:100px;

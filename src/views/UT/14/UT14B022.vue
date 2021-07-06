@@ -125,7 +125,7 @@
               <div class="flex11"><kb-input line date v-model="inpVal2" title="종료일 선택" placeholder="종료일" /></div>
             </div>
           </div>
-          <p class=" mg_t12 fz_12 fc_blue_gray">*종료일은 요청시작일로부터 1년이내로만 선택이 가능합니다.</p>
+          <p class=" mg_t12 fz_12 fc_gray">*종료일은 요청시작일로부터 1년이내로만 선택이 가능합니다.</p>
         </kb-form-item>
         <!-- //2021-06-03 디자인 위치에 따른 변경 -->
 

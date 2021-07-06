@@ -30,7 +30,7 @@ function Loader() {
       if (typeAry.indexOf(type) === -1) {
         throw Error('[plugin/loader] Loading type must be one of A,B,C.');
       }
-
+      if (loader.instance === null) return;
       loader.instance[load ? 'increaseLoad' : 'decreaseLoad']();
       loader.instance.addLoading(text, type);
     },

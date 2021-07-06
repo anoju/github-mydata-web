@@ -33,17 +33,26 @@
         </template>
         <slot />
       </div>
+      <kb-button
+        v-if="!noHome"
+        not
+        ref="home"
+        to="/TO/00"
+        class="btn_gnb_home"
+        aria-label="메인화면으로 이동"
+      >메인으로</kb-button>
       <button
         v-if="headerType == 'close'"
         type="button"
         class="btn_close"
         aira-label="전체메뉴 열기"
+        @click="closeClick"
       >
         <i />
         <span class="blind">닫기</span>
       </button>
       <button
-        v-else
+        v-else-if="!noGnb"
         type="button"
         class="btn_gnb"
         ref="btnGnb"
@@ -64,9 +73,12 @@ export default {
   props: {
     title: { type: [String, Number], default: null },
     noBack: { type: Boolean, default: false },
+    noGnb: { type: Boolean, default: false },
+    noHome: { type: Boolean, default: false },
     isLock: { type: Boolean, default: false },
     headerType: { type: String, default: null },
     back: { type: [String, Function], default: null },
+    close: { type: [String, Function], default: null },
   },
   data() {
     return {
@@ -97,6 +109,15 @@ export default {
         this.back();
       } else if (typeof this.back === 'string') {
         this.$router.replace(this.back);
+      }
+    },
+    closeClick() {
+      if (this.close === null) {
+        window.history.back();
+      } else if (typeof this.close === 'function') {
+        this.close();
+      } else if (typeof this.close === 'string') {
+        this.$router.replace(this.close);
       }
     },
     headerFixed() {

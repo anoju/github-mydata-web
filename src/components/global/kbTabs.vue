@@ -79,6 +79,7 @@
 <script>
 import uiEventBus from '../uiEventBus.vue';
 
+let uuid = 0;
 export default {
   name: 'kbTabs',
   props: {
@@ -109,16 +110,17 @@ export default {
       isScrollableRight: false,
       isFixedTopChk: false,
       fixedStyle: null,
+      noWatch: false,
     };
   },
   watch: {
     idx() {
-      if (this.idx !== null) {
+      if (this.idx !== null && !this.noWatch) {
         this.watchEvt(this.idx);
       }
     },
     value() {
-      if (this.value !== null) {
+      if (this.value !== null && !this.noWatch) {
         this.watchEvt(this.value);
       }
     },
@@ -141,17 +143,21 @@ export default {
       ];
     },
   },
+  beforeCreate() {
+    this.uuid = uuid.toString();
+    uuid += 1;
+  },
   created() {
     if (this.idx !== null) this.currIdx = this.idx;
-    window.addEventListener('resize', this.linePosition);
   },
   beforeMount() {
   },
   mounted() {
+    this.noWatch = true;
+    window.addEventListener('resize', this.linePosition);
     this.readySet();
     this.$nextTick(() => {
       if (this.childrens.length) {
-        this.watchEvt(this.value);
         this.contentsChk();
         if (this.currIdx !== null) this.childrens[this.currIdx].isActive = true;
         setTimeout(() => {
@@ -159,10 +165,13 @@ export default {
           if (active === null) this.childrens[0].isActive = true;
         }, 5);
       }
-      this.linePosition();
+      let delay = 50;
+      if (Number(this.uuid) === 0) delay = 500;
       setTimeout(() => {
-        window.dispatchEvent(new Event('resize'));
-      }, 1000);
+        this.watchEvt(this.value);
+        // this.linePosition();
+        this.noWatch = false;
+      }, delay);
       if (this.fixed) {
         let sclBody = this.$el.closest('.scl__body');
         if (sclBody === null)sclBody = window;
@@ -330,7 +339,7 @@ export default {
         }
       }
     },
-    watchEvt(val) {
+    watchEvt(val, isLine = true) {
       if (typeof val === 'string') {
         this.childrens.forEach((tab, i) => {
           if (tab.value !== null) {
@@ -352,9 +361,13 @@ export default {
           }
         });
       }
-      setTimeout(() => {
-        this.linePosition();
-      }, 10);
+      if (isLine) {
+        setTimeout(() => {
+          this.linePosition();
+          const $active = this.$el.querySelector('.tab.active a');
+          if ($active !== null) this.sclCenter($active);
+        }, 10);
+      }
     },
   },
 };

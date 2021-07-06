@@ -1,5 +1,9 @@
 <template>
   <div class="section portfolio_wrap">
+    <div class="mg_t12 mg_b12 t_right">
+      <kb-button aTag not class="btn_setting" @click="showModalPopup($event)">홈 편집</kb-button>
+    </div>
+
     <!-- 2021-06-22 데이터가 없는 경우 -->
     <template v-if="noData">
       <kb-swiper class="mg_t0 portfolio_box pd_t0">
@@ -330,9 +334,9 @@
 
     <kb-swiper class="model_portfolio">
       <swiper-slide>
-        <div class="type_box">
+        <kb-button aTag not class="type_box">
           <p class="tit">투자처 발견!<br />앞으로 맹렬히 돌진</p>
-          <kb-button aTag link blue>공격투자형 상품 보러가기 <i aria-hidden="true" class="bt_ic_arr"></i></kb-button>
+          <p class="btn_link bt_blue">공격투자형 상품 보러가기 <i aria-hidden="true" class="bt_ic_arr"></i></p>
           <!--
             공격투자 : type1
             적극투자 : type2
@@ -341,35 +345,35 @@
             안정형 : type5
           -->
           <p class="img type1"></p>
-        </div>
+        </kb-button>
       </swiper-slide>
       <swiper-slide>
-        <div class="type_box">
+        <kb-button aTag not class="type_box">
           <p class="tit">차곡차곡 모은 자산 <br />두배로 불리는 복리 마법</p>
-          <kb-button aTag link blue>적극투자형 상품 보러가기 <i aria-hidden="true" class="bt_ic_arr"></i></kb-button>
+          <p class="btn_link bt_blue">적극투자형 상품 보러가기 <i aria-hidden="true" class="bt_ic_arr"></i></p>
           <p class="img type2"></p>
-        </div>
+        </kb-button>
       </swiper-slide>
       <swiper-slide>
-        <div class="type_box">
+        <kb-button aTag not class="type_box">
           <p class="tit">차커피값 아껴서 <br />안전하게 불리는 내 자산 </p>
-          <kb-button aTag link blue>위험중립형 상품 보러가기 <i aria-hidden="true" class="bt_ic_arr"></i></kb-button>
+          <p class="btn_link bt_blue">위험중립형 상품 보러가기 <i aria-hidden="true" class="bt_ic_arr"></i></p>
           <p class="img type3"></p>
-        </div>
+        </kb-button>
       </swiper-slide>
       <swiper-slide>
-        <div class="type_box">
+        <kb-button aTag not class="type_box">
           <p class="tit">신도 부러워 할 미래 투자 <br />갓 라이프!</p>
-          <kb-button aTag link blue>안정추구형 상품 보러가기 <i aria-hidden="true" class="bt_ic_arr"></i></kb-button>
+          <p class="btn_link bt_blue">안정추구형 상품 보러가기 <i aria-hidden="true" class="bt_ic_arr"></i></p>
           <p class="img type4"></p>
-        </div>
+        </kb-button>
       </swiper-slide>
       <swiper-slide>
-        <div class="type_box">
+        <kb-button aTag not class="type_box">
           <p class="tit">덕투일치! <br />덕질과 투자를 동시에</p>
-          <kb-button aTag link blue>안정형 상품 보러가기 <i aria-hidden="true" class="bt_ic_arr"></i></kb-button>
+          <p class="btn_link bt_blue">안정형 상품 보러가기 <i aria-hidden="true" class="bt_ic_arr"></i></p>
           <p class="img type5"></p>
-        </div>
+        </kb-button>
       </swiper-slide>
     </kb-swiper>
     <!-- //손쉬운 투자공식 모델포트폴리오 -->
@@ -387,7 +391,7 @@
           <strong>장기보유 고수가<br>1주일 동안 매수한 종목은?</strong>
           <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
           <i class="ico_pick ico1">투자품격</i>
-          <!--
+        <!--
             투자품격 ico1
             보유멘탈 ico2
             자본포스 ico3
@@ -401,7 +405,7 @@
           <strong>장기보유 고수가<br>1주일 동안 매수한 종목은?</strong>
           <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
           <i class="ico_pick ico1">투자품격</i>
-          <!--
+        <!--
             투자품격 ico1
             보유멘탈 ico2
             자본포스 ico3
@@ -440,70 +444,74 @@
         <div class="card_wrap">
           <kb-swiper>
             <swiper-slide>
-              <div class="card_list">
-                <div class="in">
-                  <p class="tit">이익 관리</p>
-                  <!-- 이미지 타입별 정리
-                  .ico1 : 이익관리 - 날렵한 사냥꾼
-                  .ico2 : 이익관리 - 감 잡았어
-                  .ico3 : 이익관리 - 새의심장
-                  .ico4 : 손실관리 - 손절
-                  .ico5 : 손실관리 - 청소부
-                  .ico6 : 손실관리 - 망부석
-                  .ico7 : 투자비중 - 탁월한 농사꾼
-                  .ico8 : 투자비중 - 카멜레온
-                  .ico9 : 투자비중 - 몰빵 장인
-                  .ico10 : 추세 - 타이밍의 귀재
-                  .ico11 : 추세 - 추세 추종자
-                  .ico12 : 추세 - 지나가는 1인
-                  .ico13 : 등락폭 - 스릴광
-                  .ico14 : 등락폭 - 두루두루
-                  .ico15 : 등락폭 - 안전지대
-                  .ico16 : 추세매매(매수) - 올라타자
-                  .ico17 : 추세매매(매수) - 줍줍
-                  .ico18 : 추세매매(매수) - 느낌 좋은 매수
-                  .ico19 : 물타기 - 철수
-                  .ico20 : 물타기 - 물의요정
-                  .ico21 : 물타기 - 아찔한 곡예사
-                  .ico22 : 보유기간 - 변화무쌍 초단타
-                  .ico23 : 보유기간 - 매일 씐나는 단타
-                  .ico24 : 보유기간 - 기다릴 줄 아는 중기
-                  .ico25 : 보유기간 - 가끔 생각나는 중장기
-                  .ico26 : 보유기간 - 기억상실 장기
-                  .ico27 : 승률 - 마이너스 손
-                  .ico28 : 승률 - 전설의 나무꾼
-                  .ico29 : 거래보유일 - 맴찢
-                  .ico30 : 거래보유일 - 이익>손실
-                  .ico31 : 분산투자성향 - SOS구조바람
-                  .ico32 : 분산투자성향 - 유유자적 오리배
-                  .ico33 : 종목과다보유 - 너도자라라 쑥쑥
-                -->
-                  <p class="img ico1"></p>
-                  <div class="text_box">
-                    <p class="sub_tit">날렵한 사냥꾼</p>
-                    <p class="text">수익을 낼 수 있는 먹이감은 <br />절대 놓치지 않지</p>
+              <kb-button aTag not>
+                <div class="card_list">
+                  <div class="in">
+                    <p class="tit">이익 관리</p>
+                    <!-- 이미지 타입별 정리
+                    .ico1 : 이익관리 - 날렵한 사냥꾼
+                    .ico2 : 이익관리 - 감 잡았어
+                    .ico3 : 이익관리 - 새의심장
+                    .ico4 : 손실관리 - 손절
+                    .ico5 : 손실관리 - 청소부
+                    .ico6 : 손실관리 - 망부석
+                    .ico7 : 투자비중 - 탁월한 농사꾼
+                    .ico8 : 투자비중 - 카멜레온
+                    .ico9 : 투자비중 - 몰빵 장인
+                    .ico10 : 추세 - 타이밍의 귀재
+                    .ico11 : 추세 - 추세 추종자
+                    .ico12 : 추세 - 지나가는 1인
+                    .ico13 : 등락폭 - 스릴광
+                    .ico14 : 등락폭 - 두루두루
+                    .ico15 : 등락폭 - 안전지대
+                    .ico16 : 추세매매(매수) - 올라타자
+                    .ico17 : 추세매매(매수) - 줍줍
+                    .ico18 : 추세매매(매수) - 느낌 좋은 매수
+                    .ico19 : 물타기 - 철수
+                    .ico20 : 물타기 - 물의요정
+                    .ico21 : 물타기 - 아찔한 곡예사
+                    .ico22 : 보유기간 - 변화무쌍 초단타
+                    .ico23 : 보유기간 - 매일 씐나는 단타
+                    .ico24 : 보유기간 - 기다릴 줄 아는 중기
+                    .ico25 : 보유기간 - 가끔 생각나는 중장기
+                    .ico26 : 보유기간 - 기억상실 장기
+                    .ico27 : 승률 - 마이너스 손
+                    .ico28 : 승률 - 전설의 나무꾼
+                    .ico29 : 거래보유일 - 맴찢
+                    .ico30 : 거래보유일 - 이익>손실
+                    .ico31 : 분산투자성향 - SOS구조바람
+                    .ico32 : 분산투자성향 - 유유자적 오리배
+                    .ico33 : 종목과다보유 - 너도자라라 쑥쑥
+                  -->
+                    <p class="img ico1"></p>
+                    <div class="text_box">
+                      <p class="sub_tit">날렵한 사냥꾼</p>
+                      <p class="text">수익을 낼 수 있는 먹이감은 <br />절대 놓치지 않지</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </kb-button>
             </swiper-slide>
             <swiper-slide>
-              <div class="card_list">
-                <div class="in">
-                  <p class="tit">이익 관리</p>
-                  <p class="img ico2"></p>
-                  <div class="text_box">
-                    <p class="sub_tit">날렵한 사냥꾼</p>
-                    <p class="text">수익을 낼 수 있는 먹이감은 <br />절대 놓치지 않지</p>
+              <kb-button aTag not>
+                <div class="card_list">
+                  <div class="in">
+                    <p class="tit">이익 관리</p>
+                    <p class="img ico2"></p>
+                    <div class="text_box">
+                      <p class="sub_tit">날렵한 사냥꾼</p>
+                      <p class="text">수익을 낼 수 있는 먹이감은 <br />절대 놓치지 않지</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </kb-button>
             </swiper-slide>
           </kb-swiper>
         </div>
       </div>
 
-      <div class="white_box portfolio_box">
-        <kb-button aTag not class="flex_wrap fz_16 fw_bold">이번달 전망<i aria-hidden="true" class="bt_ic_arr mg_la"></i></kb-button>
+      <kb-button aTag not class="white_box portfolio_box block">
+        <p class="flex_wrap fz_16 fw_bold">이번달 전망<i aria-hidden="true" class="bt_ic_arr mg_la black"></i></p>
         <ul class="prospect_list mg_t24 mg_b32">
           <li>
             <!-- 2021-03-17 이미지를 클래스로 변경 (아직 미확정)
@@ -543,7 +551,7 @@
             <p class="tit">편중</p>
           </li>
         </ul>
-      </div>
+      </kb-button>
     </template>
     <!-- //두근 두근 이번 달 성적 -->
 
@@ -555,7 +563,7 @@
     </kb-title-bar>
 
     <div class="white_box mg_t16">
-      <IN10A000 />
+      <IN10A002 />
     </div>
 
     <template v-if="noData">
@@ -567,8 +575,8 @@
     </template>
 
     <template v-if="!noData">
-      <div class="white_box mg_t8 pd_b20">
-        <kb-button aTag not class="flex_wrap fz_16 fw_bold">김스타님의 미래 준비<i aria-hidden="true" class="bt_ic_arr mg_la"></i></kb-button>
+      <kb-button aTag not class="white_box mg_t8 pd_b20 block">
+        <p class="flex_wrap fz_16 fw_bold">김스타님의 미래 준비<i aria-hidden="true" class="bt_ic_arr black mg_la"></i></p>
 
         <div class="my_assets">
           <p class="tit">은퇴 시점 예상 보유 자산</p>
@@ -581,7 +589,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </kb-button>
     </template>
     <!-- //달콤한 미래 투자 -->
 
@@ -632,24 +640,20 @@
       <i class="ico ico3"></i>
     </kb-button>
     <!-- //좋은 건 함께해요 혜택 추천 -->
-
-    <div class="mg_t34 t_center">
-      <kb-button aTag not class="btn_setting" @click="showModalPopup($event)">투자생활 홈 편집하기</kb-button>
-    </div>
   </div>
 </template>
 <script>
-import IN10A000 from '@/views/IN/10/IN10A000.vue';
+import IN10A002 from '@/views/IN/10/IN10A002.vue';
 
 export default {
   name: 'IN00A001',
   inject: ['isSwiperTouch'],
   components: {
-    IN10A000,
+    IN10A002,
   },
   data() {
     return {
-      noData: true,
+      noData: false,
       isStar1: false,
       isStar2: false,
       isStar3: false,

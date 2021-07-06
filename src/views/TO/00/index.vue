@@ -18,9 +18,9 @@
     <kb-page-body>
       <div class="main_swiper_wrap">
         <kb-tabs class="main_tab" v-model="mainTabIdx">
-          <kb-tab title="금융생활" @click="tabSlideTo(0)" />
-          <kb-tab title="오늘" @click="tabSlideTo(1)" />
-          <kb-tab title="투자생활" @click="tabSlideTo(2)" />
+          <kb-tab title="금융생활" />
+          <kb-tab title="오늘" />
+          <kb-tab title="투자생활" />
         </kb-tabs>
         <div class="main_pagination" />
         <div class="main_swiper">
@@ -142,8 +142,11 @@ export default {
       }
       if (to.path === '/TO/00' && to.query.tab !== undefined) {
         const idx = parseInt(to.query.tab, 10);
-        this.swiperslideTo(idx);
+        this.swiperSlideTo(idx);
       }
+    },
+    mainTabIdx() {
+      if (this.mainSwiper.realIndex !== this.mainTabIdx) this.swiperSlideTo(this.mainTabIdx, 100);
     },
   },
   computed: {
@@ -185,10 +188,6 @@ export default {
       if (!!this.$refs.layerContainer && !!this.$refs.layerContainer.querySelector('.scl__body')) {
         this.$refs.layerContainer.querySelector('.scl__body').addEventListener('scroll', this.scrollEvt);
       }
-      if (this.$route.query.tab !== undefined) {
-        const idx = parseInt(this.$route.query.tab, 10);
-        this.swiperslideTo(idx);
-      }
     });
 
     let sclBody = this.$parent.$el;
@@ -208,16 +207,22 @@ export default {
     }
   },
   methods: {
-    swiperslideTo(idx) {
-      if (idx !== undefined) this.mainSwiper.slideTo(idx, 0, false);
+    swiperSlideTo(idx, speed = 0) {
+      if (idx !== undefined) this.mainSwiper.slideTo(idx, speed, false);
     },
     resizeChk() {
       this.LayerMaxHeight = this.$refs.layerWrap.offsetHeight - parseInt(this.$getStyle(this.$refs.layerWrap, 'padding-top'), 10);
     },
     // swiperReady(swiper) {
     swiperReady() {
+      // console.log(swiper);
       this.$nextTick(() => {
-        // console.log(swiper);
+        if (this.$route.query.tab !== undefined) {
+          const idx = parseInt(this.$route.query.tab, 10);
+          setTimeout(() => {
+            this.mainTabIdx = idx;
+          }, 100);
+        }
       });
     },
     swiperResize() {

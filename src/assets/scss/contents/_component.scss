@@ -535,6 +535,7 @@ div[class*=tit_h]{
 .bt_ic_arr{
 	width:16px;height:16px;
 	&:before{content:'';position:absolute;top:50%;margin-top:-5px;right:6px;display:block;width:7px;height:7px;border:1px solid #888;border-width:0 1px 1px 0;transform:rotate(-45deg);}
+	&.black:before { border-color:#333 !important;}
 }
 .button:not(.bt_default):not(.bt_yellow):not(.line){
 	.bt_ic_arr:before{border-color:#fff;}
@@ -2347,6 +2348,8 @@ html:not(.ios):not(.safari) .form_item .fm_lb>.tooltip_btn{vertical-align:-3px;}
 				&.ico_fingerprint{width:120px;height:120px;background:url('~@/assets/images/UT/ico_fingerprint.png') 0 0 no-repeat;background-size:100%;}//지문아이콘
 				&.ico_face{width:120px;height:120px;background:url('~@/assets/images/UT/ico_face.png') 0 0 no-repeat;background-size:100%;}//안면아이콘
 				&.ico_userout{height:136px;background:url('~@/assets/images/MY/ico_userout.png') 0 0 no-repeat;background-size:auto 100%;}//회원탈퇴
+				&.ico_userjoin{width:320px;height:205px;background:url('~@/assets/images/MY/ico_userjoin.png') 0 0 no-repeat;background-size:auto 100%;}//회원탈퇴
+				&.ico_logout{width:190px;height:94px;background:url('~@/assets/images/MY/ico_logout.png') 0 0 no-repeat;background-size:auto 100%;}//회원탈퇴
 			}
 			.wating_count { 
 				display:flex;justify-content:center;

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 
+// import Stock from 'highcharts/modules/stock';
 import httpUtil from '@/utils/httpUtil';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 
@@ -10,13 +11,18 @@ import produce from 'immer';
 // import router from '@/router';
 import Vue2TouchEvents from 'vue2-touch-events';
 import anime from 'animejs/lib/anime.es';
+import stringUtil from '@/utils/stringUtil';
 import router from '@/router';
 import App from './App.vue';
 import store from './store';
 
+/* plugins */
 import './plugins/lodash';
 import './plugins/vuelidate';
 import './plugins/treeView';
+import './plugins/highcharts';
+import './plugins/dayjs';
+import './plugins/groupArray';
 
 /* components */
 import directives from './utils/directives';
@@ -32,13 +38,15 @@ import 'swiper/css/swiper.css';
 import './assets/scss/front.scss';
 
 /* vKeypad */
-import './js/vKeypad.min';
-import './js/kjscrypto.min';
-import './js/kjscrypto.contrib.min';
+// import '../public/js/vKeypad.min';
+// import '../public/js/kjscrypto.min';
+// import '../public/js/kjscrypto.contrib.min';
+// import uiEventBus from './components/uiEventBus.vue';
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = httpUtil;
 Vue.prototype.$produce = produce;
+Vue.prototype.$stringUtil = stringUtil;
 
 Vue.use(components);
 Vue.use(modalContainer);
@@ -60,7 +68,7 @@ new Vue({
 
 // (async () => {
 //   const router = await customRouter.createRouter(); // 라우터생성
-//   console.error('main.js : router created');
+//   console.log('main.js : router created');
 
 //   const app = new Vue({
 //     router,
@@ -69,7 +77,7 @@ new Vue({
 //       mounted: false,
 //     },
 //     beforeCreate() {
-//       console.error('main.js : lifecycle : beforeCreate');
+//       console.log('main.js : lifecycle : beforeCreate');
 //     },
 //     created() {
 //       /**
@@ -78,15 +86,15 @@ new Vue({
 //        */
 //       (async () => {
 //         await processUtil.await(null, 1); // 테스트 await
-//         console.error('main.js : lifecycle : created');
+//         console.log('main.js : lifecycle : created');
 //         this.$mount('#app');
 //       })();
 //     },
 //     beforeMount() {
-//       console.error('main.js : lifecycle : before mount');
+//       console.log('main.js : lifecycle : before mount');
 //     },
 //     mounted() {
-//       console.error('main.js : lifecycle : mounted');
+//       console.log('main.js : lifecycle : mounted');
 //       this.mounted = true;
 //     },
 //     render: (h) => h(App),

@@ -45,30 +45,27 @@
         <hr aria-hidden="true" class="hr_line">
 
         <div class="option_list">
-          <kb-button
-            class="item_list"
-            to="/MY/04/MY04A010"
-          >
+          <kb-button class="item_list" to="/MY/04/MY04A010">
             개인정보 관리<i class="ico_arrow_type1" aria-hidden="true" />
           </kb-button>
-          <kb-button
-            class="item_list"
-          >
+          <kb-button class="item_list">
             연동정보 관리<i class="ico_arrow_type1" aria-hidden="true" />
           </kb-button>
-          <kb-button
-            class="item_list"
-          >
+          <kb-button class="item_list">
             나의 투자성향
             <span class="mg_r8 mg_la fc_blue fz_14 fw_bold">공격투자형</span>
             <i class="ico_arrow_type1" aria-hidden="true" />
           </kb-button>
-          <kb-button
-            class="item_list"
-          >
+          <kb-button class="item_list">
             투자프렌즈 설정
             <span class="mg_r8 mg_la fc_blue fz_14 fw_bold">롤로라무</span>
             <i class="ico_arrow_type1" aria-hidden="true" />
+          </kb-button>
+          <kb-button class="item_list">
+            내 자산 비타민<i class="ico_arrow_type1" aria-hidden="true" />
+          </kb-button>
+          <kb-button class="item_list">
+            환경설정<i class="ico_arrow_type1" aria-hidden="true" />
           </kb-button>
         </div>
       </div>

@@ -516,7 +516,7 @@
               </div>
             </div>
 
-            <div class="white_box mg_t8">
+            <div class="white_box mg_t32">
               <div class="insurance_list">
                 <kb-button aTag not>
                   <div class="cont">
@@ -657,84 +657,104 @@
               </kb-foldings>
             </div>
 
-            <div class="white_box mg_t8 pd_t0">
-              <kb-foldings
-                not-toggle
-                class="line_none"
-              >
-                <kb-folding>
-                  <template slot="title">
-                    <p class="fz_16">통신요금 청구현황</p>
-                  </template>
-                  <div class="chart_wrap">
-                    <img src="@/assets/images/temp/sample_fi08a003.png" alt="">
-                  </div>
-
-                  <!-- 2021-06-21 전체보기 -->
-                  <p class="t_right">
-                    <kb-button
-                      to="#"
-                      link
-                      blue
-                    >
-                      전체보기<i class="bt_ic_arr" aria-hidden="true" />
-                    </kb-button>
-                  </p>
-                  <!-- //2021-06-21 전체보기 -->
-                </kb-folding>
-              </kb-foldings>
-            </div>
-
-            <div class="white_box mg_t8">
-              <div class="insurance_list">
-                <!-- 2021-06-21 타입 1 -->
-                <kb-button aTag not>
-                  <div class="cont">
-                    <!-- 이슈 발생시 issue 클래스 적용  -->
-                    <i class="ico"><span style="background: skyblue;"></span></i>
-                    <div class="name">
-                      <p>KB Star 정기예금</p>
-                      <span>12345678901234</span>
-                    </div>
-                  </div>
-
-                  <div class="money_info mg_l40">
-                    <p class="progress">10% 납입</p>
-                    <p class="money">
-                      <span>대출잔액</span>
-                      123,456,000원
-                    </p>
-                  </div>
-                  <div class="progress_bar mg_l40">
-                    <span style="width:10%"></span>
-                  </div>
-                  <p class="mg_t12 fz_12 fc_666 t_right">대출원금 123,456,000원</p>
-                </kb-button>
-                <!-- //2021-06-21 타입 1 -->
-
-                <!-- 2021-06-21 타입 2 -->
-                <kb-button aTag not>
-                  <div class="cont">
-                    <i class="ico"><span style="background: skyblue;"></span></i>
-                    <div class="name breakall">
-                      <p>메르세데스벤츠 파이낸셜</p>
-                      <span>215099999111-1234567</span>
-                    </div>
-                  </div>
-                  <div class="mg_l40 t_right mg_t24">
-                    <div><strong>김스타 고객님,<br /><span class="fc_blue">2025년 4월 25일</span> 만기 입니다.</strong></div>
-                    <div class="fz_12 fc_666 mg_t4">다음 납입 예정일 2021/04/25</div>
-                  </div>
-                </kb-button>
-                <!-- //2021-06-21 타입 2 -->
-              </div>
-            </div>
-
           </template>
 
         </kb-folding>
       </kb-foldings>
-    <!-- //PAY -->
+      <!-- //PAY -->
+
+      <!-- 통신 -->
+      <div class="white_box mg_t32 pd_t0">
+        <kb-foldings
+          not-toggle
+          class="line_none"
+        >
+          <kb-folding active>
+            <template slot="title">
+              <p class="fz_16">통신요금 청구현황</p>
+            </template>
+            <div class="chart_wrap">
+              <img src="@/assets/images/temp/sample_fi08a003.png" alt="">
+            </div>
+
+            <!-- 2021-06-21 전체보기 -->
+            <p class="t_right mg_b20">
+              <kb-button
+                to="#"
+                link
+                blue
+              >
+                전체보기<i class="bt_ic_arr" aria-hidden="true" />
+              </kb-button>
+            </p>
+            <!-- //2021-06-21 전체보기 -->
+          </kb-folding>
+        </kb-foldings>
+      </div>
+      <!-- //통신 -->
+
+      <!-- 할부금융 -->
+      <kb-foldings
+        not-toggle
+        first-open
+        class="link_title"
+      >
+        <kb-folding>
+          <template slot="title_prev">
+            <kb-button aTag link class="left fz_18 fw_bold">할부금융<i aria-hidden="true" class="bt_ic_arr"></i></kb-button>
+          </template>
+          <template slot="title">
+            <span class="hidden">펼치기</span>
+          </template>
+
+          <div class="white_box mg_t8">
+            <div class="insurance_list">
+              <!-- 2021-06-21 타입 1 -->
+              <kb-button aTag not>
+                <div class="cont">
+                  <!-- 이슈 발생시 issue 클래스 적용  -->
+                  <i class="ico"><span style="background: skyblue;"></span></i>
+                  <div class="name">
+                    <p>KB Star 정기예금</p>
+                    <span>12345678901234</span>
+                  </div>
+                </div>
+
+                <div class="money_info mg_l40">
+                  <p class="progress">10% 납입</p>
+                  <p class="money">
+                    <span>대출잔액</span>
+                    123,456,000원
+                  </p>
+                </div>
+                <div class="progress_bar mg_l40">
+                  <span style="width:10%"></span>
+                </div>
+                <p class="mg_t12 fz_12 fc_666 t_right">대출원금 123,456,000원</p>
+              </kb-button>
+              <!-- //2021-06-21 타입 1 -->
+
+              <!-- 2021-06-21 타입 2 -->
+              <kb-button aTag not>
+                <div class="cont">
+                  <i class="ico"><span style="background: skyblue;"></span></i>
+                  <div class="name breakall">
+                    <p>메르세데스벤츠 파이낸셜</p>
+                    <span>215099999111-1234567</span>
+                  </div>
+                </div>
+                <div class="mg_l40 t_right mg_t24">
+                  <div><strong>김스타 고객님,<br /><span class="fc_blue">2025년 4월 25일</span> 만기 입니다.</strong></div>
+                  <div class="fz_12 fc_666 mg_t4">다음 납입 예정일 2021/04/25</div>
+                </div>
+              </kb-button>
+              <!-- //2021-06-21 타입 2 -->
+            </div>
+          </div>
+
+        </kb-folding>
+      </kb-foldings>
+      <!-- //할부금융 -->
     </template>
   </div>
 </template>

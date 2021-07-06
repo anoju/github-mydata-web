@@ -62,6 +62,7 @@
 </template>
 
 <script>
+let uuid = 0;
 export default {
   name: 'kbTabsLink',
   props: {
@@ -129,10 +130,14 @@ export default {
       }
     },
   },
+  beforeCreate() {
+    this.uuid = uuid.toString();
+    uuid += 1;
+  },
   created() {
-    window.addEventListener('resize', this.linePosition);
   },
   mounted() {
+    window.addEventListener('resize', this.linePosition);
     this.$nextTick(() => {
       this.$el.querySelector('.tablist').addEventListener('scroll', this.lineWrapLeftPosition);
       if (this.fixed) {
@@ -144,10 +149,11 @@ export default {
           sclBody.removeEventListener('scroll', this.tabFixed);
         });
       }
-      this.linePosition();
+      let delay = 1;
+      if (Number(this.uuid) === 0) delay = 1000;
       setTimeout(() => {
-        window.dispatchEvent(new Event('resize'));
-      }, 1000);
+        this.linePosition();
+      }, delay);
     });
   },
   destroyed() {
@@ -228,7 +234,7 @@ export default {
     tabFixed() {
       let wrap = this.$el.closest('.scl__body');
       if (wrap === null) wrap = window;
-      if ((this.$el.closest('.page_wrap') !== null && !this.$el.closest('.page_wrap').classList.contains('lock')) || wrap.classList.contains('pop_body')) {
+      if ((this.$el.closest('.page_wrap') !== null && !this.$el.closest('.page_wrap').classList.contains('lock')) || (wrap !== window && wrap.classList.contains('pop_body'))) {
       // if (!this.$el.closest('.page_wrap').classList.contains('lock') || wrap.classList.contains('pop_body')) {
         const elWrap = (wrap === window) ? document : wrap;
         const fixedEls = elWrap.querySelectorAll('.fixed');

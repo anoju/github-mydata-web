@@ -5,9 +5,11 @@
         <kb-tabs
           fixed
           content-class="mg_t0"
+          v-model="tabIdx"
         >
           <kb-tab
             title="체결내역"
+            to="/MY/04/MY04A016"
           >
             <!-- 내용없음 -->
             <div class="assets_none_box" v-if="dataNone">
@@ -122,6 +124,7 @@
           </kb-tab>
           <kb-tab
             title="체결예정내역"
+            to="/MY/04/MY04A014"
           >
 
             <!-- 내용없음 -->
@@ -258,10 +261,18 @@ export default {
   name: 'FI02A006',
   data() {
     return {
+      tabIdx: 0,
       dataNone: false,
     };
   },
+  watch: {
+    $route(to) {
+      if (to.path.indexOf('MY04A016') > 0) this.tabIdx = 0;
+      else if (to.path.indexOf('MY04A014') > 0) this.tabIdx = 1;
+    },
+  },
   mounted() {
+    if (this.$route.path.indexOf('MY04A014') > 0) this.tabIdx = 1;
   },
   methods: {
   },

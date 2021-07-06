@@ -86,8 +86,11 @@ export default {
       if (this.messages.length) {
         this.messages.forEach((msg, i) => {
           if (msg.text === text && msg.title === title && msg.isConfirm === isConfirm && msg.addClass === addClass && msg.confirmTxt === confirmTxt && msg.cancelTxt === cancelTxt) {
-            if (msg.empty) this.messages.splice(i, 1);
-            if (msg.show) isOpend = true;
+            if (msg.empty) {
+              this.messages.splice(i, 1);
+            } else {
+              isOpend = true;
+            }
           }
         });
       }
@@ -112,9 +115,10 @@ export default {
       const $message = this.messages[index];
       setTimeout(() => {
         $message.show = true;
-      }, 10);
+      }, 1);
       setTimeout(() => {
         const $length = document.querySelectorAll('.alert.show').length;
+        if (!$length) return;
         const $last = this.$refs.alert[$length - 1].$el;
         if ($message.title === '' || $message.title === null || $message.title === undefined) {
           $last.querySelector('.message').focus();
