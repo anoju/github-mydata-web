@@ -36,17 +36,13 @@ export default {
       }
     },
   },
-  beforeMount() {
-    if (this.$route.path.indexOf('/VAPI/') >= 0) {
-      this.isAPI = true;
-      const $theme = (this.$route.query.theme);
-      if ($theme !== undefined) {
-        const $themeAry = $theme.split(',');
-        const regex = /^#(?:[0-9a-f]{3}){1,2}$/i;
-        if (regex.test('#' + $themeAry[0])) document.documentElement.style.setProperty('--kb-theme-color', `#${$themeAry[0]}`);
-        if (regex.test('#' + $themeAry[1])) document.documentElement.style.setProperty('--kb-theme-text', `#${$themeAry[1]}`);
+  created() {
+    setTimeout(() => {
+      if (this.$route.path.indexOf('/VAPI/') >= 0) {
+        this.isAPI = true;
+        this.themechk();
       }
-    }
+    }, 500);
     window.addEventListener('resize', this.vhChk);
   },
   mounted() {
@@ -64,6 +60,15 @@ export default {
     window.removeEventListener('resize', this.vhChk);
   },
   methods: {
+    themechk() {
+      const $theme = (this.$route.query.theme);
+      if ($theme !== undefined) {
+        const $themeAry = $theme.split(',');
+        const regex = /^#(?:[0-9a-f]{3}){1,2}$/i;
+        if (regex.test('#' + $themeAry[0])) document.documentElement.style.setProperty('--kb-theme-color', `#${$themeAry[0]}`);
+        if (regex.test('#' + $themeAry[1])) document.documentElement.style.setProperty('--kb-theme-text', `#${$themeAry[1]}`);
+      }
+    },
     deviceChk() {
       this.pcClassChk();
       this.mobileClassChk();
