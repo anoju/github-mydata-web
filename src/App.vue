@@ -66,7 +66,6 @@ export default {
       if ($theme !== undefined) {
         const $themeAry = $theme.split(',');
         const regex = /^#(?:[0-9a-f]{3}){1,2}$/i;
-        console.log($themeAry[0], this.hexToRGB($themeAry[0]), $themeAry[1], this.hexToRGB($themeAry[1]));
         if ($themeAry[0] !== undefined && regex.test('#' + $themeAry[0])) {
           // document.documentElement.style.setProperty('--kb-theme-color', `#${$themeAry[0]}`);
           const hexColor0 = this.hexToRGB($themeAry[0]);
