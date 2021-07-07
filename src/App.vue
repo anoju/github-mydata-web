@@ -27,22 +27,23 @@ export default {
     };
   },
   watch: {
-    $route(from) {
-      const $path = from.path;
-      if ($path.indexOf('/VAPI/') >= 0) {
-        this.isAPI = true;
-      } else {
-        this.isAPI = false;
-      }
+    $route: {
+      immediate: true,
+      handler(to) {
+        const $path = to.path;
+        const $html = document.querySelector('html');
+        if ($path.indexOf('/VAPI/') >= 0) {
+          this.isAPI = true;
+          if (!$html.classList.contains('is_api')) $html.classList.add('is_api');
+        } else {
+          this.isAPI = false;
+          if ($html.classList.contains('is_api')) $html.classList.remove('is_api');
+        }
+        this.themechk(to);
+      },
     },
   },
   created() {
-    setTimeout(() => {
-      if (this.$route.path.indexOf('/VAPI/') >= 0) {
-        this.isAPI = true;
-        this.themechk();
-      }
-    }, 500);
     window.addEventListener('resize', this.vhChk);
   },
   mounted() {
@@ -60,14 +61,40 @@ export default {
     window.removeEventListener('resize', this.vhChk);
   },
   methods: {
-    themechk() {
-      const $theme = (this.$route.query.theme);
+    themechk(route) {
+      const $theme = (route.query.theme);
       if ($theme !== undefined) {
         const $themeAry = $theme.split(',');
         const regex = /^#(?:[0-9a-f]{3}){1,2}$/i;
-        if (regex.test('#' + $themeAry[0])) document.documentElement.style.setProperty('--kb-theme-color', `#${$themeAry[0]}`);
-        if (regex.test('#' + $themeAry[1])) document.documentElement.style.setProperty('--kb-theme-text', `#${$themeAry[1]}`);
+        console.log($themeAry[0], this.hexToRGB($themeAry[0]), $themeAry[1], this.hexToRGB($themeAry[1]));
+        if ($themeAry[0] !== undefined && regex.test('#' + $themeAry[0])) {
+          // document.documentElement.style.setProperty('--kb-theme-color', `#${$themeAry[0]}`);
+          const hexColor0 = this.hexToRGB($themeAry[0]);
+          document.documentElement.style.setProperty('--kb-theme-color', hexColor0);
+        }
+        if ($themeAry[1] !== undefined && regex.test('#' + $themeAry[1])) {
+          // document.documentElement.style.setProperty('--kb-theme-text', `#${$themeAry[1]}`);
+          const hexColor1 = this.hexToRGB($themeAry[1]);
+          document.documentElement.style.setProperty('--kb-theme-text', hexColor1);
+        }
       }
+    },
+    hexToRGB(h) {
+      let r = 0;
+      let g = 0;
+      let b = 0;
+      // 3 digits
+      if (h.length === 3) {
+        r = parseInt(h[0] + h[0], 16);
+        g = parseInt(h[1] + h[1], 16);
+        b = parseInt(h[2] + h[2], 16);
+      // 6 digits
+      } else if (h.length === 6) {
+        r = parseInt(h[0] + h[1], 16);
+        g = parseInt(h[2] + h[3], 16);
+        b = parseInt(h[4] + h[5], 16);
+      }
+      return r + ',' + g + ',' + b;
     },
     deviceChk() {
       this.pcClassChk();

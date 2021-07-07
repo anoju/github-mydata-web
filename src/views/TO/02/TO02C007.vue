@@ -219,15 +219,16 @@ export default {
     };
   },
   watch: {
-    $route(to) {
-      if (to.path.indexOf('TO02C007') > 0) this.tabIdx = 0;
-      else if (to.path.indexOf('TO02C010') > 0) this.tabIdx = 1;
-      else if (to.path.indexOf('TO02C012') > 0) this.tabIdx = 2;
+    $route: {
+      immediate: true,
+      handler(to) {
+        if (to.path.indexOf('TO02C007') > 0) this.tabIdx = 0;
+        else if (to.path.indexOf('TO02C010') > 0) this.tabIdx = 1;
+        else if (to.path.indexOf('TO02C012') > 0) this.tabIdx = 2;
+      },
     },
   },
   mounted() {
-    if (this.$route.path.indexOf('TO02C010') > 0) this.tabIdx = 1;
-    else if (this.$route.path.indexOf('TO02C012') > 0) this.tabIdx = 2;
   },
   methods: {
     showFullPopup(el) {

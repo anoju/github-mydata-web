@@ -780,10 +780,15 @@ const routes = [
               render(c) { return c('router-view'); },
             },
             children: [
-              { path: 'IN06A001', component: () => import('@/views/IN/06/IN06A001.vue') }, // 투자/고수의Pick
-              {
-                path: 'IN06A002', component: () => import('@/views/IN/06/IN06A002.vue'), name: 'VAPI/IN06A002', props: true,
-              }, // 고수의 pick 상세
+              { path: 'IN06A001', component: () => import('@/views/IN/06/IN06A001.vue') }, // 고수의Pick(나의북마크)
+              { path: 'IN06A002', component: () => import('@/views/IN/06/IN06A002.vue') }, // 고수의 pick 상세
+              { path: 'IN06AZ01', component: () => import('@/views/IN/06/IN06A001.vue') }, // 고수의Pick(투자품격)
+              { path: 'IN06AZ02', component: () => import('@/views/IN/06/IN06A001.vue') }, // 고수의Pick(보유멘탈)
+              { path: 'IN06AZ03', component: () => import('@/views/IN/06/IN06A001.vue') }, // 고수의Pick(자본포스)
+              { path: 'IN06AZ04', component: () => import('@/views/IN/06/IN06A001.vue') }, // 고수의Pick(운빨충만)
+              { path: 'IN06AZ05', component: () => import('@/views/IN/06/IN06A001.vue') }, // 고수의Pick(찐진고수)
+              { path: 'IN06AZ07', component: () => import('@/views/IN/06/IN06A001.vue') }, // 고수의Pick(전체)
+              { path: 'IN06AZ08', redirect: 'IN06A002' },
             ],
           },
           {

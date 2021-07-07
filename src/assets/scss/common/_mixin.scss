@@ -1,25 +1,25 @@
 /* @mixin */
-@mixin mediaMinWidth($size) {
-    @media (min-width:#{$size}px) {
+@mixin mediaMinWidth($size){
+    @media (min-width:#{$size}px){
         @content;
     }
 }
-@mixin mediaMaxWidth($size) {
-    @media (max-width:#{$size}px) {
+@mixin mediaMaxWidth($size){
+    @media (max-width:#{$size}px){
         @content;
     }
 }
-@mixin mediaMinHeight($size) {
-    @media (min-height:#{$size}px) {
+@mixin mediaMinHeight($size){
+    @media (min-height:#{$size}px){
         @content;
     }
 }
-@mixin mediaMaxHeight($size) {
-    @media (max-height:#{$size}px) {
+@mixin mediaMaxHeight($size){
+    @media (max-height:#{$size}px){
         @content;
     }
 }
-@mixin sticky {
+@mixin sticky{
     @supports ((position:-webkit-sticky) or (position:sticky)){
         @content;
     }

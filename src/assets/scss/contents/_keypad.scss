@@ -3,14 +3,14 @@
   .full_height_wrap{position:relative;padding-left:20px;padding-right:20px;}
   .dot_password_alert{margin-top:14px;}
   .login_btm_btn{position:absolute;left:0;width:100%;bottom:241px;padding-bottom:24px;}
-  .accordion_dl{text-align:left;position:absolute;left:0;width:100%;bottom:241px;padding:0 20px 24px;background: #fff;}
+  .accordion_dl{text-align:left;position:absolute;left:0;width:100%;bottom:241px;padding:0 20px 24px;background:#fff;}
 
   //숫자 키패드
   &.number{
     .full_height_wrap{padding-bottom:241px;}
-    .secret_field {
+    .secret_field{
       margin-top:32px;text-align:center;
-      span {
+      span{
         // width:40px;height:40px;display:inline-block;background:url('/static/images/frame/secret_input.png') no-repeat;margin:0 1px;
         // &.empty{background-position:-1px -1px;}
         // &.non_empty{background-position:-1px -46px;}
@@ -23,43 +23,43 @@
       }
     }
     #currentKeyField{
-      border-top : 1px solid #5B86D4;
-      /* border-bottom : 1px solid #214d8b; */
-      bottom : 241px;
-      height : 49px;
+      border-top :1px solid #5B86D4;
+      /* border-bottom :1px solid #214d8b;*/
+      bottom :241px;
+      height :49px;
       width:100%;
-      position : absolute;
+      position :absolute;
       background :#5B86D4;
-      margin: 0px auto;
-      text-align: center;
+      margin:0px auto;
+      text-align:center;
       
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
+      border-top-left-radius:8px;
+      border-top-right-radius:8px;
     }
 
-    #keypad {
+    #keypad{
       position:absolute;
       left:0;
       bottom:0;
       width:100%;
       height:241px;
       background:#fff;
-      .keypad {
+      .keypad{
         width:100%;
         table-layout:fixed;
         text-align:center;
-        border-collapse: collapse;
+        border-collapse:collapse;
         img{
           bottom:100% !important;margin-bottom:9px;width:auto !important;
         }
       }
-      .number {
+      .number{
         width:100%;
         overflow:hidden;
         box-sizing:border-box;
         border-right:1px solid #eee;
         border-bottom:1px solid #eee;
-        li {
+        li{
           float:left;
           width:25%;
           height:60px;
@@ -67,15 +67,15 @@
           border-top:1px solid #eee;
           box-sizing:border-box;
           background:#ffffff;
-          &.func {
+          &.func{
             width:50%;
             background:#ffffff;
           }
-          a {
+          a{
             display:table;
             width:100%;
             height:100%;
-            span {
+            span{
               display:table-cell;
               text-align:center;
               vertical-align:middle;
@@ -89,26 +89,26 @@
   //쿼티 키패드
   &.qwerty{
     .full_height_wrap{padding-bottom:270px;}
-    input.input {
+    input.input{
       display:block;
       text-align:center;
-      width: 280px;
-      height: 46px;
-      font-size: 32px;
+      width:280px;
+      height:46px;
+      font-size:32px;
       margin:32px auto 0;
     }
     #currentKeyField{
-      background-color : #628BD5;
-      bottom : 270px;
-      height : 49px;
+      background-color :#628BD5;
+      bottom :270px;
+      height :49px;
       width:100%;
-      position : absolute;
-      margin: 0px auto;
-      text-align: center;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
+      position :absolute;
+      margin:0px auto;
+      text-align:center;
+      border-top-left-radius:8px;
+      border-top-right-radius:8px;
     }
-    #keypad {
+    #keypad{
       position:absolute;
       left:0;
       bottom:0;
@@ -117,47 +117,47 @@
       background:#fff;
       border:1px solid #eee;
       border-width:10px 5px;
-      .keypad {
+      .keypad{
         width:100%;
         table-layout:fixed;
         text-align:center;
-        border-collapse: collapse;
+        border-collapse:collapse;
       }
-      .keyTable {
+      .keyTable{
         width:100%;
         table-layout:fixed;
         text-align:center;
-        border-collapse: collapse;
+        border-collapse:collapse;
         /*키패드 영역 배경 색상 지정 가능*/
         background:#eee;
-        tr + tr td {
+        tr + tr td{
           border-top:5px solid #eee;
         }
-        td {
+        td{
           height:50px;
-          + td  {
+          + td {
             border-left:5px solid #eee;
           }
         }
         td a,
         td span,
         td .blank,
-        td .funcKey {
-          border-radius: 5px;
+        td .funcKey{
+          border-radius:5px;
           width:100%;
           height:100%;
           display:table;
         }
-        td a span {
+        td a span{
           display:table-cell;
           text-align:center;
           vertical-align:middle;
         }
         td a,
-        td .blank {
+        td .blank{
           background:#FFFFFF;
         }
-        td .funcKey {
+        td .funcKey{
           background:#FFFF00;
         }
       }

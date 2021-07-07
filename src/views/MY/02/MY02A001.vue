@@ -543,15 +543,16 @@ export default {
     };
   },
   watch: {
-    $route(to) {
-      if (to.path.indexOf('MY02A001') > 0) this.mainTab = 0;
-      else if (to.path.indexOf('MY02A002') > 0) this.mainTab = 1;
-      else if (to.path.indexOf('MY03A001') > 0) this.mainTab = 2;
+    $route: {
+      immediate: true,
+      handler(to) {
+        if (to.path.indexOf('MY02A001') > 0) this.mainTab = 0;
+        else if (to.path.indexOf('MY02A002') > 0) this.mainTab = 1;
+        else if (to.path.indexOf('MY03A001') > 0) this.mainTab = 2;
+      },
     },
   },
   mounted() {
-    if (this.$route.path.indexOf('MY02A002') > 0) this.mainTab = 1;
-    else if (this.$route.path.indexOf('MY03A001') > 0) this.mainTab = 2;
   },
   methods: {
     moreHide() {

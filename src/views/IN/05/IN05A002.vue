@@ -48,15 +48,16 @@ export default {
     IN05A006,
   },
   watch: {
-    $route(to) {
-      if (to.path.indexOf('IN05A002') > 0) this.tabIdx = 0;
-      else if (to.path.indexOf('IN05A005') > 0) this.tabIdx = 1;
-      else if (to.path.indexOf('IN05A006') > 0) this.tabIdx = 2;
+    $route: {
+      immediate: true,
+      handler(to) {
+        if (to.path.indexOf('IN05A002') > 0) this.tabIdx = 0;
+        else if (to.path.indexOf('IN05A005') > 0) this.tabIdx = 1;
+        else if (to.path.indexOf('IN05A006') > 0) this.tabIdx = 2;
+      },
     },
   },
   mounted() {
-    if (this.$route.path.indexOf('IN05A005') > 0) this.tabIdx = 1;
-    else if (this.$route.path.indexOf('IN05A006') > 0) this.tabIdx = 2;
   },
   methods: {
 

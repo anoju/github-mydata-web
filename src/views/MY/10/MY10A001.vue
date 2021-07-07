@@ -147,13 +147,15 @@ export default {
     };
   },
   watch: {
-    $route(to) {
-      if (to.path.indexOf('MY10A001') > 0) this.tabIdx = 0;
-      else if (to.path.indexOf('MY09A001') > 0) this.tabIdx = 1;
+    $route: {
+      immediate: true,
+      handler(to) {
+        if (to.path.indexOf('MY10A001') > 0) this.tabIdx = 0;
+        else if (to.path.indexOf('MY09A001') > 0) this.tabIdx = 1;
+      },
     },
   },
   mounted() {
-    if (this.$route.path.indexOf('MY09A001') > 0) this.tabIdx = 1;
   },
 };
 </script>

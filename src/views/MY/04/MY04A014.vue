@@ -266,13 +266,15 @@ export default {
     };
   },
   watch: {
-    $route(to) {
-      if (to.path.indexOf('MY04A016') > 0) this.tabIdx = 0;
-      else if (to.path.indexOf('MY04A014') > 0) this.tabIdx = 1;
+    $route: {
+      immediate: true,
+      handler(to) {
+        if (to.path.indexOf('MY04A016') > 0) this.tabIdx = 0;
+        else if (to.path.indexOf('MY04A014') > 0) this.tabIdx = 1;
+      },
     },
   },
   mounted() {
-    if (this.$route.path.indexOf('MY04A014') > 0) this.tabIdx = 1;
   },
   methods: {
   },

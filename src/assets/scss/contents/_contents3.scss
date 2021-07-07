@@ -14,7 +14,7 @@
   .msg_info{
     display:block;margin-top:24px;
     .alarm_box{
-      padding-left:52px;color:#666;      
+      padding-left:52px;color:#666;     
       strong{color:#222;line-height:1.5;}
       p{margin-top:4px;font-size:14px;line-height:normal;}
       .categoty_info{margin-top:16px;font-size:12px;line-height:1.33;}
@@ -59,7 +59,7 @@
 .accordion_list{
   &.not_border{
     border:0;
-    .tit{      
+    .tit{     
       .button{
         margin-bottom:32px;padding:0 0 0 8px;transition:0.3s;
         &.open{margin-bottom:0;}        
@@ -77,8 +77,8 @@
 }
 .total_assets_list{
   li{padding:16px 0;border-radius:6px;
-    &+li{ border-top:1px solid #eee;
-      span + span { font-weight:bold; color:#222; font-size:16px;}
+    &+li{border-top:1px solid #eee;
+      span + span{font-weight:bold;color:#222;font-size:16px;}
     }
     &>div{display:flex;align-items:center;justify-content:space-between;
       span{font-size:14px;color:#666;}      
@@ -112,8 +112,8 @@
     &:after{content:'';position:absolute;top:50%;right:0;width:1px;height:19px;background-color:#ddd;transform:translateY(-50%);}
   }
 
-  &.type2 { flex-wrap: wrap; height:auto;}
-  .text { padding:14px 20px 0; font-size:12px; color:#666;width:100%;}
+  &.type2{flex-wrap:wrap;height:auto;}
+  .text{padding:14px 20px 0;font-size:12px;color:#666;width:100%;}
   &.type3{
     margin:0;height:auto;border-top-width:0;background:none;
     .btn_refresh,.btn_linkage{
@@ -143,24 +143,24 @@
   }
 }
 
-.assets_change_detail {
-  dl { display:flex; margin-top:8px; align-items: center;
-    dt { font-size:12px; color:#666;}
-    dd { flex:1 1 auto; text-align:right; font-size:14px; color:#666; font-weight:bold;}
+.assets_change_detail{
+  dl{display:flex;margin-top:8px;align-items:center;
+    dt{font-size:12px;color:#666;}
+    dd{flex:1 1 auto;text-align:right;font-size:14px;color:#666;font-weight:bold;}
 
-    &.line { margin-top:12px; padding-top:12px; border-top:1px solid #eee;}
+    &.line{margin-top:12px;padding-top:12px;border-top:1px solid #eee;}
 
-    &.type2 {
-      dt { font-size:14px;}
-      dd { font-size:16px; color:#222;}
+    &.type2{
+      dt{font-size:14px;}
+      dd{font-size:16px;color:#222;}
     }
   }
-  .total { border:1px solid #eee; padding:24px 20px; border-radius:6px; background:#f8f8f8;
-    .tit { font-size:16px; font-weight:bold;}
+  .total{border:1px solid #eee;padding:24px 20px;border-radius:6px;background:#f8f8f8;
+    .tit{font-size:16px;font-weight:bold;}
   }
-  .month { margin-top:32px;
-    .tit { padding-bottom:7px; margin-bottom:16px; border-bottom:1px solid #ccc; font-size:14px;}
-    .box { margin-top:12px; padding:16px; border:1px solid #eee; border-radius:6px; background:#fff;}
+  .month{margin-top:32px;
+    .tit{padding-bottom:7px;margin-bottom:16px;border-bottom:1px solid #ccc;font-size:14px;}
+    .box{margin-top:12px;padding:16px;border:1px solid #eee;border-radius:6px;background:#fff;}
   }
 }
 
@@ -201,14 +201,14 @@
         &>li{display:flex;margin-top:8px;align-items:flex-end;
           &:last-child{padding-bottom:38px;}
           .alarm_box{display:block;width:220px;padding:12px 16px 12px 8px;border-radius:6px;background-color:#f8f8f8;}
-          .title { display:flex; font-size:14px; color:#222; font-weight:bold; line-height:normal;
-            i { flex: 0 0 auto; width:24px; height:24px; margin:-4px 8px -4px 0; background-image:url('~@/assets/images/TO/02/ico_assets.png'); background-repeat:no-repeat; background-size:100%;
-              &.ico1 { background-position:0 0px;} // 현금
-              &.ico2 { background-position:0 -24px;} // 투자
-              &.ico3 { background-position:0 -48px;} // 카드, 대출
-              &.ico4 { background-position:0 -72px;} // 보험
-              &.ico5 { background-position:0 -96px;} // 연금
-              &.ico6 { background-position:0 -120px;} // 실물
+          .title{display:flex;font-size:14px;color:#222;font-weight:bold;line-height:normal;
+            i{flex:0 0 auto;width:24px;height:24px;margin:-4px 8px -4px 0;background-image:url('~@/assets/images/TO/02/ico_assets.png');background-repeat:no-repeat;background-size:100%;
+              &.ico1{background-position:0 0px;} // 현금
+              &.ico2{background-position:0 -24px;} // 투자
+              &.ico3{background-position:0 -48px;} // 카드,대출
+              &.ico4{background-position:0 -72px;} // 보험
+              &.ico5{background-position:0 -96px;} // 연금
+              &.ico6{background-position:0 -120px;} // 실물
             }
           }
           .amount{padding:4px 0 0 32px;font-size:12px;line-height:1.33;}
@@ -236,21 +236,21 @@
     &.fade-leave-to{opacity:0;}
     .pop_close{
       position:absolute;top:50%;right:12px;transform:translateY(-50%);
-      filter: invert(100%) sepia(1%) saturate(16%) hue-rotate(324deg) brightness(104%) contrast(100%);
+      filter:invert(100%) sepia(1%) saturate(16%) hue-rotate(324deg) brightness(104%) contrast(100%);
     }    
   }
 }
 .view_option{display:flex;margin:19px 0 10px;justify-content:space-between;align-items:center;}
 .type_cal{
-  // &.inline { overflow:visible;}
+  // &.inline{overflow:visible;}
 
-  // .btn_toggle_row { overflow-x:auto;}
+  // .btn_toggle_row{overflow-x:auto;}
 
   .ico_cal{
     display:inline-block;width:16px;height:16px;margin-left:2px;background:url('~@/assets/images/common/ico_calender.png') 0 0 no-repeat;background-size:100%;
   }
-  .checked {
-    .ico_cal{ background-position:0 -16px}
+  .checked{
+    .ico_cal{background-position:0 -16px}
   }
   .datepicker_box{margin-top:14px;}
   .btn_search{height:40px;margin-top:8px;font-size:14px;color:#5177bc;line-height:1.43;border-radius:2px;border-color:#5b86d4;}
@@ -285,9 +285,9 @@
     }
     .tit{position:relative;margin-bottom:8px;font-size:14px;font-weight:bold;line-height:1.43;}
     [class*=label_]{position:absolute;top:-5px;right:0;display:inline-block;padding:5px 8px;font-size:12px;line-height:1.33;border-radius:30px;
-      &.label_plan{font-weight:normal;background:rgba(238, 238, 238, 0.8);}
-      &.label_unpaid{color:#de092f;background:rgba(222, 9, 47, 0.08);}
-      &.label_finish{color:#2859d1;background:rgba(40, 89, 209, 0.08);}
+      &.label_plan{font-weight:normal;background:rgba(238,238,238,0.8);}
+      &.label_unpaid{color:#de092f;background:rgba(222,9,47,0.08);}
+      &.label_finish{color:#2859d1;background:rgba(40,89,209,0.08);}
     }
   }
   &.history{
@@ -437,10 +437,10 @@
     }
   }
 
-  .section_list {padding:0 20px; background:#f9fafb;
-    & > div + div { border-top:1px solid #eee}
+  .section_list{padding:0 20px;background:#f9fafb;
+    & > div + div{border-top:1px solid #eee}
 
-    .btn_delete { width:20px; height:20px; font-size:0; background:url('~@/assets/images/UT/ico_delete.png') no-repeat center center / 16px;}
+    .btn_delete{width:20px;height:20px;font-size:0;background:url('~@/assets/images/UT/ico_delete.png') no-repeat center center / 16px;}
   }
 }
 .acc_info_chkbox{display:block;margin-right:0;
@@ -449,30 +449,30 @@
   i + .lbl{margin:0;padding:40px 66px 40px 20px;
     strong{margin-right:8px;}
   }
-  .lbl_child{position:absolute;top:16px;left:20px; margin-left:0;font-size:12px;color:#666;line-height:1.33; margin-top:0;
+  .lbl_child{position:absolute;top:16px;left:20px;margin-left:0;font-size:12px;color:#666;line-height:1.33;margin-top:0;
     strong{
       &+strong:before{content:'';display:inline-block;width:1px;height:12px;margin:0 8px -1px;background:#ddd;}
       &.ico_state{color:#5177bc;}
     }
   }
   .acc_num{position:absolute;bottom:16px;left:20px;font-size:14px;color:#666;line-height:1.43;}
-  &.type2{ background:#f8f8f8;
+  &.type2{background:#f8f8f8;
     border-radius:6px;border:1px solid #eee;
     &+.type2{margin-top:8px;}
     input,i{right:30px;}
-    i { top:16px; right:20px; transform:none;}
+    i{top:16px;right:20px;transform:none;}
     .lbl{padding:40px 60px 40px 20px;}
     .lbl_child{left:16px;}
     .acc_num{left:16px;}
-    &.checked{border:1px solid #ffdc00;background:rgba(255, 220, 0, 0.05);}
+    &.checked{border:1px solid #ffdc00;background:rgba(255,220,0,0.05);border-color:rgb(var(--kb-theme-color));background:rgba(var(--kb-theme-color),0.05);}
   }
 
-  &.type3 {
-    .lbl { padding:20px 20px 20px;}
+  &.type3{
+    .lbl{padding:20px 20px 20px;}
   }
 }
 /* 환경설정 */
-.ready_box{display:flex;min-height:120px;margin:0 -20px;padding:16px 0 12px;background:rgba(91, 134, 212, 0.1);justify-content:center;
+.ready_box{display:flex;min-height:120px;margin:0 -20px;padding:16px 0 12px;background:rgba(91,134,212,0.1);justify-content:center;
   >div{
     [class*=ico]{display:inline-block;width:60px;height:60px;text-indent:-9999px;background:url('~@/assets/images/EN/05/ico_device.png') no-repeat 0 0;background-size:60px 120px;
       &.ico2{background-position:0 -60px;}
@@ -500,37 +500,37 @@
 
   //나의북마크
   &.my{
-    background:rgba(255, 220, 0, 0.12);
+    background:rgba(255,220,0,0.12);
     .stit{color:#60584c;}
     .ico{top:0;right:0;width:160px;height:160px;background:url('~@/assets/images/IN/06/ico_pick_my.png') 0 0 no-repeat;background-size:100%;}
   }
   //전체
-  &.ico0{background:rgba(91, 134, 212, 0.16);
+  &.ico0{background:rgba(91,134,212,0.16);
     .stit{color:#5177bc;}
     .ico{top:0;right:0;width:160px;height:160px;background:url('~@/assets/images/IN/06/ico_pick0.png') 0 0 no-repeat;background-size:100%;}
   }
   //투자품격
-  &.ico1{background:rgba(114, 164, 255, 0.16);
+  &.ico1{background:rgba(114,164,255,0.16);
     .stit{color:#3838ac;}
     .ico{background:url('~@/assets/images/IN/06/ico_pick1.png') 0 0 no-repeat;background-size:100%;}
   }
   //보유멘탈
-  &.ico2{background:rgba(255, 150, 47, 0.16);
+  &.ico2{background:rgba(255,150,47,0.16);
     .stit{color:#c67321;}
     .ico{background:url('~@/assets/images/IN/06/ico_pick2.png') 0 0 no-repeat;background-size:100%;}
   }
   //자본포스
-  &.ico3{background:rgba(83, 178, 246, 0.16);
+  &.ico3{background:rgba(83,178,246,0.16);
     .stit{color:#2b90b7;}
     .ico{background:url('~@/assets/images/IN/06/ico_pick3.png') 0 0 no-repeat;background-size:100%;}
   }
   //운빨충만
-  &.ico4{background:rgba(251, 131, 144, 0.16);
+  &.ico4{background:rgba(251,131,144,0.16);
     .stit{color:#c05e69;}
     .ico{background:url('~@/assets/images/IN/06/ico_pick4.png') 0 0 no-repeat;background-size:100%;}
   }
   //찐찐고수
-  &.ico5{background:rgba(255, 202, 47, 0.16);
+  &.ico5{background:rgba(255,202,47,0.16);
     .stit{color:#a68014;}
     .ico{background:url('~@/assets/images/IN/06/ico_pick5.png') 0 0 no-repeat;background-size:100%;}
   }
@@ -571,7 +571,7 @@
 }
 /* 즉시이체 */
 .transfer_imm_wrap{
-  min-height:calc(100vh - 204px);min-height:calc((var(--vh, 1vh) * 100) - 204px);
+  min-height:calc(100vh - 204px);min-height:calc((var(--vh,1vh) * 100) - 204px);
 }
 .transfer_acc_list{margin:0 -20px;padding:0 20px;background:#f9fafb;
   li{display:flex;padding:16px 0;flex-wrap:wrap;justify-content:space-between;align-items:center;border-bottom:1px solid #eee;
@@ -580,53 +580,53 @@
       span{margin-right:8px;}
       .acc_num{margin-top:4px;color:#666;}
     }
-    .button.bt_default{ flex:0 0 auto; width:auto; height:20px;padding:0;font-size:14px;color:#5177bc;
+    .button.bt_default{flex:0 0 auto;width:auto;height:20px;padding:0;font-size:14px;color:#5177bc;
       .bt_ic_arr{margin-left:2px;}
     }
     .state{font-weight:bold;font-size:14px;}
     .error{width:100%;margin-top:6px;padding-left:24px;text-indent:-24px;font-size:12px;font-weight:bold;color:#de092f;
-      &:before { content:''; display:inline-block; width:16px; height:16px; margin-right:8px; margin-top:-2px; vertical-align: -4px; background:url('~@/assets/images/common/ico_error.png') no-repeat; background-size:100%;}
+      &:before{content:'';display:inline-block;width:16px;height:16px;margin-right:8px;margin-top:-2px;vertical-align:-4px;background:url('~@/assets/images/common/ico_error.png') no-repeat;background-size:100%;}
     }
-    .checkbox.right { display:inline-flex; flex:0 0 auto; margin:0;}
+    .checkbox.right{display:inline-flex;flex:0 0 auto;margin:0;}
 
-    dl.list { display:flex; margin-top:20px; align-items: center;
-      dt { flex:0 0 auto; font-size:12px; color:#666; line-height:1.33;}
-      dd { margin-left:auto; font-size:14px; color:#666; line-height:1.43; line-height:1.43; font-weight:bold;
-        span + span:before { content:','; display:inline-block; margin-right:3px;}
+    dl.list{display:flex;margin-top:20px;align-items:center;
+      dt{flex:0 0 auto;font-size:12px;color:#666;line-height:1.33;}
+      dd{margin-left:auto;font-size:14px;color:#666;line-height:1.43;line-height:1.43;font-weight:bold;
+        span + span:before{content:',';display:inline-block;margin-right:3px;}
       }
-      & + dl { margin-top:6px;}
-    }
-
-    .no_style {
-      .lbl { margin-left:0; padding-left:0;}
-      input, i { left:auto; right:0; top:50%; transform: translateY(-50%);}
-      .text {font-size:14px;line-height:1.43;}
-      & > input:checked ~ .lbl .text { color:#5177bc}
+      & + dl{margin-top:6px;}
     }
 
-    .button { display:flex; width:100%; padding:16px 0;
-      .img_bank { flex:0 0 auto; position:relative; width:32px; height:32px; margin-right:8px;
-        span { overflow:hidden; display:block; width:100%; height:100%; border:1px solid #ddd; border-radius:50%; font-size:0; background-repeat:no-repeat; background-size:cover;}
-        &.mark:after { content:''; display:block; position:absolute; bottom:0px; left:-2px; width:16px; height:16px; background:url('~@/assets/images/FI/ico_bookmark.png') no-repeat 0 0 / 100%;}
-      }
-      .text { flex:1 1 auto;}
-      .money { font-size:16px; font-weight:bold; line-height:1.5;}
+    .no_style{
+      .lbl{margin-left:0;padding-left:0;}
+      input,i{left:auto;right:0;top:50%;transform:translateY(-50%);}
+      .text{font-size:14px;line-height:1.43;}
+      & > input:checked ~ .lbl .text{color:#5177bc}
     }
 
-    &.type2 { display:block; position:relative;
-      .status { font-size:0;
-        span { display:inline-block; margin-right:0; font-size:12px; color:#666; line-height:1.33;}
-        span + span:before { content:''; display:inline-block; width:1px; height:12px; margin-top:-2px; margin:0 8px; vertical-align: middle; background:#ddd;}
+    .button{display:flex;width:100%;padding:16px 0;
+      .img_bank{flex:0 0 auto;position:relative;width:32px;height:32px;margin-right:8px;
+        span{overflow:hidden;display:block;width:100%;height:100%;border:1px solid #ddd;border-radius:50%;font-size:0;background-repeat:no-repeat;background-size:cover;}
+        &.mark:after{content:'';display:block;position:absolute;bottom:0px;left:-2px;width:16px;height:16px;background:url('~@/assets/images/FI/ico_bookmark.png') no-repeat 0 0 / 100%;}
       }
-      .text { margin-top:8px; padding-right:30px;
-        span { font-size:16px; line-height:1.5; font-weight:bold;}
-      }
-      .hidden { position:absolute; top:50%; right:0; font-size:16px; color:#666; line-height:1.5; transform: translateY(-50%);}
+      .text{flex:1 1 auto;}
+      .money{font-size:16px;font-weight:bold;line-height:1.5;}
     }
-    &.type3 { display:flex; position:relative; align-items: flex-start; padding:0;
-      .text { overflow:hidden; margin-top:0px; padding-right:10px;
-        span { overflow: hidden; display:block; font-size:16px; line-height:1.5; font-weight:bold; text-overflow: ellipsis; white-space: nowrap;}
-        .acc_num { font-size:12px; color:#666;}
+
+    &.type2{display:block;position:relative;
+      .status{font-size:0;
+        span{display:inline-block;margin-right:0;font-size:12px;color:#666;line-height:1.33;}
+        span + span:before{content:'';display:inline-block;width:1px;height:12px;margin-top:-2px;margin:0 8px;vertical-align:middle;background:#ddd;}
+      }
+      .text{margin-top:8px;padding-right:30px;
+        span{font-size:16px;line-height:1.5;font-weight:bold;}
+      }
+      .hidden{position:absolute;top:50%;right:0;font-size:16px;color:#666;line-height:1.5;transform:translateY(-50%);}
+    }
+    &.type3{display:flex;position:relative;align-items:flex-start;padding:0;
+      .text{overflow:hidden;margin-top:0px;padding-right:10px;
+        span{overflow:hidden;display:block;font-size:16px;line-height:1.5;font-weight:bold;text-overflow:ellipsis;white-space:nowrap;}
+        .acc_num{font-size:12px;color:#666;}
       }
     }
   }
@@ -638,15 +638,15 @@
       .status span{font-weight:bold;}
     }
   }
-  &.bg_none { background:none;}
+  &.bg_none{background:none;}
 
-  div.button { overflow: visible;}
+  div.button{overflow:visible;}
 }
 .button{
   &.btn_add{width:100%;font-size:14px;color:#5177bc;line-height:1.43;
-    &:before { content:''; display:inline-block; width:24px; height:24px; margin-right:2px;background:url('~@/assets/images/common/ico_linkage.png') no-repeat; background-size:100%;}
+    &:before{content:'';display:inline-block;width:24px;height:24px;margin-right:2px;background:url('~@/assets/images/common/ico_linkage.png') no-repeat;background-size:100%;}
   }
-  &.btn_select_type{display:block;height:auto;padding:16px 0 17px;text-align:left;border-bottom:1px solid #eee;background:url('~@/assets/images/common/ico_terms.png') right bottom 17px no-repeat; background-size:24px;
+  &.btn_select_type{display:block;height:auto;padding:16px 0 17px;text-align:left;border-bottom:1px solid #eee;background:url('~@/assets/images/common/ico_terms.png') right bottom 17px no-repeat;background-size:24px;
     .tit{margin-bottom:4px;font-weight:normal;font-size:14px;line-height:1.43;}
     .acc{font-size:18px;line-height:1.44;}
   }
@@ -691,7 +691,7 @@
 .bg_txt_box{padding:12px 16px;font-size:12px;line-height:1.33;text-align:center;color:#666;}
 .estimate_box{padding-top:24px;
   &+.estimate_box{margin-top:18px;border-top:1px solid #eee;}
-  .btn_delete { margin-top:24px; text-align:center; color:#5177bc;font-weight:bold;
-    &:before { content:''; display:inline-block; width:24px; height:24px; vertical-align: -6px; background:url('~@/assets/images/common/ico_delete.png') no-repeat; background-size:100%;}
+  .btn_delete{margin-top:24px;text-align:center;color:#5177bc;font-weight:bold;
+    &:before{content:'';display:inline-block;width:24px;height:24px;vertical-align:-6px;background:url('~@/assets/images/common/ico_delete.png') no-repeat;background-size:100%;}
   }
 }

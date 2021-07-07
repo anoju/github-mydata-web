@@ -157,11 +157,7 @@ export default {
     },
   },
   created() {
-    const $html = document.querySelector('html');
-    if (this.$route.path.indexOf('/VAPI/') >= 0) {
-      this.isAPI = true;
-      if (!$html.classList.contains('is_api')) $html.classList.add('is_api');
-    } else if ($html.classList.contains('is_api')) $html.classList.remove('is_api');
+    if (this.$route.path.indexOf('/VAPI/') >= 0) this.isAPI = true;
     const $agent = navigator.userAgent;
     this.isApp = ($agent.match(/KBSecMyDataApp/i) != null);
   },

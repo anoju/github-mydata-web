@@ -11,6 +11,7 @@
       <kb-button-wrap bottom-fixed>
         <kb-button
           yellow
+          to="/TO/00"
         >
           홈으로 가기
         </kb-button>

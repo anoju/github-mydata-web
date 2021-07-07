@@ -2,13 +2,13 @@
 @charset 'utf-8';
 
 /* common */
-@import 'common/font', 
-        'common/common', 
+@import 'common/font',
+        'common/common',
         'common/layout',
         'common/animate';
 
 /* contents */
-@import 'contents/component', 
+@import 'contents/component',
         'contents/popup',
         'contents/datepicker',
         'contents/contents',

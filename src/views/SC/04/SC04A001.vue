@@ -170,15 +170,16 @@ export default {
     };
   },
   watch: {
-    $route(to) {
-      if (to.path.indexOf('SC04A001') > 0) this.tabIdx = 0;
-      else if (to.path.indexOf('SC04A003') > 0) this.tabIdx = 1;
-      else if (to.path.indexOf('SC04A005') > 0) this.tabIdx = 2;
+    $route: {
+      immediate: true,
+      handler(to) {
+        if (to.path.indexOf('SC04A001') > 0) this.tabIdx = 0;
+        else if (to.path.indexOf('SC04A003') > 0) this.tabIdx = 1;
+        else if (to.path.indexOf('SC04A005') > 0) this.tabIdx = 2;
+      },
     },
   },
   mounted() {
-    if (this.$route.path.indexOf('SC04A003') > 0) this.tabIdx = 1;
-    else if (this.$route.path.indexOf('SC04A005') > 0) this.tabIdx = 2;
   },
   methods: {
     showPopup(el) {
