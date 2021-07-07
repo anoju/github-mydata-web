@@ -1,7 +1,20 @@
 <template>
   <kb-page page-title="주식 종목 진단">
     <kb-page-body class="pd_b0">
-      <div class="section stock_diagnose_wrap">
+      <!-- 종목을 찾을 수 없을때 -->
+      <div v-if="false" class="no_list_txt icon h_full">
+        <strong class="tit">이런, 해당 종목을 찾을수가 없어요.<br>
+          종목을 다시 검색해 보시겠어요?</strong>
+        <div class="mg_t32">
+          <kb-button line blue class="w_200">종목 검색으로 가기</kb-button>
+        </div>
+        <div class="mg_t10">
+          <kb-button line blue class="w_200">투자생활로 가기</kb-button>
+        </div>
+      </div>
+      <!-- //종목을 찾을 수 없을때 -->
+
+      <div v-else class="section stock_diagnose_wrap">
         <div class="invest_info_box">
           <div class="top">
             <p class="kind">
@@ -1119,27 +1132,28 @@
               투자진행 시 참고해 주시기 바랍니다.</li>
           </ul>
         </div>
+
+        <kb-button-wrap bottom-fixed class="ty3" v-if="!isAPI">
+          <kb-button
+            like
+            role="checkbox"
+            :class="{checked: isLike}"
+            :aria-checked="isLike ? 'true' : 'false'"
+            @click="isLike = !isLike"
+          >즐겨찾기</kb-button>
+          <kb-button
+            v-if="false"
+            down
+          >
+            판매하기
+          </kb-button>
+          <kb-button
+            up
+          >
+            구매하기
+          </kb-button>
+        </kb-button-wrap>
       </div>
-      <kb-button-wrap bottom-fixed class="ty3" v-if="!isAPI">
-        <kb-button
-          like
-          role="checkbox"
-          :class="{checked: isLike}"
-          :aria-checked="isLike ? 'true' : 'false'"
-          @click="isLike = !isLike"
-        >즐겨찾기</kb-button>
-        <kb-button
-          v-if="false"
-          down
-        >
-          판매하기
-        </kb-button>
-        <kb-button
-          up
-        >
-          구매하기
-        </kb-button>
-      </kb-button-wrap>
     </kb-page-body>
   </kb-page>
 </template>
