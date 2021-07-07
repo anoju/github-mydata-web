@@ -404,7 +404,8 @@
       .checkbox.full{min-height:16px;float:right;
         input{width:16px;height:16px;
           &:checked+i{
-            background:#fff;border-color:#ffdc00;
+            background:#fff;
+            &:after{border-color:#ffdc00;border-color:rgb(var(--kb-theme-color));}
           }
         }
         i{width:16px;height:16px;border:0;

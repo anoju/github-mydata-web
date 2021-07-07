@@ -66,7 +66,7 @@
             </div>
           </div>
           <div class="box">
-            <kb-button not aTag class="level10" @click="levelcoupon">
+            <kb-button not aTag class="level10">
               <div>
                 <p class="text">Level 10</p>
                 <p class="point">2000P</p>

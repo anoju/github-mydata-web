@@ -4,15 +4,6 @@ body,
 html,
 body{overflow:hidden;}
 
-html.is_api{
-	height:auto;
-	overflow:visible;
-	body,
-	#app{height:auto;}
-	body{overflow:visible;}
-	.page_wrap{height:auto;} 
-}
-
 #app{position:relative;}
 html.lock{
 	body,#app,.page_wrap{overflow:hidden;}

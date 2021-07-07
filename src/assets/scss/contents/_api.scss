@@ -1,4 +1,11 @@
 html.is_api{
+	height:auto;
+	overflow:visible;
+	body,
+	#app{height:auto;}
+	body{overflow:visible;}
+	.page_wrap{height:auto;} 
+	
 	//헤더
 	.page_head .page_head_in{
 		padding-right:18px;

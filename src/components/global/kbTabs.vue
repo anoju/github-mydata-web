@@ -361,6 +361,9 @@ export default {
           }
         });
       }
+      if (this.childrens[this.currIdx] !== undefined && this.childrens[this.currIdx].$el.querySelector('.ui-swiper-wrap')) {
+        uiEventBus.$emit('kbSwiperUpdate', 'update');
+      }
       if (isLine) {
         setTimeout(() => {
           this.linePosition();
