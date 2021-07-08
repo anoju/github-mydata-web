@@ -48,7 +48,7 @@
               <li>
                 <span class="number">1</span>
                 <div class="text_box">
-                  <h3>삼성전자</h3>
+                  <h3 class="text_line_1">삼성전자</h3>
                   <p class="cash">59,300원</p>
                   <!--
                     상승 : fc_up
@@ -59,13 +59,14 @@
                 <div class="other_box">
                   <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
                   <kb-button
+                    v-if="!isAPI"
                     like
                     :class="{checked:isLike1}"
                     role="checkbox"
                     :aria-checked="isLike1?'true':'false'"
                     @click="isLike1 = !isLike1"
                   >즐겨찾기</kb-button>
-                  <dl>
+                  <dl :class="{mg_t36:isAPI}">
                     <dt>평균매수단가</dt>
                     <dd>59,300원</dd>
                   </dl>
@@ -76,7 +77,7 @@
               <li>
                 <span class="number">2</span>
                 <div class="text_box">
-                  <h3>삼성전자</h3>
+                  <h3 class="text_line_1">삼성전자</h3>
                   <p class="cash">59,300원</p>
                   <!--
                     상승 : fc_up
@@ -87,13 +88,14 @@
                 <div class="other_box">
                   <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
                   <kb-button
+                    v-if="!isAPI"
                     like
                     :class="{checked:isLike2}"
                     role="checkbox"
                     :aria-checked="isLike2?'true':'false'"
                     @click="isLike2 = !isLike2"
                   >즐겨찾기</kb-button>
-                  <dl>
+                  <dl :class="{mg_t36:isAPI}">
                     <dt>평균매수단가</dt>
                     <dd>59,300원</dd>
                   </dl>
@@ -104,7 +106,7 @@
               <li>
                 <span class="number">3</span>
                 <div class="text_box">
-                  <h3>삼성전자</h3>
+                  <h3 class="text_line_1">삼성전자</h3>
                   <p class="cash">59,300원</p>
                   <!--
                     상승 : fc_up
@@ -115,13 +117,14 @@
                 <div class="other_box">
                   <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
                   <kb-button
+                    v-if="!isAPI"
                     like
                     :class="{checked:isLike3}"
                     role="checkbox"
                     :aria-checked="isLike3?'true':'false'"
                     @click="isLike3 = !isLike3"
                   >즐겨찾기</kb-button>
-                  <dl>
+                  <dl :class="{mg_t36:isAPI}">
                     <dt>평균매수단가</dt>
                     <dd>59,300원</dd>
                   </dl>
@@ -140,10 +143,14 @@ export default {
   name: 'IN06A002',
   data() {
     return {
+      isAPI: false,
       isLike1: false,
       isLike2: false,
       isLike3: false,
     };
+  },
+  created() {
+    if (this.$route.path.indexOf('/VAPI/') >= 0) this.isAPI = true;
   },
 };
 </script>

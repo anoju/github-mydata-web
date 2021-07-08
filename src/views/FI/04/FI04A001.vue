@@ -543,6 +543,26 @@
             </div>
           </div>
         </div>
+
+        <!-- 하단배너 -->
+        <div class="img_banner_box mg_t32">
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+        </div>
+        <!-- //하단배너 -->
       </div>
     </kb-page-body>
   </kb-page>

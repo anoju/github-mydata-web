@@ -28,6 +28,25 @@
         </div>
       </div>
 
+      <!-- 슬라이드 배너 -->
+      <kb-swiper class="mg_t0 mg_b24 img_banner_swiper">
+        <swiper-slide>
+          <div class="img_banner_box">
+            <kb-button not>
+              <img src="/images/banner/sample_banner_1.png" alt="">
+            </kb-button>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="img_banner_box">
+            <kb-button not>
+              <img src="/images/banner/sample_banner_1.png" alt="">
+            </kb-button>
+          </div>
+        </swiper-slide>
+      </kb-swiper>
+      <!-- //슬라이드 배너 -->
+
       <div class="white_box">
         <kb-title-bar
           h3
@@ -332,6 +351,13 @@
           </template>
         </kb-folding>
       </kb-foldings>
+      <!-- 배너 -->
+      <div class="img_banner_box">
+        <kb-button not>
+          <img src="/images/banner/sample_banner_2.png" alt="">
+        </kb-button>
+      </div>
+      <!-- //배너 -->
       <!-- //은행 -->
 
       <!--  카드 -->
@@ -442,6 +468,13 @@
           </template>
         </kb-folding>
       </kb-foldings>
+      <!-- 배너 -->
+      <div class="img_banner_box">
+        <kb-button not>
+          <img src="/images/banner/sample_banner_2.png" alt="">
+        </kb-button>
+      </div>
+      <!-- //배너 -->
       <!-- //카드 -->
 
       <!--  보험 -->
@@ -539,6 +572,13 @@
           </template>
         </kb-folding>
       </kb-foldings>
+      <!-- 배너 -->
+      <div class="img_banner_box">
+        <kb-button not>
+          <img src="/images/banner/sample_banner_2.png" alt="">
+        </kb-button>
+      </div>
+      <!-- //배너 -->
       <!-- //보험 -->
 
       <!--  PAY -->
@@ -658,9 +698,15 @@
             </div>
 
           </template>
-
         </kb-folding>
       </kb-foldings>
+      <!-- 배너 -->
+      <div class="img_banner_box">
+        <kb-button not>
+          <img src="/images/banner/sample_banner_2.png" alt="">
+        </kb-button>
+      </div>
+      <!-- //배너 -->
       <!-- //PAY -->
 
       <!-- 통신 -->
@@ -691,6 +737,13 @@
           </kb-folding>
         </kb-foldings>
       </div>
+      <!-- 배너 -->
+      <div class="img_banner_box">
+        <kb-button not>
+          <img src="/images/banner/sample_banner_2.png" alt="">
+        </kb-button>
+      </div>
+      <!-- //배너 -->
       <!-- //통신 -->
 
       <!-- 할부금융 -->
@@ -753,8 +806,36 @@
           </div>
 
         </kb-folding>
+        <!-- 배너 -->
+        <div class="img_banner_box">
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+        </div>
+      <!-- //배너 -->
       </kb-foldings>
+
       <!-- //할부금융 -->
+
+      <!-- 하단배너 -->
+      <div class="img_banner_box mg_t32">
+        <kb-button not>
+          <img src="/images/banner/sample_banner_2.png" alt="">
+        </kb-button>
+        <kb-button not>
+          <img src="/images/banner/sample_banner_2.png" alt="">
+        </kb-button>
+        <kb-button not>
+          <img src="/images/banner/sample_banner_2.png" alt="">
+        </kb-button>
+        <kb-button not>
+          <img src="/images/banner/sample_banner_2.png" alt="">
+        </kb-button>
+        <kb-button not>
+          <img src="/images/banner/sample_banner_2.png" alt="">
+        </kb-button>
+      </div>
+      <!-- //하단배너 -->
     </template>
   </div>
 </template>

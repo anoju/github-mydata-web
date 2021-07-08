@@ -24,7 +24,7 @@
           v-for="(tab, i) in childrens"
           :key="i"
           class="tab"
-          :class="{active:tab.isActive, disabled:tab.disabled}"
+          :class="{active:tab.isActive, disabled:tab.disabled, hide:tab.hide}"
           role="presentation"
           :style="tab.tabStyle"
         >
@@ -361,7 +361,7 @@ export default {
           }
         });
       }
-      if (this.childrens[this.currIdx] !== undefined && this.childrens[this.currIdx].$el.querySelector('.ui-swiper-wrap')) {
+      if (this.childrens[this.currIdx] !== undefined && this.childrens[this.currIdx].$el.childNodes.length && this.childrens[this.currIdx].$el.querySelector('.ui-swiper-wrap') !== null) {
         uiEventBus.$emit('kbSwiperUpdate', 'update');
       }
       if (isLine) {

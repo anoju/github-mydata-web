@@ -34,6 +34,7 @@
                 </kb-button>
                 <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
                 <kb-button
+                  v-if="!isAPI"
                   like
                   :class="{checked:isLike1}"
                   role="checkbox"
@@ -52,6 +53,7 @@
                 </kb-button>
                 <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
                 <kb-button
+                  v-if="!isAPI"
                   like
                   :class="{checked:isLike2}"
                   role="checkbox"
@@ -70,6 +72,7 @@
                 </kb-button>
                 <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
                 <kb-button
+                  v-if="!isAPI"
                   like
                   :class="{checked:isLike3}"
                   role="checkbox"
@@ -104,6 +107,7 @@
                 </kb-button>
                 <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
                 <kb-button
+                  v-if="!isAPI"
                   like
                   :class="{checked:isLike4}"
                   role="checkbox"
@@ -122,6 +126,7 @@
                 </kb-button>
                 <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
                 <kb-button
+                  v-if="!isAPI"
                   like
                   :class="{checked:isLike5}"
                   role="checkbox"
@@ -140,6 +145,7 @@
                 </kb-button>
                 <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
                 <kb-button
+                  v-if="!isAPI"
                   like
                   :class="{checked:isLike6}"
                   role="checkbox"
@@ -162,6 +168,7 @@ export default {
   name: 'IN11A001',
   data() {
     return {
+      isAPI: false,
       result: null,
       isLike1: false,
       isLike2: false,
@@ -170,6 +177,9 @@ export default {
       isLike5: false,
       isLike6: false,
     };
+  },
+  created() {
+    if (this.$route.path.indexOf('/VAPI/') >= 0) this.isAPI = true;
   },
   methods: {
 

@@ -55,6 +55,7 @@
                 </kb-button>
               </div>
               <kb-button
+                v-if="!isAPI"
                 like
                 :class="{checked:isLike}"
                 role="checkbox"
@@ -72,6 +73,7 @@
                 </kb-button>
               </div>
               <kb-button
+                v-if="!isAPI"
                 like
                 :class="{checked:isLike}"
                 role="checkbox"
@@ -89,6 +91,7 @@
                 </kb-button>
               </div>
               <kb-button
+                v-if="!isAPI"
                 like
                 :class="{checked:isLike}"
                 role="checkbox"
@@ -106,6 +109,7 @@
                 </kb-button>
               </div>
               <kb-button
+                v-if="!isAPI"
                 like
                 :class="{checked:isLike}"
                 role="checkbox"

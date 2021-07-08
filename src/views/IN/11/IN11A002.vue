@@ -151,6 +151,7 @@
                 </kb-button>
                 <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
                 <kb-button
+                  v-if="!isAPI"
                   like
                   :class="{checked:isLike1}"
                   role="checkbox"
@@ -169,6 +170,7 @@
                 </kb-button>
                 <!-- 활성화 시 checked 클래스 적용, aria-checked: true -->
                 <kb-button
+                  v-if="!isAPI"
                   like
                   :class="{checked:isLike2}"
                   role="checkbox"
@@ -192,6 +194,7 @@ export default {
   name: 'IN11A002',
   data() {
     return {
+      isAPI: false,
       tabIdx: 0,
       result: null,
       isLike1: false,
@@ -207,6 +210,9 @@ export default {
         { name: '패션', color: '#3bae6c' },
       ],
     };
+  },
+  created() {
+    if (this.$route.path.indexOf('/VAPI/') >= 0) this.isAPI = true;
   },
   methods: {
   },

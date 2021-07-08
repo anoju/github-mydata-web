@@ -172,7 +172,7 @@ export default [
     pageID: 'IN05A004', type: 'pop', api: false, depth1: '투자생활', depth2: '투자습관진단', depth3: '투자나이 수정', depth4: null, etc: '', complete: '2020-05-06', change: '',
   },
   {
-    pageID: 'IN06A001', type: 'page', api: true, depth1: '투자생활', depth2: '고수의 PICK', depth3: '나의 북마크', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
+    pageID: 'IN06A001', type: 'page', api: false, depth1: '투자생활', depth2: '고수의 PICK', depth3: '나의 북마크', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
   },
   {
     pageID: 'IN06AZ07', type: 'page', api: true, depth1: '투자생활', depth2: '고수의 PICK', depth3: '전체', depth4: null, etc: null, complete: '2021-03-30', change: '2021-06-11',
@@ -254,7 +254,7 @@ export default [
     pageID: 'IN11A001', type: 'page', api: true, depth1: '투자생활', depth2: '주식테마 큐레이션', depth3: '리스트', depth4: null, etc: '', complete: '2021-04-23', change: null,
   },
   {
-    pageID: 'IN11A002', type: 'page', api: false, depth1: '투자생활', depth2: '주식테마 큐레이션', depth3: '상세', depth4: null, etc: '', complete: '2021-04-23', change: null,
+    pageID: 'IN11A002', type: 'page', api: true, depth1: '투자생활', depth2: '주식테마 큐레이션', depth3: '상세', depth4: null, etc: '', complete: '2021-04-23', change: null,
   },
   // 모델포트폴리오
   {

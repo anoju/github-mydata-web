@@ -2,15 +2,23 @@
   <kb-page page-title="주식 종목 진단">
     <kb-page-body class="pd_b0">
       <!-- 종목을 찾을 수 없을때 -->
-      <div v-if="false" class="no_list_txt icon h_full">
-        <strong class="tit">이런, 해당 종목을 찾을수가 없어요.<br>
-          종목을 다시 검색해 보시겠어요?</strong>
-        <div class="mg_t32">
-          <kb-button line blue class="w_200">종목 검색으로 가기</kb-button>
-        </div>
-        <div class="mg_t10">
-          <kb-button line blue class="w_200">투자생활로 가기</kb-button>
-        </div>
+      <div v-if="noSearch" class="no_list_txt icon h_full">
+        <template  v-if="isAPI">
+          <strong class="tit">이런, 해당 종목을 찾을수가 없어요.</strong>
+          <div class="mg_t32">
+            <kb-button line blue class="w_200" @click="noSearch = false">이전 화면으로 가기</kb-button>
+          </div>
+        </template>
+        <template v-else>
+          <strong class="tit">이런, 해당 종목을 찾을수가 없어요.<br>
+            종목을 다시 검색해 보시겠어요?</strong>
+          <div class="mg_t32">
+            <kb-button line blue class="w_200" @click="noSearch = false">종목 검색으로 가기</kb-button>
+          </div>
+          <div class="mg_t10">
+            <kb-button line blue class="w_200">투자생활로 가기</kb-button>
+          </div>
+        </template>
       </div>
       <!-- //종목을 찾을 수 없을때 -->
 
@@ -1163,6 +1171,7 @@ export default {
   data() {
     return {
       isAPI: false,
+      noSearch: true,
       keywords: ['분산투자고수 관심주', '리서치 추천', '매도상위 2위', 'Day-Trader 매수(매도)2위 텍스트 길어', '운 좋은 사람 선택 종목', '5개 이상일때 나오는 키워드'],
       keywordShowCheck: false,
       barWidth: '50%', // 그래프 위치값

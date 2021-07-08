@@ -394,3 +394,16 @@
 		&.type2{height:160px;padding:0 28px;margin-top:0;}
 	}
 }
+.img_banner_swiper{
+	.swiper-slide{padding-bottom:18px !important;}
+	.img_banner_box{box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.08);margin-top:0;}
+	.swiper-pagination-wrap{position:absolute;left:0;width:100%;bottom:0;}
+}
+.img_banner_box{
+	position:relative;border-radius:8px;overflow:hidden;text-align:center;margin-top:8px;
+	button.button{width:100%;}
+	.button{display:block;
+		+.button{margin-top:8px;}
+	}
+	img{max-width:100%;}
+}

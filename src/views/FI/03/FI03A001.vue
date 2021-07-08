@@ -207,6 +207,26 @@
           </kb-button>
           <!-- //2021-06-28 대출 타입 추가 -->
         </div>
+
+        <!-- 하단배너 -->
+        <div class="img_banner_box mg_t32">
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+        </div>
+        <!-- //하단배너 -->
       </div>
     </kb-page-body>
   </kb-page>

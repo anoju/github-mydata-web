@@ -105,6 +105,25 @@
           <div class="no_list_txt icon"><strong class="tit">내역이 없습니다.</strong></div>
         </template>
 
+        <!-- 하단배너 -->
+        <div class="img_banner_box mg_t32">
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+          <kb-button not>
+            <img src="/images/banner/sample_banner_2.png" alt="">
+          </kb-button>
+        </div>
+        <!-- //하단배너 -->
       </div>
     </kb-page-body>
   </kb-page>

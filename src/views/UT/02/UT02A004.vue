@@ -13,7 +13,7 @@
               <span>Insight Alarm</span>
               <span class="bg">고수의 Pick</span>
               <span>타임라인</span>
-              <span>투자손익</span>
+              <span>투자변화</span>
               <span>모델포트폴리오</span>
             </div>
             <div>

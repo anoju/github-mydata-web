@@ -249,7 +249,7 @@
                   to="/TO/02/TO02E001"
                   @click.native="gnbClose"
                 >
-                  투자손익
+                  투자변화
                 </router-link>
               </li>
               <li>

@@ -67,7 +67,7 @@ export default {
         { to: 'TO02A002', text: '총자산' },
         { to: 'TO02D001', text: '타임라인' },
         { to: 'TO02C001', text: '월 지출' },
-        { to: 'TO02E001', text: '투자손익' },
+        { to: 'TO02E001', text: '투자변화' },
       ],
     };
   },

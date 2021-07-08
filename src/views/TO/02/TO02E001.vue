@@ -65,8 +65,8 @@
           하락 : fc_down
         -->
         <p class="tit">
-          <span class="sub_text">입출금 제외</span>
           <span class="fc_up">2,000,160</span>원이 늘었어요!
+          <span class="sub_text mg_t5 mg_b0">손익금은 +2,000,160원이고,<br>입출금은 +1,999,000원이에요</span>
         </p>
         <div class="info">
           <!--

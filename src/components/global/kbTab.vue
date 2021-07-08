@@ -23,6 +23,7 @@ export default {
     title: { type: String, required: true },
     active: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false },
+    hide: { type: Boolean, default: false },
     to: { type: [String, Location], default: null },
     linkTo: { type: [String, Location], default: null },
     tabStyle: { type: String, default: null },

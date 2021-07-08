@@ -59,12 +59,12 @@ span.gd__box{
 	td{border:1px solid #ddd;text-align:center;white-space:nowrap;padding:0.3em;
 		&:nth-child(5){color:red}
 	}
-	th{background:#f1f1f1;min-width:80px;}
+	th{background:#f1f1f1;min-width:80px;color:#222;}
 	a{
 		color:#5177bc;text-decoration:underline;
 	}
 	td.line{padding:0;height:2px;background:#ddd;}
-	td.sub{background:#eee;}
+	td.sub{background:#eee;color:#222;}
 }
 .code_status{
 	margin-bottom:1rem;

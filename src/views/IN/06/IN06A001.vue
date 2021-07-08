@@ -7,24 +7,25 @@
           content-class="mg_t0"
           v-model="tabIdx"
         >
-          <kb-tab title="나의 북마크" to="IN06A001">
-            <div class="pick_top my">
-              <p class="stit">투자 고수가 선택하고</p>
-              <strong>내가 지켜보고 있는 Pick</strong>
-              <p class="tip_tit">#고수의 Pick이 한눈에</p>
-              <p class="tip_tit">#나만의 북마크로 관심Pick 만들기</p>
-              <i class="ico"></i>
-            </div>
-            <div class="no_list_txt icon" v-if="false">
-              <strong class="tit">선택한 북마크가 없어요.</strong>
-              <div class="txt">관심있는 고수를 추가해 보세요.</div>
-            </div>
-            <ul class="pick_list" v-else>
-              <li>
-                <kb-button not aTag class="btn_stock">
-                  <strong>장기보유 고수가<br>1주일 동안 매수한 종목은?</strong>
-                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
-                  <i class="ico_pick ico1">투자품격</i>
+          <kb-tab title="나의 북마크" to="IN06A001" :hide="isAPI">
+            <template v-if="!isAPI">
+              <div class="pick_top my">
+                <p class="stit">투자 고수가 선택하고</p>
+                <strong>내가 지켜보고 있는 Pick</strong>
+                <p class="tip_tit">#고수의 Pick이 한눈에</p>
+                <p class="tip_tit">#나만의 북마크로 관심Pick 만들기</p>
+                <i class="ico"></i>
+              </div>
+              <div class="no_list_txt icon" v-if="false">
+                <strong class="tit">선택한 북마크가 없어요.</strong>
+                <div class="txt">관심있는 고수를 추가해 보세요.</div>
+              </div>
+              <ul class="pick_list" v-else>
+                <li>
+                  <kb-button not aTag class="btn_stock">
+                    <strong>장기보유 고수가<br>1주일 동안 매수한 종목은?</strong>
+                    <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                    <i class="ico_pick ico1">투자품격</i>
                   <!--
                     투자품격 ico1
                     보유멘탈 ico2
@@ -32,83 +33,85 @@
                     운빨충만 ico4
                     한개가 더 있다고 함?? ico5
                   -->
-                </kb-button>
-                <div class="hash_tags">
-                  <div>
-                    <span>#키워드</span>
-                    <span>#키워드</span>
-                    <span>#키워드키워드키워드키워드워드키워드키워드</span>
+                  </kb-button>
+                  <div class="hash_tags">
+                    <div>
+                      <span>#키워드</span>
+                      <span>#키워드</span>
+                      <span>#키워드키워드키워드키워드워드키워드키워드</span>
+                    </div>
+                    <kb-button
+                      v-if="!isAPI"
+                      bookmark
+                      :class="{checked:isBookmark}"
+                      role="checkbox"
+                      :aria-checked="isBookmark?'true':'false'"
+                      @click="isBookmark = !isBookmark"
+                    >123</kb-button>
                   </div>
-                  <kb-button
-                    bookmark
-                    :class="{checked:isBookmark}"
-                    role="checkbox"
-                    :aria-checked="isBookmark?'true':'false'"
-                    @click="isBookmark = !isBookmark"
-                  >123</kb-button>
-                </div>
-              </li>
-              <li>
-                <kb-button not aTag class="btn_stock">
-                  <strong>손절매 고수가<br>지금 매도하는 종목은?</strong>
-                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
-                  <i class="ico_pick ico2">보유멘탈</i>
-                </kb-button>
-                <div class="hash_tags">
-                  <div>
-                    <span>#키워드</span>
-                    <span>#키워드</span>
-                    <span>#키워드</span>
+                </li>
+                <li>
+                  <kb-button not aTag class="btn_stock">
+                    <strong>손절매 고수가<br>지금 매도하는 종목은?</strong>
+                    <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                    <i class="ico_pick ico2">보유멘탈</i>
+                  </kb-button>
+                  <div class="hash_tags">
+                    <div>
+                      <span>#키워드</span>
+                      <span>#키워드</span>
+                      <span>#키워드</span>
+                    </div>
+                    <kb-button v-if="!isAPI" bookmark>123</kb-button>
                   </div>
-                  <kb-button bookmark>123</kb-button>
-                </div>
-              </li>
-              <li>
-                <kb-button not aTag class="btn_stock">
-                  <strong>불타기 고수가<br>지금 매수한 종목은?</strong>
-                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
-                  <i class="ico_pick ico3">자본포스</i>
-                </kb-button>
-                <div class="hash_tags">
-                  <div>
-                    <span>#키워드</span>
-                    <span>#키워드</span>
-                    <span>#키워드</span>
+                </li>
+                <li>
+                  <kb-button not aTag class="btn_stock">
+                    <strong>불타기 고수가<br>지금 매수한 종목은?</strong>
+                    <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                    <i class="ico_pick ico3">자본포스</i>
+                  </kb-button>
+                  <div class="hash_tags">
+                    <div>
+                      <span>#키워드</span>
+                      <span>#키워드</span>
+                      <span>#키워드</span>
+                    </div>
+                    <kb-button v-if="!isAPI" bookmark>123</kb-button>
                   </div>
-                  <kb-button bookmark>123</kb-button>
-                </div>
-              </li>
-              <li>
-                <kb-button not aTag class="btn_stock">
-                  <strong>불타기 고수가<br>지금 매수한 종목은?</strong>
-                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
-                  <i class="ico_pick ico4">운빨충만</i>
-                </kb-button>
-                <div class="hash_tags">
-                  <div>
-                    <span>#키워드</span>
-                    <span>#키워드</span>
-                    <span>#키워드</span>
+                </li>
+                <li>
+                  <kb-button not aTag class="btn_stock">
+                    <strong>불타기 고수가<br>지금 매수한 종목은?</strong>
+                    <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                    <i class="ico_pick ico4">운빨충만</i>
+                  </kb-button>
+                  <div class="hash_tags">
+                    <div>
+                      <span>#키워드</span>
+                      <span>#키워드</span>
+                      <span>#키워드</span>
+                    </div>
+                    <kb-button v-if="!isAPI" bookmark>123</kb-button>
                   </div>
-                  <kb-button bookmark>123</kb-button>
-                </div>
-              </li>
-              <li>
-                <kb-button not aTag class="btn_stock">
-                  <strong>불타기 고수가<br>지금 매수한 종목은?</strong>
-                  <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
-                  <i class="ico_pick ico5">찐찐고수</i>
-                </kb-button>
-                <div class="hash_tags">
-                  <div>
-                    <span>#키워드</span>
-                    <span>#키워드</span>
-                    <span>#키워드</span>
+                </li>
+                <li>
+                  <kb-button not aTag class="btn_stock">
+                    <strong>불타기 고수가<br>지금 매수한 종목은?</strong>
+                    <p class="tip_txt">사고팔기가 웬 말이냐?<br>그저 있는 듯 없는 듯 지니고 있어라!</p>
+                    <i class="ico_pick ico5">찐찐고수</i>
+                  </kb-button>
+                  <div class="hash_tags">
+                    <div>
+                      <span>#키워드</span>
+                      <span>#키워드</span>
+                      <span>#키워드</span>
+                    </div>
+                    <kb-button v-if="!isAPI" bookmark>123</kb-button>
                   </div>
-                  <kb-button bookmark>123</kb-button>
-                </div>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </template>
           </kb-tab>
 
           <kb-tab title="전체" to="IN06AZ07">
@@ -147,9 +150,7 @@
                     <span>#키워드</span>
                     <span>#키워드키워드키워드키워드워드키워드키워드</span>
                   </div>
-                  <kb-button not aTag class="btn_bmark">
-                    <i class="ico_on"></i>123
-                  </kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
               <li>
@@ -164,7 +165,7 @@
                     <span>#키워드</span>
                     <span>#키워드</span>
                   </div>
-                  <kb-button bookmark>123</kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
               <li>
@@ -179,7 +180,7 @@
                     <span>#키워드</span>
                     <span>#키워드</span>
                   </div>
-                  <kb-button bookmark>123</kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
               <li>
@@ -194,7 +195,7 @@
                     <span>#키워드</span>
                     <span>#키워드</span>
                   </div>
-                  <kb-button bookmark>123</kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
               <li>
@@ -209,7 +210,7 @@
                     <span>#키워드</span>
                     <span>#키워드</span>
                   </div>
-                  <kb-button bookmark>123</kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
             </ul>
@@ -235,9 +236,7 @@
                     <span>#키워드</span>
                     <span>#키워드키워드키워드키워드워드키워드키워드</span>
                   </div>
-                  <kb-button not aTag class="btn_bmark">
-                    <i class="ico_on"></i>123
-                  </kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
               <li>
@@ -251,7 +250,7 @@
                     <span>#키워드</span>
                     <span>#키워드</span>
                   </div>
-                  <kb-button bookmark>123</kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
             </ul>
@@ -277,9 +276,7 @@
                     <span>#키워드</span>
                     <span>#키워드키워드키워드키워드워드키워드키워드</span>
                   </div>
-                  <kb-button not aTag class="btn_bmark">
-                    <i class="ico_on"></i>123
-                  </kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
               <li>
@@ -293,7 +290,7 @@
                     <span>#키워드</span>
                     <span>#키워드</span>
                   </div>
-                  <kb-button bookmark>123</kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
               <li>
@@ -307,7 +304,7 @@
                     <span>#키워드</span>
                     <span>#키워드</span>
                   </div>
-                  <kb-button bookmark>123</kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
               <li>
@@ -321,7 +318,7 @@
                     <span>#키워드</span>
                     <span>#키워드</span>
                   </div>
-                  <kb-button bookmark>123</kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
               <li>
@@ -335,7 +332,7 @@
                     <span>#키워드</span>
                     <span>#키워드</span>
                   </div>
-                  <kb-button bookmark>123</kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
               <li>
@@ -349,7 +346,7 @@
                     <span>#키워드</span>
                     <span>#키워드</span>
                   </div>
-                  <kb-button bookmark>123</kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
             </ul>
@@ -375,9 +372,7 @@
                     <span>#키워드</span>
                     <span>#키워드키워드키워드키워드워드키워드키워드</span>
                   </div>
-                  <kb-button not aTag class="btn_bmark">
-                    <i class="ico_on"></i>123
-                  </kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
               <li>
@@ -391,7 +386,7 @@
                     <span>#키워드</span>
                     <span>#키워드</span>
                   </div>
-                  <kb-button bookmark>123</kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
             </ul>
@@ -417,9 +412,7 @@
                     <span>#키워드</span>
                     <span>#키워드키워드키워드키워드워드키워드키워드</span>
                   </div>
-                  <kb-button not aTag class="btn_bmark">
-                    <i class="ico_on"></i>123
-                  </kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
               <li>
@@ -433,7 +426,7 @@
                     <span>#키워드</span>
                     <span>#키워드</span>
                   </div>
-                  <kb-button bookmark>123</kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
             </ul>
@@ -467,9 +460,7 @@
                     <span>#키워드</span>
                     <span>#키워드키워드키워드키워드워드키워드키워드</span>
                   </div>
-                  <kb-button not aTag class="btn_bmark">
-                    <i class="ico_on"></i>123
-                  </kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
               <li>
@@ -483,7 +474,7 @@
                     <span>#키워드</span>
                     <span>#키워드</span>
                   </div>
-                  <kb-button bookmark>123</kb-button>
+                  <kb-button v-if="!isAPI" bookmark>123</kb-button>
                 </div>
               </li>
             </ul>
@@ -499,6 +490,7 @@ export default {
   name: 'IN06A001',
   data() {
     return {
+      isAPI: false,
       isBookmark: true,
       tabIdx: 0,
     };
@@ -507,6 +499,12 @@ export default {
     $route: {
       immediate: true,
       handler(to) {
+        if (to.path.indexOf('/VAPI/') >= 0) {
+          this.isAPI = true;
+          if (to.path.indexOf('IN06A001') > 0) this.$router.replace('IN06AZ07');
+        } else {
+          this.isAPI = false;
+        }
         if (to.path.indexOf('IN06A001') > 0) this.tabIdx = 0;
         else if (to.path.indexOf('IN06AZ07') > 0) this.tabIdx = 1;
         else if (to.path.indexOf('IN06AZ01') > 0) this.tabIdx = 2;
