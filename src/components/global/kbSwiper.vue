@@ -83,6 +83,7 @@ export default {
       isOnly: false,
       isChagned: false,
       resizeUpadte: '',
+      timer: null,
     };
   },
   computed: {
@@ -237,13 +238,11 @@ export default {
       console.log('swiperAppendSlide');
     },
     swiperChangeEvt() {
-      let timer = null;
       if (this.value !== null && !this.isChagned) {
         this.isChagned = true;
-        clearTimeout(timer);
-        console.log(this.value, this.mySwiper.realIndex);
+        clearTimeout(this.timer);
         if (this.value !== this.mySwiper.realIndex) this.$emit('input', this.mySwiper.realIndex);
-        timer = setTimeout(() => {
+        this.timer = setTimeout(() => {
           this.isChagned = false;
         }, 10);
       }

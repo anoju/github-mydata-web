@@ -1,5 +1,24 @@
 <template>
   <div class="section portfolio_wrap">
+    <!-- 2021-07-09 슬라이드 배너 -->
+    <kb-swiper class="mg_t0 mg_b24 img_banner_swiper">
+      <swiper-slide>
+        <div class="img_banner_box">
+          <kb-button not>
+            <img src="/images/banner/sample_banner_1.png" alt="">
+          </kb-button>
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="img_banner_box">
+          <kb-button not>
+            <img src="/images/banner/sample_banner_1.png" alt="">
+          </kb-button>
+        </div>
+      </swiper-slide>
+    </kb-swiper>
+    <!-- //슬라이드 배너 -->
+
     <div class="mg_t12 mg_b12 t_right">
       <kb-button aTag not class="btn_setting" @click="showModalPopup($event)">홈 편집</kb-button>
     </div>
@@ -323,6 +342,14 @@
         <kb-button aTag class="tit" style="background:#3bae6c">코로나로 주목 받은 바이오</kb-button>
       </swiper-slide>
     </kb-swiper>
+
+    <!-- 2021-07-09 배너 -->
+    <div class="img_banner_box">
+      <kb-button not>
+        <img src="/images/banner/sample_banner_2.png" alt="">
+      </kb-button>
+    </div>
+    <!-- //배너 -->
     <!-- //모르면 손해보는 요즘 테마 -->
 
     <!-- 손쉬운 투자공식 모델포트폴리오 -->
@@ -376,6 +403,14 @@
         </kb-button>
       </swiper-slide>
     </kb-swiper>
+
+    <!-- 2021-07-09 배너 -->
+    <div class="img_banner_box mg_t0 mg_b32">
+      <kb-button not>
+        <img src="/images/banner/sample_banner_2.png" alt="">
+      </kb-button>
+    </div>
+    <!-- //배너 -->
     <!-- //손쉬운 투자공식 모델포트폴리오 -->
 
     <!-- 거인의 어깨에서 투자를 보다 -->
@@ -415,6 +450,14 @@
         </kb-button>
       </swiper-slide>
     </kb-swiper>
+
+    <!-- 2021-07-09 배너 -->
+    <div class="img_banner_box mg_t0 mg_b32">
+      <kb-button not>
+        <img src="/images/banner/sample_banner_2.png" alt="">
+      </kb-button>
+    </div>
+    <!-- //배너 -->
     <!-- //거인의 어깨에서 투자를 보다 -->
 
     <!-- 두근 두근 이번 달 성적 -->
@@ -553,6 +596,14 @@
         </ul>
       </kb-button>
     </template>
+
+    <!-- 2021-07-09 배너 -->
+    <div class="img_banner_box">
+      <kb-button not>
+        <img src="/images/banner/sample_banner_2.png" alt="">
+      </kb-button>
+    </div>
+    <!-- //배너 -->
     <!-- //두근 두근 이번 달 성적 -->
 
     <!-- 달콤한 미래 투자 -->
@@ -591,6 +642,14 @@
         </div>
       </kb-button>
     </template>
+
+    <!-- 2021-07-09 배너 -->
+    <div class="img_banner_box">
+      <kb-button not>
+        <img src="/images/banner/sample_banner_2.png" alt="">
+      </kb-button>
+    </div>
+    <!-- //배너 -->
     <!-- //달콤한 미래 투자 -->
 
     <!-- 운명을 건 투자 발굴 -->
@@ -617,6 +676,14 @@
       </p>
       <i class="ico ico2"></i>
     </kb-button>
+
+    <!-- 2021-07-09 배너 -->
+    <div class="img_banner_box">
+      <kb-button not>
+        <img src="/images/banner/sample_banner_2.png" alt="">
+      </kb-button>
+    </div>
+    <!-- //배너 -->
     <!-- //운명을 건 투자 발굴 -->
 
     <!-- 2021-07-01 추가 -->
@@ -640,6 +707,26 @@
       <i class="ico ico3"></i>
     </kb-button>
     <!-- //좋은 건 함께해요 혜택 추천 -->
+
+    <!-- 하단배너 -->
+    <div class="img_banner_box mg_t32">
+      <kb-button not>
+        <img src="/images/banner/sample_banner_2.png" alt="">
+      </kb-button>
+      <kb-button not>
+        <img src="/images/banner/sample_banner_2.png" alt="">
+      </kb-button>
+      <kb-button not>
+        <img src="/images/banner/sample_banner_2.png" alt="">
+      </kb-button>
+      <kb-button not>
+        <img src="/images/banner/sample_banner_2.png" alt="">
+      </kb-button>
+      <kb-button not>
+        <img src="/images/banner/sample_banner_2.png" alt="">
+      </kb-button>
+    </div>
+    <!-- //하단배너 -->
   </div>
 </template>
 <script>
