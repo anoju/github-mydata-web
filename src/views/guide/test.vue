@@ -1,7 +1,27 @@
 <template>
   <div class="section">
     <div class="character_face_wrap">
-      <div ref="character" id="character" class="character_face">
+      <div class="mg_t30">
+        <kb-input
+          @focus="look"
+          @click="look"
+          @keyup="look"
+          @blur="reset"
+          v-model="inpVal3"
+          placeholder="이름입력"
+        />
+      </div>
+      <div class="mg_t10">
+        <kb-input
+          type="password"
+          @click="lookAway"
+          @focus="lookAway"
+          @blur="reset"
+          v-model="inpVal4"
+          placeholder="주민번호입력"
+        />
+      </div>
+      <div ref="character" id="character" class="character_face mg_t30">
         <div class="body"></div>
         <div class="face">
           <div class="ears">
@@ -70,6 +90,8 @@ export default {
       inpNumber: '',
       inpVal1: '',
       inpVal2: '',
+      inpVal3: '',
+      inpVal4: '',
       spanVal: '',
       timer: null,
       tabAry: [],
