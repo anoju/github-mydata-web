@@ -1,5 +1,8 @@
 <template>
   <div class="section">
+    <div class="mg_t30">
+      <kb-input type="tel" comma v-model="inpVal5" placeholder="숫자입력" />
+    </div>
     <div class="character_face_wrap">
       <div class="mg_t30">
         <kb-input
@@ -34,8 +37,7 @@
                 <div class="eye left"></div>
                 <div class="eye right"></div>
               </div>
-              <div class="mouse">
-              </div>
+              <div class="mouse"></div>
             </div>
           </div>
         </div>
@@ -61,23 +63,23 @@
         />
       </div>
     </div>
-    <div ref="span" style="visibility: hidden; position: absolute; top: -999px;left:0;">
-      <span>{{spanVal}}.</span>
-    </div>
-    <br>
     <div
-      class="gd__tab_box"
-      v-touch:tap="tapEvt"
+      ref="span"
+      style="visibility: hidden; position: absolute; top: -999px;left:0;"
     >
+      <span>{{ spanVal }}.</span>
+    </div>
+    <br />
+    <div class="gd__tab_box" v-touch:tap="tapEvt">
       <div
         class="item"
         v-for="(item, i) of tabAry"
         :key="i"
-        :style="{left:`${item.X}px`,top:`${item.Y}px`}"
+        :style="{ left: `${item.X}px`, top: `${item.Y}px` }"
       >
-        {{item.X}}
-        <br>
-        {{item.Y}}
+        {{ item.X }}
+        <br />
+        {{ item.Y }}
       </div>
     </div>
   </div>
@@ -92,13 +94,13 @@ export default {
       inpVal2: '',
       inpVal3: '',
       inpVal4: '',
+      inpVal5: '',
       spanVal: '',
       timer: null,
       tabAry: [],
     };
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
     rotate3d(x, y, z, rad) {
       const face = this.$el.querySelectorAll('.ears, .eyes, .mouse');
@@ -130,7 +132,10 @@ export default {
       const inputRect = el.getBoundingClientRect();
       const caretRect = this.$refs.span.getBoundingClientRect();
       const caretPos = caretRect.left + Math.min(caretRect.width, inputRect.width) * !!text;
-      const distCaret = characterRect.left + characterRect.width / 2 - inputRect.left - caretPos;
+      const distCaret = characterRect.left
+        + characterRect.width / 2
+        - inputRect.left
+        - caretPos;
       const distInput = characterRect.top + characterRect.height / 2 - inputRect.top;
       const y = Math.atan2(-distCaret, Math.abs(distInput) * 3);
       const x = Math.atan2(distInput, (Math.abs(distInput) * 3) / Math.cos(y));
@@ -143,7 +148,10 @@ export default {
       const inputRect = el.getBoundingClientRect();
       const distInput = characterRect.top + characterRect.height / 2 - inputRect.top;
 
-      this.$refs.character.classList.add('look-away', distInput < 0 ? 'up' : 'down');
+      this.$refs.character.classList.add(
+        'look-away',
+        distInput < 0 ? 'up' : 'down',
+      );
 
       clearTimeout(this.timer);
       this.timer = setTimeout(() => {
@@ -152,15 +160,19 @@ export default {
     },
     tapEvt(e) {
       const $tap = { X: 0, Y: 0 };
-      const evt = (e.type === 'touchend') ? e.changedTouches[0] : e;
-      const wrap = e.target.classList.contains('gd__tab_box') ? e.target : e.target.closest('.gd__tab_box');
-      const sclBody = (this.$el.closest('.scl__body') === null) ? window : this.$el.closest('.scl__body');
-      const sclTop = (sclBody === window) ? sclBody.scrollY : sclBody.scrollTop;
+      const evt = e.type === 'touchend' ? e.changedTouches[0] : e;
+      const wrap = e.target.classList.contains('gd__tab_box')
+        ? e.target
+        : e.target.closest('.gd__tab_box');
+      const sclBody = this.$el.closest('.scl__body') === null
+        ? window
+        : this.$el.closest('.scl__body');
+      const sclTop = sclBody === window ? sclBody.scrollY : sclBody.scrollTop;
       $tap.X = evt.clientX;
       $tap.Y = evt.clientY;
       this.tabAry.push({
-        X: ($tap.X - this.$getOffset(wrap).left),
-        Y: ($tap.Y - (this.$getOffset(wrap).top - sclTop)),
+        X: $tap.X - this.$getOffset(wrap).left,
+        Y: $tap.Y - (this.$getOffset(wrap).top - sclTop),
       });
     },
   },
