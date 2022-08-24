@@ -77,6 +77,7 @@ const routes = [
       { path: 'calendar', component: () => import('@/views/guide/calendar.vue'), meta: { page: 10 } },
       { path: 'drag', component: () => import('@/views/guide/drag.vue'), meta: { page: 11 } },
       { path: 'test', component: () => import('@/views/guide/test.vue'), meta: { page: 12 } },
+      { path: 'test2', component: () => import('@/views/guide/test2.vue'), meta: { page: 13 } },
     ],
   },
   { path: '/guide/pdf', component: () => import('@/views/guide/pdf.vue') },

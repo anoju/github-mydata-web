@@ -1,11 +1,13 @@
 <template>
   <div class="section">
+    <h2 class="gd__h1">콤마 테스트</h2>
     <div class="mg_t30">
       <kb-input type="tel" comma v-model="inpVal5" placeholder="숫자입력" />
     </div>
     <div class="mg_t30">
       <input type="tel" v-model="inpVal6" placeholder="숫자입력" />
     </div>
+    <h2 class="gd__h1">캐릭터 테스트</h2>
     <div class="character_face_wrap">
       <div class="mg_t30">
         <kb-input
@@ -66,6 +68,7 @@
         />
       </div>
     </div>
+    <h2 class="gd__h1">탭이펙트 테스트</h2>
     <div
       ref="span"
       style="visibility: hidden; position: absolute; top: -999px;left:0;"
@@ -108,7 +111,7 @@ export default {
     inpVal6: {
       immediate: true,
       handler(to, from) {
-        if ((this.$removeComma(to) === this.$removeComma(from))) return;
+        if (this.$removeComma(to) === this.$removeComma(from)) return;
         let $value = to;
         $value = this.$removeComma($value);
         $value = this.$addComma($value);

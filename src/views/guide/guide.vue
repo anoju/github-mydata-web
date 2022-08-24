@@ -27,6 +27,7 @@ export default {
         { to: '/guide/calendar', text: 'calendar' },
         { to: '/guide/drag', text: 'drag' },
         { to: '/guide/test', text: 'test' },
+        { to: '/guide/test2', text: 'test2' },
       ],
     };
   },
