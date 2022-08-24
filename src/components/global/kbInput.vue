@@ -37,6 +37,7 @@
         v-else-if="file"
         type="file"
         :multiple="multiple"
+        :disabled="disabled"
         v-on="listeners"
       />
       <input
