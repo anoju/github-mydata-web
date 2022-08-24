@@ -4,12 +4,7 @@
       <kb-input type="tel" comma v-model="inpVal5" placeholder="숫자입력" />
     </div>
     <div class="mg_t30">
-      <input
-        type="tel"
-        v-model="inpVal6"
-        placeholder="숫자입력"
-        @keyup="addCommaInp"
-      />
+      <input type="tel" v-model="inpVal6" placeholder="숫자입력" />
     </div>
     <div class="character_face_wrap">
       <div class="mg_t30">
@@ -103,31 +98,26 @@ export default {
       inpVal3: '',
       inpVal4: '',
       inpVal5: '',
-      inpVal6: '',
+      inpVal6: '123456',
       spanVal: '',
       timer: null,
       tabAry: [],
     };
   },
-  // watch: {
-  //   inpVal6: {
-  //     immediate: true,
-  //     handler(to) {
-  //       console.log("comma");
-
-  //       const vm = this;
-  //       Vue.nextTick(() => (vm.inpVal6 = $value));
-  //     },
-  //   },
-  // },
+  watch: {
+    inpVal6: {
+      immediate: true,
+      handler(to, from) {
+        if ((this.$removeComma(to) === this.$removeComma(from))) return;
+        let $value = to;
+        $value = this.$removeComma($value);
+        $value = this.$addComma($value);
+        this.inpVal6 = $value;
+      },
+    },
+  },
   mounted() {},
   methods: {
-    addCommaInp(event) {
-      let $value = event.target.value;
-      $value = this.$removeComma($value);
-      $value = this.$addComma($value);
-      this.inpVal6 = $value;
-    },
     rotate3d(x, y, z, rad) {
       const face = this.$el.querySelectorAll('.ears, .eyes, .mouse');
       const value = `rotate3d(${x}, ${y}, ${z}, ${rad}rad)`;
