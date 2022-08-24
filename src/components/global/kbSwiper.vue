@@ -7,14 +7,38 @@
       v-swiper:mySwiper="swiperOption"
       class="ui-swiper"
       :class="{ loop: loop, 'auto-height': autoHeight }"
-      @ready="swiperReady"
-      @resize="swiperResize"
-      @touchEnd="swiperTouchEnd"
-      @transitionStart="swiperChangeStart"
-      @observerUpdate="swiperAppendSlide"
-      @slideChangeTransitionEnd="swiperChangeEvt"
-      @reachEnd="swiperEnd"
       :dir="dir"
+      @ready="swiperReady"
+      @clickSlide="swiperClickSlide"
+      @beforeDestroy="swiperBeforeDestroy"
+      @slideChange="swiperSlideChange"
+      @slideChangeTransitionStart="swiperSlideChangeTransitionStart"
+      @slideChangeTransitionEnd="swiperSlideChangeTransitionEnd"
+      @slideNextTransitionStart="swiperSlideNextTransitionStart"
+      @slideNextTransitionEnd="swiperSlideNextTransitionEnd"
+      @slidePrevTransitionStart="swiperSlidePrevTransitionStart"
+      @slidePrevTransitionEnd="swiperSlidePrevTransitionEnd"
+      @transitionStart="swiperTransitionStart"
+      @transitionEnd="swiperTransitionEnd"
+      @touchStart="swiperTouchStart"
+      @touchMove="swiperTouchMove"
+      @touchMoveOpposite="swiperTouchMoveOpposite"
+      @sliderMove="swiperSliderMove"
+      @touchEnd="swiperTouchEnd"
+      @click="swiperClick"
+      @tap="swiperTap"
+      @doubleTap="swiperDoubleTap"
+      @imagesReady="swiperImagesReady"
+      @progress="swiperProgress"
+      @reachBeginning="swiperReachBeginning"
+      @reachEnd="swiperReachEnd"
+      @fromEdge="swiperFromEdge"
+      @setTranslate="swiperSetTranslate"
+      @setTransition="swiperSetTransition"
+      @resize="swiperResize"
+      @observerUpdate="swiperObserverUpdate"
+      @beforeLoopFix="swiperBeforeLoopFix"
+      @loopFix="swiperLoopFix"
     >
       <div class="swiper-wrapper">
         <slot />
@@ -131,6 +155,7 @@ export default {
     },
   },
   mounted() {
+    // console.log(this.$children);
     if (this.autoplay) {
       this.isAutoplay = true;
       // this.mySwiper.slideTo(this.index, 0, false);
@@ -152,8 +177,9 @@ export default {
       }, 20);
     },
     swiperReady(swiper) {
+      // console.log('swiperReady');
       this.$nextTick(() => {
-        this.swiperCheck(swiper);
+        if (!this.loop && this.navi) this.swiperCheck(swiper);
         if (
           this.value !== null
           && this.value !== ''
@@ -168,15 +194,61 @@ export default {
         }
       });
     },
-    swiperResize() {
-      this.swiperCheck(this.mySwiper);
-      clearTimeout(this.resizeUpadte);
-      this.resizeUpadte = setTimeout(() => {
-        this.mySwiper.update();
-      }, 300);
+    swiperClickSlide(index) {
+      console.log('Click slide!', index);
     },
-    swiperClickSlide(index, reallyIndex) {
-      console.log('Click slide!', index, reallyIndex);
+    swiperBeforeDestroy() {
+      // console.log('swiperBeforeDestroy');
+    },
+    swiperSlideChange() {
+      // console.log('swiperSlideChange');
+    },
+    swiperSlideChangeTransitionStart() {
+      // console.log('swiperSlideChangeTransitionStart');
+    },
+    swiperSlideChangeTransitionEnd() {
+      if (this.value !== null && !this.isChagned) {
+        this.isChagned = true;
+        clearTimeout(this.timer);
+        if (this.value !== this.mySwiper.realIndex) {
+          this.$emit('input', this.mySwiper.realIndex);
+        }
+        this.timer = setTimeout(() => {
+          this.isChagned = false;
+        }, 10);
+      }
+      this.$emit('swiperChange', this.mySwiper.snapIndex);
+    },
+    swiperSlideNextTransitionStart() {
+      // console.log('swiperSlideNextTransitionStart');
+    },
+    swiperSlideNextTransitionEnd() {
+      // console.log('swiperSlideNextTransitionEnd');
+    },
+    swiperSlidePrevTransitionStart() {
+      // console.log('swiperSlidePrevTransitionStart');
+    },
+    swiperSlidePrevTransitionEnd() {
+      // console.log('swiperSlidePrevTransitionEnd');
+    },
+    swiperTransitionStart() {
+      // console.log('swiperTransitionStart');
+      if (!this.loop && this.navi) this.swiperCheck(this.mySwiper);
+    },
+    swiperTransitionEnd() {
+      // console.log('swiperTransitionEnd');
+    },
+    swiperTouchStart() {
+      // console.log('swiperTouchStart');
+    },
+    swiperTouchMove() {
+      // console.log('swiperTouchMove');
+    },
+    swiperTouchMoveOpposite() {
+      // console.log('swiperTouchMoveOpposite');
+    },
+    swiperSliderMove() {
+      // console.log('swiperSliderMove');
     },
     swiperTouchEnd(e) {
       const $target = e.target;
@@ -189,10 +261,52 @@ export default {
         if (this.autoplay) this.isAutoplay = false;
       }
     },
-    swiperChangeStart() {
-      if (!this.loop && this.navi) {
-        this.swiperCheck(this.mySwiper);
-      }
+    swiperClick() {
+      // console.log('swiperClick');
+    },
+    swiperTap() {
+      // console.log('swiperTap');
+    },
+    swiperDoubleTap() {
+      // console.log('swiperDoubleTap');
+    },
+    swiperImagesReady() {
+      // console.log('swiperImagesReady');
+    },
+    swiperProgress() {
+      // console.log('swiperProgress');
+    },
+    swiperReachBeginning() {
+      // console.log('swiperReachBeginning');
+    },
+    swiperReachEnd() {
+      // console.log('swiperReachEnd');
+    },
+    swiperFromEdge() {
+      // console.log('swiperFromEdge');
+    },
+    swiperSetTranslate() {
+      // console.log('swiperSetTranslate');
+      if (!this.loop && this.navi) this.swiperCheck(this.mySwiper);
+    },
+    swiperSetTransition() {
+      // console.log('swiperSetTransition');
+    },
+    swiperResize() {
+      if (!this.loop && this.navi) this.swiperCheck(this.mySwiper);
+      clearTimeout(this.resizeUpadte);
+      this.resizeUpadte = setTimeout(() => {
+        this.mySwiper.update();
+      }, 300);
+    },
+    swiperObserverUpdate() {
+      // console.log('swiperObserverUpdate');
+    },
+    swiperBeforeLoopFix() {
+      // console.log('swiperBeforeLoopFix');
+    },
+    swiperLoopFix() {
+      // console.log('swiperLoopFix');
     },
     swiperCheck(tar) {
       // console.log(tar.activeIndex, tar.realIndex, tar.snapIndex)
@@ -247,26 +361,7 @@ export default {
         this.mySwiper.autoplay.stop();
       }
     },
-    swiperAppendSlide() {
-      console.log('swiperAppendSlide');
-    },
-    swiperChangeEvt() {
-      if (this.value !== null && !this.isChagned) {
-        this.isChagned = true;
-        clearTimeout(this.timer);
-        if (this.value !== this.mySwiper.realIndex) {
-          this.$emit('input', this.mySwiper.realIndex);
-        }
-        this.timer = setTimeout(() => {
-          this.isChagned = false;
-        }, 10);
-      }
-      this.$emit('swiperChange', this.mySwiper.snapIndex);
-    },
-    swiperEnd() {
-      // console.log('end??')
-      // this.$emit('swEnd')
-    },
+
   },
 };
 </script>
