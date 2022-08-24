@@ -47,7 +47,6 @@ export default {
   data() {
     return {
       files: [], // 업로드용 파일
-      filesPreview: [],
       inpFileDisabled: false,
     };
   },
@@ -72,7 +71,7 @@ export default {
         this.files = [
           ...this.files,
           {
-            file: $files[i],
+            // file: $files[i],
             preview: URL.createObjectURL($files[i]),
           },
         ];
