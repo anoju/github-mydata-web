@@ -3,22 +3,21 @@
     :is="tag"
     class="input"
     :class="{
-      focus: (isFocus && !readonly),
+      focus: isFocus && !readonly,
       readonly: readonly,
       disabled: disabled,
       line: line,
       date: date,
       time: time,
-      datepicker: (datepicker || monthpicker || yearpicker),
+      file: file,
+      datepicker: datepicker || monthpicker || yearpicker,
     }"
   >
     <template v-if="!empty">
-      <div
-        v-if="frontUnit != null"
-        class="unit front"
-      >
+      <div v-if="frontUnit != null" class="unit front">
         {{ frontUnit }}
       </div>
+      <span v-if="file" class="button">파일첨부</span>
       <input
         v-if="keypad"
         :id="inputId"
@@ -32,6 +31,12 @@
         :maxlength="maxlength"
         :disabled="disabled"
         :readonly="readonly"
+        v-on="listeners"
+      />
+      <input
+        v-else-if="file"
+        type="file"
+        :multiple="multiple"
         v-on="listeners"
       />
       <input
@@ -52,7 +57,7 @@
         @focus="focusEvt"
         @click="clickEvt"
         @blur="isFocus = false"
-      >
+      />
       <input
         v-if="date"
         type="date"
@@ -60,17 +65,25 @@
         @focus="focusEvt"
         @blur="isFocus = false"
         :min="min"
-        :max="max?max:$dayjs().format('YYYY-MM-DD')"
-        :value="value?$dayjs(value).format('YYYY-MM-DD'):''"
-      >
-      <div
-        v-if="unit != null"
-        class="unit"
-      >
+        :max="max ? max : $dayjs().format('YYYY-MM-DD')"
+        :value="value ? $dayjs(value).format('YYYY-MM-DD') : ''"
+      />
+      <div v-if="unit != null" class="unit">
         {{ unit }}
       </div>
       <div
-        v-if="value != '' && !notDel && !readonly && !disabled && !date && !time && !keypad && !datepicker && !monthpicker && !yearpicker"
+        v-if="
+          value != '' &&
+            !notDel &&
+            !readonly &&
+            !disabled &&
+            !date &&
+            !time &&
+            !keypad &&
+            !datepicker &&
+            !monthpicker &&
+            !yearpicker
+        "
         class="del"
       >
         <button
@@ -78,7 +91,9 @@
           class="inp_del"
           aria-label="입력내용삭제"
           @click="valueReset"
-        >입력내용삭제</button>
+        >
+          입력내용삭제
+        </button>
       </div>
       <div
         v-if="datepicker || monthpicker || yearpicker"
@@ -89,7 +104,8 @@
           class="ui-datepicker-btn"
           aria-label="달력팝업으로 기간조회"
           @click="popCalendar($event.target)"
-        >달력팝업으로 기간조회</kb-button>
+        >달력팝업으로 기간조회</kb-button
+        >
       </div>
     </template>
     <slot />
@@ -116,6 +132,8 @@ export default {
     line: { type: Boolean, default: false },
     date: { type: Boolean, default: false },
     time: { type: Boolean, default: false },
+    file: { type: Boolean, default: false },
+    multiple: { type: Boolean, default: false },
     empty: { type: Boolean, default: false },
     keypad: { type: Boolean, default: false },
     frontUnit: { type: String, default: null },
@@ -165,11 +183,15 @@ export default {
       }, 300);
     },
     clickEvt(e) {
-      if (this.datepicker || this.monthpicker || this.yearpicker) this.popCalendar(e.target);
+      if (this.datepicker || this.monthpicker || this.yearpicker) {
+        this.popCalendar(e.target);
+      }
     },
     focusScroll() {
       const isApp = document.querySelector('html').classList.contains('is_app');
-      const isAndroid = document.querySelector('html').classList.contains('android');
+      const isAndroid = document
+        .querySelector('html')
+        .classList.contains('android');
       if (isApp && isAndroid) {
         const { $el } = this;
         const $offset = this.$getOffset($el);
@@ -179,7 +201,9 @@ export default {
         // let head = null;
         // let headH = 0;
         if (wrap === null) {
-          wrap = window.document.scrollingElement || window.document.body || window.document.documentElement;
+          wrap = window.document.scrollingElement
+            || window.document.body
+            || window.document.documentElement;
           sclTop = window.scrollY;
           // head = document.querySelector('.scl__head');
         } else {
@@ -188,8 +212,8 @@ export default {
         }
         // if (head === null)headH = head.offsetHeight;
         const positionTop = $offset.top - sclTop;
-        const winCenter = (window.innerHeight / 2);
-        const move = $offset.top - (winCenter / 2) - (thisH / 2);
+        const winCenter = window.innerHeight / 2;
+        const move = $offset.top - winCenter / 2 - thisH / 2;
         // console.log(winCenter, positionTop, sclTop, thisH, move);
         if (winCenter < positionTop) {
           this.$scrollTo(wrap, { top: move }, 200);
@@ -206,7 +230,7 @@ export default {
     },
     dateChange(e) {
       let targetVal = e.target.value;
-      if (targetVal.indexOf('-'))targetVal = targetVal.split('-').join('/');
+      if (targetVal.indexOf('-')) targetVal = targetVal.split('-').join('/');
       this.$emit('input', targetVal);
     },
 
@@ -215,8 +239,8 @@ export default {
       const { min } = this;
       const { max } = this;
       let type = 'day';
-      if (this.monthpicker)type = 'month';
-      if (this.yearpicker)type = 'year';
+      if (this.monthpicker) type = 'month';
+      if (this.yearpicker) type = 'year';
       this.$modal({
         component: () => import('@/components/modalContainer/modalCalendar.vue'),
         componentProps: {
@@ -228,7 +252,7 @@ export default {
         returnFocus: el,
       }).then((result) => {
         // console.log(result)
-        if ((result.payload !== undefined) && (this.value !== result.payload)) {
+        if (result.payload !== undefined && this.value !== result.payload) {
           const inpVal = this.autoDateFormet(result.payload, '/');
           this.$emit('input', inpVal);
         }
@@ -237,7 +261,7 @@ export default {
     autoDateFormet(str, mark) {
       const $date = str.replace(/[^0-9]/g, '');
       const $dateAry = [];
-      if (!mark)mark = '/';
+      if (!mark) mark = '/';
       if ($date.length < 5) {
         $dateAry.push($date);
       } else if (str.length < 7) {
