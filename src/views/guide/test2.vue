@@ -6,7 +6,12 @@
       <li v-for="(file, index) in files" :key="index">
         <div class="img_box">
           <img :src="file.preview" alt="" />
-          <button class="del" aria-label="삭제"></button>
+          <button
+            class="del"
+            aria-label="삭제"
+            @click="fileDeleteButton"
+            :name="file.number"
+          ></button>
         </div>
       </li>
     </ul>
