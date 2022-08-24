@@ -1,6 +1,6 @@
 <template>
   <div class="section">
-    <h2 class="tit_h1">첨부파일 테스트</h2>
+    <h2 class="gd__h1">첨부파일 테스트</h2>
     <br />
     <kb-input
       ref="files"
@@ -11,7 +11,8 @@
     />
 
     <div v-if="files.length" class="mg_t30">
-      <h3 class="tit_h2">swipe 형태</h3>
+      <h2 class="gd__h2">첨부파일 이미지 프리뷰</h2>
+      <h3 class="gd__h3">swipe 형태</h3>
       <kb-swiper autoWidth navi class="file_preview_img">
         <swiper-slide v-for="(file, index) in files" :key="index">
           <div class="img_box">
@@ -25,7 +26,7 @@
         </swiper-slide>
       </kb-swiper>
 
-      <h3 class="tit_h2">grid 형태</h3>
+      <h3 class="gd__h3">grid 형태</h3>
       <ul v-if="files.length" class="file_preview_img">
         <li v-for="(file, index) in files" :key="index">
           <div class="img_box">
