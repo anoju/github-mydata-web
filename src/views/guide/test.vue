@@ -8,7 +8,7 @@
         type="tel"
         v-model="inpVal6"
         placeholder="숫자입력"
-        @input="addCommaInp"
+        @keyup="addCommaInp"
       />
     </div>
     <div class="character_face_wrap">
