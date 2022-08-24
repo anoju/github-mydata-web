@@ -2,7 +2,13 @@
   <div class="section">
     <h2 class="tit_h1">첨부파일 테스트</h2>
     <br />
-    <kb-input ref="files" file multiple @change="imageUpload" />
+    <kb-input
+      ref="files"
+      file
+      multiple
+      :disabled="inpFileDisabled"
+      @change="imageUpload"
+    />
 
     <div v-if="files.length" class="mg_t30">
       <h3 class="tit_h2">swipe 형태</h3>
@@ -42,8 +48,21 @@ export default {
     return {
       files: [], // 업로드용 파일
       filesPreview: [],
-      // uploadImageIndex: 0, // 이미지 업로드를 위한 변수
+      inpFileDisabled: false,
     };
+  },
+  watch: {
+    files(value) {
+      if (value.length > 15) {
+        this.inpFileDisabled = true;
+        alert('첨부파일은 15개 까지만 가능합니다.');
+        this.files.splice(15, this.files.length);
+      } else if (value.length === 15) {
+        this.inpFileDisabled = true;
+      } else {
+        this.inpFileDisabled = false;
+      }
+    },
   },
   mounted() {},
   methods: {
