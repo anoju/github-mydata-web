@@ -169,6 +169,7 @@ export default {
       });
     },
     swiperResize() {
+      this.swiperCheck(this.mySwiper);
       clearTimeout(this.resizeUpadte);
       this.resizeUpadte = setTimeout(() => {
         this.mySwiper.update();
@@ -203,7 +204,6 @@ export default {
       const $index = tar.snapIndex;
       const btnPrev = this.$refs.buttonPrev;
       const btnNext = this.$refs.buttonNext;
-      console.log($index, $length);
 
       if (!this.loop && this.navi) {
         if ($index === 0) {
