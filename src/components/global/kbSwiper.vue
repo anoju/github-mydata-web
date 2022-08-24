@@ -1,12 +1,12 @@
 <template>
   <div
     class="ui-swiper-wrap"
-    :class="{full:fullWidth, auto:autoWidth, only:isOnly}"
+    :class="{ full: fullWidth, auto: autoWidth, only: isOnly }"
   >
     <div
       v-swiper:mySwiper="swiperOption"
       class="ui-swiper"
-      :class="{loop:loop, 'auto-height':autoHeight}"
+      :class="{ loop: loop, 'auto-height': autoHeight }"
       @ready="swiperReady"
       @resize="swiperResize"
       @touchEnd="swiperTouchEnd"
@@ -19,20 +19,13 @@
       <div class="swiper-wrapper">
         <slot />
       </div>
-      <div
-        ref="paginationWrap"
-        class="swiper-pagination-wrap"
-      >
-        <div
-          slot="pagination"
-          ref="pagination"
-          class="swiper-pagination"
-        />
+      <div ref="paginationWrap" class="swiper-pagination-wrap">
+        <div slot="pagination" ref="pagination" class="swiper-pagination" />
         <button
           v-if="autoplay"
           type="button"
           class="swiper-auto-ctl"
-          :class="{play:!isAutoplay}"
+          :class="{ play: !isAutoplay }"
           :aria-label="autoplayText"
           @click="autoPlayButton"
         />
@@ -45,7 +38,9 @@
         aria-label="이전 슬라이드"
         class="swiper-button-prev swiper-button"
         @click="swiperPrevEvt"
-      >이전 슬라이드</button>
+      >
+        이전 슬라이드
+      </button>
       <button
         v-if="navi"
         slot="button-next"
@@ -54,7 +49,9 @@
         aria-label="다음 슬라이드"
         class="swiper-button-next swiper-button"
         @click="swiperNextEvt"
-      >다음 슬라이드</button>
+      >
+        다음 슬라이드
+      </button>
     </div>
   </div>
 </template>
@@ -89,7 +86,7 @@ export default {
   computed: {
     autoplayText() {
       let txt = '슬라이드 자동롤링 ';
-      txt += (this.isAutoplay ? '중지' : '시작');
+      txt += this.isAutoplay ? '중지' : '시작';
       return txt;
     },
     swiperOption() {
@@ -113,7 +110,8 @@ export default {
           type: this.pagingType,
           clickable: true,
           renderBullet(index, className) {
-            return `<button type="button" class="${className}">${index + 1}번째 슬라이드</button>`;
+            return `<button type="button" class="${className}">${index
+              + 1}번째 슬라이드</button>`;
           },
         },
       };
@@ -121,7 +119,11 @@ export default {
   },
   watch: {
     value() {
-      if (this.value !== null && this.value !== '' && !Number.isNaN(this.value)) {
+      if (
+        this.value !== null
+        && this.value !== ''
+        && !Number.isNaN(this.value)
+      ) {
         if (!this.isChagned) this.mySwiper.slideTo(Number(this.value), 100);
         this.$emit('input', this.value);
         this.isChagned = false;
@@ -152,7 +154,13 @@ export default {
     swiperReady(swiper) {
       this.$nextTick(() => {
         this.swiperCheck(swiper);
-        if (this.value !== null && this.value !== '' && !Number.isNaN(this.value)) this.mySwiper.slideTo(Number(this.value), 0);
+        if (
+          this.value !== null
+          && this.value !== ''
+          && !Number.isNaN(this.value)
+        ) {
+          this.mySwiper.slideTo(Number(this.value), 0);
+        }
         if (this.autoWidth) {
           setTimeout(() => {
             this.mySwiper.update();
@@ -171,10 +179,12 @@ export default {
     },
     swiperTouchEnd(e) {
       const $target = e.target;
-      if (!$target.classList.contains('swiper-pagination-wrap')
-                && !$target.classList.contains('swiper-auto-ctl')
-                && !$target.classList.contains('swiper-pagination')
-                && !$target.classList.contains('swiper-pagination-bullet')) {
+      if (
+        !$target.classList.contains('swiper-pagination-wrap')
+        && !$target.classList.contains('swiper-auto-ctl')
+        && !$target.classList.contains('swiper-pagination')
+        && !$target.classList.contains('swiper-pagination-bullet')
+      ) {
         if (this.autoplay) this.isAutoplay = false;
       }
     },
@@ -185,12 +195,15 @@ export default {
     },
     swiperCheck(tar) {
       // console.log(tar.activeIndex, tar.realIndex, tar.snapIndex)
-      // const $length = tar.pagination.bullets.length;
-      const $length = tar.slides.length;
+      // const $length = tar.slides.length;
+      const $length = tar.pagination.bullets.length
+        ? tar.pagination.bullets.length
+        : tar.slides.length;
       // const $index = tar.realIndex
       const $index = tar.snapIndex;
       const btnPrev = this.$refs.buttonPrev;
       const btnNext = this.$refs.buttonNext;
+      console.log($index, $length);
 
       if (!this.loop && this.navi) {
         if ($index === 0) {
@@ -201,7 +214,7 @@ export default {
           btnPrev.disabled = false;
         }
         // console.log($index, ($length - 1))
-        if ($index === ($length - 1)) {
+        if ($index === $length - 1) {
           btnNext.classList.add('swiper-button-disabled');
           btnNext.disabled = true;
         } else {
@@ -241,7 +254,9 @@ export default {
       if (this.value !== null && !this.isChagned) {
         this.isChagned = true;
         clearTimeout(this.timer);
-        if (this.value !== this.mySwiper.realIndex) this.$emit('input', this.mySwiper.realIndex);
+        if (this.value !== this.mySwiper.realIndex) {
+          this.$emit('input', this.mySwiper.realIndex);
+        }
         this.timer = setTimeout(() => {
           this.isChagned = false;
         }, 10);

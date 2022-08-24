@@ -2671,9 +2671,11 @@ html:not(.ios):not(.safari) .form_item .fm_lb>.tooltip_btn{vertical-align:-3px;}
 }
 
 .file_preview_img{
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-gap: 10px;
+	&:not(.ui-swiper-wrap){
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-gap: 10px;
+	}
 	.img_box{
 		position: relative;
 		border: 1px solid #f1f1f1;
@@ -2702,5 +2704,14 @@ html:not(.ios):not(.safari) .form_item .fm_lb>.tooltip_btn{vertical-align:-3px;}
 		overflow:hidden;
 		backdrop-filter: blur(1px);
 		background: rgba(255,255,255,0.7) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg fill='none' fill-rule='evenodd' %3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cpath stroke='%23222' stroke-width='1.5' d='M3 13L13 3M13 13L3 3' transform='translate(-696 -332) translate(400 316) translate(296 16)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A") no-repeat center center / 12px;
+	}
+	&.ui-swiper-wrap{
+		margin-top: 0;
+		.img_box{
+			width: 120px;
+		}
+		.swiper-button{
+			background-color: #fff;
+		}
 	}
 }
